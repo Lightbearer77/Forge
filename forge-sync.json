@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "lastUpdated": "2026-07-12T00:00:00Z",
+  "updatedBy": "Claude",
+  "tasks": [
+    {
+      "id": "t_seed_hsa_transfer",
+      "name": "HSA consolidation: trustee-to-trustee transfer HealthEquity -> Fidelity",
+      "notes": "Then close HealthEquity with written confirmation; verify no minimum-balance block.",
+      "goal": "G4",
+      "priority": "High",
+      "status": "todo",
+      "month": "M07",
+      "week": "W28",
+      "updatedAt": 1783892025701
+    },
+    {
+      "id": "t_seed_ddr5_ram",
+      "name": "Procure DDR5 RAM for home server (used market, under $200)",
+      "goal": "G1",
+      "priority": "Mid",
+      "status": "todo",
+      "month": "M07",
+      "updatedAt": 1783892025701
+    },
+    {
+      "id": "t_seed_first_sync",
+      "name": "Forge Eta: first sync loop proven (you are reading synced data)",
+      "notes": "This task arrived via forge-sync.json. The bridge works.",
+      "goal": "G1",
+      "priority": "Low",
+      "status": "in-progress",
+      "month": "M07",
+      "week": "W28",
+      "updatedAt": 1783892025701
+    }
+  ]
+}
