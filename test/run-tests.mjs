@@ -1,0 +1,195 @@
+#!/usr/bin/env node
+// ─── Forge test suite ───
+// Run with: npm test  (or: node test/run-tests.mjs)
+//
+// Zero dependencies. lib/*.js use ESM syntax but the package is CJS, so the
+// runner stages copies into a temp dir as .mjs (rewriting relative imports)
+// and dynamic-imports them. Nothing is written inside the repo.
+//
+// Three guarded layers:
+//   1. Calendar math (inherited verbatim from Hearth, with its guarantees)
+//   2. Task model — vocabulary clamping, web-import mapping
+//   3. Sync merge — every load-bearing rule of the forge-sync.json protocol
+
+import { mkdtempSync, readFileSync, writeFileSync } from 'fs';
+import { tmpdir } from 'os';
+import { join, dirname } from 'path';
+import { fileURLToPath, pathToFileURL } from 'url';
+
+const root = join(dirname(fileURLToPath(import.meta.url)), '..');
+const stage = mkdtempSync(join(tmpdir(), 'forge-test-'));
+
+for (const name of ['constants', 'model', 'sync']) {
+  const src = readFileSync(join(root, 'lib', `${name}.js`), 'utf8')
+    .replace(/from '\.\/model'/g, "from './model.mjs'")
+    .replace(/from '\.\/constants'/g, "from './constants.mjs'");
+  writeFileSync(join(stage, `${name}.mjs`), src);
+}
+
+const {
+  GREEK_MONTHS, gregToGreek, greekToGreg, greekMonthRange, greekMonthDays,
+  isLeapYear, fmtGreekLong,
+} = await import(pathToFileURL(join(stage, 'constants.mjs')).href);
+const { newTask, normalizeTask, fromWebTask, STATUSES, PRIORITIES, GOALS } =
+  await import(pathToFileURL(join(stage, 'model.mjs')).href);
+const { mergeSyncFile, serializeTasks, SYNC_FILE_VERSION } =
+  await import(pathToFileURL(join(stage, 'sync.mjs')).href);
+
+let pass = 0, fail = 0;
+const ok = (cond, msg) => { if (cond) pass++; else { fail++; console.log('FAIL:', msg); } };
+const iso = (y, m, d) => `${y}-${String(m).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+
+// ══ 1. Calendar math (inherited guarantees) ══
+for (const year of [2026, 2027, 2028]) {
+  const leap = isLeapYear(year);
+  const daysInYear = leap ? 366 : 365;
+
+  let planningCount = 0, echoCount = 0;
+  const d = new Date(year, 0, 1, 12);
+  for (let i = 0; i < daysInYear; i++) {
+    const s = iso(d.getFullYear(), d.getMonth() + 1, d.getDate());
+    const g = gregToGreek(s);
+    ok(g !== null, `${s} maps to null`);
+    if (g.isPlanningDay) {
+      planningCount++;
+      ok(s === `${year}-12-31`, `Planning Day landed on ${s}`);
+    } else {
+      ok(g.day >= 1 && g.day <= 28, `${s} day out of range: ${g.day}`);
+      if (g.isLeapEcho) { echoCount++; ok(s === `${year}-02-29`, `echo on ${s}`); }
+      if (!g.isLeapEcho) {
+        ok(greekToGreg(g) === s, `roundtrip ${s} -> ${g.monthId} ${g.day} -> ${greekToGreg(g)}`);
+      } else {
+        ok(greekToGreg(g) === `${year}-02-28`, `echo roundtrip should hit Feb 28, got ${greekToGreg(g)}`);
+      }
+    }
+    d.setDate(d.getDate() + 1);
+  }
+  ok(planningCount === 1, `${year}: ${planningCount} Planning Days (want exactly 1)`);
+  ok(echoCount === (leap ? 1 : 0), `${year}: echo count ${echoCount}`);
+
+  for (const m of GREEK_MONTHS) {
+    const r = greekMonthRange(m.id, year);
+    ok(r.start === `${year}-${m.start}`, `${year} ${m.name} start ${r.start} != ${m.start}`);
+    ok(r.end === `${year}-${m.end}`, `${year} ${m.name} end ${r.end} != ${m.end}`);
+    ok(greekMonthDays(m.id, year).length === 28, `${year} ${m.name} day count`);
+  }
+  ok(greekMonthDays('PLANNING', year).length === 1, `${year} Planning has 1 day`);
+  ok(greekMonthRange('PLANNING', year).start === `${year}-12-31`, `${year} Planning range`);
+}
+
+ok(gregToGreek('2026-06-21').monthId === 'M07' && gregToGreek('2026-06-21').day === 4, 'solstice 2026 = Eta 4');
+ok(gregToGreek('2028-06-21').monthId === 'M07' && gregToGreek('2028-06-21').day === 4, 'solstice 2028 = Eta 4 (perpetual)');
+ok(gregToGreek('2028-02-28').day === 3 && gregToGreek('2028-02-29').day === 3, 'Feb 28/29 2028 both Gamma 3');
+ok(gregToGreek('2028-12-31').isPlanningDay === true, 'Dec 31 2028 = Planning');
+ok(fmtGreekLong('2026-12-31') === 'Planning Day', 'fmtGreekLong planning');
+ok(gregToGreek(new Date(2026, 5, 21, 0, 30)).day === 4, 'Date input 00:30 local = Eta 4 (DST-safe)');
+
+// ══ 2. Task model ══
+const t = newTask({ name: 'Test' });
+ok(t.id.startsWith('t_'), 'newTask id prefix');
+ok(t.status === 'todo' && t.priority === 'Mid' && t.goal === 'G1', 'newTask defaults');
+ok(t.updatedAt > 0 && t.createdAt > 0, 'newTask timestamps');
+ok(Array.isArray(t.blockedBy) && t.blockedBy.length === 0, 'newTask blockedBy');
+
+ok(normalizeTask(null) === null, 'normalize null');
+ok(normalizeTask({}) === null, 'normalize no id');
+const norm = normalizeTask({ id: 'x', name: '  Trim me  ', status: 'doing', priority: 'URGENT', goal: 'G9', blockedBy: 'nope', level: '3' });
+ok(norm.name === 'Trim me', 'normalize trims name');
+ok(norm.status === 'todo', `invalid status clamped: ${norm.status}`);
+ok(norm.priority === 'Mid', 'invalid priority clamped');
+ok(norm.goal === 'G1', 'invalid goal clamped');
+ok(Array.isArray(norm.blockedBy) && norm.blockedBy.length === 0, 'non-array blockedBy -> []');
+ok(norm.level === 3, 'level coerced to number');
+
+const done = normalizeTask({ id: 'y', name: 'Done', status: 'done', completedAt: '2026-07-10' });
+ok(done.completed === true && done.completedAt === '2026-07-10', 'status done -> completed');
+const undone = normalizeTask({ id: 'z', name: 'Open', status: 'todo', completed: true, completedAt: '2026-07-10' });
+ok(undone.completed === false && undone.completedAt === '', 'status authoritative over completed flag');
+
+const web = fromWebTask({
+  id: 'w1', name: 'Web task', goal: 'G2', priority: 'High', status: 'done',
+  level: 2, month: 'M04', week: 'W14', start: '2026-01-05', due: '2026-01-20',
+  section: 'S', parentId: 'p', blockedBy: ['b1'], milestone: true,
+  recurrence: 'none', completed: true, completedDate: '2026-01-19', notes: 'n',
+});
+ok(web.startDate === '2026-01-05' && web.dueDate === '2026-01-20', 'web start/due mapped');
+ok(web.completedAt === '2026-01-19' && web.completed === true, 'web completedDate mapped');
+ok(web.level === 2 && web.milestone === true && web.blockedBy[0] === 'b1', 'web inert fields carried');
+ok(web.updatedAt > 0 && web.createdAt > 0, 'web import stamped with timestamps');
+
+// ══ 3. Sync merge — the protocol's load-bearing rules ══
+const mk = (id, updatedAt, extra = {}) =>
+  normalizeTask({ id, name: `Task ${id}`, updatedAt, createdAt: 1, ...extra });
+
+// insert
+let res = mergeSyncFile([], { version: 1, tasks: [{ id: 'a', name: 'A', updatedAt: 100 }] });
+ok(res.report.inserted === 1 && res.merged.length === 1, 'merge: insert new');
+ok(res.changed.length === 1 && res.changed[0].id === 'a', 'merge: insert in changed');
+
+// remote newer wins
+res = mergeSyncFile([mk('a', 100)], { tasks: [{ id: 'a', name: 'Newer', updatedAt: 200 }] });
+ok(res.report.updated === 1 && res.merged[0].name === 'Newer', 'merge: remote newer wins');
+
+// local newer wins
+res = mergeSyncFile([mk('a', 300, { name: 'Local' })], { tasks: [{ id: 'a', name: 'Stale', updatedAt: 200 }] });
+ok(res.report.localWon === 1 && res.merged[0].name === 'Local', 'merge: local newer wins');
+ok(res.changed.length === 0, 'merge: localWon not in changed');
+
+// tie keeps local (no churn)
+res = mergeSyncFile([mk('a', 200, { name: 'Local' })], { tasks: [{ id: 'a', name: 'Tie', updatedAt: 200 }] });
+ok(res.report.localWon === 1 && res.merged[0].name === 'Local', 'merge: tie keeps local');
+
+// newer tombstone kills live
+res = mergeSyncFile([mk('a', 100)], { tasks: [{ id: 'a', updatedAt: 200, deleted: true }] });
+ok(res.report.deletedApplied === 1 && res.merged[0].deleted === true, 'merge: tombstone kills live');
+
+// newer live resurrects tombstone
+res = mergeSyncFile([mk('a', 100, { deleted: true })], { tasks: [{ id: 'a', name: 'Back', updatedAt: 200 }] });
+ok(res.report.updated === 1 && res.merged[0].deleted === false, 'merge: live resurrects tombstone');
+
+// older live does NOT resurrect newer tombstone
+res = mergeSyncFile([mk('a', 300, { deleted: true })], { tasks: [{ id: 'a', name: 'Zombie', updatedAt: 200 }] });
+ok(res.report.localWon === 1 && res.merged[0].deleted === true, 'merge: stale live cannot resurrect');
+
+// tombstone for unknown id persists
+res = mergeSyncFile([], { tasks: [{ id: 'ghost', updatedAt: 100, deleted: true }] });
+ok(res.report.deletedApplied === 1 && res.merged[0].deleted === true, 'merge: unknown tombstone stored');
+
+// absence = no opinion
+res = mergeSyncFile([mk('a', 100), mk('b', 100)], { tasks: [{ id: 'a', name: 'A2', updatedAt: 200 }] });
+ok(res.merged.length === 2 && res.merged.find(x => x.id === 'b').name === 'Task b', 'merge: absent local kept');
+ok(res.changed.length === 1, 'merge: only touched tasks in changed');
+
+// malformed skipped
+res = mergeSyncFile([], { tasks: [{ name: 'no id', updatedAt: 1 }, { id: 'ok1', name: 'Fine', updatedAt: 1 }] });
+ok(res.report.skipped === 1 && res.report.inserted === 1, 'merge: malformed (no id) skipped');
+
+// live entry with empty name skipped; tombstone without name allowed
+res = mergeSyncFile([], { tasks: [{ id: 'e1', name: '   ', updatedAt: 1 }, { id: 'e2', updatedAt: 1, deleted: true }] });
+ok(res.report.skipped === 1 && res.report.deletedApplied === 1, 'merge: nameless live skipped, nameless tombstone ok');
+
+// vocab normalized on the way in
+res = mergeSyncFile([], { tasks: [{ id: 'v', name: 'V', status: 'doing', priority: 'X', goal: 'G7', updatedAt: 1 }] });
+ok(res.merged[0].status === 'todo' && res.merged[0].priority === 'Mid' && res.merged[0].goal === 'G1', 'merge: vocab clamped');
+
+// empty / missing file shapes
+res = mergeSyncFile([mk('a', 100)], null);
+ok(res.merged.length === 1 && res.report.total === 0, 'merge: null file is a no-op');
+res = mergeSyncFile([mk('a', 100)], { version: 1, tasks: [] });
+ok(res.merged.length === 1 && res.report.total === 0, 'merge: empty tasks is a no-op');
+
+// serialize shape
+const ser = serializeTasks([mk('a', 100)], 'Claude');
+ok(ser.version === SYNC_FILE_VERSION && ser.updatedBy === 'Claude' && ser.tasks.length === 1, 'serialize shape');
+ok(typeof ser.lastUpdated === 'string' && ser.lastUpdated.includes('T'), 'serialize timestamp');
+
+// idempotence: merging a serialization of the merged state changes nothing
+const state = mergeSyncFile([], { tasks: [{ id: 'a', name: 'A', updatedAt: 100 }, { id: 'b', name: 'B', updatedAt: 100 }] }).merged;
+res = mergeSyncFile(state, serializeTasks(state));
+ok(res.changed.length === 0 && res.report.localWon === 2, 'merge: idempotent on own snapshot');
+
+// vocab sanity for UI layers
+ok(STATUSES.length === 4 && PRIORITIES.length === 3 && GOALS.length === 4, 'vocab sizes');
+
+console.log(`\n${pass} passed, ${fail} failed`);
+process.exit(fail ? 1 : 0);
