@@ -8,11 +8,16 @@ import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-cont
 
 import { COLORS, FONTS, GOAL_COLORS } from './lib/theme';
 import { fmtGreekLong, todayISO } from './lib/constants';
-import { GOALS, newTask } from './lib/model';
-import { initDatabase, getAllTasks, saveTask, saveTasks, deleteTask } from './lib/storage';
+import { taskById, childrenOf, topLevelTasks, subtaskProgress, isBlocked } from './lib/selectors';
+import { GOALS, newTask, newMilestone } from './lib/model';
+import {
+  initDatabase, getAllTasks, saveTask, saveTasks, deleteTask,
+  getAllMilestones, saveMilestone, saveMilestones, deleteMilestone,
+} from './lib/storage';
 import { fetchSyncFile, mergeSyncFile } from './lib/sync';
 import TaskRow from './components/TaskRow';
 import TaskEditor from './components/TaskEditor';
+import MilestoneEditor from './components/MilestoneEditor';
 import KanbanView from './components/KanbanView';
 import CalendarView from './components/CalendarView';
 import DashboardView from './components/DashboardView';
@@ -64,11 +69,15 @@ function AppContent() {
   const [draftGoal, setDraftGoal] = useState('G1');
   const [syncing, setSyncing] = useState(false);
   const [editing, setEditing] = useState(null); // { task, isNew }
+  const [milestones, setMilestones] = useState([]);
+  const [msEditing, setMsEditing] = useState(null); // { ms, isNew }
 
   const today = todayISO();
 
   const reload = useCallback(async () => {
-    setTasks(await getAllTasks());
+    const [t, m] = await Promise.all([getAllTasks(), getAllMilestones()]);
+    setTasks(t);
+    setMilestones(m);
   }, []);
 
   const runSync = useCallback(async (quiet = false) => {
@@ -79,18 +88,23 @@ function AppContent() {
         if (!quiet) Alert.alert('Sync', 'No sync file published yet.');
         return;
       }
-      const local = await getAllTasks({ includeDeleted: true });
-      const { changed, report } = mergeSyncFile(local, file);
-      if (changed.length > 0) {
-        await saveTasks(changed);
-        await reload();
-      }
+      const [local, localMs] = await Promise.all([
+        getAllTasks({ includeDeleted: true }),
+        getAllMilestones({ includeDeleted: true }),
+      ]);
+      const { changed, milestones: msRes, report } = mergeSyncFile(local, file, localMs);
+      if (changed.length > 0) await saveTasks(changed);
+      if (msRes.changed.length > 0) await saveMilestones(msRes.changed);
+      if (changed.length > 0 || msRes.changed.length > 0) await reload();
       if (!quiet) {
+        const msLine = report.milestones.total > 0
+          ? `\nMilestones: ${report.milestones.inserted} new · ${report.milestones.updated} updated · ${report.milestones.deletedApplied} removed`
+          : '';
         Alert.alert(
           'Sync complete',
           `${report.inserted} new · ${report.updated} updated · ` +
           `${report.deletedApplied} removed\n` +
-          `${report.localWon} local kept · ${report.skipped} skipped`
+          `${report.localWon} local kept · ${report.skipped} skipped` + msLine
         );
       }
     } catch (e) {
@@ -145,6 +159,37 @@ function AppContent() {
   }, [reload, today]);
 
   const openEditor = useCallback((task) => setEditing({ task, isNew: false }), []);
+
+  const createSubtask = useCallback(async (parentId, name, goal) => {
+    await saveTask(newTask({ name, goal, parentId }));
+    await reload();
+  }, [reload]);
+
+  const openMilestone = useCallback((ms) => setMsEditing({ ms, isNew: false }), []);
+  const startNewMilestone = useCallback(() => setMsEditing({ ms: newMilestone(), isNew: true }), []);
+
+  const handleSaveMilestone = useCallback(async (final) => {
+    await saveMilestone(final);
+    await reload();
+    setMsEditing(null);
+  }, [reload]);
+
+  const handleDeleteMilestone = useCallback(async (id) => {
+    await deleteMilestone(id);
+    await reload();
+    setMsEditing(null);
+  }, [reload]);
+
+  const toggleMilestone = useCallback(async (ms) => {
+    const completed = !ms.completed;
+    await saveMilestone({
+      ...ms,
+      completed,
+      completedAt: completed ? today : '',
+      updatedAt: Date.now(),
+    });
+    await reload();
+  }, [reload, today]);
   const startNewForDate = useCallback((iso) => {
     setEditing({ task: newTask({ dueDate: iso, goal: draftGoal }), isNew: true });
   }, [draftGoal]);
@@ -176,7 +221,11 @@ function AppContent() {
     setDraftGoal(GOALS[(idx + 1) % GOALS.length]);
   };
 
-  const sorted = [...tasks].sort((a, b) =>
+  const byId = taskById(tasks);
+  const childMap = childrenOf(tasks);
+  const topTasks = topLevelTasks(tasks);
+
+  const sorted = [...topTasks].sort((a, b) =>
     (STATUS_ORDER[a.status] ?? 9) - (STATUS_ORDER[b.status] ?? 9)
     || (a.sortOrder - b.sortOrder)
     || (a.createdAt - b.createdAt)
@@ -251,6 +300,8 @@ function AppContent() {
               <TaskRow
                 task={item}
                 today={today}
+                blocked={isBlocked(item, byId)}
+                progress={subtaskProgress(item, childMap)}
                 onToggleDone={toggleDone}
                 onPress={openEditor}
                 onLongPress={confirmDelete}
@@ -271,20 +322,43 @@ function AppContent() {
       )}
 
       {viewMode === 'calendar' && (
-        <CalendarView tasks={tasks} today={today} onEdit={openEditor} onAddForDate={startNewForDate} />
+        <CalendarView
+          tasks={tasks} milestones={milestones} today={today}
+          onEdit={openEditor} onEditMilestone={openMilestone}
+          onAddForDate={startNewForDate}
+        />
       )}
 
       {viewMode === 'dash' && (
-        <DashboardView tasks={tasks} today={today} onEdit={openEditor} />
+        <DashboardView
+          tasks={tasks} milestones={milestones} today={today}
+          onEdit={openEditor} onEditMilestone={openMilestone}
+          onToggleMilestone={toggleMilestone} onAddMilestone={startNewMilestone}
+        />
       )}
 
       {editing && (
         <TaskEditor
           task={editing.task}
           isNew={editing.isNew}
+          allTasks={tasks}
           onSave={handleSaveTask}
           onDelete={handleDeleteTask}
           onClose={() => setEditing(null)}
+          onOpenTask={(t) => setEditing({ task: t, isNew: false })}
+          onToggleChild={toggleDone}
+          onCreateSubtask={createSubtask}
+        />
+      )}
+
+      {msEditing && (
+        <MilestoneEditor
+          milestone={msEditing.ms}
+          isNew={msEditing.isNew}
+          allTasks={tasks}
+          onSave={handleSaveMilestone}
+          onDelete={handleDeleteMilestone}
+          onClose={() => setMsEditing(null)}
         />
       )}
     </View>
