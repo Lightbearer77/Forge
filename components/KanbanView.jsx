@@ -1,7 +1,8 @@
 import { View, Text, ScrollView, FlatList, TouchableOpacity, StyleSheet, useWindowDimensions } from 'react-native';
 import { COLORS, FONTS, GOAL_COLORS, PRIORITY_COLORS } from '../lib/theme';
 import { STATUSES, STATUS_LABELS } from '../lib/model';
-import { groupByStatus, isOverdue } from '../lib/selectors';
+import { groupByStatus, isOverdue, taskById, childrenOf, topLevelTasks, subtaskProgress, isBlocked } from '../lib/selectors';
+import { useMemo } from 'react';
 import { fmtGreek } from '../lib/constants';
 
 const STATUS_COLORS = {
@@ -14,7 +15,10 @@ const STATUS_COLORS = {
 export default function KanbanView({ tasks, today, onEdit, onMove }) {
   const { width } = useWindowDimensions();
   const laneWidth = Math.min(width * 0.78, 340);
-  const groups = groupByStatus(tasks);
+  // Lanes show top-level tasks; subtasks are managed inside their parent.
+  const byId = useMemo(() => taskById(tasks), [tasks]);
+  const childMap = useMemo(() => childrenOf(tasks), [tasks]);
+  const groups = useMemo(() => groupByStatus(topLevelTasks(tasks)), [tasks]);
 
   return (
     <ScrollView
@@ -36,7 +40,12 @@ export default function KanbanView({ tasks, today, onEdit, onMove }) {
             keyExtractor={(t) => t.id}
             contentContainerStyle={{ paddingBottom: 24 }}
             renderItem={({ item }) => (
-              <Card task={item} status={status} today={today} onEdit={onEdit} onMove={onMove} />
+              <Card
+                task={item} status={status} today={today}
+                blocked={isBlocked(item, byId)}
+                progress={subtaskProgress(item, childMap)}
+                onEdit={onEdit} onMove={onMove}
+              />
             )}
             ListEmptyComponent={<Text style={styles.laneEmpty}>—</Text>}
           />
@@ -46,15 +55,20 @@ export default function KanbanView({ tasks, today, onEdit, onMove }) {
   );
 }
 
-function Card({ task, status, today, onEdit, onMove }) {
+function Card({ task, status, today, blocked, progress, onEdit, onMove }) {
   const idx = STATUSES.indexOf(status);
   const overdue = isOverdue(task, today);
   return (
     <TouchableOpacity onPress={() => onEdit(task)} activeOpacity={0.7} style={styles.card}>
       <View style={[styles.cardBar, { backgroundColor: GOAL_COLORS[task.goal] || COLORS.textMuted }]} />
       <View style={styles.cardBody}>
-        <Text style={styles.cardName} numberOfLines={2}>{task.name}</Text>
+        <Text style={[styles.cardName, task.milestone && { color: COLORS.accent, fontWeight: '700' }]} numberOfLines={2}>
+          {task.milestone ? '🏴 ' : ''}{blocked ? '🔒 ' : ''}{task.name}
+        </Text>
         <View style={styles.cardFooter}>
+          {progress?.total > 0 && (
+            <Text style={styles.cardProgress}>{progress.done}/{progress.total}</Text>
+          )}
           {!!task.dueDate && (
             <Text style={[styles.cardDue, overdue && { color: COLORS.priorityHigh }]}>
               {fmtGreek(task.dueDate)}
@@ -120,6 +134,7 @@ const styles = StyleSheet.create({
   cardName: { fontSize: 13, fontFamily: FONTS.body, color: COLORS.textPrimary },
   cardFooter: { flexDirection: 'row', alignItems: 'center', marginTop: 7 },
   cardDue: { fontSize: 10, fontFamily: FONTS.mono, color: COLORS.textMuted },
+  cardProgress: { fontSize: 9, fontFamily: FONTS.mono, color: COLORS.textMuted, marginRight: 8 },
   priorityDot: { width: 6, height: 6, borderRadius: 3, marginLeft: 8 },
   moveBtns: { flexDirection: 'row', marginLeft: 'auto', gap: 14, paddingRight: 2 },
   moveArrow: { fontSize: 16, color: COLORS.textMuted, lineHeight: 18 },
