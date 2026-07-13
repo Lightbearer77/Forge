@@ -4,7 +4,7 @@ import { STATUS_LABELS } from '../lib/model';
 import { fmtGreek } from '../lib/constants';
 import { isOverdue } from '../lib/selectors';
 
-export default function TaskRow({ task, today, onToggleDone, onPress, onLongPress }) {
+export default function TaskRow({ task, today, blocked = false, progress = null, onToggleDone, onPress, onLongPress }) {
   const goalColor = GOAL_COLORS[task.goal] || COLORS.textMuted;
   const done = task.status === 'done';
   const overdue = isOverdue(task, today);
@@ -28,13 +28,17 @@ export default function TaskRow({ task, today, onToggleDone, onPress, onLongPres
 
       <View style={styles.body}>
         <Text
-          style={[styles.name, done && styles.nameDone]}
+          style={[styles.name, task.milestone && styles.nameMilestone, done && styles.nameDone]}
           numberOfLines={2}
         >
-          {task.name}
+          {task.milestone ? '🏴 ' : ''}{task.name}
         </Text>
         <View style={styles.subRow}>
           <Text style={styles.subText}>{STATUS_LABELS[task.status] || task.status}</Text>
+          {blocked && <Text style={styles.blockedTag}> 🔒 BLOCKED</Text>}
+          {progress && progress.total > 0 && (
+            <Text style={styles.progressTag}> · {progress.done}/{progress.total}</Text>
+          )}
           {!!task.dueDate && (
             <Text style={[styles.subText, overdue && { color: COLORS.priorityHigh }]}>
               {' '}· due {fmtGreek(task.dueDate)}
@@ -92,6 +96,21 @@ const styles = StyleSheet.create({
   nameDone: {
     color: COLORS.textMuted,
     textDecorationLine: 'line-through',
+  },
+  nameMilestone: {
+    color: COLORS.accent,
+    fontWeight: '700',
+  },
+  blockedTag: {
+    fontSize: 9,
+    fontFamily: FONTS.mono,
+    letterSpacing: 1,
+    color: COLORS.priorityHigh,
+  },
+  progressTag: {
+    fontSize: 10,
+    fontFamily: FONTS.mono,
+    color: COLORS.textMuted,
   },
   subRow: {
     flexDirection: 'row',
