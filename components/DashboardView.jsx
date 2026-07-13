@@ -2,11 +2,17 @@ import { useMemo } from 'react';
 import { View, Text, ScrollView, TouchableOpacity, StyleSheet } from 'react-native';
 import { COLORS, FONTS, GOAL_COLORS } from '../lib/theme';
 import { GOALS } from '../lib/model';
-import { dashboardStats } from '../lib/selectors';
+import { dashboardStats, taskById, milestoneProgress } from '../lib/selectors';
 import { gregToGreek, fmtGreek } from '../lib/constants';
 
-export default function DashboardView({ tasks, today, onEdit }) {
+export default function DashboardView({ tasks, milestones = [], today, onEdit, onEditMilestone, onToggleMilestone, onAddMilestone }) {
   const stats = useMemo(() => dashboardStats(tasks, today), [tasks, today]);
+  const byId = useMemo(() => taskById(tasks), [tasks]);
+  const openMs = useMemo(() =>
+    milestones.filter(m => !m.completed)
+      .sort((a, b) => (a.dueDate || '9999').localeCompare(b.dueDate || '9999')),
+    [milestones]);
+  const doneMsCount = milestones.length - openMs.length;
   const g = gregToGreek(today);
   const monthName = g?.isPlanningDay ? 'Planning' : (g?.monthName || 'month');
 
@@ -38,6 +44,38 @@ export default function DashboardView({ tasks, today, onEdit }) {
           </View>
         );
       })}
+
+      <View style={{ marginTop: 20 }}>
+        <Text style={styles.sectionTitle}>MILESTONES · {openMs.length} OPEN</Text>
+        {openMs.map(ms => {
+          const prog = milestoneProgress(ms, byId);
+          return (
+            <TouchableOpacity key={ms.id} style={styles.msRow} onPress={() => onEditMilestone(ms)}>
+              <TouchableOpacity
+                onPress={() => onToggleMilestone(ms)}
+                hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
+                style={styles.msCheck}
+              />
+              <Text style={[styles.msDiamond, { color: GOAL_COLORS[ms.goal] || COLORS.textMuted }]}>◆</Text>
+              <View style={{ flex: 1 }}>
+                <Text style={styles.msName} numberOfLines={1}>{ms.name}</Text>
+                <Text style={styles.msSub}>
+                  {ms.msTag ? `${ms.msTag} · ` : ''}
+                  {ms.dueDate ? `due ${fmtGreek(ms.dueDate)}` : 'no target'}
+                  {prog.total > 0 ? ` · ${prog.done}/${prog.total} tasks` : ''}
+                </Text>
+              </View>
+            </TouchableOpacity>
+          );
+        })}
+        {openMs.length === 0 && <Text style={styles.emptyText}>No open milestones.</Text>}
+        {doneMsCount > 0 && (
+          <Text style={styles.msDoneCount}>{doneMsCount} completed</Text>
+        )}
+        <TouchableOpacity onPress={onAddMilestone} style={styles.msAdd}>
+          <Text style={styles.msAddText}>＋ NEW MILESTONE</Text>
+        </TouchableOpacity>
+      </View>
 
       <TaskListSection title="OVERDUE" tasks={stats.overdue} today={today}
         onEdit={onEdit} tint={COLORS.priorityHigh} empty="Nothing overdue." />
@@ -110,4 +148,23 @@ const styles = StyleSheet.create({
   taskName: { flex: 1, fontSize: 13, fontFamily: FONTS.body, color: COLORS.textPrimary, padding: 10 },
   taskDue: { fontSize: 10, fontFamily: FONTS.mono, color: COLORS.textMuted, paddingRight: 12 },
   emptyText: { fontSize: 11, fontFamily: FONTS.mono, color: COLORS.textFaint, paddingVertical: 6 },
+  msRow: {
+    flexDirection: 'row', alignItems: 'center',
+    backgroundColor: COLORS.bgSurface,
+    borderWidth: 1, borderColor: COLORS.borderSubtle, borderRadius: 4,
+    marginBottom: 6, paddingVertical: 8, paddingHorizontal: 10, gap: 8,
+  },
+  msCheck: {
+    width: 18, height: 18, borderWidth: 1.5,
+    borderColor: COLORS.borderStrong, borderRadius: 9,
+  },
+  msDiamond: { fontSize: 12 },
+  msName: { fontSize: 13, fontFamily: FONTS.body, color: COLORS.textPrimary },
+  msSub: { fontSize: 9, fontFamily: FONTS.mono, letterSpacing: 0.5, color: COLORS.textMuted, marginTop: 2 },
+  msDoneCount: { fontSize: 9, fontFamily: FONTS.mono, color: COLORS.textFaint, paddingVertical: 4 },
+  msAdd: {
+    borderWidth: 1, borderColor: COLORS.borderMid, borderRadius: 4,
+    borderStyle: 'dashed', paddingVertical: 10, alignItems: 'center', marginTop: 4,
+  },
+  msAddText: { fontSize: 9, fontFamily: FONTS.mono, letterSpacing: 2, color: COLORS.accent },
 });
