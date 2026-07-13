@@ -6,12 +6,12 @@ import {
   nextGreekMonth, prevGreekMonth, fmtGreekLong, fmtGreg,
 } from '../lib/constants';
 import { STATUS_LABELS } from '../lib/model';
-import { tasksByDueDate } from '../lib/selectors';
+import { tasksByDueDate, milestonesByDueDate } from '../lib/selectors';
 
 const CELL_GAP = 2;
 const PAD = 8;
 
-export default function CalendarView({ tasks, today, onEdit, onAddForDate }) {
+export default function CalendarView({ tasks, milestones = [], today, onEdit, onEditMilestone, onAddForDate }) {
   const { width } = useWindowDimensions();
   const cellSize = (width - PAD * 2 - CELL_GAP * 6) / 7;
 
@@ -21,6 +21,7 @@ export default function CalendarView({ tasks, today, onEdit, onAddForDate }) {
 
   const days = useMemo(() => greekMonthDays(view.monthId, view.year), [view]);
   const dayMap = useMemo(() => tasksByDueDate(tasks, days), [tasks, days]);
+  const msMap = useMemo(() => milestonesByDueDate(milestones, days), [milestones, days]);
 
   const monthMeta = view.monthId === 'PLANNING'
     ? { name: 'Planning Day', letter: '✦' }
@@ -33,6 +34,7 @@ export default function CalendarView({ tasks, today, onEdit, onAddForDate }) {
   ];
 
   const sheetTasks = sheetDate ? (dayMap[sheetDate] || []) : [];
+  const sheetMs = sheetDate ? (msMap[sheetDate] || []) : [];
 
   return (
     <View style={{ flex: 1 }}>
@@ -68,6 +70,7 @@ export default function CalendarView({ tasks, today, onEdit, onAddForDate }) {
               cellSize={cellSize}
               isToday={c.iso === today}
               tasks={dayMap[c.iso] || []}
+              hasMilestone={(msMap[c.iso] || []).length > 0}
               onPress={() => setSheetDate(c.iso)}
             />
           ))}
@@ -80,6 +83,19 @@ export default function CalendarView({ tasks, today, onEdit, onAddForDate }) {
             <Text style={styles.sheetTitle}>{sheetDate ? fmtGreekLong(sheetDate) : ''}</Text>
             <Text style={styles.sheetSub}>{sheetDate ? fmtGreg(sheetDate) : ''}</Text>
             <ScrollView style={{ maxHeight: 320 }}>
+              {sheetMs.map(ms => (
+                <TouchableOpacity
+                  key={ms.id}
+                  style={[styles.sheetRow, { borderColor: COLORS.accentDim }]}
+                  onPress={() => { setSheetDate(null); onEditMilestone && onEditMilestone(ms); }}
+                >
+                  <View style={[styles.sheetRowBar, { backgroundColor: GOAL_COLORS[ms.goal] || COLORS.accent }]} />
+                  <View style={{ flex: 1 }}>
+                    <Text style={styles.sheetRowName} numberOfLines={1}>◆ {ms.name}</Text>
+                    <Text style={styles.sheetRowStatus}>MILESTONE{ms.msTag ? ` · ${ms.msTag}` : ''}</Text>
+                  </View>
+                </TouchableOpacity>
+              ))}
               {sheetTasks.map(task => (
                 <TouchableOpacity
                   key={task.id}
@@ -112,7 +128,7 @@ export default function CalendarView({ tasks, today, onEdit, onAddForDate }) {
   );
 }
 
-function DayCell({ iso, cellSize, isToday, tasks, onPress }) {
+function DayCell({ iso, cellSize, isToday, tasks, hasMilestone, onPress }) {
   const g = gregToGreek(iso);
   const gregDay = new Date(iso + 'T12:00:00').getDate();
   const visible = tasks.slice(0, 2);
@@ -134,6 +150,7 @@ function DayCell({ iso, cellSize, isToday, tasks, onPress }) {
         </Text>
         <Text style={styles.cellGreg}>{gregDay}</Text>
       </View>
+      {hasMilestone && <Text style={styles.cellMs}>◆</Text>}
       {visible.map(task => (
         <View
           key={task.id}
@@ -171,6 +188,7 @@ const styles = StyleSheet.create({
   cellHead: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'baseline' },
   cellDay: { fontSize: 14, fontFamily: FONTS.display, color: COLORS.textPrimary },
   cellGreg: { fontSize: 7, fontFamily: FONTS.mono, color: COLORS.textFaint },
+  cellMs: { position: 'absolute', top: 2, right: 3, fontSize: 8, color: COLORS.accent },
   cellBanner: {
     height: 11, borderRadius: 2, justifyContent: 'center',
     paddingHorizontal: 3, marginTop: 2,
