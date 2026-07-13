@@ -2,7 +2,7 @@
   "expo": {
     "name": "Forge",
     "slug": "forge",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "dark",
@@ -21,11 +21,6 @@
     "owner": "lightbearer77",
     "plugins": [
       "expo-sqlite"
-    ],
-    "extra": {
-      "eas": {
-        "projectId": "6764deaf-e1ff-49d7-b6c8-c49a545afc7a"
-      }
-    }
+    ]
   }
 }

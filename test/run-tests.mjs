@@ -19,7 +19,7 @@ import { fileURLToPath, pathToFileURL } from 'url';
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const stage = mkdtempSync(join(tmpdir(), 'forge-test-'));
 
-for (const name of ['constants', 'model', 'sync']) {
+for (const name of ['constants', 'model', 'sync', 'selectors']) {
   const src = readFileSync(join(root, 'lib', `${name}.js`), 'utf8')
     .replace(/from '\.\/model'/g, "from './model.mjs'")
     .replace(/from '\.\/constants'/g, "from './constants.mjs'");
@@ -34,6 +34,8 @@ const { newTask, normalizeTask, fromWebTask, STATUSES, PRIORITIES, GOALS } =
   await import(pathToFileURL(join(stage, 'model.mjs')).href);
 const { mergeSyncFile, serializeTasks, SYNC_FILE_VERSION } =
   await import(pathToFileURL(join(stage, 'sync.mjs')).href);
+const { groupByStatus, isOverdue, tasksByDueDate, dashboardStats, isoWeekTag } =
+  await import(pathToFileURL(join(stage, 'selectors.mjs')).href);
 
 let pass = 0, fail = 0;
 const ok = (cond, msg) => { if (cond) pass++; else { fail++; console.log('FAIL:', msg); } };
@@ -190,6 +192,48 @@ ok(res.changed.length === 0 && res.report.localWon === 2, 'merge: idempotent on 
 
 // vocab sanity for UI layers
 ok(STATUSES.length === 4 && PRIORITIES.length === 3 && GOALS.length === 4, 'vocab sizes');
+
+// ══ 4. Selectors ══
+const st = (id, status, extra = {}) => normalizeTask({ id, name: id, status, updatedAt: 1, ...extra });
+
+const grouped = groupByStatus([st('a','todo'), st('b','done'), st('c','in-progress'), st('d','todo')]);
+ok(grouped.todo.length === 2 && grouped.done.length === 1 && grouped['in-progress'].length === 1, 'groupByStatus buckets');
+ok(Array.isArray(grouped.backlog) && grouped.backlog.length === 0, 'groupByStatus empty lane present');
+
+ok(isOverdue(st('x','todo',{dueDate:'2026-07-10'}), '2026-07-12') === true, 'overdue past-due open');
+ok(isOverdue(st('x','done',{dueDate:'2026-07-10'}), '2026-07-12') === false, 'done never overdue');
+ok(isOverdue(st('x','todo'), '2026-07-12') === false, 'no due -> not overdue');
+ok(isOverdue(st('x','todo',{dueDate:'2026-07-12'}), '2026-07-12') === false, 'due today not overdue');
+
+const days3 = ['2026-07-11','2026-07-12','2026-07-13'];
+const dmap = tasksByDueDate([st('a','todo',{dueDate:'2026-07-12'}), st('b','todo',{dueDate:'2026-07-20'}), st('c','todo')], days3);
+ok(dmap['2026-07-12'].length === 1 && dmap['2026-07-11'].length === 0, 'tasksByDueDate maps only in-range dues');
+
+// Dashboard: today = Eta 25 (2026-07-12); Eta = Jun 18 – Jul 15
+const dtasks = [
+  st('a','todo',        {goal:'G1', dueDate:'2026-07-10'}),                 // overdue
+  st('b','in-progress', {goal:'G1', dueDate:'2026-07-14'}),                 // due soon
+  st('c','done',        {goal:'G2', completedAt:'2026-07-01'}),             // done this Greek month
+  st('d','done',        {goal:'G2', completedAt:'2026-06-01'}),             // done LAST month (Zeta)
+  st('e','todo',        {goal:'G3'}),                                       // open, dateless
+  st('f','backlog',     {goal:'G1', dueDate:'2026-07-30'}),                 // open, beyond soon window
+];
+const ds = dashboardStats(dtasks, '2026-07-12');
+ok(ds.open === 4, `dash open: ${ds.open}`);
+ok(ds.inProgress === 1, 'dash inProgress');
+ok(ds.doneThisMonth === 1, `dash doneThisMonth: ${ds.doneThisMonth}`);
+ok(ds.overdue.length === 1 && ds.overdue[0].id === 'a', 'dash overdue list');
+ok(ds.dueSoon.length === 1 && ds.dueSoon[0].id === 'b', `dash dueSoon: ${ds.dueSoon.map(t=>t.id)}`);
+ok(ds.byGoal.G1.open === 3 && ds.byGoal.G2.doneThisMonth === 1 && ds.byGoal.G3.open === 1, 'dash byGoal');
+
+const ds2 = dashboardStats([st('p','todo',{dueDate:'2026-07-01'}), st('q','todo',{dueDate:'2026-06-20'})], '2026-07-12');
+ok(ds2.overdue.map(t=>t.id).join(',') === 'q,p', 'overdue sorted oldest first');
+
+ok(isoWeekTag('2026-01-01') === 'W01', `W tag Jan1: ${isoWeekTag('2026-01-01')}`);
+ok(isoWeekTag('2026-07-12') === 'W28', `W tag Jul12 Sun: ${isoWeekTag('2026-07-12')}`);
+ok(isoWeekTag('2026-07-13') === 'W29', `W tag Jul13 Mon: ${isoWeekTag('2026-07-13')}`);
+ok(isoWeekTag('2026-12-28') === 'W53', `W tag Dec28 (53-week year): ${isoWeekTag('2026-12-28')}`);
+ok(isoWeekTag('2027-01-04') === 'W01', `W tag 2027 W1 start: ${isoWeekTag('2027-01-04')}`);
 
 console.log(`\n${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);

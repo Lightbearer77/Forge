@@ -8,10 +8,14 @@ import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-cont
 
 import { COLORS, FONTS, GOAL_COLORS } from './lib/theme';
 import { fmtGreekLong, todayISO } from './lib/constants';
-import { GOALS, STATUSES, newTask } from './lib/model';
+import { GOALS, newTask } from './lib/model';
 import { initDatabase, getAllTasks, saveTask, saveTasks, deleteTask } from './lib/storage';
 import { fetchSyncFile, mergeSyncFile } from './lib/sync';
 import TaskRow from './components/TaskRow';
+import TaskEditor from './components/TaskEditor';
+import KanbanView from './components/KanbanView';
+import CalendarView from './components/CalendarView';
+import DashboardView from './components/DashboardView';
 
 // ─── ErrorBoundary: crashes render on-screen, never a silent kick-out ───
 class ErrorBoundary extends Component {
@@ -42,22 +46,31 @@ class ErrorBoundary extends Component {
   }
 }
 
+const VIEWS = [
+  { id: 'list',     label: 'LIST' },
+  { id: 'board',    label: 'BOARD' },
+  { id: 'calendar', label: 'CAL' },
+  { id: 'dash',     label: 'DASH' },
+];
+
 const STATUS_ORDER = { 'in-progress': 0, todo: 1, backlog: 2, done: 3 };
 
 function AppContent() {
   const insets = useSafeAreaInsets();
   const [tasks, setTasks] = useState([]);
   const [ready, setReady] = useState(false);
+  const [viewMode, setViewMode] = useState('list');
   const [draft, setDraft] = useState('');
   const [draftGoal, setDraftGoal] = useState('G1');
   const [syncing, setSyncing] = useState(false);
+  const [editing, setEditing] = useState(null); // { task, isNew }
+
+  const today = todayISO();
 
   const reload = useCallback(async () => {
     setTasks(await getAllTasks());
   }, []);
 
-  // Pull-merge from forge-sync.json. Silent when quiet=true (launch path);
-  // reports via Alert when run from the Sync button.
   const runSync = useCallback(async (quiet = false) => {
     setSyncing(true);
     try {
@@ -105,8 +118,7 @@ function AppContent() {
   const addTask = useCallback(async () => {
     const name = draft.trim();
     if (!name) return;
-    const t = newTask({ name, goal: draftGoal });
-    await saveTask(t);
+    await saveTask(newTask({ name, goal: draftGoal }));
     setDraft('');
     await reload();
   }, [draft, draftGoal, reload]);
@@ -116,22 +128,37 @@ function AppContent() {
     await saveTask({
       ...task,
       status: done ? 'done' : 'todo',
-      completedAt: done ? todayISO() : '',
+      completedAt: done ? today : '',
       updatedAt: Date.now(),
     });
     await reload();
-  }, [reload]);
+  }, [reload, today]);
 
-  const cycleStatus = useCallback(async (task) => {
-    const idx = STATUSES.indexOf(task.status);
-    const next = STATUSES[(idx + 1) % STATUSES.length];
+  const moveTask = useCallback(async (task, newStatus) => {
     await saveTask({
       ...task,
-      status: next,
-      completedAt: next === 'done' ? todayISO() : '',
+      status: newStatus,
+      completedAt: newStatus === 'done' ? today : '',
       updatedAt: Date.now(),
     });
     await reload();
+  }, [reload, today]);
+
+  const openEditor = useCallback((task) => setEditing({ task, isNew: false }), []);
+  const startNewForDate = useCallback((iso) => {
+    setEditing({ task: newTask({ dueDate: iso, goal: draftGoal }), isNew: true });
+  }, [draftGoal]);
+
+  const handleSaveTask = useCallback(async (final) => {
+    await saveTask(final);
+    await reload();
+    setEditing(null);
+  }, [reload]);
+
+  const handleDeleteTask = useCallback(async (id) => {
+    await deleteTask(id);
+    await reload();
+    setEditing(null);
   }, [reload]);
 
   const confirmDelete = useCallback((task) => {
@@ -166,7 +193,7 @@ function AppContent() {
       <View style={styles.header}>
         <View>
           <Text style={styles.title}>THE FORGE</Text>
-          <Text style={styles.subtitle}>{fmtGreekLong(todayISO())}</Text>
+          <Text style={styles.subtitle}>{fmtGreekLong(today)}</Text>
         </View>
         <TouchableOpacity
           onPress={() => runSync(false)}
@@ -177,49 +204,89 @@ function AppContent() {
         </TouchableOpacity>
       </View>
 
-      <View style={styles.addRow}>
-        <TouchableOpacity
-          onPress={cycleDraftGoal}
-          style={[styles.goalChip, { borderColor: GOAL_COLORS[draftGoal] }]}
-        >
-          <Text style={[styles.goalChipText, { color: GOAL_COLORS[draftGoal] }]}>
-            {draftGoal}
-          </Text>
-        </TouchableOpacity>
-        <TextInput
-          value={draft}
-          onChangeText={setDraft}
-          onSubmitEditing={addTask}
-          placeholder="Forge a task…"
-          placeholderTextColor={COLORS.textFaint}
-          style={styles.input}
-          returnKeyType="done"
-        />
-        <TouchableOpacity onPress={addTask} style={styles.addBtn}>
-          <Text style={styles.addBtnText}>＋</Text>
-        </TouchableOpacity>
+      <View style={styles.viewToggle}>
+        {VIEWS.map(v => (
+          <TouchableOpacity
+            key={v.id}
+            onPress={() => setViewMode(v.id)}
+            style={[styles.viewChip, viewMode === v.id && styles.viewChipActive]}
+          >
+            <Text style={[styles.viewChipText, viewMode === v.id && { color: COLORS.accent }]}>
+              {v.label}
+            </Text>
+          </TouchableOpacity>
+        ))}
       </View>
 
-      <FlatList
-        data={sorted}
-        keyExtractor={(t) => t.id}
-        contentContainerStyle={{ padding: 12, paddingBottom: insets.bottom + 24 }}
-        renderItem={({ item }) => (
-          <TaskRow
-            task={item}
-            onToggleDone={toggleDone}
-            onCycleStatus={cycleStatus}
-            onLongPress={confirmDelete}
-          />
-        )}
-        ListEmptyComponent={
-          <Text style={styles.empty}>
-            Nothing on the anvil. Add a task, or Sync to pull forge-sync.json.
-          </Text>
-        }
-      />
+      {viewMode === 'list' && (
+        <>
+          <View style={styles.addRow}>
+            <TouchableOpacity
+              onPress={cycleDraftGoal}
+              style={[styles.goalChip, { borderColor: GOAL_COLORS[draftGoal] }]}
+            >
+              <Text style={[styles.goalChipText, { color: GOAL_COLORS[draftGoal] }]}>
+                {draftGoal}
+              </Text>
+            </TouchableOpacity>
+            <TextInput
+              value={draft}
+              onChangeText={setDraft}
+              onSubmitEditing={addTask}
+              placeholder="Forge a task…"
+              placeholderTextColor={COLORS.textFaint}
+              style={styles.input}
+              returnKeyType="done"
+            />
+            <TouchableOpacity onPress={addTask} style={styles.addBtn}>
+              <Text style={styles.addBtnText}>＋</Text>
+            </TouchableOpacity>
+          </View>
 
-      <Text style={styles.hint}>tap = cycle status · box = done · hold = delete</Text>
+          <FlatList
+            data={sorted}
+            keyExtractor={(t) => t.id}
+            contentContainerStyle={{ padding: 12, paddingBottom: insets.bottom + 24 }}
+            renderItem={({ item }) => (
+              <TaskRow
+                task={item}
+                today={today}
+                onToggleDone={toggleDone}
+                onPress={openEditor}
+                onLongPress={confirmDelete}
+              />
+            )}
+            ListEmptyComponent={
+              <Text style={styles.empty}>
+                Nothing on the anvil. Add a task, or Sync to pull forge-sync.json.
+              </Text>
+            }
+          />
+          <Text style={styles.hint}>tap = edit · box = done · hold = delete</Text>
+        </>
+      )}
+
+      {viewMode === 'board' && (
+        <KanbanView tasks={tasks} today={today} onEdit={openEditor} onMove={moveTask} />
+      )}
+
+      {viewMode === 'calendar' && (
+        <CalendarView tasks={tasks} today={today} onEdit={openEditor} onAddForDate={startNewForDate} />
+      )}
+
+      {viewMode === 'dash' && (
+        <DashboardView tasks={tasks} today={today} onEdit={openEditor} />
+      )}
+
+      {editing && (
+        <TaskEditor
+          task={editing.task}
+          isNew={editing.isNew}
+          onSave={handleSaveTask}
+          onDelete={handleDeleteTask}
+          onClose={() => setEditing(null)}
+        />
+      )}
     </View>
   );
 }
@@ -244,9 +311,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: 16,
     paddingTop: 10,
-    paddingBottom: 12,
-    borderBottomWidth: 1,
-    borderBottomColor: COLORS.borderSubtle,
+    paddingBottom: 10,
   },
   title: {
     fontSize: 18,
@@ -274,11 +339,35 @@ const styles = StyleSheet.create({
     letterSpacing: 2,
     color: COLORS.textSecondary,
   },
+  viewToggle: {
+    flexDirection: 'row',
+    marginHorizontal: 12,
+    marginBottom: 4,
+    borderWidth: 1,
+    borderColor: COLORS.borderMid,
+    borderRadius: 4,
+    overflow: 'hidden',
+  },
+  viewChip: {
+    flex: 1,
+    paddingVertical: 8,
+    alignItems: 'center',
+    backgroundColor: COLORS.bgSurface,
+  },
+  viewChipActive: {
+    backgroundColor: COLORS.bgElevated,
+  },
+  viewChipText: {
+    fontSize: 9,
+    fontFamily: FONTS.mono,
+    letterSpacing: 2,
+    color: COLORS.textMuted,
+  },
   addRow: {
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 12,
-    paddingTop: 12,
+    paddingTop: 8,
     gap: 8,
   },
   goalChip: {
