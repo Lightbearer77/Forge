@@ -8,13 +8,25 @@ import { COLORS, FONTS, GOAL_COLORS, PRIORITY_COLORS } from '../lib/theme';
 import { GOALS, PRIORITIES, STATUSES, STATUS_LABELS } from '../lib/model';
 import { fmtGreekLong, fmtGreg, gregToGreek, todayISO } from '../lib/constants';
 import { isoWeekTag } from '../lib/selectors';
+import TaskPicker from './TaskPicker';
 
 const toISO = (d) =>
   `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 
-export default function TaskEditor({ task, isNew, onSave, onDelete, onClose }) {
+export default function TaskEditor({
+  task, isNew, allTasks = [], onSave, onDelete, onClose,
+  onOpenTask, onToggleChild, onCreateSubtask,
+}) {
   const [form, setForm] = useState(task);
   const [picker, setPicker] = useState(null); // 'due' | 'start' | null
+  const [pickingBlocker, setPickingBlocker] = useState(false);
+  const [subDraft, setSubDraft] = useState('');
+
+  const parent = form.parentId ? allTasks.find(t => t.id === form.parentId) : null;
+  const children = allTasks.filter(t => t.parentId === form.id);
+  const blockers = (form.blockedBy || [])
+    .map(id => allTasks.find(t => t.id === id))
+    .filter(Boolean);
   const update = (key, value) => setForm(f => ({ ...f, [key]: value }));
 
   const handleSave = () => {
@@ -111,6 +123,17 @@ export default function TaskEditor({ task, isNew, onSave, onDelete, onClose }) {
               multiline
             />
 
+            {parent && (
+              <View style={styles.parentLine}>
+                <Text style={styles.parentText} numberOfLines={1}>
+                  SUBTASK OF · {parent.name}
+                </Text>
+                <TouchableOpacity onPress={() => update('parentId', '')} hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}>
+                  <Text style={styles.parentDetach}>✕</Text>
+                </TouchableOpacity>
+              </View>
+            )}
+
             <Text style={styles.fieldLabel}>GOAL</Text>
             <View style={styles.chipRow}>
               {GOALS.map(g => (
@@ -135,6 +158,16 @@ export default function TaskEditor({ task, isNew, onSave, onDelete, onClose }) {
               ))}
             </View>
 
+            <Text style={styles.fieldLabel}>FLAGS</Text>
+            <View style={styles.chipRow}>
+              <Chip
+                active={!!form.milestone}
+                color={COLORS.accent}
+                label="🏴 MILESTONE TASK"
+                onPress={() => update('milestone', !form.milestone)}
+              />
+            </View>
+
             <View style={styles.dateSection}>
               <DateField label="DUE" field="dueDate" />
               <DateField label="START" field="startDate" />
@@ -148,6 +181,68 @@ export default function TaskEditor({ task, isNew, onSave, onDelete, onClose }) {
               placeholderTextColor={COLORS.textFaint}
               style={styles.input}
             />
+
+            <Text style={styles.fieldLabel}>BLOCKED BY · {blockers.length}</Text>
+            {blockers.map(b => (
+              <View key={b.id} style={styles.linkRow}>
+                <Text style={[styles.linkName, b.status === 'done' && styles.linkDone]} numberOfLines={1}>
+                  {b.status === 'done' ? '✓ ' : '🔒 '}{b.name}
+                </Text>
+                <TouchableOpacity
+                  onPress={() => update('blockedBy', form.blockedBy.filter(id => id !== b.id))}
+                  hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
+                >
+                  <Text style={styles.linkRemove}>✕</Text>
+                </TouchableOpacity>
+              </View>
+            ))}
+            <TouchableOpacity onPress={() => setPickingBlocker(true)} style={styles.dashedAdd}>
+              <Text style={styles.dashedAddText}>+ ADD BLOCKER</Text>
+            </TouchableOpacity>
+
+            {!isNew && (
+              <>
+                <Text style={styles.fieldLabel}>SUBTASKS · {children.length}</Text>
+                {children.map(c => (
+                  <View key={c.id} style={styles.linkRow}>
+                    <TouchableOpacity
+                      onPress={() => onToggleChild && onToggleChild(c)}
+                      hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
+                      style={[styles.subCheck, c.status === 'done' && { backgroundColor: COLORS.accent, borderColor: COLORS.accent }]}
+                    >
+                      {c.status === 'done' && <Text style={styles.subCheckMark}>✓</Text>}
+                    </TouchableOpacity>
+                    <TouchableOpacity style={{ flex: 1 }} onPress={() => onOpenTask && onOpenTask(c)}>
+                      <Text style={[styles.linkName, c.status === 'done' && styles.linkDone]} numberOfLines={1}>
+                        {c.name}
+                      </Text>
+                    </TouchableOpacity>
+                  </View>
+                ))}
+                <View style={styles.subAddRow}>
+                  <TextInput
+                    value={subDraft}
+                    onChangeText={setSubDraft}
+                    placeholder="Quick subtask…"
+                    placeholderTextColor={COLORS.textFaint}
+                    style={[styles.input, { flex: 1 }]}
+                    onSubmitEditing={() => {
+                      const n = subDraft.trim();
+                      if (n && onCreateSubtask) { onCreateSubtask(form.id, n, form.goal); setSubDraft(''); }
+                    }}
+                  />
+                  <TouchableOpacity
+                    onPress={() => {
+                      const n = subDraft.trim();
+                      if (n && onCreateSubtask) { onCreateSubtask(form.id, n, form.goal); setSubDraft(''); }
+                    }}
+                    style={styles.subAddBtn}
+                  >
+                    <Text style={{ color: COLORS.accent, fontSize: 15 }}>＋</Text>
+                  </TouchableOpacity>
+                </View>
+              </>
+            )}
 
             <Text style={styles.fieldLabel}>NOTES</Text>
             <TextInput
@@ -175,6 +270,15 @@ export default function TaskEditor({ task, isNew, onSave, onDelete, onClose }) {
               </TouchableOpacity>
             )}
           </ScrollView>
+
+          <TaskPicker
+            visible={pickingBlocker}
+            tasks={allTasks.filter(t => t.id !== form.id)}
+            excludeIds={form.blockedBy || []}
+            title="Blocked by which task?"
+            onPick={(t) => { update('blockedBy', [...(form.blockedBy || []), t.id]); setPickingBlocker(false); }}
+            onClose={() => setPickingBlocker(false)}
+          />
 
           {picker && (
             <DateTimePicker
@@ -275,6 +379,39 @@ const styles = StyleSheet.create({
     marginTop: 14,
     fontSize: 10, fontFamily: FONTS.mono, letterSpacing: 1,
     color: COLORS.textFaint, textAlign: 'center',
+  },
+  parentLine: {
+    flexDirection: 'row', alignItems: 'center',
+    marginTop: 10, paddingVertical: 6, paddingHorizontal: 8,
+    backgroundColor: COLORS.bgSurface,
+    borderWidth: 1, borderColor: COLORS.borderSubtle, borderRadius: 4,
+  },
+  parentText: { flex: 1, fontSize: 9, fontFamily: FONTS.mono, letterSpacing: 1, color: COLORS.textMuted },
+  parentDetach: { fontSize: 12, color: COLORS.textFaint, paddingLeft: 8 },
+  linkRow: {
+    flexDirection: 'row', alignItems: 'center',
+    backgroundColor: COLORS.bgSurface,
+    borderWidth: 1, borderColor: COLORS.borderSubtle, borderRadius: 4,
+    marginBottom: 5, paddingRight: 10,
+  },
+  linkName: { flex: 1, fontSize: 12, fontFamily: FONTS.body, color: COLORS.textPrimary, padding: 9 },
+  linkDone: { color: COLORS.textMuted, textDecorationLine: 'line-through' },
+  linkRemove: { fontSize: 13, color: COLORS.textFaint, paddingLeft: 8 },
+  dashedAdd: {
+    borderWidth: 1, borderColor: COLORS.borderMid, borderRadius: 4,
+    borderStyle: 'dashed', paddingVertical: 9, alignItems: 'center', marginTop: 2,
+  },
+  dashedAddText: { fontSize: 9, fontFamily: FONTS.mono, letterSpacing: 2, color: COLORS.textMuted },
+  subCheck: {
+    width: 18, height: 18, borderWidth: 1.5, borderColor: COLORS.borderStrong,
+    borderRadius: 3, marginLeft: 9,
+    alignItems: 'center', justifyContent: 'center',
+  },
+  subCheckMark: { color: COLORS.bgDeep, fontSize: 11, fontWeight: '700', lineHeight: 13 },
+  subAddRow: { flexDirection: 'row', gap: 8, alignItems: 'center', marginTop: 2 },
+  subAddBtn: {
+    borderWidth: 1, borderColor: COLORS.borderMid, borderRadius: 4,
+    paddingHorizontal: 11, paddingVertical: 7, backgroundColor: COLORS.bgElevated,
   },
   deleteBtn: {
     marginTop: 24,
