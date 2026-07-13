@@ -30,11 +30,14 @@ const {
   GREEK_MONTHS, gregToGreek, greekToGreg, greekMonthRange, greekMonthDays,
   isLeapYear, fmtGreekLong,
 } = await import(pathToFileURL(join(stage, 'constants.mjs')).href);
-const { newTask, normalizeTask, fromWebTask, STATUSES, PRIORITIES, GOALS } =
+const { newTask, normalizeTask, fromWebTask, STATUSES, PRIORITIES, GOALS,
+  newMilestone, normalizeMilestone, fromWebMilestone } =
   await import(pathToFileURL(join(stage, 'model.mjs')).href);
 const { mergeSyncFile, serializeTasks, SYNC_FILE_VERSION } =
   await import(pathToFileURL(join(stage, 'sync.mjs')).href);
-const { groupByStatus, isOverdue, tasksByDueDate, dashboardStats, isoWeekTag } =
+const { groupByStatus, isOverdue, tasksByDueDate, dashboardStats, isoWeekTag,
+  taskById, isBlocked, childrenOf, subtaskProgress, topLevelTasks,
+  milestoneProgress, milestonesByDueDate } =
   await import(pathToFileURL(join(stage, 'selectors.mjs')).href);
 
 let pass = 0, fail = 0;
@@ -234,6 +237,62 @@ ok(isoWeekTag('2026-07-12') === 'W28', `W tag Jul12 Sun: ${isoWeekTag('2026-07-1
 ok(isoWeekTag('2026-07-13') === 'W29', `W tag Jul13 Mon: ${isoWeekTag('2026-07-13')}`);
 ok(isoWeekTag('2026-12-28') === 'W53', `W tag Dec28 (53-week year): ${isoWeekTag('2026-12-28')}`);
 ok(isoWeekTag('2027-01-04') === 'W01', `W tag 2027 W1 start: ${isoWeekTag('2027-01-04')}`);
+
+// ══ 5. Milestones: model + merge + progress ══
+const wm = fromWebMilestone({ id: 'ms4_04', name: 'Habit tracker configured', goal: 'G1',
+  month: 'M04', due: '2026-04-05', msTag: 'MS4', msWeek: 'MSW14',
+  taskIds: ['a05','a06'], completed: true, completedDate: '2026-05-30' });
+ok(wm.dueDate === '2026-04-05' && wm.completedAt === '2026-05-30', 'web milestone date mapping');
+ok(wm.msTag === 'MS4' && wm.msWeek === 'MSW14' && wm.taskIds.length === 2, 'web milestone tags + links');
+ok(normalizeMilestone({ id: 'm1', name: 'X', completed: false, completedAt: '2026-01-01' }).completedAt === '',
+   'milestone completedAt cleared when not completed');
+ok(normalizeMilestone({}) === null, 'milestone requires id');
+
+// milestone merge rides the same engine
+let mres = mergeSyncFile([], { tasks: [], milestones: [{ id: 'm1', name: 'M', updatedAt: 100 }] }, []);
+ok(mres.milestones.merged.length === 1 && mres.report.milestones.inserted === 1, 'ms merge insert');
+mres = mergeSyncFile([], { tasks: [], milestones: [{ id: 'm1', updatedAt: 200, deleted: true }] },
+  [normalizeMilestone({ id: 'm1', name: 'M', updatedAt: 100 })]);
+ok(mres.milestones.merged[0].deleted === true && mres.report.milestones.deletedApplied === 1, 'ms tombstone kills live');
+mres = mergeSyncFile([], { tasks: [], milestones: [{ id: 'm1', name: 'Stale', updatedAt: 50 }] },
+  [normalizeMilestone({ id: 'm1', name: 'Fresh', updatedAt: 100 })]);
+ok(mres.milestones.merged[0].name === 'Fresh' && mres.report.milestones.localWon === 1, 'ms local newer wins');
+ok(mergeSyncFile([mk('a',100)], { tasks: [{ id:'a', name:'N', updatedAt:200 }] }).merged[0].name === 'N',
+   'task merge unchanged by milestone extension (default arg)');
+
+const msP = normalizeMilestone({ id: 'mp', name: 'P', taskIds: ['x1','x2','gone'], updatedAt: 1 });
+const msById = taskById([st('x1','done'), st('x2','todo')]);
+const prog = milestoneProgress(msP, msById);
+ok(prog.done === 1 && prog.total === 2, `milestone progress skips missing links: ${JSON.stringify(prog)}`);
+const msMap = milestonesByDueDate([normalizeMilestone({ id:'md', name:'D', dueDate:'2026-07-14', updatedAt:1 })],
+  ['2026-07-13','2026-07-14']);
+ok(msMap['2026-07-14']?.length === 1, 'milestonesByDueDate');
+
+// ══ 6. Dependencies & subtasks ══
+const depTasks = [
+  st('blocker', 'todo'),
+  st('doneBlocker', 'done'),
+  normalizeTask({ id: 'b1', name: 'b1', status: 'todo', blockedBy: ['blocker'], updatedAt: 1 }),
+  normalizeTask({ id: 'b2', name: 'b2', status: 'todo', blockedBy: ['doneBlocker'], updatedAt: 1 }),
+  normalizeTask({ id: 'b3', name: 'b3', status: 'todo', blockedBy: ['ghost'], updatedAt: 1 }),
+];
+const depById = taskById(depTasks);
+ok(isBlocked(depTasks[2], depById) === true,  'blocked by open task');
+ok(isBlocked(depTasks[3], depById) === false, 'done blocker does not block');
+ok(isBlocked(depTasks[4], depById) === false, 'missing blocker does not block');
+
+const famTasks = [
+  st('p1', 'todo'),
+  normalizeTask({ id: 'c1', name: 'c1', status: 'done', parentId: 'p1', updatedAt: 1 }),
+  normalizeTask({ id: 'c2', name: 'c2', status: 'todo', parentId: 'p1', updatedAt: 1 }),
+  normalizeTask({ id: 'orphan', name: 'o', status: 'todo', parentId: 'nope', updatedAt: 1 }),
+];
+const cmap = childrenOf(famTasks);
+ok(cmap.p1.length === 2, 'childrenOf groups');
+const sp = subtaskProgress(famTasks[0], cmap);
+ok(sp.done === 1 && sp.total === 2, 'subtaskProgress');
+const tops = topLevelTasks(famTasks).map(t => t.id).sort().join(',');
+ok(tops === 'orphan,p1', `topLevel surfaces orphans: ${tops}`);
 
 console.log(`\n${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);
