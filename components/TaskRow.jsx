@@ -2,14 +2,16 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { COLORS, FONTS, GOAL_COLORS, PRIORITY_COLORS } from '../lib/theme';
 import { STATUS_LABELS } from '../lib/model';
 import { fmtGreek } from '../lib/constants';
+import { isOverdue } from '../lib/selectors';
 
-export default function TaskRow({ task, onToggleDone, onCycleStatus, onLongPress }) {
+export default function TaskRow({ task, today, onToggleDone, onPress, onLongPress }) {
   const goalColor = GOAL_COLORS[task.goal] || COLORS.textMuted;
   const done = task.status === 'done';
+  const overdue = isOverdue(task, today);
 
   return (
     <TouchableOpacity
-      onPress={() => onCycleStatus(task)}
+      onPress={() => onPress(task)}
       onLongPress={() => onLongPress(task)}
       activeOpacity={0.7}
       style={styles.row}
@@ -34,7 +36,9 @@ export default function TaskRow({ task, onToggleDone, onCycleStatus, onLongPress
         <View style={styles.subRow}>
           <Text style={styles.subText}>{STATUS_LABELS[task.status] || task.status}</Text>
           {!!task.dueDate && (
-            <Text style={styles.subText}> · due {fmtGreek(task.dueDate)}</Text>
+            <Text style={[styles.subText, overdue && { color: COLORS.priorityHigh }]}>
+              {' '}· due {fmtGreek(task.dueDate)}
+            </Text>
           )}
           <View style={[styles.priorityDot, { backgroundColor: PRIORITY_COLORS[task.priority] || COLORS.textFaint }]} />
         </View>
