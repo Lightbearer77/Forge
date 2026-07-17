@@ -294,5 +294,14 @@ ok(sp.done === 1 && sp.total === 2, 'subtaskProgress');
 const tops = topLevelTasks(famTasks).map(t => t.id).sort().join(',');
 ok(tops === 'orphan,p1', `topLevel surfaces orphans: ${tops}`);
 
+// serialize: optional milestones key present only when given
+const serM = serializeTasks([mk('a', 100)], 'Forge', [normalizeMilestone({ id: 'm1', name: 'M', updatedAt: 1 })]);
+ok(Array.isArray(serM.milestones) && serM.milestones.length === 1, 'serialize includes milestones when given');
+ok(!('milestones' in serializeTasks([mk('a', 100)], 'Forge')), 'serialize omits milestones when absent');
+// full-loop: a serialized snapshot (tasks + milestones) merges as a no-op
+const loopT = [mk('a', 100)], loopM = [normalizeMilestone({ id: 'm1', name: 'M', updatedAt: 100 })];
+const loopRes = mergeSyncFile(loopT, serializeTasks(loopT, 'Forge', loopM), loopM);
+ok(loopRes.changed.length === 0 && loopRes.milestones.changed.length === 0, 'snapshot roundtrip is a no-op');
+
 console.log(`\n${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);
