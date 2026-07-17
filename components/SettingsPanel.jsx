@@ -5,7 +5,7 @@ import {
 } from 'react-native';
 import Constants from 'expo-constants';
 import { COLORS, FONTS } from '../lib/theme';
-import { getSetting, setSetting, getAllTasks, getAllMilestones } from '../lib/storage';
+import { getSetting, setSetting, getAllTasks, getAllMilestones, getAllRunes } from '../lib/storage';
 import { pushSyncFile, serializeTasks } from '../lib/sync';
 
 // The sync token is a FINE-GRAINED GitHub PAT scoped to the Forge repo only
@@ -32,19 +32,20 @@ export default function SettingsPanel({ visible, onClose }) {
   };
 
   const gatherSnapshot = async () => {
-    const [tasks, milestones] = await Promise.all([
+    const [tasks, milestones, runes] = await Promise.all([
       getAllTasks({ includeDeleted: true }),
       getAllMilestones({ includeDeleted: true }),
+      getAllRunes({ includeDeleted: true }),
     ]);
-    return { tasks, milestones };
+    return { tasks, milestones, runes };
   };
 
   const doPush = async () => {
     setBusy(true);
     try {
       const stored = (await getSetting('syncToken')).trim();
-      const { tasks, milestones } = await gatherSnapshot();
-      const res = await pushSyncFile({ token: stored, tasks, milestones });
+      const { tasks, milestones, runes } = await gatherSnapshot();
+      const res = await pushSyncFile({ token: stored, tasks, milestones, runes });
       Alert.alert('Pushed', `${res.pushed} records published to forge-sync.json.`);
     } catch (e) {
       Alert.alert('Push failed', String(e?.message || e));
@@ -56,8 +57,8 @@ export default function SettingsPanel({ visible, onClose }) {
   const doExport = async () => {
     setBusy(true);
     try {
-      const { tasks, milestones } = await gatherSnapshot();
-      const json = JSON.stringify(serializeTasks(tasks, 'Forge', milestones), null, 2);
+      const { tasks, milestones, runes } = await gatherSnapshot();
+      const json = JSON.stringify(serializeTasks(tasks, 'Forge', milestones, runes), null, 2);
       await Share.share({ message: json });
     } catch (e) {
       Alert.alert('Export failed', String(e?.message || e));
