@@ -6,7 +6,7 @@
 // never clobber a phone push you haven't seen.
 //
 // Usage: node tools/claude-publish.mjs my-changes.json > merged.json
-//   my-changes.json = { "tasks": [...], "milestones": [...] }
+//   my-changes.json = { "tasks": [...], "milestones": [...], "runes": [...] }
 //   (entries need id + updatedAt in ms; tombstones = { id, updatedAt, deleted: true })
 
 import { mkdtempSync, readFileSync, writeFileSync } from 'fs';
@@ -30,7 +30,7 @@ if (!changesPath) { console.error('Usage: claude-publish.mjs <changes.json>'); p
 const changes = JSON.parse(readFileSync(changesPath, 'utf8'));
 
 // Current published state (404 → clean slate)
-let current = { tasks: [], milestones: [] };
+let current = { tasks: [], milestones: [], runes: [] };
 const res = await fetch(`${DEFAULT_SYNC_URL}?t=${Date.now()}`);
 if (res.ok) current = await res.json();
 else if (res.status !== 404) { console.error(`Fetch failed: HTTP ${res.status}`); process.exit(1); }
@@ -39,8 +39,9 @@ else if (res.status !== 404) { console.error(`Fetch failed: HTTP ${res.status}`)
 // LWW + tombstones + absence-keeps do the rest.
 const merged = mergeSyncFile(
   current.tasks || [],
-  { tasks: changes.tasks || [], milestones: changes.milestones || [] },
-  current.milestones || []
+  { tasks: changes.tasks || [], milestones: changes.milestones || [], runes: changes.runes || [] },
+  current.milestones || [],
+  current.runes || []
 );
 
 const out = {
@@ -49,8 +50,10 @@ const out = {
   updatedBy: 'Claude',
   tasks: merged.merged,
   milestones: merged.milestones.merged,
+  runes: merged.runes.merged,
 };
 
 console.error(`Tasks:      ${merged.report.inserted} new · ${merged.report.updated} updated · ${merged.report.deletedApplied} removed · ${merged.report.localWon} kept`);
 console.error(`Milestones: ${merged.report.milestones.inserted} new · ${merged.report.milestones.updated} updated · ${merged.report.milestones.deletedApplied} removed · ${merged.report.milestones.localWon} kept`);
+console.error(`Runes:      ${merged.report.runes.inserted} new · ${merged.report.runes.updated} updated · ${merged.report.runes.deletedApplied} removed · ${merged.report.runes.localWon} kept`);
 console.log(JSON.stringify(out, null, 2));
