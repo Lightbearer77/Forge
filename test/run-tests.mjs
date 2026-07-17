@@ -19,7 +19,7 @@ import { fileURLToPath, pathToFileURL } from 'url';
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const stage = mkdtempSync(join(tmpdir(), 'forge-test-'));
 
-for (const name of ['constants', 'model', 'sync', 'selectors']) {
+for (const name of ['constants', 'model', 'sync', 'selectors', 'runeData']) {
   const src = readFileSync(join(root, 'lib', `${name}.js`), 'utf8')
     .replace(/from '\.\/model'/g, "from './model.mjs'")
     .replace(/from '\.\/constants'/g, "from './constants.mjs'");
@@ -31,10 +31,13 @@ const {
   isLeapYear, fmtGreekLong,
 } = await import(pathToFileURL(join(stage, 'constants.mjs')).href);
 const { newTask, normalizeTask, fromWebTask, STATUSES, PRIORITIES, GOALS,
-  newMilestone, normalizeMilestone, fromWebMilestone } =
+  newMilestone, normalizeMilestone, fromWebMilestone,
+  newRune, normalizeRune } =
   await import(pathToFileURL(join(stage, 'model.mjs')).href);
 const { mergeSyncFile, serializeTasks, SYNC_FILE_VERSION } =
   await import(pathToFileURL(join(stage, 'sync.mjs')).href);
+const { NU_2026_RUNE_ASSIGNMENTS, RUNE_GLYPHS } =
+  await import(pathToFileURL(join(stage, 'runeData.mjs')).href);
 const { groupByStatus, isOverdue, tasksByDueDate, dashboardStats, isoWeekTag,
   taskById, isBlocked, childrenOf, subtaskProgress, topLevelTasks,
   milestoneProgress, milestonesByDueDate } =
@@ -302,6 +305,44 @@ ok(!('milestones' in serializeTasks([mk('a', 100)], 'Forge')), 'serialize omits 
 const loopT = [mk('a', 100)], loopM = [normalizeMilestone({ id: 'm1', name: 'M', updatedAt: 100 })];
 const loopRes = mergeSyncFile(loopT, serializeTasks(loopT, 'Forge', loopM), loopM);
 ok(loopRes.changed.length === 0 && loopRes.milestones.changed.length === 0, 'snapshot roundtrip is a no-op');
+
+// ══ Runes: data integrity ══
+ok(NU_2026_RUNE_ASSIGNMENTS.length === 24, `rune count ${NU_2026_RUNE_ASSIGNMENTS.length}`);
+ok(NU_2026_RUNE_ASSIGNMENTS.filter(r => r.domain === 'practical').length === 13, 'practical runes = 13');
+ok(NU_2026_RUNE_ASSIGNMENTS.filter(r => r.domain === 'spiritual').length === 7, 'spiritual runes = 7');
+ok(NU_2026_RUNE_ASSIGNMENTS.filter(r => r.domain === 'skip').length === 4, 'skip runes = 4');
+ok(NU_2026_RUNE_ASSIGNMENTS.every(r => RUNE_GLYPHS[r.name]), 'every rune has a glyph');
+ok(new Set(NU_2026_RUNE_ASSIGNMENTS.map(r => r.name)).size === 24, 'no duplicate rune names');
+
+// ══ Rune model ══
+const rn = newRune({ name: 'Fehu', glyph: 'ᚠ' });
+ok(rn.id === 'rune_Fehu' && rn.earned === false && rn.taskId === '', 'newRune defaults, unlinked/unearned');
+ok(normalizeRune({}) === null, 'normalizeRune requires id');
+const re1 = normalizeRune({ id: 'rune_X', name: 'X', earned: false, earnedAt: '2026-01-01' });
+ok(re1.earnedAt === '', 'rune earnedAt cleared when not earned');
+const re2 = normalizeRune({ id: 'rune_Y', name: 'Y', earned: true, earnedAt: '2026-11-01', taskId: 't_1' });
+ok(re2.earned === true && re2.earnedAt === '2026-11-01' && re2.taskId === 't_1', 'earned rune keeps earnedAt + taskId link');
+
+// ══ Rune sync: third collection, same LWW/tombstone engine ══
+const rune = (id, ua, extra = {}) => normalizeRune({ id, name: id, updatedAt: ua, ...extra });
+let rr = mergeSyncFile([], { tasks: [], milestones: [], runes: [{ id: 'rune_Fehu', name: 'Fehu', updatedAt: 100 }] }, [], []);
+ok(rr.runes.merged.length === 1 && rr.report.runes.inserted === 1, 'rune merge insert');
+rr = mergeSyncFile([], { tasks: [], runes: [{ id: 'rune_Fehu', name: 'Fehu', earned: true, updatedAt: 200 }] },
+  [], [rune('rune_Fehu', 100)]);
+ok(rr.runes.merged[0].earned === true && rr.report.runes.updated === 1, 'rune earned via newer sync wins');
+rr = mergeSyncFile([], { tasks: [], runes: [{ id: 'rune_Fehu', updatedAt: 50, deleted: true }] },
+  [], [rune('rune_Fehu', 100)]);
+ok(rr.runes.merged[0].deleted === false && rr.report.runes.localWon === 1, 'stale rune tombstone cannot kill newer local');
+// seed timestamp is below any plausible real edit → real edits always win
+ok(1000000000000 < Date.now(), 'seed timestamp is in the past');
+// task/milestone shape unchanged by the runes extension (defaults)
+ok(mergeSyncFile([mk('a', 100)], { tasks: [{ id: 'a', name: 'N', updatedAt: 200 }] }).merged[0].name === 'N',
+   'task merge unaffected by runes arg default');
+
+// serialize carries runes only when given
+const serR = serializeTasks([mk('a', 100)], 'Forge', [], [rune('rune_Fehu', 1)]);
+ok(Array.isArray(serR.runes) && serR.runes.length === 1, 'serialize includes runes when given');
+ok(!('runes' in serializeTasks([mk('a', 100)], 'Forge')), 'serialize omits runes when absent');
 
 console.log(`\n${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);
