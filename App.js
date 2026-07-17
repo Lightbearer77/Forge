@@ -18,6 +18,7 @@ import { fetchSyncFile, mergeSyncFile } from './lib/sync';
 import TaskRow from './components/TaskRow';
 import TaskEditor from './components/TaskEditor';
 import MilestoneEditor from './components/MilestoneEditor';
+import SettingsPanel from './components/SettingsPanel';
 import KanbanView from './components/KanbanView';
 import CalendarView from './components/CalendarView';
 import DashboardView from './components/DashboardView';
@@ -71,6 +72,7 @@ function AppContent() {
   const [editing, setEditing] = useState(null); // { task, isNew }
   const [milestones, setMilestones] = useState([]);
   const [msEditing, setMsEditing] = useState(null); // { ms, isNew }
+  const [showSettings, setShowSettings] = useState(false);
 
   const today = todayISO();
 
@@ -244,13 +246,18 @@ function AppContent() {
           <Text style={styles.title}>THE FORGE</Text>
           <Text style={styles.subtitle}>{fmtGreekLong(today)}</Text>
         </View>
-        <TouchableOpacity
-          onPress={() => runSync(false)}
-          disabled={syncing}
-          style={[styles.syncBtn, syncing && { opacity: 0.4 }]}
-        >
-          <Text style={styles.syncBtnText}>{syncing ? 'SYNCING…' : '⟳ SYNC'}</Text>
-        </TouchableOpacity>
+        <View style={{ flexDirection: 'row', gap: 8 }}>
+          <TouchableOpacity
+            onPress={() => runSync(false)}
+            disabled={syncing}
+            style={[styles.syncBtn, syncing && { opacity: 0.4 }]}
+          >
+            <Text style={styles.syncBtnText}>{syncing ? 'SYNCING…' : '⟳ SYNC'}</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => setShowSettings(true)} style={styles.syncBtn}>
+            <Text style={styles.syncBtnText}>⚙</Text>
+          </TouchableOpacity>
+        </View>
       </View>
 
       <View style={styles.viewToggle}>
@@ -350,6 +357,8 @@ function AppContent() {
           onCreateSubtask={createSubtask}
         />
       )}
+
+      <SettingsPanel visible={showSettings} onClose={() => setShowSettings(false)} />
 
       {msEditing && (
         <MilestoneEditor
