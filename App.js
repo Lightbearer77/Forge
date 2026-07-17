@@ -13,6 +13,7 @@ import { GOALS, newTask, newMilestone } from './lib/model';
 import {
   initDatabase, getAllTasks, saveTask, saveTasks, deleteTask,
   getAllMilestones, saveMilestone, saveMilestones, deleteMilestone,
+  getAllRunes, saveRune, saveRunes, ensureRunesSeeded,
 } from './lib/storage';
 import { fetchSyncFile, mergeSyncFile } from './lib/sync';
 import TaskRow from './components/TaskRow';
@@ -22,6 +23,7 @@ import SettingsPanel from './components/SettingsPanel';
 import KanbanView from './components/KanbanView';
 import CalendarView from './components/CalendarView';
 import DashboardView from './components/DashboardView';
+import RunesView from './components/RunesView';
 
 // ─── ErrorBoundary: crashes render on-screen, never a silent kick-out ───
 class ErrorBoundary extends Component {
@@ -57,6 +59,7 @@ const VIEWS = [
   { id: 'board',    label: 'BOARD' },
   { id: 'calendar', label: 'CAL' },
   { id: 'dash',     label: 'DASH' },
+  { id: 'runes',    label: 'ᛟ' },
 ];
 
 const STATUS_ORDER = { 'in-progress': 0, todo: 1, backlog: 2, done: 3 };
@@ -71,15 +74,17 @@ function AppContent() {
   const [syncing, setSyncing] = useState(false);
   const [editing, setEditing] = useState(null); // { task, isNew }
   const [milestones, setMilestones] = useState([]);
+  const [runes, setRunes] = useState([]);
   const [msEditing, setMsEditing] = useState(null); // { ms, isNew }
   const [showSettings, setShowSettings] = useState(false);
 
   const today = todayISO();
 
   const reload = useCallback(async () => {
-    const [t, m] = await Promise.all([getAllTasks(), getAllMilestones()]);
+    const [t, m, r] = await Promise.all([getAllTasks(), getAllMilestones(), getAllRunes()]);
     setTasks(t);
     setMilestones(m);
+    setRunes(r);
   }, []);
 
   const runSync = useCallback(async (quiet = false) => {
@@ -90,14 +95,16 @@ function AppContent() {
         if (!quiet) Alert.alert('Sync', 'No sync file published yet.');
         return;
       }
-      const [local, localMs] = await Promise.all([
+      const [local, localMs, localRunes] = await Promise.all([
         getAllTasks({ includeDeleted: true }),
         getAllMilestones({ includeDeleted: true }),
+        getAllRunes({ includeDeleted: true }),
       ]);
-      const { changed, milestones: msRes, report } = mergeSyncFile(local, file, localMs);
+      const { changed, milestones: msRes, runes: runeRes, report } = mergeSyncFile(local, file, localMs, localRunes);
       if (changed.length > 0) await saveTasks(changed);
       if (msRes.changed.length > 0) await saveMilestones(msRes.changed);
-      if (changed.length > 0 || msRes.changed.length > 0) await reload();
+      if (runeRes.changed.length > 0) await saveRunes(runeRes.changed);
+      if (changed.length > 0 || msRes.changed.length > 0 || runeRes.changed.length > 0) await reload();
       if (!quiet) {
         const msLine = report.milestones.total > 0
           ? `\nMilestones: ${report.milestones.inserted} new · ${report.milestones.updated} updated · ${report.milestones.deletedApplied} removed`
@@ -121,6 +128,7 @@ function AppContent() {
     (async () => {
       try {
         await initDatabase();
+        await ensureRunesSeeded();
         await reload();
       } catch (e) {
         console.warn('Init failed', e);
@@ -166,6 +174,12 @@ function AppContent() {
     await saveTask(newTask({ name, goal, parentId }));
     await reload();
   }, [reload]);
+
+  const toggleRuneEarned = useCallback(async (rune) => {
+    const earned = !rune.earned;
+    await saveRune({ ...rune, earned, earnedAt: earned ? today : '', updatedAt: Date.now() });
+    await reload();
+  }, [reload, today]);
 
   const openMilestone = useCallback((ms) => setMsEditing({ ms, isNew: false }), []);
   const startNewMilestone = useCallback(() => setMsEditing({ ms: newMilestone(), isNew: true }), []);
@@ -342,6 +356,10 @@ function AppContent() {
           onEdit={openEditor} onEditMilestone={openMilestone}
           onToggleMilestone={toggleMilestone} onAddMilestone={startNewMilestone}
         />
+      )}
+
+      {viewMode === 'runes' && (
+        <RunesView runes={runes} onToggleEarned={toggleRuneEarned} />
       )}
 
       {editing && (
