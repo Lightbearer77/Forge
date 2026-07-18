@@ -102,9 +102,11 @@ Connor's real corpus still lives in the web Forge's localStorage. Procedure:
 
 ## Known bugs / remaining Kappa work (ordinary — safe for any model)
 
-- Keyboard clips low text inputs in TaskEditor and MilestoneEditor sheets
-  (notes/section fields). KeyboardAvoidingView needs keyboardVerticalOffset
-  tuning or the sheets need proper inset handling.
+- ~~Keyboard clips low text inputs~~ FIXED in v0.5.1. Root cause was
+  `behavior={Platform.OS === 'ios' ? 'padding' : undefined}` — `undefined`
+  makes KeyboardAvoidingView inert on Android. Fix = `'height'` on Android
+  plus enough bodyContent paddingBottom (220) for the deepest input to
+  scroll clear. Same fix applied in Hearth v1.7.2.
 - Manual reordering (sort_order is stored but no drag UI), section grouping
   in list view, per-goal filter chips, web Forge archival after migration.
 
