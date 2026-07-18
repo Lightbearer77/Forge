@@ -99,7 +99,7 @@ export default function TaskEditor({
   return (
     <View style={styles.backdrop}>
       <KeyboardAvoidingView
-        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         style={styles.sheetWrap}
       >
         <View style={styles.sheet}>
@@ -321,7 +321,7 @@ const styles = StyleSheet.create({
   headerCancel: { fontSize: 10, fontFamily: FONTS.mono, letterSpacing: 2, color: COLORS.textMuted },
   headerTitle: { fontSize: 15, fontFamily: FONTS.display, color: COLORS.textPrimary },
   headerSave: { fontSize: 10, fontFamily: FONTS.mono, letterSpacing: 2, color: COLORS.accent },
-  body: { padding: 16, paddingBottom: 32 },
+  body: { padding: 16, paddingBottom: 220 },
   nameInput: {
     fontSize: 17,
     fontFamily: FONTS.body,
