@@ -48,7 +48,7 @@ export default function MilestoneEditor({ milestone, isNew, allTasks, onSave, on
 
   return (
     <View style={styles.backdrop}>
-      <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : undefined} style={{ maxHeight: '90%' }}>
+      <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={{ maxHeight: '90%' }}>
         <View style={styles.sheet}>
           <View style={styles.header}>
             <TouchableOpacity onPress={onClose} hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}>
@@ -200,7 +200,7 @@ const styles = StyleSheet.create({
   headerCancel: { fontSize: 10, fontFamily: FONTS.mono, letterSpacing: 2, color: COLORS.textMuted },
   headerTitle: { fontSize: 15, fontFamily: FONTS.display, color: COLORS.textPrimary },
   headerSave: { fontSize: 10, fontFamily: FONTS.mono, letterSpacing: 2, color: COLORS.accent },
-  body: { padding: 16, paddingBottom: 32 },
+  body: { padding: 16, paddingBottom: 220 },
   nameInput: {
     fontSize: 16, fontFamily: FONTS.body, color: COLORS.textPrimary,
     borderBottomWidth: 1, borderBottomColor: COLORS.borderMid,
