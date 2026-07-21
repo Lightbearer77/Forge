@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "lastUpdated": "2026-07-20T21:28:37.371Z",
+  "lastUpdated": "2026-07-21T00:24:06.380Z",
   "updatedBy": "Claude",
   "tasks": [
     {
@@ -7859,17 +7859,19 @@
       "name": "Emergency fund at 75% target",
       "notes": "Manual checkpoint — track via banking review. No discrete task.",
       "goal": "G4",
-      "month": "M06",
-      "dueDate": "2026-05-31",
-      "msTag": "MS5",
-      "msWeek": "MSW21",
-      "taskIds": [],
+      "month": "M12",
+      "dueDate": "2026-11-30",
+      "msTag": "MS12",
+      "msWeek": "MSW49",
+      "taskIds": [
+        "f26_084"
+      ],
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958081,
-      "updatedAt": 1784316958081
+      "updatedAt": 1784593435128
     },
     {
       "id": "ms5_07",
@@ -8271,93 +8273,103 @@
       "name": "90-day training program review — continue or switch",
       "notes": "",
       "goal": "G3",
-      "month": "",
-      "dueDate": "",
+      "month": "M08",
+      "dueDate": "2026-08-05",
       "msTag": "MS8",
       "msWeek": "MSW32",
-      "taskIds": [],
+      "taskIds": [
+        "f26_022"
+      ],
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1784393287371
+      "updatedAt": 1784593435128
     },
     {
       "id": "ms8_02",
       "name": "Bloodwork + EKG findings actioned (Dr. Kendell review)",
       "notes": "",
       "goal": "G3",
-      "month": "",
-      "dueDate": "",
+      "month": "M08",
+      "dueDate": "2026-08-12",
       "msTag": "MS8",
       "msWeek": "MSW33",
-      "taskIds": [],
+      "taskIds": [
+        "f26_031"
+      ],
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1784393287371
+      "updatedAt": 1784593435128
     },
     {
       "id": "ms8_03",
       "name": "Assertive readiness mid-quarter check — engagement rate calculated, holding-ground trend reviewed",
       "notes": "",
       "goal": "G1",
-      "month": "",
-      "dueDate": "",
+      "month": "M08",
+      "dueDate": "2026-08-12",
       "msTag": "MS8",
-      "msWeek": "MSW34",
-      "taskIds": [],
+      "msWeek": "MSW33",
+      "taskIds": [
+        "f26_030"
+      ],
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1784393287371
+      "updatedAt": 1784593435128
     },
     {
       "id": "ms9_01",
       "name": "Body composition follow-up scan #2 (vs. April baseline)",
       "notes": "",
       "goal": "G3",
-      "month": "",
-      "dueDate": "",
+      "month": "M09",
+      "dueDate": "2026-09-05",
       "msTag": "MS9",
       "msWeek": "MSW36",
-      "taskIds": [],
+      "taskIds": [
+        "f26_043"
+      ],
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1784393287371
+      "updatedAt": 1784593435128
     },
     {
       "id": "ms9_02",
       "name": "Supplementation v1 locked against DNA + lab results",
       "notes": "",
       "goal": "G3",
-      "month": "",
-      "dueDate": "",
+      "month": "M09",
+      "dueDate": "2026-09-09",
       "msTag": "MS9",
       "msWeek": "MSW37",
-      "taskIds": [],
+      "taskIds": [
+        "f26_046"
+      ],
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1784393287371
+      "updatedAt": 1784593435128
     },
     {
       "id": "ms9_03",
       "name": "Q3 Assertive Correction milestone — holding ground is the default in 3 of 5 logged situations/week, two months running",
       "notes": "",
       "goal": "G1",
-      "month": "",
-      "dueDate": "",
+      "month": "M09",
+      "dueDate": "2026-09-09",
       "msTag": "MS9",
       "msWeek": "MSW37",
       "taskIds": [],
@@ -8366,15 +8378,15 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1784393287371
+      "updatedAt": 1784593435128
     },
     {
       "id": "ms9_04",
       "name": "Q3 identity checkpoint — one page on whether \"speaking up is permitted; the content is what matters\" has moved from effort toward default",
       "notes": "",
       "goal": "G1",
-      "month": "",
-      "dueDate": "",
+      "month": "M09",
+      "dueDate": "2026-09-09",
       "msTag": "MS9",
       "msWeek": "MSW37",
       "taskIds": [],
@@ -8383,143 +8395,160 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1784393287371
+      "updatedAt": 1784593435128
     },
     {
       "id": "ms9_05",
       "name": "First Maturity Assessment on the single-ladder instrument — baseline scores set for all six rungs",
       "notes": "",
       "goal": "G1",
-      "month": "",
-      "dueDate": "",
+      "month": "M09",
+      "dueDate": "2026-09-09",
       "msTag": "MS9",
       "msWeek": "MSW37",
-      "taskIds": [],
+      "taskIds": [
+        "f26_050"
+      ],
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1784393287371
+      "updatedAt": 1784593435128
     },
     {
       "id": "ms10_01",
       "name": "Nutrition protocol decision LOCKED — keto continued or carnivore concluded",
       "notes": "",
       "goal": "G3",
-      "month": "",
-      "dueDate": "",
+      "month": "M10",
+      "dueDate": "2026-10-01",
       "msTag": "MS10",
-      "msWeek": "",
-      "taskIds": [],
+      "msWeek": "MSW40",
+      "taskIds": [
+        "f26_059"
+      ],
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1784393287371
+      "updatedAt": 1784593435128
     },
     {
       "id": "ms10_02",
       "name": "HRV + sleep protocol review under shift work",
       "notes": "",
       "goal": "G3",
-      "month": "",
-      "dueDate": "",
+      "month": "M10",
+      "dueDate": "2026-10-07",
       "msTag": "MS10",
-      "msWeek": "",
-      "taskIds": [],
+      "msWeek": "MSW41",
+      "taskIds": [
+        "f26_062"
+      ],
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1784393287371
+      "updatedAt": 1784593435128
     },
     {
       "id": "ms11_01",
       "name": "Microplastics protocol to maintained standard; deferred environmental items done",
       "notes": "",
       "goal": "G3",
-      "month": "",
-      "dueDate": "",
+      "month": "M11",
+      "dueDate": "2026-11-04",
       "msTag": "MS11",
-      "msWeek": "",
-      "taskIds": [],
+      "msWeek": "MSW45",
+      "taskIds": [
+        "f26_076",
+        "f26_077"
+      ],
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1784393287371
+      "updatedAt": 1784593435128
     },
     {
       "id": "ms11_02",
       "name": "Body composition scan #3 (pre-gate)",
       "notes": "",
       "goal": "G3",
-      "month": "",
-      "dueDate": "",
-      "msTag": "MS11",
-      "msWeek": "",
-      "taskIds": [],
+      "month": "M12",
+      "dueDate": "2026-11-25",
+      "msTag": "MS12",
+      "msWeek": "MSW48",
+      "taskIds": [
+        "f26_082"
+      ],
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1784393287371
+      "updatedAt": 1784593435128
     },
     {
       "id": "ms11_03",
       "name": "Training block confirmed at 6+ months continuous",
       "notes": "",
       "goal": "G3",
-      "month": "",
-      "dueDate": "",
-      "msTag": "MS11",
-      "msWeek": "",
-      "taskIds": [],
+      "month": "M12",
+      "dueDate": "2026-11-30",
+      "msTag": "MS12",
+      "msWeek": "MSW49",
+      "taskIds": [
+        "f26_083"
+      ],
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1784393287371
+      "updatedAt": 1784593435128
     },
     {
       "id": "ms12_01",
       "name": "Tribe foundation confirmed — entering 2027 with a real Phase 2 squad",
       "notes": "",
       "goal": "G2",
-      "month": "",
-      "dueDate": "",
+      "month": "M12",
+      "dueDate": "2026-12-02",
       "msTag": "MS12",
-      "msWeek": "",
-      "taskIds": [],
+      "msWeek": "MSW49",
+      "taskIds": [
+        "f26_087"
+      ],
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1784393287371
+      "updatedAt": 1784593435128
     },
     {
       "id": "ms12_02",
       "name": "Annual bloodwork re-run prepped for 2027",
       "notes": "",
       "goal": "G3",
-      "month": "",
-      "dueDate": "",
+      "month": "M12",
+      "dueDate": "2026-12-02",
       "msTag": "MS12",
-      "msWeek": "",
-      "taskIds": [],
+      "msWeek": "MSW49",
+      "taskIds": [
+        "f26_085"
+      ],
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1784393287371
+      "updatedAt": 1784593435128
     },
     {
       "id": "ms2027_01",
@@ -8537,6 +8566,25 @@
       "deleted": false,
       "createdAt": 1784393287371,
       "updatedAt": 1784393287371
+    },
+    {
+      "id": "ms8_04",
+      "name": "Value-alignment journal — Theta entry",
+      "notes": "",
+      "goal": "G1",
+      "month": "M08",
+      "dueDate": "2026-08-12",
+      "msTag": "MS8",
+      "msWeek": "MSW33",
+      "taskIds": [
+        "f26_034"
+      ],
+      "completed": true,
+      "completedAt": "2026-07-16",
+      "sortOrder": 4,
+      "deleted": false,
+      "createdAt": 1784593435128,
+      "updatedAt": 1784593435128
     }
   ],
   "runes": []
