@@ -92,6 +92,30 @@ Connor's real corpus still lives in the web Forge's localStorage. Procedure:
 3. Feed converted.json through `tools/claude-publish.mjs` and push.
 4. Connor taps ⟳ SYNC. Corpus lands. Web Forge then retires (Kappa).
 
+## Notifications (v0.6.0)
+
+Forge notifies on **due dates only** — tasks and milestones — at a configured
+time of day with configurable lead days. Deliberately no per-task reminder
+offsets: HabitNow owns recurring cadence, The Hearth owns time-of-day events,
+Forge owns "this is due".
+
+- `lib/notifySchedule.js` — **pure**, no expo imports, unit-tested (37
+  assertions). Owns what fires and when.
+- `lib/notifications.js` — expo-notifications glue. Cancel-all + reschedule on
+  every refresh so state stays duplicate-free. 48-alarm cap, nearest-first,
+  90-day horizon. Channels `forge-tasks` / `forge-milestones`.
+- Settings live in the schema-v3 settings table: `notifyEnabled`, `notifyTime`,
+  `notifyLead`.
+- Refresh is **debounced 2s** off `reload()` in App.js — that's the single
+  choke point after every mutation, and a full reschedule is too expensive to
+  run per-keystroke.
+- Overdue items never fire. Completed/deleted never fire. Blocked tasks DO
+  fire, tagged `blocked` in the body — the due date is still real.
+- Deps pinned to Hearth's proven versions: `expo-notifications ~0.32.17`,
+  `expo-device ~8.0.10`. Android permissions added to app.json.
+
+Not built (deliberately): overdue digest, per-task offsets, snooze.
+
 ## Parked decisions — Connor's, not yours
 
 - **`level` field**: carried inert since Eta (pre-reformation residue).
