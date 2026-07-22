@@ -7,6 +7,10 @@ import Constants from 'expo-constants';
 import { COLORS, FONTS } from '../lib/theme';
 import { getSetting, setSetting, getAllTasks, getAllMilestones, getAllRunes } from '../lib/storage';
 import { pushSyncFile, serializeTasks } from '../lib/sync';
+import {
+  getNotifySettings, setNotifySettings, refreshAllNotifications,
+  requestNotificationPermissions, getPermissionStatus, sendTestNotification,
+} from '../lib/notifications';
 
 // The sync token is a FINE-GRAINED GitHub PAT scoped to the Forge repo only
 // (Contents: read/write). It is typed here once, stored in the on-device
@@ -16,12 +20,22 @@ export default function SettingsPanel({ visible, onClose }) {
   const [token, setToken] = useState('');
   const [tokenDirty, setTokenDirty] = useState(false);
   const [busy, setBusy] = useState(false);
+  const [notify, setNotify] = useState({ enabled: true, time: '09:00', lead: [0, 1] });
+  const [notifyTimeText, setNotifyTimeText] = useState('09:00');
+  const [notifyLeadText, setNotifyLeadText] = useState('0,1');
+  const [permStatus, setPermStatus] = useState('undetermined');
+  const [scheduledInfo, setScheduledInfo] = useState(null);
 
   useEffect(() => {
     if (!visible) return;
     (async () => {
       setToken(await getSetting('syncToken'));
       setTokenDirty(false);
+      const n = await getNotifySettings();
+      setNotify(n);
+      setNotifyTimeText(n.time);
+      setNotifyLeadText(n.lead.join(','));
+      try { setPermStatus(await getPermissionStatus()); } catch (e) {}
     })();
   }, [visible]);
 
@@ -65,6 +79,65 @@ export default function SettingsPanel({ visible, onClose }) {
     } finally {
       setBusy(false);
     }
+  };
+
+  const applyNotify = async (patch) => {
+    const next = { ...notify, ...patch };
+    setNotify(next);
+    await setNotifySettings(next);
+    const res = await refreshAllNotifications();
+    setScheduledInfo(res);
+    return res;
+  };
+
+  const toggleNotify = async () => {
+    if (!notify.enabled) {
+      const granted = await requestNotificationPermissions();
+      setPermStatus(await getPermissionStatus());
+      if (!granted) {
+        Alert.alert(
+          'Permission needed',
+          'Enable notifications for The Forge in Android settings, then try again.'
+        );
+        return;
+      }
+    }
+    await applyNotify({ enabled: !notify.enabled });
+  };
+
+  const commitTime = async () => {
+    const t = notifyTimeText.trim();
+    if (!/^\d{1,2}:\d{2}$/.test(t)) {
+      Alert.alert('Invalid time', 'Use 24-hour HH:MM, e.g. 09:00 or 18:30.');
+      setNotifyTimeText(notify.time);
+      return;
+    }
+    await applyNotify({ time: t });
+  };
+
+  const commitLead = async () => {
+    const raw = notifyLeadText.trim();
+    const parsed = raw.split(',').map(x => parseInt(x.trim(), 10))
+      .filter(n => Number.isFinite(n) && n >= 0 && n <= 30);
+    if (parsed.length === 0) {
+      Alert.alert('Invalid lead days', 'Use comma-separated days, e.g. 0,1 or 0,1,7.');
+      setNotifyLeadText(notify.lead.join(','));
+      return;
+    }
+    const lead = [...new Set(parsed)].sort((a, b) => a - b);
+    setNotifyLeadText(lead.join(','));
+    await applyNotify({ lead });
+  };
+
+  const doTestNotification = async () => {
+    const granted = await requestNotificationPermissions();
+    setPermStatus(await getPermissionStatus());
+    if (!granted) {
+      Alert.alert('Permission needed', 'Enable notifications for The Forge in Android settings.');
+      return;
+    }
+    await sendTestNotification();
+    Alert.alert('Test sent', 'A notification should appear in about 5 seconds.');
   };
 
   return (
@@ -130,6 +203,69 @@ export default function SettingsPanel({ visible, onClose }) {
               to a file, or copy. Works with no token configured.
             </Text>
 
+            <Text style={styles.sectionTitle}>NOTIFICATIONS</Text>
+            <TouchableOpacity onPress={toggleNotify} style={styles.toggleRow}>
+              <View style={[styles.toggleBox, notify.enabled && styles.toggleBoxOn]}>
+                <Text style={styles.toggleMark}>{notify.enabled ? '✓' : ''}</Text>
+              </View>
+              <Text style={styles.toggleLabel}>
+                Remind me about due dates
+              </Text>
+            </TouchableOpacity>
+
+            {notify.enabled && (
+              <View>
+                <View style={styles.notifyRow}>
+                  <Text style={styles.notifyLabel}>Time</Text>
+                  <TextInput
+                    value={notifyTimeText}
+                    onChangeText={setNotifyTimeText}
+                    onBlur={commitTime}
+                    placeholder="09:00"
+                    placeholderTextColor={COLORS.textFaint}
+                    keyboardType="numbers-and-punctuation"
+                    style={styles.notifyInput}
+                  />
+                </View>
+                <View style={styles.notifyRow}>
+                  <Text style={styles.notifyLabel}>Days before</Text>
+                  <TextInput
+                    value={notifyLeadText}
+                    onChangeText={setNotifyLeadText}
+                    onBlur={commitLead}
+                    placeholder="0,1"
+                    placeholderTextColor={COLORS.textFaint}
+                    keyboardType="numbers-and-punctuation"
+                    style={styles.notifyInput}
+                  />
+                </View>
+                <Text style={styles.help}>
+                  Comma-separated. `0` is the due date itself, `1` the day
+                  before. Tasks and milestones both fire at this time; nothing
+                  fires for overdue or completed items.
+                </Text>
+              </View>
+            )}
+
+            <TouchableOpacity onPress={doTestNotification} style={styles.actionBtn}>
+              <Text style={styles.actionBtnText}>🔔 SEND TEST NOTIFICATION</Text>
+            </TouchableOpacity>
+            {scheduledInfo && (
+              <Text style={styles.help}>
+                {scheduledInfo.skipped
+                  ? `Not scheduled (${scheduledInfo.skipped}).`
+                  : `${scheduledInfo.scheduled} scheduled · ${scheduledInfo.tasks ?? 0} tasks, ` +
+                    `${scheduledInfo.milestones ?? 0} milestones` +
+                    (scheduledInfo.nextTitle ? ` · next: ${scheduledInfo.nextTitle}` : '')}
+              </Text>
+            )}
+            {permStatus !== 'granted' && (
+              <Text style={styles.help}>
+                Permission status: {permStatus}. Android must allow notifications
+                for reminders to fire.
+              </Text>
+            )}
+
             <Text style={styles.sectionTitle}>ABOUT</Text>
             <Text style={styles.about}>
               The Forge v{Constants.expoConfig?.version ?? '0.x'} · Greek calendar task
@@ -185,5 +321,21 @@ const styles = StyleSheet.create({
     marginBottom: 6,
   },
   actionBtnText: { fontSize: 10, fontFamily: FONTS.mono, letterSpacing: 1.5, color: COLORS.textSecondary },
+  toggleRow: { flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 10 },
+  toggleBox: {
+    width: 20, height: 20, borderRadius: 3, borderWidth: 1,
+    borderColor: COLORS.borderMid, alignItems: 'center', justifyContent: 'center',
+  },
+  toggleBoxOn: { borderColor: COLORS.accent, backgroundColor: `${COLORS.accent}22` },
+  toggleMark: { fontSize: 12, color: COLORS.accent },
+  toggleLabel: { fontSize: 13, color: COLORS.textPrimary, flex: 1 },
+  notifyRow: { flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 8 },
+  notifyLabel: { fontSize: 12, color: COLORS.textMuted, width: 96 },
+  notifyInput: {
+    flex: 1, backgroundColor: COLORS.bgSurface,
+    borderWidth: 1, borderColor: COLORS.borderMid, borderRadius: 4,
+    paddingHorizontal: 10, paddingVertical: 8,
+    fontSize: 13, color: COLORS.textPrimary,
+  },
   about: { fontSize: 11, fontFamily: FONTS.mono, color: COLORS.textMuted, lineHeight: 17 },
 });
