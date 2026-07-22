@@ -19,7 +19,7 @@ import { fileURLToPath, pathToFileURL } from 'url';
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const stage = mkdtempSync(join(tmpdir(), 'forge-test-'));
 
-for (const name of ['constants', 'model', 'sync', 'selectors', 'runeData']) {
+for (const name of ['constants', 'model', 'sync', 'selectors', 'runeData', 'notifySchedule']) {
   const src = readFileSync(join(root, 'lib', `${name}.js`), 'utf8')
     .replace(/from '\.\/model'/g, "from './model.mjs'")
     .replace(/from '\.\/constants'/g, "from './constants.mjs'");
@@ -38,6 +38,8 @@ const { mergeSyncFile, serializeTasks, SYNC_FILE_VERSION } =
   await import(pathToFileURL(join(stage, 'sync.mjs')).href);
 const { NU_2026_RUNE_ASSIGNMENTS, RUNE_GLYPHS } =
   await import(pathToFileURL(join(stage, 'runeData.mjs')).href);
+const { buildTriggers, parseTime, parseLead, summarize, CHANNELS, MAX_SCHEDULED } =
+  await import(pathToFileURL(join(stage, 'notifySchedule.mjs')).href);
 const { groupByStatus, isOverdue, tasksByDueDate, dashboardStats, isoWeekTag,
   taskById, isBlocked, childrenOf, subtaskProgress, topLevelTasks,
   milestoneProgress, milestonesByDueDate } =
@@ -343,6 +345,105 @@ ok(mergeSyncFile([mk('a', 100)], { tasks: [{ id: 'a', name: 'N', updatedAt: 200 
 const serR = serializeTasks([mk('a', 100)], 'Forge', [], [rune('rune_Fehu', 1)]);
 ok(Array.isArray(serR.runes) && serR.runes.length === 1, 'serialize includes runes when given');
 ok(!('runes' in serializeTasks([mk('a', 100)], 'Forge')), 'serialize omits runes when absent');
+
+// ══ Notifications: pure trigger construction ══
+const NOW = new Date(2026, 6, 18, 8, 0, 0);          // Sat Jul 18 2026, 08:00 local
+const tk = (id, due, extra = {}) => ({
+  id, name: id, dueDate: due, status: 'todo', completed: false,
+  deleted: false, goal: 'G1', priority: 'Mid', blockedBy: [], ...extra,
+});
+const mk_ms = (id, due, extra = {}) => ({
+  id, name: id, dueDate: due, completed: false, deleted: false,
+  goal: 'G3', msTag: 'MS8', ...extra,
+});
+const B = (o) => buildTriggers({ now: NOW, ...o });
+
+// parseTime
+ok(parseTime('09:00').h === 9 && parseTime('09:00').min === 0, 'parseTime basic');
+ok(parseTime('7:30').h === 7 && parseTime('7:30').min === 30, 'parseTime single-digit hour');
+ok(parseTime('bogus').h === 9, 'parseTime falls back to 09:00');
+ok(parseTime('99:99').h === 23 && parseTime('99:99').min === 59, 'parseTime clamps');
+
+// parseLead
+ok(parseLead('0,1').join(',') === '0,1', 'parseLead basic');
+ok(parseLead('3,1,1,0').join(',') === '0,1,3', 'parseLead dedupes + sorts');
+ok(parseLead('').join(',') === '0,1', 'parseLead empty -> default');
+ok(parseLead('abc').join(',') === '0,1', 'parseLead garbage -> default');
+ok(parseLead('99,-5,2').join(',') === '2', 'parseLead drops out-of-range');
+
+// lead offsets produce one trigger each
+let tr = B({ tasks: [tk('a', '2026-07-25')], lead: [0, 1, 3] });
+ok(tr.length === 3, `three leads -> three triggers, got ${tr.length}`);
+ok(tr[0].fireAt < tr[1].fireAt, 'sorted nearest-first');
+ok(tr[0].data.lead === 3, 'earliest trigger is the largest lead');
+
+// day wording
+tr = B({ tasks: [tk('a', '2026-07-25')], lead: [0, 1, 5] });
+ok(tr.find(x => x.data.lead === 0).body.startsWith('Due today'), 'lead 0 -> Due today');
+ok(tr.find(x => x.data.lead === 1).body.startsWith('Due tomorrow'), 'lead 1 -> Due tomorrow');
+ok(tr.find(x => x.data.lead === 5).body.startsWith('Due in 5 days'), 'lead 5 -> Due in 5 days');
+
+// past triggers dropped; today-at-09:00 still ahead of 08:00 now
+tr = B({ tasks: [tk('a', '2026-07-18')], lead: [0, 1], time: '09:00' });
+ok(tr.length === 1 && tr[0].data.lead === 0, 'yesterday-lead dropped, today 09:00 kept');
+tr = B({ tasks: [tk('a', '2026-07-18')], lead: [0], time: '07:00' });
+ok(tr.length === 0, 'today but time already passed -> dropped');
+
+// overdue tasks never schedule
+ok(B({ tasks: [tk('a', '2026-07-01')], lead: [0, 1] }).length === 0, 'overdue -> no triggers');
+
+// completed / deleted / undated excluded
+ok(B({ tasks: [tk('a', '2026-07-25', { status: 'done' })] }).length === 0, 'done excluded');
+ok(B({ tasks: [tk('a', '2026-07-25', { completed: true })] }).length === 0, 'completed flag excluded');
+ok(B({ tasks: [tk('a', '2026-07-25', { deleted: true })] }).length === 0, 'deleted excluded');
+ok(B({ tasks: [tk('a', '')] }).length === 0, 'no due date -> no trigger');
+
+// horizon
+ok(B({ tasks: [tk('a', '2027-01-01')], lead: [0] }).length === 0, 'beyond 90-day horizon dropped');
+
+// blocked marker
+const blockedSet = [tk('a', '2026-07-25', { blockedBy: ['b'] }), tk('b', '2026-08-01')];
+ok(B({ tasks: blockedSet, lead: [0] }).find(x => x.data.taskId === 'a').body.includes('blocked'),
+   'blocked task marked');
+const unblockedSet = [tk('a', '2026-07-25', { blockedBy: ['b'] }), tk('b', '2026-08-01', { status: 'done' })];
+ok(!B({ tasks: unblockedSet, lead: [0] }).find(x => x.data.taskId === 'a').body.includes('blocked'),
+   'dependency done -> not blocked');
+const ghostSet = [tk('a', '2026-07-25', { blockedBy: ['nonexistent'] })];
+ok(!B({ tasks: ghostSet, lead: [0] })[0].body.includes('blocked'), 'stale blockedBy id ignored');
+
+// milestones use their own channel and prefix
+tr = B({ milestones: [mk_ms('m1', '2026-07-25')], lead: [0] });
+ok(tr[0].channelId === CHANNELS.milestones, 'milestone channel');
+ok(tr[0].title.startsWith('Milestone: '), 'milestone title prefixed');
+ok(tr[0].body.includes('MS8'), 'milestone body carries msTag');
+
+// tasks and milestones interleave by time
+tr = B({ tasks: [tk('t1', '2026-07-30')], milestones: [mk_ms('m1', '2026-07-20')], lead: [0] });
+ok(tr[0].data.kind === 'milestone', 'earlier milestone sorts before later task');
+
+// cap
+const many = Array.from({ length: 60 }, (_, i) =>
+  tk('t' + i, `2026-08-${String((i % 28) + 1).padStart(2, '0')}`));
+ok(B({ tasks: many, lead: [0, 1] }).length === MAX_SCHEDULED, `capped at ${MAX_SCHEDULED}`);
+
+// deterministic
+const once = B({ tasks: many, lead: [0, 1] }).map(x => x.id).join('|');
+const twice = B({ tasks: many, lead: [0, 1] }).map(x => x.id).join('|');
+ok(once === twice, 'buildTriggers is deterministic');
+
+// ids unique
+const idset = new Set(B({ tasks: many, lead: [0, 1] }).map(x => x.id));
+ok(idset.size === MAX_SCHEDULED, 'trigger ids unique');
+
+// configured time respected
+tr = B({ tasks: [tk('a', '2026-07-25')], lead: [0], time: '18:45' });
+ok(tr[0].fireAt.getHours() === 18 && tr[0].fireAt.getMinutes() === 45, 'custom time honoured');
+
+// summarize
+const s = summarize(B({ tasks: [tk('t1', '2026-07-25')], milestones: [mk_ms('m1', '2026-07-22')], lead: [0] }));
+ok(s.total === 2 && s.tasks === 1 && s.milestones === 1, 'summarize counts');
+ok(s.nextTitle.startsWith('Milestone: '), 'summarize next is soonest');
+ok(summarize([]).total === 0 && summarize([]).nextAt === null, 'summarize empty');
 
 console.log(`\n${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);
