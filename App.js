@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, Component } from 'react';
+import { useState, useEffect, useCallback, Component, useRef } from 'react';
 import {
   View, Text, StatusBar, StyleSheet, FlatList, TextInput,
   TouchableOpacity, ScrollView, Alert,
@@ -24,6 +24,7 @@ import KanbanView from './components/KanbanView';
 import CalendarView from './components/CalendarView';
 import DashboardView from './components/DashboardView';
 import RunesView from './components/RunesView';
+import { requestNotificationPermissions, refreshAllNotifications } from './lib/notifications';
 
 // ─── ErrorBoundary: crashes render on-screen, never a silent kick-out ───
 class ErrorBoundary extends Component {
@@ -80,12 +81,24 @@ function AppContent() {
 
   const today = todayISO();
 
+  // Notification refresh is a cancel-all + reschedule of up to 48 alarms, so
+  // it is debounced rather than run on every reload().
+  const notifyTimer = useRef(null);
+  const scheduleNotifyRefresh = useCallback(() => {
+    if (notifyTimer.current) clearTimeout(notifyTimer.current);
+    notifyTimer.current = setTimeout(() => {
+      refreshAllNotifications().catch(e =>
+        console.warn('[Forge] notification refresh failed:', e?.message));
+    }, 2000);
+  }, []);
+
   const reload = useCallback(async () => {
     const [t, m, r] = await Promise.all([getAllTasks(), getAllMilestones(), getAllRunes()]);
     setTasks(t);
     setMilestones(m);
     setRunes(r);
-  }, []);
+    scheduleNotifyRefresh();
+  }, [scheduleNotifyRefresh]);
 
   const runSync = useCallback(async (quiet = false) => {
     setSyncing(true);
@@ -129,6 +142,7 @@ function AppContent() {
       try {
         await initDatabase();
         await ensureRunesSeeded();
+        await requestNotificationPermissions();
         await reload();
       } catch (e) {
         console.warn('Init failed', e);
