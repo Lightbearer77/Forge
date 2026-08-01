@@ -42,7 +42,9 @@ const { buildTriggers, parseTime, parseLead, summarize, CHANNELS, MAX_SCHEDULED 
   await import(pathToFileURL(join(stage, 'notifySchedule.mjs')).href);
 const { groupByStatus, isOverdue, tasksByDueDate, dashboardStats, isoWeekTag,
   taskById, isBlocked, childrenOf, subtaskProgress, topLevelTasks,
-  milestoneProgress, milestonesByDueDate, sortTasksForList, SORT_MODES } =
+  milestoneProgress, milestonesByDueDate, sortTasksForList, SORT_MODES,
+  buildProjects, tasksInProject, milestonesInProject, milestoneProjectId,
+  sectionByTaskId, projectLabel, UNSORTED_ID } =
   await import(pathToFileURL(join(stage, 'selectors.mjs')).href);
 
 let pass = 0, fail = 0;
@@ -292,6 +294,71 @@ const tieSet = [
 for (const mode of SORT_MODES) {
   ok(sortTasksForList(tieSet, mode).map(t => t.id).join(',') === 'b,a', `${mode} mode ties break on sortOrder`);
 }
+
+
+// ── Projects (adopt-first on the section field) ──
+const pT = (id, section, extra = {}) =>
+  normalizeTask({ id, name: id, section, updatedAt: 1, createdAt: 1, ...extra });
+
+ok(projectLabel('') === 'Unsorted' && projectLabel('Home Server') === 'Home Server', 'projectLabel');
+ok(UNSORTED_ID === '', 'UNSORTED_ID is the empty section');
+
+const projTasks = [
+  pT('a', 'Home Server', { goal: 'G1', status: 'done',  dueDate: '2026-07-01' }),
+  pT('b', 'Home Server', { goal: 'G1', status: 'todo',  dueDate: '2026-07-01' }), // overdue
+  pT('c', 'Home Server', { goal: 'G3', status: 'in-progress' }),                  // minority goal
+  pT('d', 'Health',      { goal: 'G3', status: 'todo' }),
+  pT('e', '',            { goal: 'G4', status: 'todo' }),                         // unsorted
+];
+const projMs = [
+  normalizeMilestone({ id: 'm1', name: 'M1', taskIds: ['a', 'b'], completed: true,  updatedAt: 1 }),
+  normalizeMilestone({ id: 'm2', name: 'M2', taskIds: ['d'],      completed: false, updatedAt: 1 }),
+  normalizeMilestone({ id: 'm3', name: 'M3', taskIds: [],         completed: false, updatedAt: 1 }),
+  normalizeMilestone({ id: 'm4', name: 'M4', taskIds: ['ghost'],  completed: false, updatedAt: 1 }),
+];
+
+const projs = buildProjects(projTasks, projMs, '2026-07-12');
+const P = (id) => projs.find(p => p.id === id);
+ok(projs.length === 3, `three projects, got ${projs.length}`);
+
+const hs = P('Home Server');
+ok(hs.total === 3 && hs.done === 1 && hs.open === 2, `Home Server counts: ${JSON.stringify(hs)}`);
+ok(hs.inProgress === 1, 'inProgress counted');
+ok(hs.overdue === 1, 'overdue counts only open past-due (done one excluded)');
+ok(hs.goal === 'G1' && hs.mixedGoals === true, 'dominant goal wins, mix flagged');
+ok(Math.abs(hs.progress - 1 / 3) < 1e-9, 'progress = done/total');
+ok(hs.msTotal === 1 && hs.msDone === 1, 'milestone derived onto Home Server via linked tasks');
+
+ok(P('Health').mixedGoals === false, 'single-goal project not flagged mixed');
+ok(P('').name === 'Unsorted', 'empty section bucket labeled Unsorted');
+ok(projs[projs.length - 1].id === UNSORTED_ID, 'Unsorted pinned last regardless of size');
+ok(projs[0].id === 'Home Server', 'projects sorted by open desc');
+
+// every live task lands in exactly one project — nothing silently vanishes
+ok(projs.reduce((a, p) => a + p.total, 0) === projTasks.length, 'task coverage is total');
+
+// tombstones excluded
+const withDead = buildProjects([...projTasks, pT('z', 'Home Server', { deleted: true })], [], '2026-07-12');
+ok(withDead.find(p => p.id === 'Home Server').total === 3, 'tombstoned tasks excluded');
+
+// milestone derivation rules
+const secBy = sectionByTaskId(projTasks);
+ok(milestoneProjectId(projMs[0], secBy) === 'Home Server', 'milestone derives from linked task section');
+ok(milestoneProjectId(projMs[2], secBy) === null, 'no links -> null, not Unsorted');
+ok(milestoneProjectId(projMs[3], secBy) === null, 'only stale links -> null');
+const split = normalizeMilestone({ id: 'm5', name: 'M5', taskIds: ['a', 'b', 'd'], updatedAt: 1 });
+ok(milestoneProjectId(split, secBy) === 'Home Server', 'split milestone goes to most-linked section');
+const tie = normalizeMilestone({ id: 'm6', name: 'M6', taskIds: ['c', 'd'], updatedAt: 1 });
+ok(milestoneProjectId(tie, secBy) === 'Health', 'tie breaks alphabetically (deterministic)');
+
+// membership helpers
+ok(tasksInProject(projTasks, 'Home Server').map(t => t.id).join(',') === 'a,b,c', 'tasksInProject');
+ok(tasksInProject(projTasks, '').map(t => t.id).join(',') === 'e', 'tasksInProject unsorted');
+ok(milestonesInProject(projMs, projTasks, 'Home Server').map(m => m.id).join(',') === 'm1', 'milestonesInProject');
+ok(milestonesInProject(projMs, projTasks, '').length === 0, 'unlinked milestones do not fall into Unsorted');
+
+// empty inputs are safe
+ok(buildProjects([], []).length === 0, 'no tasks -> no projects');
 
 // ══ 5. Milestones: model + merge + progress ══
 const wm = fromWebMilestone({ id: 'ms4_04', name: 'Habit tracker configured', goal: 'G1',
