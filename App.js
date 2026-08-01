@@ -8,7 +8,10 @@ import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-cont
 
 import { COLORS, FONTS, GOAL_COLORS } from './lib/theme';
 import { fmtGreekLong, todayISO } from './lib/constants';
-import { taskById, childrenOf, topLevelTasks, subtaskProgress, isBlocked } from './lib/selectors';
+import {
+  taskById, childrenOf, topLevelTasks, subtaskProgress, isBlocked,
+  sortTasksForList, SORT_MODES, SORT_LABELS,
+} from './lib/selectors';
 import { GOALS, newTask, newMilestone } from './lib/model';
 import {
   initDatabase, getAllTasks, saveTask, saveTasks, deleteTask,
@@ -63,8 +66,6 @@ const VIEWS = [
   { id: 'runes',    label: 'ᛟ' },
 ];
 
-const STATUS_ORDER = { 'in-progress': 0, todo: 1, backlog: 2, done: 3 };
-
 function AppContent() {
   const insets = useSafeAreaInsets();
   const [tasks, setTasks] = useState([]);
@@ -78,6 +79,8 @@ function AppContent() {
   const [runes, setRunes] = useState([]);
   const [msEditing, setMsEditing] = useState(null); // { ms, isNew }
   const [showSettings, setShowSettings] = useState(false);
+  const [sortBy, setSortBy] = useState('due');
+  const [sortMenuOpen, setSortMenuOpen] = useState(false);
 
   const today = todayISO();
 
@@ -255,11 +258,7 @@ function AppContent() {
   const childMap = childrenOf(tasks);
   const topTasks = topLevelTasks(tasks);
 
-  const sorted = [...topTasks].sort((a, b) =>
-    (STATUS_ORDER[a.status] ?? 9) - (STATUS_ORDER[b.status] ?? 9)
-    || (a.sortOrder - b.sortOrder)
-    || (a.createdAt - b.createdAt)
-  );
+  const sorted = sortTasksForList(topTasks, sortBy);
 
   if (!ready) {
     return <View style={[styles.container, { paddingTop: insets.top }]} />;
@@ -304,6 +303,35 @@ function AppContent() {
 
       {viewMode === 'list' && (
         <>
+          <View style={styles.listControls}>
+            <TouchableOpacity
+              onPress={() => setSortMenuOpen(o => !o)}
+              style={styles.sortTrigger}
+            >
+              <Text style={styles.sortTriggerText}>
+                SORT: {SORT_LABELS[sortBy].toUpperCase()} {sortMenuOpen ? '▴' : '▾'}
+              </Text>
+            </TouchableOpacity>
+            {sortMenuOpen && (
+              <View style={styles.sortMenu}>
+                {SORT_MODES.map(mode => (
+                  <TouchableOpacity
+                    key={mode}
+                    onPress={() => { setSortBy(mode); setSortMenuOpen(false); }}
+                    style={styles.sortMenuItem}
+                  >
+                    <Text style={[
+                      styles.sortMenuItemText,
+                      mode === sortBy && { color: COLORS.accent },
+                    ]}>
+                      {SORT_LABELS[mode]}
+                    </Text>
+                  </TouchableOpacity>
+                ))}
+              </View>
+            )}
+          </View>
+
           <View style={styles.addRow}>
             <TouchableOpacity
               onPress={cycleDraftGoal}
@@ -477,6 +505,50 @@ const styles = StyleSheet.create({
     fontFamily: FONTS.mono,
     letterSpacing: 2,
     color: COLORS.textMuted,
+  },
+  listControls: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    paddingHorizontal: 12,
+    paddingTop: 6,
+    position: 'relative',
+    zIndex: 10,
+  },
+  sortTrigger: {
+    borderWidth: 1,
+    borderColor: COLORS.borderMid,
+    borderRadius: 4,
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+    backgroundColor: COLORS.bgSurface,
+  },
+  sortTriggerText: {
+    fontSize: 9,
+    fontFamily: FONTS.mono,
+    letterSpacing: 1,
+    color: COLORS.textSecondary,
+  },
+  sortMenu: {
+    position: 'absolute',
+    top: 32,
+    right: 12,
+    backgroundColor: COLORS.bgElevated,
+    borderWidth: 1,
+    borderColor: COLORS.borderMid,
+    borderRadius: 4,
+    paddingVertical: 4,
+    minWidth: 130,
+    zIndex: 20,
+  },
+  sortMenuItem: {
+    paddingHorizontal: 12,
+    paddingVertical: 9,
+  },
+  sortMenuItemText: {
+    fontSize: 11,
+    fontFamily: FONTS.mono,
+    letterSpacing: 1,
+    color: COLORS.textSecondary,
   },
   addRow: {
     flexDirection: 'row',
