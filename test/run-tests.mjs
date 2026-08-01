@@ -44,7 +44,8 @@ const { groupByStatus, isOverdue, tasksByDueDate, dashboardStats, isoWeekTag,
   taskById, isBlocked, childrenOf, subtaskProgress, topLevelTasks,
   milestoneProgress, milestonesByDueDate, sortTasksForList, SORT_MODES,
   buildProjects, tasksInProject, milestonesInProject, milestoneProjectId,
-  sectionByTaskId, projectLabel, UNSORTED_ID } =
+  sectionByTaskId, projectLabel, UNSORTED_ID,
+  matchesSearch, searchTasks } =
   await import(pathToFileURL(join(stage, 'selectors.mjs')).href);
 
 let pass = 0, fail = 0;
@@ -359,6 +360,47 @@ ok(milestonesInProject(projMs, projTasks, '').length === 0, 'unlinked milestones
 
 // empty inputs are safe
 ok(buildProjects([], []).length === 0, 'no tasks -> no projects');
+
+
+// ── Search ──
+const sT = (id, name, extra = {}) =>
+  normalizeTask({ id, name, updatedAt: 1, createdAt: 1, ...extra });
+
+const searchSet = [
+  sT('a', 'Confirm HSA at IRS limit', { section: 'Financial & Legal' }),
+  sT('b', 'Home server chain audit',  { section: 'Home Server', notes: 'check the HSA cable too' }),
+  sT('c', 'Review protective order',  { section: 'Longhouse & Tribe' }),
+  sT('d', 'Deleted HSA task',         { section: 'Financial & Legal', deleted: true }),
+];
+
+ok(matchesSearch(searchSet[0], 'hsa') === true, 'matchesSearch case-insensitive on name');
+ok(matchesSearch(searchSet[0], 'HSA') === true, 'matchesSearch case-insensitive query');
+ok(matchesSearch(searchSet[1], 'hsa') === true, 'matchesSearch matches notes too');
+ok(matchesSearch(searchSet[2], 'hsa') === false, 'matchesSearch: no match returns false');
+ok(matchesSearch(searchSet[0], '  ') === true, 'matchesSearch: blank/whitespace query matches everything');
+ok(matchesSearch(searchSet[0], '') === true, 'matchesSearch: empty query matches everything');
+
+const hits = searchTasks(searchSet, 'hsa');
+ok(hits.map(t => t.id).join(',') === 'a,b', `searchTasks name+notes match, tombstone excluded: ${hits.map(t=>t.id)}`);
+ok(searchTasks(searchSet, 'HSA').map(t => t.id).join(',') === 'a,b', 'searchTasks case-insensitive');
+ok(searchTasks(searchSet, 'nonexistentxyz').length === 0, 'searchTasks: no matches -> empty array');
+ok(searchTasks(searchSet, '').length === 3, 'searchTasks: empty query -> all live tasks, tombstones excluded');
+ok(searchTasks(searchSet, '   ').length === 3, 'searchTasks: whitespace-only query -> all live tasks');
+
+// section field is searchable — finding a project by name finds its tasks
+ok(searchTasks(searchSet, 'Longhouse').map(t => t.id).join(',') === 'c', 'searchTasks matches section field');
+
+// subtasks are searchable even though the unfiltered List view only shows
+// top-level tasks — search must not be scoped to topLevelTasks
+const withSub = [
+  sT('parent', 'Home server build'),
+  normalizeTask({ id: 'child', name: 'Order DDR5 RAM', parentId: 'parent', updatedAt: 1, createdAt: 1 }),
+];
+ok(searchTasks(withSub, 'DDR5').map(t => t.id).join(',') === 'child', 'searchTasks reaches subtasks, not just top-level');
+
+// searchTasks composes with sortTasksForList exactly like the List view does
+const composed = sortTasksForList(searchTasks(searchSet, 'hsa'), 'goal');
+ok(composed.length === 2, 'search + sort composes cleanly');
 
 // ══ 5. Milestones: model + merge + progress ══
 const wm = fromWebMilestone({ id: 'ms4_04', name: 'Habit tracker configured', goal: 'G1',
