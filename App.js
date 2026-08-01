@@ -27,6 +27,8 @@ import KanbanView from './components/KanbanView';
 import CalendarView from './components/CalendarView';
 import DashboardView from './components/DashboardView';
 import RunesView from './components/RunesView';
+import ProjectSidebar from './components/ProjectSidebar';
+import ProjectDetailView from './components/ProjectDetailView';
 import { requestNotificationPermissions, refreshAllNotifications } from './lib/notifications';
 
 // ─── ErrorBoundary: crashes render on-screen, never a silent kick-out ───
@@ -81,6 +83,8 @@ function AppContent() {
   const [showSettings, setShowSettings] = useState(false);
   const [sortBy, setSortBy] = useState('due');
   const [sortMenuOpen, setSortMenuOpen] = useState(false);
+  const [showProjects, setShowProjects] = useState(false);
+  const [activeProjectId, setActiveProjectId] = useState(null);
 
   const today = todayISO();
 
@@ -274,6 +278,9 @@ function AppContent() {
           <Text style={styles.subtitle}>{fmtGreekLong(today)}</Text>
         </View>
         <View style={{ flexDirection: 'row', gap: 8 }}>
+          <TouchableOpacity onPress={() => setShowProjects(true)} style={styles.syncBtn}>
+            <Text style={styles.syncBtnText}>☰</Text>
+          </TouchableOpacity>
           <TouchableOpacity
             onPress={() => runSync(false)}
             disabled={syncing}
@@ -415,6 +422,30 @@ function AppContent() {
           onOpenTask={(t) => setEditing({ task: t, isNew: false })}
           onToggleChild={toggleDone}
           onCreateSubtask={createSubtask}
+        />
+      )}
+
+      <ProjectSidebar
+        visible={showProjects}
+        tasks={tasks}
+        milestones={milestones}
+        today={today}
+        activeId={activeProjectId}
+        onSelect={(p) => { setActiveProjectId(p.id); setShowProjects(false); }}
+        onClose={() => setShowProjects(false)}
+      />
+
+      {activeProjectId !== null && (
+        <ProjectDetailView
+          projectId={activeProjectId}
+          tasks={tasks}
+          milestones={milestones}
+          today={today}
+          onEditTask={openEditor}
+          onToggleTask={toggleDone}
+          onEditMilestone={openMilestone}
+          onToggleMilestone={toggleMilestone}
+          onClose={() => setActiveProjectId(null)}
         />
       )}
 
