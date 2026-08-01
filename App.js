@@ -10,7 +10,7 @@ import { COLORS, FONTS, GOAL_COLORS } from './lib/theme';
 import { fmtGreekLong, todayISO } from './lib/constants';
 import {
   taskById, childrenOf, topLevelTasks, subtaskProgress, isBlocked,
-  sortTasksForList, SORT_MODES, SORT_LABELS,
+  sortTasksForList, SORT_MODES, SORT_LABELS, searchTasks,
 } from './lib/selectors';
 import { GOALS, newTask, newMilestone } from './lib/model';
 import {
@@ -85,6 +85,7 @@ function AppContent() {
   const [sortMenuOpen, setSortMenuOpen] = useState(false);
   const [showProjects, setShowProjects] = useState(false);
   const [activeProjectId, setActiveProjectId] = useState(null);
+  const [searchQuery, setSearchQuery] = useState('');
 
   const today = todayISO();
 
@@ -261,8 +262,10 @@ function AppContent() {
   const byId = taskById(tasks);
   const childMap = childrenOf(tasks);
   const topTasks = topLevelTasks(tasks);
+  const isSearching = searchQuery.trim().length > 0;
+  const listSource = isSearching ? searchTasks(tasks, searchQuery) : topTasks;
 
-  const sorted = sortTasksForList(topTasks, sortBy);
+  const sorted = sortTasksForList(listSource, sortBy);
 
   if (!ready) {
     return <View style={[styles.container, { paddingTop: insets.top }]} />;
@@ -311,33 +314,61 @@ function AppContent() {
       {viewMode === 'list' && (
         <>
           <View style={styles.listControls}>
-            <TouchableOpacity
-              onPress={() => setSortMenuOpen(o => !o)}
-              style={styles.sortTrigger}
-            >
-              <Text style={styles.sortTriggerText}>
-                SORT: {SORT_LABELS[sortBy].toUpperCase()} {sortMenuOpen ? '▴' : '▾'}
-              </Text>
-            </TouchableOpacity>
-            {sortMenuOpen && (
-              <View style={styles.sortMenu}>
-                {SORT_MODES.map(mode => (
-                  <TouchableOpacity
-                    key={mode}
-                    onPress={() => { setSortBy(mode); setSortMenuOpen(false); }}
-                    style={styles.sortMenuItem}
-                  >
-                    <Text style={[
-                      styles.sortMenuItemText,
-                      mode === sortBy && { color: COLORS.accent },
-                    ]}>
-                      {SORT_LABELS[mode]}
-                    </Text>
-                  </TouchableOpacity>
-                ))}
-              </View>
-            )}
+            <View style={styles.searchWrap}>
+              <Text style={styles.searchIcon}>⌕</Text>
+              <TextInput
+                value={searchQuery}
+                onChangeText={setSearchQuery}
+                placeholder="Search tasks…"
+                placeholderTextColor={COLORS.textFaint}
+                style={styles.searchInput}
+                returnKeyType="search"
+              />
+              {isSearching && (
+                <TouchableOpacity
+                  onPress={() => setSearchQuery('')}
+                  hitSlop={{ top: 10, bottom: 10, left: 8, right: 10 }}
+                >
+                  <Text style={styles.searchClear}>✕</Text>
+                </TouchableOpacity>
+              )}
+            </View>
+
+            <View style={styles.sortWrap}>
+              <TouchableOpacity
+                onPress={() => setSortMenuOpen(o => !o)}
+                style={styles.sortTrigger}
+              >
+                <Text style={styles.sortTriggerText}>
+                  SORT: {SORT_LABELS[sortBy].toUpperCase()} {sortMenuOpen ? '▴' : '▾'}
+                </Text>
+              </TouchableOpacity>
+              {sortMenuOpen && (
+                <View style={styles.sortMenu}>
+                  {SORT_MODES.map(mode => (
+                    <TouchableOpacity
+                      key={mode}
+                      onPress={() => { setSortBy(mode); setSortMenuOpen(false); }}
+                      style={styles.sortMenuItem}
+                    >
+                      <Text style={[
+                        styles.sortMenuItemText,
+                        mode === sortBy && { color: COLORS.accent },
+                      ]}>
+                        {SORT_LABELS[mode]}
+                      </Text>
+                    </TouchableOpacity>
+                  ))}
+                </View>
+              )}
+            </View>
           </View>
+
+          {isSearching && (
+            <Text style={styles.resultCount}>
+              {sorted.length} result{sorted.length === 1 ? '' : 's'} for "{searchQuery.trim()}"
+            </Text>
+          )}
 
           <View style={styles.addRow}>
             <TouchableOpacity
@@ -379,7 +410,9 @@ function AppContent() {
             )}
             ListEmptyComponent={
               <Text style={styles.empty}>
-                Nothing on the anvil. Add a task, or Sync to pull forge-sync.json.
+                {isSearching
+                  ? `No tasks match "${searchQuery.trim()}".`
+                  : 'Nothing on the anvil. Add a task, or Sync to pull forge-sync.json.'}
               </Text>
             }
           />
@@ -539,11 +572,49 @@ const styles = StyleSheet.create({
   },
   listControls: {
     flexDirection: 'row',
-    justifyContent: 'flex-end',
+    alignItems: 'center',
+    justifyContent: 'space-between',
     paddingHorizontal: 12,
     paddingTop: 6,
-    position: 'relative',
+    gap: 8,
     zIndex: 10,
+  },
+  searchWrap: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: COLORS.bgSurface,
+    borderWidth: 1,
+    borderColor: COLORS.borderMid,
+    borderRadius: 4,
+    paddingHorizontal: 10,
+  },
+  searchIcon: {
+    fontSize: 13,
+    color: COLORS.textFaint,
+    marginRight: 6,
+  },
+  searchInput: {
+    flex: 1,
+    paddingVertical: 7,
+    fontSize: 12,
+    color: COLORS.textPrimary,
+  },
+  searchClear: {
+    fontSize: 12,
+    color: COLORS.textFaint,
+    paddingLeft: 6,
+  },
+  resultCount: {
+    fontSize: 9,
+    fontFamily: FONTS.mono,
+    letterSpacing: 0.5,
+    color: COLORS.textFaint,
+    paddingHorizontal: 12,
+    paddingTop: 5,
+  },
+  sortWrap: {
+    position: 'relative',
   },
   sortTrigger: {
     borderWidth: 1,
@@ -562,7 +633,7 @@ const styles = StyleSheet.create({
   sortMenu: {
     position: 'absolute',
     top: 32,
-    right: 12,
+    right: 0,
     backgroundColor: COLORS.bgElevated,
     borderWidth: 1,
     borderColor: COLORS.borderMid,
