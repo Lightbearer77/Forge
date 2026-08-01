@@ -42,7 +42,7 @@ const { buildTriggers, parseTime, parseLead, summarize, CHANNELS, MAX_SCHEDULED 
   await import(pathToFileURL(join(stage, 'notifySchedule.mjs')).href);
 const { groupByStatus, isOverdue, tasksByDueDate, dashboardStats, isoWeekTag,
   taskById, isBlocked, childrenOf, subtaskProgress, topLevelTasks,
-  milestoneProgress, milestonesByDueDate } =
+  milestoneProgress, milestonesByDueDate, sortTasksForList, SORT_MODES } =
   await import(pathToFileURL(join(stage, 'selectors.mjs')).href);
 
 let pass = 0, fail = 0;
@@ -242,6 +242,56 @@ ok(isoWeekTag('2026-07-12') === 'W28', `W tag Jul12 Sun: ${isoWeekTag('2026-07-1
 ok(isoWeekTag('2026-07-13') === 'W29', `W tag Jul13 Mon: ${isoWeekTag('2026-07-13')}`);
 ok(isoWeekTag('2026-12-28') === 'W53', `W tag Dec28 (53-week year): ${isoWeekTag('2026-12-28')}`);
 ok(isoWeekTag('2027-01-04') === 'W01', `W tag 2027 W1 start: ${isoWeekTag('2027-01-04')}`);
+
+// ── List view sorting ──
+ok(SORT_MODES.length === 4 && SORT_MODES.includes('due') && SORT_MODES.includes('manual'), 'SORT_MODES shape');
+
+const sTask = (id, extra = {}) => normalizeTask({ id, name: id, updatedAt: 1, createdAt: 1, ...extra });
+const dueSet = [
+  sTask('nodate1'),
+  sTask('late',  { dueDate: '2026-08-01' }),
+  sTask('early', { dueDate: '2026-07-10' }),
+  sTask('mid',   { dueDate: '2026-07-20' }),
+  sTask('nodate2'),
+];
+const byDue = sortTasksForList(dueSet, 'due');
+ok(byDue.map(t => t.id).slice(0, 3).join(',') === 'early,mid,late', `due ascending: ${byDue.map(t=>t.id)}`);
+ok(byDue.slice(3).every(t => !t.dueDate), 'undated tasks sort after all dated ones');
+ok(dueSet[0].dueDate === '' && dueSet[1].dueDate === '2026-08-01', 'sortTasksForList does not mutate input order');
+
+const goalSet = [
+  sTask('a', { goal: 'G3', sortOrder: 0 }),
+  sTask('b', { goal: 'G1', sortOrder: 1 }),
+  sTask('c', { goal: 'G4', sortOrder: 0 }),
+  sTask('d', { goal: 'G2', sortOrder: 0 }),
+];
+ok(sortTasksForList(goalSet, 'goal').map(t => t.goal).join(',') === 'G1,G2,G3,G4', 'goal mode orders G1..G4');
+
+const statusSet = [
+  sTask('a', { status: 'done' }),
+  sTask('b', { status: 'backlog' }),
+  sTask('c', { status: 'in-progress' }),
+  sTask('d', { status: 'todo' }),
+];
+ok(sortTasksForList(statusSet, 'status').map(t => t.status).join(',') === 'in-progress,todo,backlog,done',
+   'status mode: in-progress first, done last');
+
+const manualSet = [
+  sTask('a', { sortOrder: 2, createdAt: 1 }),
+  sTask('b', { sortOrder: 0, createdAt: 5 }),
+  sTask('c', { sortOrder: 0, createdAt: 2 }),
+];
+ok(sortTasksForList(manualSet, 'manual').map(t => t.id).join(',') === 'c,b,a',
+   'manual mode: sortOrder then createdAt tiebreak');
+
+// every mode falls through to the manual tiebreak on a full tie
+const tieSet = [
+  sTask('a', { sortOrder: 1, createdAt: 1, dueDate: '2026-07-10', goal: 'G1', status: 'todo' }),
+  sTask('b', { sortOrder: 0, createdAt: 1, dueDate: '2026-07-10', goal: 'G1', status: 'todo' }),
+];
+for (const mode of SORT_MODES) {
+  ok(sortTasksForList(tieSet, mode).map(t => t.id).join(',') === 'b,a', `${mode} mode ties break on sortOrder`);
+}
 
 // ══ 5. Milestones: model + merge + progress ══
 const wm = fromWebMilestone({ id: 'ms4_04', name: 'Habit tracker configured', goal: 'G1',
