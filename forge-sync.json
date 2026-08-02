@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "lastUpdated": "2026-07-21T00:24:06.380Z",
+  "lastUpdated": "2026-08-02T04:15:49.251964Z",
   "updatedBy": "Claude",
   "tasks": [
     {
@@ -29,29 +29,8 @@
     },
     {
       "id": "t_seed_ddr5_ram",
-      "name": "Procure DDR5 RAM for home server (used market, under $200)",
-      "notes": "",
-      "goal": "G1",
-      "priority": "Mid",
-      "status": "todo",
-      "section": "",
-      "level": 0,
-      "month": "M07",
-      "week": "",
-      "startDate": "",
-      "dueDate": "",
-      "parentId": "",
-      "blockedBy": [
-        "t_seed_first_sync"
-      ],
-      "milestone": false,
-      "recurrence": "none",
-      "completed": false,
-      "completedAt": "",
-      "sortOrder": 0,
-      "deleted": false,
-      "createdAt": 1783895268353,
-      "updatedAt": 1783987557210
+      "updatedAt": 1785644143494,
+      "deleted": true
     },
     {
       "id": "t_seed_first_sync",
@@ -199,7 +178,7 @@
     },
     {
       "id": "p01",
-      "name": "Set up SimpleLogin — create account, verify alias domain, test one alias end-to-end",
+      "name": "Set up SimpleLogin \u2014 create account, verify alias domain, test one alias end-to-end",
       "notes": "Free tier tested and confirmed working end-to-end. Paid subscription to activate May 2026.",
       "goal": "G1",
       "priority": "High",
@@ -927,7 +906,7 @@
     {
       "id": "t1_25",
       "name": "Migrate: ADP",
-      "notes": "May be IT-controlled — attempt migration, escalate to IT if blocked.",
+      "notes": "May be IT-controlled \u2014 attempt migration, escalate to IT if blocked.",
       "goal": "G1",
       "priority": "High",
       "status": "backlog",
@@ -953,7 +932,7 @@
     {
       "id": "t1_26",
       "name": "Migrate: Northgrum",
-      "notes": "May be IT-controlled — attempt migration, escalate to IT if blocked.",
+      "notes": "May be IT-controlled \u2014 attempt migration, escalate to IT if blocked.",
       "goal": "G1",
       "priority": "High",
       "status": "backlog",
@@ -1134,7 +1113,7 @@
     },
     {
       "id": "t2_01",
-      "name": "Migrate T2: Financial — Venmo, Robinhood, Webull, Public, YNAB, Mint, Pocketguard, APMEX, Money Metals Exchange",
+      "name": "Migrate T2: Financial \u2014 Venmo, Robinhood, Webull, Public, YNAB, Mint, Pocketguard, APMEX, Money Metals Exchange",
       "notes": "",
       "goal": "G1",
       "priority": "High",
@@ -1160,7 +1139,7 @@
     },
     {
       "id": "t2_02",
-      "name": "Migrate T2: Utilities — Conservice, Dominion Energy, Rocky Mountain Power, Enbridge Gas, T-Mobile, Intermountain Billpay",
+      "name": "Migrate T2: Utilities \u2014 Conservice, Dominion Energy, Rocky Mountain Power, Enbridge Gas, T-Mobile, Intermountain Billpay",
       "notes": "",
       "goal": "G1",
       "priority": "High",
@@ -1186,7 +1165,7 @@
     },
     {
       "id": "t2_03",
-      "name": "Migrate T2: Crypto — Gemini, Phantom Wallet, Brave Wallet, Photon, Axiom, Bullx, Banana Gun, Cielo, Sol Sniper",
+      "name": "Migrate T2: Crypto \u2014 Gemini, Phantom Wallet, Brave Wallet, Photon, Axiom, Bullx, Banana Gun, Cielo, Sol Sniper",
       "notes": "",
       "goal": "G1",
       "priority": "High",
@@ -1212,7 +1191,7 @@
     },
     {
       "id": "t2_04",
-      "name": "Migrate T2: Health apps — Marek Health, Biolife, Grifols, Everlywell, Peptide Sciences, CVS Specialty, Cronometer, EOS Fitness, Fitbod, Fitbit, FITINDEX, Elite HRV, Keto-Mojo, MyFitnessPal, Polar Flow",
+      "name": "Migrate T2: Health apps \u2014 Marek Health, Biolife, Grifols, Everlywell, Peptide Sciences, CVS Specialty, Cronometer, EOS Fitness, Fitbod, Fitbit, FITINDEX, Elite HRV, Keto-Mojo, MyFitnessPal, Polar Flow",
       "notes": "",
       "goal": "G1",
       "priority": "Mid",
@@ -1238,7 +1217,7 @@
     },
     {
       "id": "t2_05",
-      "name": "Migrate T2: Work & productivity — Indeed, Mega.nz, Nextcloud, Todoist, Toggl, Wrike, OneDrive Personal Vault, Make.com, Monday",
+      "name": "Migrate T2: Work & productivity \u2014 Indeed, Mega.nz, Nextcloud, Todoist, Toggl, Wrike, OneDrive Personal Vault, Make.com, Monday",
       "notes": "",
       "goal": "G1",
       "priority": "Mid",
@@ -1264,7 +1243,7 @@
     },
     {
       "id": "t2_06",
-      "name": "Migrate T2: Social & comms — Signal, Telegram, Discord, Reddit, Snapchat, Instagram, USPS Informed Delivery, Meetup",
+      "name": "Migrate T2: Social & comms \u2014 Signal, Telegram, Discord, Reddit, Snapchat, Instagram, USPS Informed Delivery, Meetup",
       "notes": "",
       "goal": "G1",
       "priority": "Mid",
@@ -1290,7 +1269,7 @@
     },
     {
       "id": "t2_07",
-      "name": "Migrate T2: Shopping — Amazon, Walmart, eBay, Costco, iHerb, Chemyo, Swisschems, UtahGunExchange",
+      "name": "Migrate T2: Shopping \u2014 Amazon, Walmart, eBay, Costco, iHerb, Chemyo, Swisschems, UtahGunExchange",
       "notes": "",
       "goal": "G1",
       "priority": "Mid",
@@ -1316,7 +1295,7 @@
     },
     {
       "id": "t2_08",
-      "name": "Migrate T2: Smart home — Arlo, August, Ring-Troy, Home Assistant, Bad-Blink, Brivo, Tile Pro, Samsung-Google",
+      "name": "Migrate T2: Smart home \u2014 Arlo, August, Ring-Troy, Home Assistant, Bad-Blink, Brivo, Tile Pro, Samsung-Google",
       "notes": "",
       "goal": "G1",
       "priority": "Mid",
@@ -1342,7 +1321,7 @@
     },
     {
       "id": "t2_09",
-      "name": "Migrate T2: Entertainment — Netflix, Hulu, YouTube, Tidal, Ground News, ChatGPT, Claude, Stability AI",
+      "name": "Migrate T2: Entertainment \u2014 Netflix, Hulu, YouTube, Tidal, Ground News, ChatGPT, Claude, Stability AI",
       "notes": "",
       "goal": "G1",
       "priority": "Mid",
@@ -1394,7 +1373,7 @@
     },
     {
       "id": "p07",
-      "name": "Confirm Microsoft account fully detached — no Tier 1 accounts remaining",
+      "name": "Confirm Microsoft account fully detached \u2014 no Tier 1 accounts remaining",
       "notes": "",
       "goal": "G1",
       "priority": "High",
@@ -1976,7 +1955,7 @@
     },
     {
       "id": "a25",
-      "name": "Eliminate canned foods — switch to fresh or glass jarred",
+      "name": "Eliminate canned foods \u2014 switch to fresh or glass jarred",
       "notes": "",
       "goal": "G3",
       "priority": "Mid",
@@ -2318,7 +2297,7 @@
     },
     {
       "id": "a39",
-      "name": "Write profile prompt #1 — signal you are building something, not just existing",
+      "name": "Write profile prompt #1 \u2014 signal you are building something, not just existing",
       "notes": "",
       "goal": "G2",
       "priority": "High",
@@ -2344,7 +2323,7 @@
     },
     {
       "id": "a40",
-      "name": "Write profile prompt #2 — show physical standards and discipline",
+      "name": "Write profile prompt #2 \u2014 show physical standards and discipline",
       "notes": "",
       "goal": "G2",
       "priority": "High",
@@ -2370,7 +2349,7 @@
     },
     {
       "id": "a41",
-      "name": "Write profile prompt #3 — hint at legacy and family orientation without spelling it out",
+      "name": "Write profile prompt #3 \u2014 hint at legacy and family orientation without spelling it out",
       "notes": "",
       "goal": "G2",
       "priority": "High",
@@ -2396,7 +2375,7 @@
     },
     {
       "id": "a42",
-      "name": "Set daily rule: 10 minutes maximum per session — passive mode only",
+      "name": "Set daily rule: 10 minutes maximum per session \u2014 passive mode only",
       "notes": "No premium features. No volume swiping. Screen Tier 1 criteria from profile before any contact.",
       "goal": "G2",
       "priority": "Mid",
@@ -2425,7 +2404,7 @@
     {
       "id": "a43",
       "name": "First session: review matches, run conquest filter, send one meaningful opener or skip",
-      "notes": "Conquest filter: frame check, Longhouse man test, net gain test. If any answer is shaky — skip.",
+      "notes": "Conquest filter: frame check, Longhouse man test, net gain test. If any answer is shaky \u2014 skip.",
       "goal": "G2",
       "priority": "Mid",
       "status": "done",
@@ -2748,7 +2727,7 @@
     },
     {
       "id": "b10",
-      "name": "Audit wardrobe — identify synthetic fiber clothing",
+      "name": "Audit wardrobe \u2014 identify synthetic fiber clothing",
       "notes": "",
       "goal": "G3",
       "priority": "Mid",
@@ -2916,7 +2895,7 @@
     },
     {
       "id": "b17",
-      "name": "LDL and HDL — where should they be?",
+      "name": "LDL and HDL \u2014 where should they be?",
       "notes": "",
       "goal": "G3",
       "priority": "Mid",
@@ -2964,7 +2943,7 @@
     },
     {
       "id": "b19",
-      "name": "Keto tryptophan in meats — deep cut mapping",
+      "name": "Keto tryptophan in meats \u2014 deep cut mapping",
       "notes": "",
       "goal": "G3",
       "priority": "Mid",
@@ -2988,7 +2967,7 @@
     },
     {
       "id": "b20",
-      "name": "Keto — what cuts of meat have what nutrients",
+      "name": "Keto \u2014 what cuts of meat have what nutrients",
       "notes": "",
       "goal": "G3",
       "priority": "Mid",
@@ -3086,7 +3065,7 @@
     },
     {
       "id": "b24",
-      "name": "Begin consistent approach practice — minimum 2/week",
+      "name": "Begin consistent approach practice \u2014 minimum 2/week",
       "notes": "",
       "goal": "G2",
       "priority": "High",
@@ -3456,7 +3435,7 @@
     },
     {
       "id": "c13",
-      "name": "Audit kitchen — remaining plastic items",
+      "name": "Audit kitchen \u2014 remaining plastic items",
       "notes": "",
       "goal": "G3",
       "priority": "Mid",
@@ -3480,7 +3459,7 @@
     },
     {
       "id": "c14",
-      "name": "Audit bathroom — remaining plastic items",
+      "name": "Audit bathroom \u2014 remaining plastic items",
       "notes": "",
       "goal": "G3",
       "priority": "Mid",
@@ -3504,7 +3483,7 @@
     },
     {
       "id": "c15",
-      "name": "Audit bedroom and living areas — remaining plastic items",
+      "name": "Audit bedroom and living areas \u2014 remaining plastic items",
       "notes": "",
       "goal": "G3",
       "priority": "Mid",
@@ -3630,7 +3609,7 @@
     },
     {
       "id": "c20",
-      "name": "Full home microplastics audit — all major vectors eliminated",
+      "name": "Full home microplastics audit \u2014 all major vectors eliminated",
       "notes": "",
       "goal": "G3",
       "priority": "Mid",
@@ -3656,7 +3635,7 @@
     },
     {
       "id": "c21",
-      "name": "Become the Ultimate man — daily practice review",
+      "name": "Become the Ultimate man \u2014 daily practice review",
       "notes": "",
       "goal": "G1",
       "priority": "High",
@@ -3680,7 +3659,7 @@
     },
     {
       "id": "c22",
-      "name": "Industry pays debts — financial discipline review",
+      "name": "Industry pays debts \u2014 financial discipline review",
       "notes": "",
       "goal": "G1",
       "priority": "Mid",
@@ -3704,7 +3683,7 @@
     },
     {
       "id": "c23",
-      "name": "Diligence is the mother of good luck — habit audit",
+      "name": "Diligence is the mother of good luck \u2014 habit audit",
       "notes": "",
       "goal": "G1",
       "priority": "Mid",
@@ -3728,7 +3707,7 @@
     },
     {
       "id": "c24",
-      "name": "Make a list of ends — life priorities audit",
+      "name": "Make a list of ends \u2014 life priorities audit",
       "notes": "",
       "goal": "G1",
       "priority": "Mid",
@@ -3752,7 +3731,7 @@
     },
     {
       "id": "d01",
-      "name": "Athletic body — formal assessment vs April baseline",
+      "name": "Athletic body \u2014 formal assessment vs April baseline",
       "notes": "Strength, measurements, photos",
       "goal": "G3",
       "priority": "High",
@@ -3803,7 +3782,7 @@
     },
     {
       "id": "d03",
-      "name": "Nutrition standard defined — based on 3 months data",
+      "name": "Nutrition standard defined \u2014 based on 3 months data",
       "notes": "",
       "goal": "G3",
       "priority": "Mid",
@@ -3827,7 +3806,7 @@
     },
     {
       "id": "d04",
-      "name": "Q2 financial review — emergency fund %, debt, certs, net worth",
+      "name": "Q2 financial review \u2014 emergency fund %, debt, certs, net worth",
       "notes": "",
       "goal": "G4",
       "priority": "Mid",
@@ -3927,7 +3906,7 @@
     },
     {
       "id": "z04",
-      "name": "Establish home drill routine — basics and movement daily",
+      "name": "Establish home drill routine \u2014 basics and movement daily",
       "notes": "",
       "goal": "G3",
       "priority": "Low",
@@ -3979,7 +3958,7 @@
     },
     {
       "id": "z08",
-      "name": "Pm Firewall — execute Phase 1 hardening block",
+      "name": "Pm Firewall \u2014 execute Phase 1 hardening block",
       "notes": "32 tasks in security project archive; this is the entry gate",
       "goal": "G1",
       "priority": "Low",
@@ -4003,7 +3982,7 @@
     },
     {
       "id": "z09",
-      "name": "Guard Tower (1) — resume laptop hardening & compartmentalization",
+      "name": "Guard Tower (1) \u2014 resume laptop hardening & compartmentalization",
       "notes": "Project 2 stalled since Nov 2025; Windows 11 daily driver hardening",
       "goal": "G1",
       "priority": "Low",
@@ -4027,7 +4006,7 @@
     },
     {
       "id": "z10",
-      "name": "Qubes OS — migrate to primary daily driver",
+      "name": "Qubes OS \u2014 migrate to primary daily driver",
       "notes": "End-state goal; dual-boot available now",
       "goal": "G1",
       "priority": "Low",
@@ -4053,7 +4032,7 @@
     },
     {
       "id": "v01",
-      "name": "Install OS — Ubuntu Server or Debian",
+      "name": "Install OS \u2014 Ubuntu Server or Debian",
       "notes": "",
       "goal": "G1",
       "priority": "High",
@@ -4077,7 +4056,7 @@
     },
     {
       "id": "v02",
-      "name": "Configure network — static IP + router port forwarding",
+      "name": "Configure network \u2014 static IP + router port forwarding",
       "notes": "",
       "goal": "G1",
       "priority": "High",
@@ -4125,7 +4104,7 @@
     },
     {
       "id": "v04",
-      "name": "Format and mount drives — ZFS pool or RAID configuration",
+      "name": "Format and mount drives \u2014 ZFS pool or RAID configuration",
       "notes": "",
       "goal": "G1",
       "priority": "High",
@@ -4149,7 +4128,7 @@
     },
     {
       "id": "v05",
-      "name": "Configure firewall (UFW) — allow only required ports",
+      "name": "Configure firewall (UFW) \u2014 allow only required ports",
       "notes": "",
       "goal": "G1",
       "priority": "High",
@@ -4173,7 +4152,7 @@
     },
     {
       "id": "v06",
-      "name": "Set up automated backups — drives + config files",
+      "name": "Set up automated backups \u2014 drives + config files",
       "notes": "",
       "goal": "G1",
       "priority": "High",
@@ -4221,7 +4200,7 @@
     },
     {
       "id": "v08",
-      "name": "Install and configure Nextcloud — files, calendar, contacts",
+      "name": "Install and configure Nextcloud \u2014 files, calendar, contacts",
       "notes": "",
       "goal": "G1",
       "priority": "High",
@@ -4245,7 +4224,7 @@
     },
     {
       "id": "v09",
-      "name": "Install and configure Immich — photo library (Google Photos replacement)",
+      "name": "Install and configure Immich \u2014 photo library (Google Photos replacement)",
       "notes": "",
       "goal": "G1",
       "priority": "High",
@@ -4269,7 +4248,7 @@
     },
     {
       "id": "v10",
-      "name": "Server up & running — Nextcloud/Syncthing",
+      "name": "Server up & running \u2014 Nextcloud/Syncthing",
       "notes": "Capstone for the server chain.",
       "goal": "G1",
       "priority": "High",
@@ -4317,7 +4296,7 @@
     },
     {
       "id": "v12",
-      "name": "Continue assertive readiness log — review 3 months of data, calculate engagement rate, set Q3 target",
+      "name": "Continue assertive readiness log \u2014 review 3 months of data, calculate engagement rate, set Q3 target",
       "notes": "",
       "goal": "G1",
       "priority": "Mid",
@@ -4341,7 +4320,7 @@
     },
     {
       "id": "v13",
-      "name": "Quarterly identity reflection — write 1 page on what \"the Ultimate Autonomous Man\" means to you right now and whether the definition has evolved since Year of Foundation began",
+      "name": "Quarterly identity reflection \u2014 write 1 page on what \"the Ultimate Autonomous Man\" means to you right now and whether the definition has evolved since Year of Foundation began",
       "notes": "",
       "goal": "G1",
       "priority": "Mid",
@@ -4365,7 +4344,7 @@
     },
     {
       "id": "v14",
-      "name": "Identify one community project or mentorship opportunity to lead by Q4 — research options and commit to one",
+      "name": "Identify one community project or mentorship opportunity to lead by Q4 \u2014 research options and commit to one",
       "notes": "",
       "goal": "G2",
       "priority": "Mid",
@@ -4389,7 +4368,7 @@
     },
     {
       "id": "v15",
-      "name": "Relationship status review — am I approaching consistently? What's working? What's not? Journal reflection",
+      "name": "Relationship status review \u2014 am I approaching consistently? What's working? What's not? Journal reflection",
       "notes": "",
       "goal": "G2",
       "priority": "Mid",
@@ -4417,7 +4396,7 @@
       "notes": "Replaces the recurring MPL lines. HabitNow owns the cadence; Forge tracks only the setup.",
       "goal": "G1",
       "priority": "Mid",
-      "status": "backlog",
+      "status": "done",
       "section": "Habit Tracker Setup",
       "level": 1,
       "month": "M07",
@@ -4428,20 +4407,20 @@
       "blockedBy": [],
       "milestone": false,
       "recurrence": "none",
-      "completed": false,
-      "completedAt": "",
+      "completed": true,
+      "completedAt": "2026-07-22",
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1784393287371
+      "updatedAt": 1785644143494
     },
     {
       "id": "v17",
-      "name": "Add monthly value alignment journal to HabitNow (monthly — 5 aligned, 2 misaligned, what drove each)",
+      "name": "Add monthly value alignment journal to HabitNow (monthly \u2014 5 aligned, 2 misaligned, what drove each)",
       "notes": "Replaces the recurring MPL lines. HabitNow owns the cadence; Forge tracks only the setup.",
       "goal": "G1",
       "priority": "Mid",
-      "status": "backlog",
+      "status": "done",
       "section": "Habit Tracker Setup",
       "level": 1,
       "month": "M07",
@@ -4452,12 +4431,12 @@
       "blockedBy": [],
       "milestone": false,
       "recurrence": "none",
-      "completed": false,
-      "completedAt": "",
+      "completed": true,
+      "completedAt": "2026-07-22",
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1784393287371
+      "updatedAt": 1785644143494
     },
     {
       "id": "v18",
@@ -4557,7 +4536,7 @@
     },
     {
       "id": "v22",
-      "name": "Complete Bury the Chest — full data backup and secure storage protocol",
+      "name": "Complete Bury the Chest \u2014 full data backup and secure storage protocol",
       "notes": "",
       "goal": "G1",
       "priority": "Low",
@@ -4581,7 +4560,7 @@
     },
     {
       "id": "v23",
-      "name": "Define 3-year career trajectory at Northrop — target role, required skills, timeline",
+      "name": "Define 3-year career trajectory at Northrop \u2014 target role, required skills, timeline",
       "notes": "",
       "goal": "G4",
       "priority": "Low",
@@ -4605,7 +4584,7 @@
     },
     {
       "id": "v24",
-      "name": "Build professional network map — identify 5 key relationships to develop",
+      "name": "Build professional network map \u2014 identify 5 key relationships to develop",
       "notes": "",
       "goal": "G4",
       "priority": "Low",
@@ -4629,7 +4608,7 @@
     },
     {
       "id": "v25",
-      "name": "All remaining tasks from the original Tasks.org backup — add tags only when moved forward",
+      "name": "All remaining tasks from the original Tasks.org backup \u2014 add tags only when moved forward",
       "notes": "Placeholder for the archive sweep; tag items only as they are pulled forward.",
       "goal": "G1",
       "priority": "Low",
@@ -4654,7 +4633,7 @@
     {
       "id": "v26",
       "name": "Set up SQLite data layer for Forge Native",
-      "notes": "Built during the Eta foundation batch. Completion date is an estimate — correct if wrong.",
+      "notes": "Built during the Eta foundation batch. Completion date is an estimate \u2014 correct if wrong.",
       "goal": "G1",
       "priority": "High",
       "status": "done",
@@ -4678,7 +4657,7 @@
     {
       "id": "v27",
       "name": "Build core task list view with full CRUD",
-      "notes": "Built during the Theta views batch. Completion date is an estimate — correct if wrong.",
+      "notes": "Built during the Theta views batch. Completion date is an estimate \u2014 correct if wrong.",
       "goal": "G1",
       "priority": "High",
       "status": "done",
@@ -4702,7 +4681,7 @@
     {
       "id": "v28",
       "name": "Fix any notification issues found in testing",
-      "notes": "Hearth notification hardening. Completion date is an estimate — correct if wrong.",
+      "notes": "Hearth notification hardening. Completion date is an estimate \u2014 correct if wrong.",
       "goal": "G2",
       "priority": "High",
       "status": "done",
@@ -4750,7 +4729,7 @@
     {
       "id": "f26_002",
       "name": "Re-date home server chain against actual procurement date",
-      "notes": "12 tasks currently dated Jun 5 – Jul 12, none started",
+      "notes": "12 tasks currently dated Jun 5 \u2013 Jul 12, none started",
       "goal": "G1",
       "priority": "High",
       "status": "todo",
@@ -4773,8 +4752,8 @@
     },
     {
       "id": "f26_003",
-      "name": "Assertive Correction Season — opened and instrumented",
-      "notes": "MS7 milestone, overdue since Jul 15 — the Q3 priority build",
+      "name": "Assertive Correction Season \u2014 opened and instrumented",
+      "notes": "MS7 milestone, overdue since Jul 15 \u2014 the Q3 priority build",
       "goal": "G1",
       "priority": "High",
       "status": "todo",
@@ -4797,27 +4776,8 @@
     },
     {
       "id": "f26_004",
-      "name": "Confirm HSA at IRS limit ($4,400: $3,900 election + $500 incentive)",
-      "notes": "overdue Jul 15",
-      "goal": "G4",
-      "priority": "High",
-      "status": "todo",
-      "section": "Career & Financial",
-      "level": 0,
-      "month": "M08",
-      "week": "W30",
-      "startDate": "",
-      "dueDate": "2026-07-22",
-      "parentId": "",
-      "blockedBy": [],
-      "milestone": false,
-      "recurrence": "none",
-      "completed": false,
-      "completedAt": "",
-      "sortOrder": 4,
-      "deleted": false,
-      "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785644143494,
+      "deleted": true
     },
     {
       "id": "f26_005",
@@ -4893,7 +4853,7 @@
     },
     {
       "id": "f26_008",
-      "name": "Full home microplastics audit — all major vectors controlled",
+      "name": "Full home microplastics audit \u2014 all major vectors controlled",
       "notes": "overdue Jun 30",
       "goal": "G3",
       "priority": "Mid",
@@ -5013,7 +4973,7 @@
     },
     {
       "id": "f26_013",
-      "name": "Port Greek date display — fmtGreek + calendar constants",
+      "name": "Port Greek date display \u2014 fmtGreek + calendar constants",
       "notes": "",
       "goal": "G1",
       "priority": "Mid",
@@ -5109,7 +5069,7 @@
     },
     {
       "id": "f26_017",
-      "name": "Fail2ban configured — intrusion prevention active",
+      "name": "Fail2ban configured \u2014 intrusion prevention active",
       "notes": "",
       "goal": "G1",
       "priority": "Mid",
@@ -5157,7 +5117,7 @@
     },
     {
       "id": "f26_019",
-      "name": "Athletic body training block — first formal assessment completed",
+      "name": "Athletic body training block \u2014 first formal assessment completed",
       "notes": "",
       "goal": "G3",
       "priority": "High",
@@ -5205,7 +5165,7 @@
     },
     {
       "id": "f26_021",
-      "name": "Offsite backup strategy — encrypted remote copy",
+      "name": "Offsite backup strategy \u2014 encrypted remote copy",
       "notes": "",
       "goal": "G1",
       "priority": "Mid",
@@ -5229,7 +5189,7 @@
     },
     {
       "id": "f26_022",
-      "name": "90-day training program review — continue or switch",
+      "name": "90-day training program review \u2014 continue or switch",
       "notes": "",
       "goal": "G3",
       "priority": "High",
@@ -5253,7 +5213,7 @@
     },
     {
       "id": "f26_023",
-      "name": "Microsoft associate cert (AZ-104/SC-200/DP-203) — study underway, exam scheduled",
+      "name": "Microsoft associate cert (AZ-104/SC-200/DP-203) \u2014 study underway, exam scheduled",
       "notes": "",
       "goal": "G4",
       "priority": "High",
@@ -5277,7 +5237,7 @@
     },
     {
       "id": "f26_024",
-      "name": "First elevated ritual gathering HELD — oath read aloud",
+      "name": "First elevated ritual gathering HELD \u2014 oath read aloud",
       "notes": "",
       "goal": "G2",
       "priority": "High",
@@ -5325,7 +5285,7 @@
     },
     {
       "id": "f26_026",
-      "name": "Document the build — full rebuild guide",
+      "name": "Document the build \u2014 full rebuild guide",
       "notes": "",
       "goal": "G1",
       "priority": "Low",
@@ -5397,7 +5357,7 @@
     },
     {
       "id": "f26_029",
-      "name": "G1 quarterly checkpoint — is Unbound Time holding?",
+      "name": "G1 quarterly checkpoint \u2014 is Unbound Time holding?",
       "notes": "",
       "goal": "G1",
       "priority": "High",
@@ -5421,7 +5381,7 @@
     },
     {
       "id": "f26_030",
-      "name": "Assertive readiness mid-quarter check — engagement rate, holding-ground trend",
+      "name": "Assertive readiness mid-quarter check \u2014 engagement rate, holding-ground trend",
       "notes": "",
       "goal": "G1",
       "priority": "High",
@@ -5493,7 +5453,7 @@
     },
     {
       "id": "f26_033",
-      "name": "Phase 1 → Phase 2 assessment — is the squad ready for first formal quorum?",
+      "name": "Phase 1 \u2192 Phase 2 assessment \u2014 is the squad ready for first formal quorum?",
       "notes": "",
       "goal": "G2",
       "priority": "High",
@@ -5517,7 +5477,7 @@
     },
     {
       "id": "f26_034",
-      "name": "Value-alignment journal — Theta entry",
+      "name": "Value-alignment journal \u2014 Theta entry",
       "notes": "",
       "goal": "G1",
       "priority": "Mid",
@@ -5541,7 +5501,7 @@
     },
     {
       "id": "f26_035",
-      "name": "Author Unbound Time tracking spec — or rule that it does not belong in Forge",
+      "name": "Author Unbound Time tracking spec \u2014 or rule that it does not belong in Forge",
       "notes": "",
       "goal": "G1",
       "priority": "High",
@@ -5638,7 +5598,7 @@
     {
       "id": "f26_039",
       "name": "Ratify or retire the `level` field in Forge",
-      "notes": "parked since Iota — decide or delete",
+      "notes": "parked since Iota \u2014 decide or delete",
       "goal": "G1",
       "priority": "Mid",
       "status": "backlog",
@@ -5709,7 +5669,7 @@
     },
     {
       "id": "f26_042",
-      "name": "Emergency fund checkpoint — confirm pace toward 75% by Nov 30",
+      "name": "Emergency fund checkpoint \u2014 confirm pace toward 75% by Nov 30",
       "notes": "",
       "goal": "G4",
       "priority": "High",
@@ -5757,7 +5717,7 @@
     },
     {
       "id": "f26_044",
-      "name": "Wife search checkpoint — platform ~3 months, review and adjust",
+      "name": "Wife search checkpoint \u2014 platform ~3 months, review and adjust",
       "notes": "",
       "goal": "G2",
       "priority": "High",
@@ -5829,7 +5789,7 @@
     },
     {
       "id": "f26_047",
-      "name": "CS degree mid-year checkpoint — confirm Sept 2027 completion on track",
+      "name": "CS degree mid-year checkpoint \u2014 confirm Sept 2027 completion on track",
       "notes": "",
       "goal": "G4",
       "priority": "High",
@@ -5853,7 +5813,7 @@
     },
     {
       "id": "f26_048",
-      "name": "Tribe at 4–6 members with vetting underway — confirm or push",
+      "name": "Tribe at 4\u20136 members with vetting underway \u2014 confirm or push",
       "notes": "",
       "goal": "G2",
       "priority": "High",
@@ -5901,7 +5861,7 @@
     },
     {
       "id": "f26_050",
-      "name": "Maturity Assessment #3 — L1–L6 × G1–G4, delta from Delta baseline",
+      "name": "Maturity Assessment #3 \u2014 L1\u2013L6 \u00d7 G1\u2013G4, delta from Delta baseline",
       "notes": "quarterly diagnostic, Iota close",
       "goal": "G1",
       "priority": "High",
@@ -5925,7 +5885,7 @@
     },
     {
       "id": "f26_051",
-      "name": "Trajectory Read — Q3 (course-correct or stay-course decision)",
+      "name": "Trajectory Read \u2014 Q3 (course-correct or stay-course decision)",
       "notes": "",
       "goal": "G1",
       "priority": "High",
@@ -5949,7 +5909,7 @@
     },
     {
       "id": "f26_052",
-      "name": "Value-alignment journal — Iota entry",
+      "name": "Value-alignment journal \u2014 Iota entry",
       "notes": "",
       "goal": "G1",
       "priority": "Mid",
@@ -5973,7 +5933,7 @@
     },
     {
       "id": "f26_053",
-      "name": "Full QA pass — all views and features on device",
+      "name": "Full QA pass \u2014 all views and features on device",
       "notes": "",
       "goal": "G1",
       "priority": "Mid",
@@ -6046,7 +6006,7 @@
     {
       "id": "f26_056",
       "name": "Run the explicit tribe conversation with Robbie/Andrew",
-      "notes": "do early — 2026, not 2028",
+      "notes": "do early \u2014 2026, not 2028",
       "goal": "G2",
       "priority": "High",
       "status": "backlog",
@@ -6117,7 +6077,7 @@
     },
     {
       "id": "f26_059",
-      "name": "Nutrition protocol decision LOCKED — keto continued or carnivore concluded",
+      "name": "Nutrition protocol decision LOCKED \u2014 keto continued or carnivore concluded",
       "notes": "",
       "goal": "G3",
       "priority": "High",
@@ -6189,7 +6149,7 @@
     },
     {
       "id": "f26_062",
-      "name": "HRV + sleep protocol review — is optimization working under shift work?",
+      "name": "HRV + sleep protocol review \u2014 is optimization working under shift work?",
       "notes": "",
       "goal": "G3",
       "priority": "High",
@@ -6213,7 +6173,7 @@
     },
     {
       "id": "f26_063",
-      "name": "G1 quarterly checkpoint — habit tracker + daily systems audit",
+      "name": "G1 quarterly checkpoint \u2014 habit tracker + daily systems audit",
       "notes": "",
       "goal": "G1",
       "priority": "High",
@@ -6261,7 +6221,7 @@
     },
     {
       "id": "f26_065",
-      "name": "Assertive Correction Season — continue, close, or name the successor season",
+      "name": "Assertive Correction Season \u2014 continue, close, or name the successor season",
       "notes": "release condition: holding ground is default, not effort",
       "goal": "G1",
       "priority": "High",
@@ -6285,7 +6245,7 @@
     },
     {
       "id": "f26_066",
-      "name": "Vault capsule audit — count true capsules, decide Dataview surfacing vs. Asana triggers",
+      "name": "Vault capsule audit \u2014 count true capsules, decide Dataview surfacing vs. Asana triggers",
       "notes": "",
       "goal": "G1",
       "priority": "Mid",
@@ -6309,7 +6269,7 @@
     },
     {
       "id": "f26_067",
-      "name": "Value-alignment journal — Kappa entry",
+      "name": "Value-alignment journal \u2014 Kappa entry",
       "notes": "",
       "goal": "G1",
       "priority": "Mid",
@@ -6333,7 +6293,7 @@
     },
     {
       "id": "f26_068",
-      "name": "Sign and print the Longhouse Oath — bring to next meetup",
+      "name": "Sign and print the Longhouse Oath \u2014 bring to next meetup",
       "notes": "",
       "goal": "G2",
       "priority": "High",
@@ -6381,7 +6341,7 @@
     },
     {
       "id": "f26_070",
-      "name": "Winter Nights blót (Vetrnætr) — held at the Vé",
+      "name": "Winter Nights bl\u00f3t (Vetrn\u00e6tr) \u2014 held at the V\u00e9",
       "notes": "wheel-of-year cadence: nothing between Midsummer and Yule",
       "goal": "G2",
       "priority": "Mid",
@@ -6405,7 +6365,7 @@
     },
     {
       "id": "f26_071",
-      "name": "Begin vetting pipeline (Forge Filter) for tribe expansion — target 4–6 over time",
+      "name": "Begin vetting pipeline (Forge Filter) for tribe expansion \u2014 target 4\u20136 over time",
       "notes": "",
       "goal": "G2",
       "priority": "High",
@@ -6429,27 +6389,8 @@
     },
     {
       "id": "f26_072",
-      "name": "HSA consolidation — HealthEquity → Fidelity trustee-to-trustee transfer",
-      "notes": "then close HealthEquity with written confirmation; check minimum-balance block",
-      "goal": "G4",
-      "priority": "High",
-      "status": "backlog",
-      "section": "Career & Financial",
-      "level": 0,
-      "month": "M11",
-      "week": "W45",
-      "startDate": "",
-      "dueDate": "2026-11-04",
-      "parentId": "",
-      "blockedBy": [],
-      "milestone": false,
-      "recurrence": "none",
-      "completed": false,
-      "completedAt": "",
-      "sortOrder": 72,
-      "deleted": false,
-      "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785644143494,
+      "deleted": true
     },
     {
       "id": "f26_073",
@@ -6501,7 +6442,7 @@
     },
     {
       "id": "f26_075",
-      "name": "Emergency fund — final push toward 75%",
+      "name": "Emergency fund \u2014 final push toward 75%",
       "notes": "",
       "goal": "G4",
       "priority": "High",
@@ -6549,7 +6490,7 @@
     },
     {
       "id": "f26_077",
-      "name": "Deferred environmental items — bedding, air purifiers, clothing audit, rug replacement",
+      "name": "Deferred environmental items \u2014 bedding, air purifiers, clothing audit, rug replacement",
       "notes": "",
       "goal": "G3",
       "priority": "Low",
@@ -6573,7 +6514,7 @@
     },
     {
       "id": "f26_078",
-      "name": "⚠️ Oath signing push — all three men signed before year-end",
+      "name": "\u26a0\ufe0f Oath signing push \u2014 all three men signed before year-end",
       "notes": "",
       "goal": "G2",
       "priority": "High",
@@ -6621,7 +6562,7 @@
     },
     {
       "id": "f26_080",
-      "name": "Value-alignment journal — Lambda entry",
+      "name": "Value-alignment journal \u2014 Lambda entry",
       "notes": "",
       "goal": "G1",
       "priority": "Mid",
@@ -6717,7 +6658,7 @@
     },
     {
       "id": "f26_084",
-      "name": "Emergency fund hits 75% ($17,662) by Nov 30 — CONFIRM",
+      "name": "Emergency fund hits 75% ($17,662) by Nov 30 \u2014 CONFIRM",
       "notes": "",
       "goal": "G4",
       "priority": "High",
@@ -6765,7 +6706,7 @@
     },
     {
       "id": "f26_086",
-      "name": "Investment thesis finalized — ready for 2027 deployment decision",
+      "name": "Investment thesis finalized \u2014 ready for 2027 deployment decision",
       "notes": "",
       "goal": "G4",
       "priority": "High",
@@ -6789,7 +6730,7 @@
     },
     {
       "id": "f26_087",
-      "name": "Confirm tribe foundation — entering 2027 with a real Phase 2 squad?",
+      "name": "Confirm tribe foundation \u2014 entering 2027 with a real Phase 2 squad?",
       "notes": "",
       "goal": "G2",
       "priority": "High",
@@ -6814,7 +6755,7 @@
     {
       "id": "f26_088",
       "name": "Draft 2027 execution chunk from the 5-year plan (Growth year)",
-      "notes": "moved from Dec 28 — drafting must precede assessment",
+      "notes": "moved from Dec 28 \u2014 drafting must precede assessment",
       "goal": "G2",
       "priority": "High",
       "status": "backlog",
@@ -6885,7 +6826,7 @@
     },
     {
       "id": "f26_091",
-      "name": "Draft 2027 season structure — G1 is season-shaped, not tiered",
+      "name": "Draft 2027 season structure \u2014 G1 is season-shaped, not tiered",
       "notes": "",
       "goal": "G1",
       "priority": "High",
@@ -6909,7 +6850,7 @@
     },
     {
       "id": "f26_092",
-      "name": "Value-alignment journal — Mu entry",
+      "name": "Value-alignment journal \u2014 Mu entry",
       "notes": "",
       "goal": "G1",
       "priority": "Mid",
@@ -6933,7 +6874,7 @@
     },
     {
       "id": "f26_093",
-      "name": "Land or explicitly kill every open 2026 item — no silent carry-forward",
+      "name": "Land or explicitly kill every open 2026 item \u2014 no silent carry-forward",
       "notes": "a killed item is a decision; an ignored item is a leak",
       "goal": "G1",
       "priority": "High",
@@ -6957,7 +6898,7 @@
     },
     {
       "id": "f26_094",
-      "name": "Annual review — 2026 gate vs. plan (G2)",
+      "name": "Annual review \u2014 2026 gate vs. plan (G2)",
       "notes": "",
       "goal": "G2",
       "priority": "High",
@@ -6981,7 +6922,7 @@
     },
     {
       "id": "f26_095",
-      "name": "Annual review + benefits open enrollment — 2026 (G4)",
+      "name": "Annual review + benefits open enrollment \u2014 2026 (G4)",
       "notes": "",
       "goal": "G4",
       "priority": "High",
@@ -7005,7 +6946,7 @@
     },
     {
       "id": "f26_096",
-      "name": "G3 Progression Checkpoint — 6 Month",
+      "name": "G3 Progression Checkpoint \u2014 6 Month",
       "notes": "",
       "goal": "G3",
       "priority": "High",
@@ -7029,7 +6970,7 @@
     },
     {
       "id": "f26_097",
-      "name": "G1 year-end self-assessment — sovereignty, equanimity, truth-seeking",
+      "name": "G1 year-end self-assessment \u2014 sovereignty, equanimity, truth-seeking",
       "notes": "",
       "goal": "G1",
       "priority": "High",
@@ -7053,7 +6994,7 @@
     },
     {
       "id": "f26_098",
-      "name": "Maturity Assessment #4 — full-year L1–L6 × G1–G4 read",
+      "name": "Maturity Assessment #4 \u2014 full-year L1\u2013L6 \u00d7 G1\u2013G4 read",
       "notes": "",
       "goal": "G1",
       "priority": "High",
@@ -7077,7 +7018,7 @@
     },
     {
       "id": "f26_099",
-      "name": "Trajectory Read — Q4 + annual",
+      "name": "Trajectory Read \u2014 Q4 + annual",
       "notes": "is new 2027 volume execution surface or tracking surface?",
       "goal": "G1",
       "priority": "High",
@@ -7101,7 +7042,7 @@
     },
     {
       "id": "f26_100",
-      "name": "Runestone consecration — 2026 beads earned, bracelet consecrated",
+      "name": "Runestone consecration \u2014 2026 beads earned, bracelet consecrated",
       "notes": "inaugural ceremony",
       "goal": "G2",
       "priority": "High",
@@ -7125,7 +7066,7 @@
     },
     {
       "id": "f26_101",
-      "name": "2027 rune assignment — adopt-first sort, then Gap Read on net-new clusters",
+      "name": "2027 rune assignment \u2014 adopt-first sort, then Gap Read on net-new clusters",
       "notes": "G2_Runestone_2026_Assignments.md capsule opens here",
       "goal": "G2",
       "priority": "High",
@@ -7149,7 +7090,7 @@
     },
     {
       "id": "f26_102",
-      "name": "Yule blót — held at the Vé",
+      "name": "Yule bl\u00f3t \u2014 held at the V\u00e9",
       "notes": "",
       "goal": "G2",
       "priority": "High",
@@ -7173,8 +7114,8 @@
     },
     {
       "id": "f26_103",
-      "name": "Revise 2027 G1–G4 chunks against assessment evidence",
-      "notes": "revise, not draft — the Mu drafts meet the Nu findings",
+      "name": "Revise 2027 G1\u2013G4 chunks against assessment evidence",
+      "notes": "revise, not draft \u2014 the Mu drafts meet the Nu findings",
       "goal": "G1",
       "priority": "High",
       "status": "backlog",
@@ -7197,7 +7138,7 @@
     },
     {
       "id": "f26_104",
-      "name": "🎯 2026 Annual Gate — G2 / G3 / G4 gate criteria scored",
+      "name": "\ud83c\udfaf 2026 Annual Gate \u2014 G2 / G3 / G4 gate criteria scored",
       "notes": "",
       "goal": "G1",
       "priority": "High",
@@ -7245,7 +7186,7 @@
     },
     {
       "id": "f26_106",
-      "name": "Ratify 2027 plan — G1 season structure + G2/G3/G4 execution chunks signed",
+      "name": "Ratify 2027 plan \u2014 G1 season structure + G2/G3/G4 execution chunks signed",
       "notes": "",
       "goal": "G1",
       "priority": "High",
@@ -7290,6 +7231,30 @@
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1784582884128
+    },
+    {
+      "id": "f26_forgesync_plugin",
+      "name": "Build Forge Sync Obsidian plugin \u2014 one-way pull (forge-sync.json -> vault task lines by Tasks-plugin ID)",
+      "notes": "BRAT-distributed via Lightbearer77/forge-sync-obsidian. Matches on existing vault line only; does not create new vault lines for new Forge tasks (manual add still required on that side).",
+      "goal": "G1",
+      "priority": "High",
+      "status": "done",
+      "section": "",
+      "level": 0,
+      "month": "M08",
+      "week": "",
+      "startDate": "",
+      "dueDate": "",
+      "parentId": "",
+      "blockedBy": [],
+      "milestone": false,
+      "recurrence": "none",
+      "completed": true,
+      "completedAt": "2026-08-01",
+      "sortOrder": 0,
+      "deleted": false,
+      "createdAt": 1785644143494,
+      "updatedAt": 1785644143494
     }
   ],
   "milestones": [
@@ -7313,7 +7278,7 @@
     {
       "id": "ms3_02",
       "name": "Start consistent athletic body training block",
-      "notes": "⚠ Carryover into Delta — single highest-leverage open task in the system.",
+      "notes": "\u26a0 Carryover into Delta \u2014 single highest-leverage open task in the system.",
       "goal": "G3",
       "month": "M04",
       "dueDate": "2026-04-07",
@@ -7622,7 +7587,7 @@
     },
     {
       "id": "ms4_15",
-      "name": "Switch to fresh and home-cooked meals — reduce ultra-processed",
+      "name": "Switch to fresh and home-cooked meals \u2014 reduce ultra-processed",
       "notes": "",
       "goal": "G3",
       "month": "M04",
@@ -7857,7 +7822,7 @@
     {
       "id": "ms5_06",
       "name": "Emergency fund at 75% target",
-      "notes": "Manual checkpoint — track via banking review. No discrete task.",
+      "notes": "Manual checkpoint \u2014 track via banking review. No discrete task.",
       "goal": "G4",
       "month": "M12",
       "dueDate": "2026-11-30",
@@ -7957,7 +7922,7 @@
     },
     {
       "id": "ms5_11",
-      "name": "Sign and print the Primal Longhouse Oath — bring to next meetup",
+      "name": "Sign and print the Primal Longhouse Oath \u2014 bring to next meetup",
       "notes": "",
       "goal": "G2",
       "month": "M06",
@@ -7995,7 +7960,7 @@
     },
     {
       "id": "ms5_13",
-      "name": "Consistent approach practice established — minimum 2 per week",
+      "name": "Consistent approach practice established \u2014 minimum 2 per week",
       "notes": "",
       "goal": "G2",
       "month": "M06",
@@ -8034,8 +7999,8 @@
     },
     {
       "id": "ms6_01",
-      "name": "Tribe at 4–6 members with vetting process started",
-      "notes": "Aggregate tribal milestone — manual checkpoint scored at meetup.",
+      "name": "Tribe at 4\u20136 members with vetting process started",
+      "notes": "Aggregate tribal milestone \u2014 manual checkpoint scored at meetup.",
       "goal": "G2",
       "month": "M07",
       "dueDate": "2026-06-30",
@@ -8134,7 +8099,7 @@
     },
     {
       "id": "ms6_06",
-      "name": "Full home microplastics audit completed — all major vectors controlled",
+      "name": "Full home microplastics audit completed \u2014 all major vectors controlled",
       "notes": "",
       "goal": "G3",
       "month": "M07",
@@ -8179,7 +8144,7 @@
     },
     {
       "id": "ms7_01",
-      "name": "Athletic body training block — first formal assessment completed",
+      "name": "Athletic body training block \u2014 first formal assessment completed",
       "notes": "",
       "goal": "G3",
       "month": "M08",
@@ -8253,7 +8218,7 @@
     },
     {
       "id": "ms7_05",
-      "name": "Assertive Correction Season — opened and instrumented: belief spine posted where seen daily; assertive-readiness log running (3 logged opportunities/week)",
+      "name": "Assertive Correction Season \u2014 opened and instrumented: belief spine posted where seen daily; assertive-readiness log running (3 logged opportunities/week)",
       "notes": "",
       "goal": "G1",
       "month": "",
@@ -8270,7 +8235,7 @@
     },
     {
       "id": "ms8_01",
-      "name": "90-day training program review — continue or switch",
+      "name": "90-day training program review \u2014 continue or switch",
       "notes": "",
       "goal": "G3",
       "month": "M08",
@@ -8308,7 +8273,7 @@
     },
     {
       "id": "ms8_03",
-      "name": "Assertive readiness mid-quarter check — engagement rate calculated, holding-ground trend reviewed",
+      "name": "Assertive readiness mid-quarter check \u2014 engagement rate calculated, holding-ground trend reviewed",
       "notes": "",
       "goal": "G1",
       "month": "M08",
@@ -8365,7 +8330,7 @@
     },
     {
       "id": "ms9_03",
-      "name": "Q3 Assertive Correction milestone — holding ground is the default in 3 of 5 logged situations/week, two months running",
+      "name": "Q3 Assertive Correction milestone \u2014 holding ground is the default in 3 of 5 logged situations/week, two months running",
       "notes": "",
       "goal": "G1",
       "month": "M09",
@@ -8382,7 +8347,7 @@
     },
     {
       "id": "ms9_04",
-      "name": "Q3 identity checkpoint — one page on whether \"speaking up is permitted; the content is what matters\" has moved from effort toward default",
+      "name": "Q3 identity checkpoint \u2014 one page on whether \"speaking up is permitted; the content is what matters\" has moved from effort toward default",
       "notes": "",
       "goal": "G1",
       "month": "M09",
@@ -8399,7 +8364,7 @@
     },
     {
       "id": "ms9_05",
-      "name": "First Maturity Assessment on the single-ladder instrument — baseline scores set for all six rungs",
+      "name": "First Maturity Assessment on the single-ladder instrument \u2014 baseline scores set for all six rungs",
       "notes": "",
       "goal": "G1",
       "month": "M09",
@@ -8418,7 +8383,7 @@
     },
     {
       "id": "ms10_01",
-      "name": "Nutrition protocol decision LOCKED — keto continued or carnivore concluded",
+      "name": "Nutrition protocol decision LOCKED \u2014 keto continued or carnivore concluded",
       "notes": "",
       "goal": "G3",
       "month": "M10",
@@ -8514,7 +8479,7 @@
     },
     {
       "id": "ms12_01",
-      "name": "Tribe foundation confirmed — entering 2027 with a real Phase 2 squad",
+      "name": "Tribe foundation confirmed \u2014 entering 2027 with a real Phase 2 squad",
       "notes": "",
       "goal": "G2",
       "month": "M12",
@@ -8569,7 +8534,7 @@
     },
     {
       "id": "ms8_04",
-      "name": "Value-alignment journal — Theta entry",
+      "name": "Value-alignment journal \u2014 Theta entry",
       "notes": "",
       "goal": "G1",
       "month": "M08",
