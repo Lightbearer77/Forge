@@ -54,6 +54,18 @@ profile → standalone APK. Owner `lightbearer77`, EAS project id
    layer. Do not build task recurrence without Connor asking.
 9. Local edits set `updatedAt = Date.now()` BEFORE saveTask; the sync path
    writes merge-decided timestamps through untouched.
+10. **Sections are the Asana model: `goal` = project, `section` = section,
+    scoped to its goal.** The same `section` string under two goals (e.g.
+    "Identity & Practice" under both G1 and G2) is two distinct nodes, not
+    one that spans goals. `lib/selectors.js` `buildGoalSections` returns
+    the two-level tree; every node's identity is the composite
+    `sectionKey(goal, section)`, never the bare section string.
+    `components/SectionSidebar.jsx` (drawer) and
+    `components/SectionDetailView.jsx` (filtered task list) are the UI.
+    An earlier flat, cross-goal version (`ProjectSidebar.jsx` /
+    `ProjectDetailView.jsx` / `buildProjects`, committed Theta 4/Aug 1) was
+    fully replaced, not extended — those files and functions no longer
+    exist. If you see references to them anywhere, the reference is stale.
 
 ## forge-sync.json — authoring guide for Claude instances
 
