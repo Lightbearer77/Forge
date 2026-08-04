@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "lastUpdated": "2026-08-04T19:04:06.046Z",
-  "updatedBy": "Forge",
+  "lastUpdated": "2026-08-04T20:19:46.762Z",
+  "updatedBy": "Claude",
   "tasks": [
     {
       "id": "t_seed_hsa_transfer",
@@ -10,7 +10,7 @@
       "goal": "G4",
       "priority": "High",
       "status": "done",
-      "section": "",
+      "section": "Financial",
       "level": 0,
       "month": "M07",
       "week": "W28",
@@ -25,7 +25,7 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1783895268353,
-      "updatedAt": 1783987488757
+      "updatedAt": 1785874759342
     },
     {
       "id": "t_seed_ddr5_ram",
@@ -58,7 +58,7 @@
       "goal": "G1",
       "priority": "Low",
       "status": "done",
-      "section": "",
+      "section": "The Forge",
       "level": 0,
       "month": "M07",
       "week": "W29",
@@ -73,7 +73,7 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1783895268353,
-      "updatedAt": 1783987520936
+      "updatedAt": 1785874759342
     },
     {
       "id": "t_1783895348748_tszqqi",
@@ -1423,7 +1423,7 @@
       "goal": "G3",
       "priority": "High",
       "status": "done",
-      "section": "Q1 Carryovers",
+      "section": "Health & Body",
       "level": 1,
       "month": "M04",
       "week": "",
@@ -1438,7 +1438,7 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958079,
-      "updatedAt": 1784316958079
+      "updatedAt": 1785874759342
     },
     {
       "id": "a03",
@@ -1447,7 +1447,7 @@
       "goal": "G1",
       "priority": "Mid",
       "status": "done",
-      "section": "Q1 Carryovers",
+      "section": "Identity & Practice",
       "level": 1,
       "month": "M04",
       "week": "",
@@ -1462,7 +1462,7 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958079,
-      "updatedAt": 1784316958079
+      "updatedAt": 1785874759342
     },
     {
       "id": "a04",
@@ -1471,7 +1471,7 @@
       "goal": "G1",
       "priority": "Mid",
       "status": "backlog",
-      "section": "Q1 Carryovers",
+      "section": "Identity & Practice",
       "level": 4,
       "month": "M06",
       "week": "",
@@ -1486,7 +1486,7 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958079,
-      "updatedAt": 1784316958079
+      "updatedAt": 1785874759342
     },
     {
       "id": "a05",
@@ -2051,7 +2051,7 @@
       "goal": "G4",
       "priority": "High",
       "status": "done",
-      "section": "Career & Financial",
+      "section": "Career & Credentials",
       "level": 2,
       "month": "M04",
       "week": "",
@@ -2066,7 +2066,7 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958079,
-      "updatedAt": 1784316958079
+      "updatedAt": 1785874759342
     },
     {
       "id": "a29",
@@ -2075,7 +2075,7 @@
       "goal": "G4",
       "priority": "High",
       "status": "done",
-      "section": "Career & Financial",
+      "section": "Career & Credentials",
       "level": 2,
       "month": "M04",
       "week": "",
@@ -2092,7 +2092,7 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958079,
-      "updatedAt": 1784316958079
+      "updatedAt": 1785874759342
     },
     {
       "id": "a30",
@@ -2101,7 +2101,7 @@
       "goal": "G4",
       "priority": "High",
       "status": "done",
-      "section": "Career & Financial",
+      "section": "Career & Credentials",
       "level": 2,
       "month": "M05",
       "week": "",
@@ -2118,7 +2118,7 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958079,
-      "updatedAt": 1784316958079
+      "updatedAt": 1785874759342
     },
     {
       "id": "a31",
@@ -2127,7 +2127,7 @@
       "goal": "G4",
       "priority": "High",
       "status": "done",
-      "section": "Career & Financial",
+      "section": "Career & Credentials",
       "level": 2,
       "month": "M04",
       "week": "",
@@ -2142,7 +2142,7 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958079,
-      "updatedAt": 1784316958079
+      "updatedAt": 1785874759342
     },
     {
       "id": "a32",
@@ -2151,7 +2151,7 @@
       "goal": "G4",
       "priority": "High",
       "status": "done",
-      "section": "Career & Financial",
+      "section": "Career & Credentials",
       "level": 2,
       "month": "M06",
       "week": "",
@@ -2168,7 +2168,7 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958079,
-      "updatedAt": 1784328963160
+      "updatedAt": 1785874759342
     },
     {
       "id": "a33",
@@ -2177,7 +2177,7 @@
       "goal": "G2",
       "priority": "High",
       "status": "done",
-      "section": "Career & Financial",
+      "section": "Financial & Legal",
       "level": 2,
       "month": "M04",
       "week": "",
@@ -2192,7 +2192,7 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958079,
-      "updatedAt": 1784316958079
+      "updatedAt": 1785874786617
     },
     {
       "id": "a34",
@@ -2201,7 +2201,7 @@
       "goal": "G4",
       "priority": "Mid",
       "status": "done",
-      "section": "Career & Financial",
+      "section": "Financial",
       "level": 2,
       "month": "M04",
       "week": "",
@@ -2216,7 +2216,7 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958079,
-      "updatedAt": 1784316958079
+      "updatedAt": 1785874759342
     },
     {
       "id": "a35",
@@ -2501,7 +2501,7 @@
       "goal": "G4",
       "priority": "High",
       "status": "done",
-      "section": "Career & Financial",
+      "section": "Financial",
       "level": 2,
       "month": "M05",
       "week": "",
@@ -2516,7 +2516,7 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958080,
-      "updatedAt": 1784316958080
+      "updatedAt": 1785874759342
     },
     {
       "id": "b01",
@@ -3015,7 +3015,7 @@
       "goal": "G4",
       "priority": "High",
       "status": "backlog",
-      "section": "Career & Financial",
+      "section": "Career & Credentials",
       "level": 2,
       "month": "M05",
       "week": "",
@@ -3032,7 +3032,7 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958080,
-      "updatedAt": 1784316958080
+      "updatedAt": 1785874759342
     },
     {
       "id": "b22",
@@ -3041,7 +3041,7 @@
       "goal": "G4",
       "priority": "Mid",
       "status": "done",
-      "section": "Career & Financial",
+      "section": "Financial",
       "level": 2,
       "month": "M05",
       "week": "",
@@ -3056,7 +3056,7 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958080,
-      "updatedAt": 1784329143291
+      "updatedAt": 1785874759342
     },
     {
       "id": "b23",
@@ -3259,7 +3259,7 @@
       "goal": "G4",
       "priority": "Mid",
       "status": "done",
-      "section": "Financial & Legal",
+      "section": "Financial",
       "level": 2,
       "month": "M06",
       "week": "",
@@ -3274,7 +3274,7 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958080,
-      "updatedAt": 1784329168997
+      "updatedAt": 1785874759342
     },
     {
       "id": "c06",
@@ -3283,7 +3283,7 @@
       "goal": "G4",
       "priority": "Mid",
       "status": "done",
-      "section": "Financial & Legal",
+      "section": "Financial",
       "level": 2,
       "month": "M06",
       "week": "",
@@ -3298,7 +3298,7 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958080,
-      "updatedAt": 1784329174218
+      "updatedAt": 1785874759342
     },
     {
       "id": "c07",
@@ -3307,7 +3307,7 @@
       "goal": "G4",
       "priority": "Mid",
       "status": "done",
-      "section": "Financial & Legal",
+      "section": "Financial",
       "level": 2,
       "month": "M06",
       "week": "",
@@ -3322,7 +3322,7 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958080,
-      "updatedAt": 1784329174795
+      "updatedAt": 1785874759342
     },
     {
       "id": "c08",
@@ -3828,7 +3828,7 @@
       "goal": "G4",
       "priority": "Mid",
       "status": "backlog",
-      "section": "Career & Financial",
+      "section": "Financial",
       "level": 2,
       "month": "M07",
       "week": "",
@@ -3843,7 +3843,7 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958080,
-      "updatedAt": 1784316958080
+      "updatedAt": 1785874759342
     },
     {
       "id": "z01",
@@ -4488,7 +4488,7 @@
       "goal": "G4",
       "priority": "High",
       "status": "backlog",
-      "section": "Career & Financial",
+      "section": "Financial",
       "level": 2,
       "month": "M07",
       "week": "W28",
@@ -4503,7 +4503,7 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1784393287371
+      "updatedAt": 1785874759342
     },
     {
       "id": "v20",
@@ -4512,7 +4512,7 @@
       "goal": "G4",
       "priority": "High",
       "status": "backlog",
-      "section": "Career & Financial",
+      "section": "Financial",
       "level": 2,
       "month": "M07",
       "week": "W30",
@@ -4527,7 +4527,7 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785874759342
     },
     {
       "id": "v21",
@@ -4536,7 +4536,7 @@
       "goal": "G1",
       "priority": "Mid",
       "status": "backlog",
-      "section": "Writing",
+      "section": "Identity & Practice",
       "level": 3,
       "month": "M06",
       "week": "W24",
@@ -4551,7 +4551,7 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1784393287371
+      "updatedAt": 1785874759342
     },
     {
       "id": "v22",
@@ -4584,7 +4584,7 @@
       "goal": "G4",
       "priority": "Low",
       "status": "backlog",
-      "section": "Career & Financial",
+      "section": "Career & Credentials",
       "level": 3,
       "month": "",
       "week": "",
@@ -4599,7 +4599,7 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1784393287371
+      "updatedAt": 1785874759342
     },
     {
       "id": "v24",
@@ -4608,7 +4608,7 @@
       "goal": "G4",
       "priority": "Low",
       "status": "backlog",
-      "section": "Career & Financial",
+      "section": "Career & Credentials",
       "level": 3,
       "month": "",
       "week": "",
@@ -4623,7 +4623,7 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1784393287371
+      "updatedAt": 1785874759342
     },
     {
       "id": "v25",
@@ -4632,7 +4632,7 @@
       "goal": "G1",
       "priority": "Low",
       "status": "backlog",
-      "section": "Archive Sweep",
+      "section": "Planning & Review",
       "level": 1,
       "month": "",
       "week": "",
@@ -4647,7 +4647,7 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1784393287371
+      "updatedAt": 1785874759342
     },
     {
       "id": "v26",
@@ -4800,7 +4800,7 @@
       "goal": "G1",
       "priority": "High",
       "status": "done",
-      "section": "",
+      "section": "The Forge",
       "level": 0,
       "month": "M08",
       "week": "",
@@ -4815,7 +4815,7 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1785644143494,
-      "updatedAt": 1785644143494
+      "updatedAt": 1785874759342
     },
     {
       "id": "r01",
@@ -5088,7 +5088,7 @@
       "goal": "G1",
       "priority": "High",
       "status": "todo",
-      "section": "Digital Sovereignty",
+      "section": "The Forge",
       "level": 0,
       "month": "M08",
       "week": "W29",
@@ -5103,7 +5103,7 @@
       "sortOrder": 6,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785874759342
     },
     {
       "id": "f26_007",
@@ -5112,7 +5112,7 @@
       "goal": "G4",
       "priority": "High",
       "status": "todo",
-      "section": "Career & Financial",
+      "section": "Career & Credentials",
       "level": 0,
       "month": "M08",
       "week": "W31",
@@ -5127,7 +5127,7 @@
       "sortOrder": 7,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785874759342
     },
     {
       "id": "f26_008",
@@ -5157,10 +5157,10 @@
       "id": "f26_009",
       "name": "Tier 1 account migration",
       "notes": "overdue May 27",
-      "goal": "G4",
+      "goal": "G1",
       "priority": "Mid",
       "status": "todo",
-      "section": "Career & Financial",
+      "section": "Digital Sovereignty",
       "level": 0,
       "month": "M08",
       "week": "W32",
@@ -5175,7 +5175,7 @@
       "sortOrder": 9,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785874759342
     },
     {
       "id": "f26_010",
@@ -5256,7 +5256,7 @@
       "goal": "G1",
       "priority": "Mid",
       "status": "todo",
-      "section": "Digital Sovereignty",
+      "section": "The Forge",
       "level": 0,
       "month": "M08",
       "week": "W30",
@@ -5271,7 +5271,7 @@
       "sortOrder": 13,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785874759342
     },
     {
       "id": "f26_014",
@@ -5280,7 +5280,7 @@
       "goal": "G4",
       "priority": "High",
       "status": "todo",
-      "section": "Career & Financial",
+      "section": "Financial",
       "level": 0,
       "month": "M08",
       "week": "W30",
@@ -5295,7 +5295,7 @@
       "sortOrder": 14,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785874759342
     },
     {
       "id": "f26_015",
@@ -5328,7 +5328,7 @@
       "goal": "G1",
       "priority": "Mid",
       "status": "done",
-      "section": "Digital Sovereignty",
+      "section": "The Forge",
       "level": 0,
       "month": "M08",
       "week": "W30",
@@ -5343,7 +5343,7 @@
       "sortOrder": 16,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1785290541884
+      "updatedAt": 1785874759342
     },
     {
       "id": "f26_017",
@@ -5424,7 +5424,7 @@
       "goal": "G1",
       "priority": "Mid",
       "status": "todo",
-      "section": "Digital Sovereignty",
+      "section": "The Forge",
       "level": 0,
       "month": "M08",
       "week": "W31",
@@ -5439,7 +5439,7 @@
       "sortOrder": 20,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785874759342
     },
     {
       "id": "f26_021",
@@ -5472,7 +5472,7 @@
       "goal": "G3",
       "priority": "High",
       "status": "todo",
-      "section": "Home Server",
+      "section": "Health & Body",
       "level": 0,
       "month": "M08",
       "week": "W32",
@@ -5487,7 +5487,7 @@
       "sortOrder": 22,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785874759342
     },
     {
       "id": "f26_023",
@@ -5496,7 +5496,7 @@
       "goal": "G4",
       "priority": "High",
       "status": "todo",
-      "section": "Career & Financial",
+      "section": "Career & Credentials",
       "level": 0,
       "month": "M08",
       "week": "W32",
@@ -5511,7 +5511,7 @@
       "sortOrder": 23,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785874759342
     },
     {
       "id": "f26_024",
@@ -5544,7 +5544,7 @@
       "goal": "G1",
       "priority": "Mid",
       "status": "done",
-      "section": "Digital Sovereignty",
+      "section": "The Forge",
       "level": 0,
       "month": "M08",
       "week": "W32",
@@ -5559,7 +5559,7 @@
       "sortOrder": 25,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1785290622699
+      "updatedAt": 1785874759342
     },
     {
       "id": "f26_026",
@@ -5640,7 +5640,7 @@
       "goal": "G1",
       "priority": "High",
       "status": "todo",
-      "section": "Digital Sovereignty",
+      "section": "Planning & Review",
       "level": 0,
       "month": "M08",
       "week": "W33",
@@ -5655,7 +5655,7 @@
       "sortOrder": 29,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785874759342
     },
     {
       "id": "f26_030",
@@ -5712,7 +5712,7 @@
       "goal": "G4",
       "priority": "Mid",
       "status": "todo",
-      "section": "Career & Financial",
+      "section": "Career & Credentials",
       "level": 0,
       "month": "M08",
       "week": "W33",
@@ -5727,7 +5727,7 @@
       "sortOrder": 32,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785874759342
     },
     {
       "id": "f26_033",
@@ -5784,7 +5784,7 @@
       "goal": "G1",
       "priority": "High",
       "status": "backlog",
-      "section": "Digital Sovereignty",
+      "section": "The Forge",
       "level": 0,
       "month": "M09",
       "week": "W34",
@@ -5799,7 +5799,7 @@
       "sortOrder": 35,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785874759342
     },
     {
       "id": "f26_036",
@@ -5808,7 +5808,7 @@
       "goal": "G1",
       "priority": "Mid",
       "status": "backlog",
-      "section": "Digital Sovereignty",
+      "section": "The Forge",
       "level": 0,
       "month": "M09",
       "week": "W34",
@@ -5823,7 +5823,7 @@
       "sortOrder": 36,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785874759342
     },
     {
       "id": "f26_037",
@@ -5856,7 +5856,7 @@
       "goal": "G1",
       "priority": "Mid",
       "status": "backlog",
-      "section": "Digital Sovereignty",
+      "section": "The Forge",
       "level": 0,
       "month": "M09",
       "week": "W35",
@@ -5871,7 +5871,7 @@
       "sortOrder": 38,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785874759342
     },
     {
       "id": "f26_039",
@@ -5880,7 +5880,7 @@
       "goal": "G1",
       "priority": "Mid",
       "status": "backlog",
-      "section": "Digital Sovereignty",
+      "section": "The Forge",
       "level": 0,
       "month": "M09",
       "week": "W35",
@@ -5895,7 +5895,7 @@
       "sortOrder": 39,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785874759342
     },
     {
       "id": "f26_040",
@@ -5904,7 +5904,7 @@
       "goal": "G1",
       "priority": "Mid",
       "status": "backlog",
-      "section": "Digital Sovereignty",
+      "section": "The Forge",
       "level": 0,
       "month": "M09",
       "week": "W35",
@@ -5919,7 +5919,7 @@
       "sortOrder": 40,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785874759342
     },
     {
       "id": "f26_041",
@@ -5928,7 +5928,7 @@
       "goal": "G1",
       "priority": "Mid",
       "status": "backlog",
-      "section": "Digital Sovereignty",
+      "section": "The Forge",
       "level": 0,
       "month": "M09",
       "week": "W36",
@@ -5943,7 +5943,7 @@
       "sortOrder": 41,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785874759342
     },
     {
       "id": "f26_042",
@@ -5952,7 +5952,7 @@
       "goal": "G4",
       "priority": "High",
       "status": "backlog",
-      "section": "Career & Financial",
+      "section": "Financial",
       "level": 0,
       "month": "M09",
       "week": "W36",
@@ -5967,7 +5967,7 @@
       "sortOrder": 42,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785874759342
     },
     {
       "id": "f26_043",
@@ -6024,7 +6024,7 @@
       "goal": "G1",
       "priority": "Mid",
       "status": "backlog",
-      "section": "Digital Sovereignty",
+      "section": "The Forge",
       "level": 0,
       "month": "M09",
       "week": "W37",
@@ -6039,7 +6039,7 @@
       "sortOrder": 45,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785874759342
     },
     {
       "id": "f26_046",
@@ -6072,7 +6072,7 @@
       "goal": "G4",
       "priority": "High",
       "status": "backlog",
-      "section": "Career & Financial",
+      "section": "Career & Credentials",
       "level": 0,
       "month": "M09",
       "week": "W37",
@@ -6087,7 +6087,7 @@
       "sortOrder": 47,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785874759342
     },
     {
       "id": "f26_048",
@@ -6120,7 +6120,7 @@
       "goal": "G1",
       "priority": "High",
       "status": "backlog",
-      "section": "Digital Sovereignty",
+      "section": "The Forge",
       "level": 0,
       "month": "M09",
       "week": "W37",
@@ -6135,7 +6135,7 @@
       "sortOrder": 49,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785874759342
     },
     {
       "id": "f26_050",
@@ -6216,7 +6216,7 @@
       "goal": "G1",
       "priority": "Mid",
       "status": "backlog",
-      "section": "Digital Sovereignty",
+      "section": "The Forge",
       "level": 0,
       "month": "M10",
       "week": "W38",
@@ -6231,7 +6231,7 @@
       "sortOrder": 53,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785874759342
     },
     {
       "id": "f26_054",
@@ -6240,7 +6240,7 @@
       "goal": "G1",
       "priority": "Low",
       "status": "backlog",
-      "section": "Digital Sovereignty",
+      "section": "The Forge",
       "level": 0,
       "month": "M10",
       "week": "W40",
@@ -6255,7 +6255,7 @@
       "sortOrder": 54,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785874759342
     },
     {
       "id": "f26_055",
@@ -6264,7 +6264,7 @@
       "goal": "G4",
       "priority": "High",
       "status": "backlog",
-      "section": "Career & Financial",
+      "section": "Career & Credentials",
       "level": 0,
       "month": "M10",
       "week": "W40",
@@ -6279,7 +6279,7 @@
       "sortOrder": 55,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785874759342
     },
     {
       "id": "f26_056",
@@ -6312,7 +6312,7 @@
       "goal": "G4",
       "priority": "High",
       "status": "backlog",
-      "section": "Career & Financial",
+      "section": "Career & Credentials",
       "level": 0,
       "month": "M10",
       "week": "W40",
@@ -6327,7 +6327,7 @@
       "sortOrder": 57,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785874759342
     },
     {
       "id": "f26_058",
@@ -6336,7 +6336,7 @@
       "goal": "G4",
       "priority": "Mid",
       "status": "backlog",
-      "section": "Career & Financial",
+      "section": "Financial",
       "level": 0,
       "month": "M10",
       "week": "W40",
@@ -6351,7 +6351,7 @@
       "sortOrder": 58,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785874759342
     },
     {
       "id": "f26_059",
@@ -6384,7 +6384,7 @@
       "goal": "G4",
       "priority": "High",
       "status": "backlog",
-      "section": "Career & Financial",
+      "section": "Financial",
       "level": 0,
       "month": "M10",
       "week": "W41",
@@ -6399,7 +6399,7 @@
       "sortOrder": 60,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785874759342
     },
     {
       "id": "f26_061",
@@ -6408,7 +6408,7 @@
       "goal": "G1",
       "priority": "Mid",
       "status": "backlog",
-      "section": "Digital Sovereignty",
+      "section": "The Forge",
       "level": 0,
       "month": "M10",
       "week": "W41",
@@ -6423,7 +6423,7 @@
       "sortOrder": 61,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785874759342
     },
     {
       "id": "f26_062",
@@ -6672,7 +6672,7 @@
       "goal": "G4",
       "priority": "Mid",
       "status": "backlog",
-      "section": "Career & Financial",
+      "section": "Financial",
       "level": 0,
       "month": "M11",
       "week": "W45",
@@ -6687,7 +6687,7 @@
       "sortOrder": 73,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785874759342
     },
     {
       "id": "f26_074",
@@ -6696,7 +6696,7 @@
       "goal": "G4",
       "priority": "High",
       "status": "backlog",
-      "section": "Career & Financial",
+      "section": "Financial",
       "level": 0,
       "month": "M11",
       "week": "W45",
@@ -6711,7 +6711,7 @@
       "sortOrder": 74,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785874759342
     },
     {
       "id": "f26_075",
@@ -6720,7 +6720,7 @@
       "goal": "G4",
       "priority": "High",
       "status": "backlog",
-      "section": "Career & Financial",
+      "section": "Financial",
       "level": 0,
       "month": "M11",
       "week": "W45",
@@ -6735,7 +6735,7 @@
       "sortOrder": 75,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785874759342
     },
     {
       "id": "f26_076",
@@ -6936,7 +6936,7 @@
       "goal": "G4",
       "priority": "High",
       "status": "backlog",
-      "section": "Career & Financial",
+      "section": "Financial",
       "level": 0,
       "month": "M12",
       "week": "W49",
@@ -6951,7 +6951,7 @@
       "sortOrder": 84,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785874759342
     },
     {
       "id": "f26_085",
@@ -6984,7 +6984,7 @@
       "goal": "G4",
       "priority": "High",
       "status": "backlog",
-      "section": "Career & Financial",
+      "section": "Financial",
       "level": 0,
       "month": "M12",
       "week": "W49",
@@ -6999,7 +6999,7 @@
       "sortOrder": 86,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785874759342
     },
     {
       "id": "f26_087",
@@ -7080,7 +7080,7 @@
       "goal": "G4",
       "priority": "High",
       "status": "backlog",
-      "section": "Career & Financial",
+      "section": "Financial",
       "level": 0,
       "month": "M12",
       "week": "W49",
@@ -7095,7 +7095,7 @@
       "sortOrder": 90,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785874759342
     },
     {
       "id": "f26_091",
@@ -7200,7 +7200,7 @@
       "goal": "G4",
       "priority": "High",
       "status": "backlog",
-      "section": "Career & Financial",
+      "section": "Financial",
       "level": 0,
       "month": "M13",
       "week": "W51",
@@ -7215,7 +7215,7 @@
       "sortOrder": 95,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785874759342
     },
     {
       "id": "f26_096",
