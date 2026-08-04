@@ -27,8 +27,8 @@ import KanbanView from './components/KanbanView';
 import CalendarView from './components/CalendarView';
 import DashboardView from './components/DashboardView';
 import RunesView from './components/RunesView';
-import ProjectSidebar from './components/ProjectSidebar';
-import ProjectDetailView from './components/ProjectDetailView';
+import SectionSidebar from './components/SectionSidebar';
+import SectionDetailView from './components/SectionDetailView';
 import { requestNotificationPermissions, refreshAllNotifications } from './lib/notifications';
 
 // ─── ErrorBoundary: crashes render on-screen, never a silent kick-out ───
@@ -83,8 +83,8 @@ function AppContent() {
   const [showSettings, setShowSettings] = useState(false);
   const [sortBy, setSortBy] = useState('due');
   const [sortMenuOpen, setSortMenuOpen] = useState(false);
-  const [showProjects, setShowProjects] = useState(false);
-  const [activeProjectId, setActiveProjectId] = useState(null);
+  const [showSections, setShowSections] = useState(false);
+  const [activeSectionKey, setActiveSectionKey] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
 
   const today = todayISO();
@@ -281,7 +281,7 @@ function AppContent() {
           <Text style={styles.subtitle}>{fmtGreekLong(today)}</Text>
         </View>
         <View style={{ flexDirection: 'row', gap: 8 }}>
-          <TouchableOpacity onPress={() => setShowProjects(true)} style={styles.syncBtn}>
+          <TouchableOpacity onPress={() => setShowSections(true)} style={styles.syncBtn}>
             <Text style={styles.syncBtnText}>☰</Text>
           </TouchableOpacity>
           <TouchableOpacity
@@ -458,19 +458,19 @@ function AppContent() {
         />
       )}
 
-      <ProjectSidebar
-        visible={showProjects}
+      <SectionSidebar
+        visible={showSections}
         tasks={tasks}
         milestones={milestones}
         today={today}
-        activeId={activeProjectId}
-        onSelect={(p) => { setActiveProjectId(p.id); setShowProjects(false); }}
-        onClose={() => setShowProjects(false)}
+        activeKey={activeSectionKey}
+        onSelect={(s) => { setActiveSectionKey(s.id); setShowSections(false); }}
+        onClose={() => setShowSections(false)}
       />
 
-      {activeProjectId !== null && (
-        <ProjectDetailView
-          projectId={activeProjectId}
+      {activeSectionKey !== null && (
+        <SectionDetailView
+          sectionKey={activeSectionKey}
           tasks={tasks}
           milestones={milestones}
           today={today}
@@ -478,7 +478,7 @@ function AppContent() {
           onToggleTask={toggleDone}
           onEditMilestone={openMilestone}
           onToggleMilestone={toggleMilestone}
-          onClose={() => setActiveProjectId(null)}
+          onClose={() => setActiveSectionKey(null)}
         />
       )}
 
