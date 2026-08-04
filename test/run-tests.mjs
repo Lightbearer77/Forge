@@ -43,8 +43,8 @@ const { buildTriggers, parseTime, parseLead, summarize, CHANNELS, MAX_SCHEDULED 
 const { groupByStatus, isOverdue, tasksByDueDate, dashboardStats, isoWeekTag,
   taskById, isBlocked, childrenOf, subtaskProgress, topLevelTasks,
   milestoneProgress, milestonesByDueDate, sortTasksForList, SORT_MODES,
-  buildProjects, tasksInProject, milestonesInProject, milestoneProjectId,
-  sectionByTaskId, projectLabel, UNSORTED_ID,
+  buildGoalSections, tasksInSection, milestonesInSection, milestoneSectionId,
+  sectionByKey, sectionKey, sectionLabel, UNSORTED_ID,
   matchesSearch, searchTasks } =
   await import(pathToFileURL(join(stage, 'selectors.mjs')).href);
 
@@ -297,69 +297,103 @@ for (const mode of SORT_MODES) {
 }
 
 
-// ── Projects (adopt-first on the section field) ──
+// ── Sections (Asana model: goal = project, section = section) ──
 const pT = (id, section, extra = {}) =>
   normalizeTask({ id, name: id, section, updatedAt: 1, createdAt: 1, ...extra });
 
-ok(projectLabel('') === 'Unsorted' && projectLabel('Home Server') === 'Home Server', 'projectLabel');
+ok(sectionLabel('') === 'Unsorted' && sectionLabel('Home Server') === 'Home Server', 'sectionLabel');
 ok(UNSORTED_ID === '', 'UNSORTED_ID is the empty section');
+ok(sectionKey('G1', 'Home Server') === 'G1::Home Server', 'sectionKey composes goal+section');
+ok(sectionKey('G1', '') === 'G1::', 'sectionKey handles unsorted');
 
-const projTasks = [
+const secTasks = [
   pT('a', 'Home Server', { goal: 'G1', status: 'done',  dueDate: '2026-07-01' }),
   pT('b', 'Home Server', { goal: 'G1', status: 'todo',  dueDate: '2026-07-01' }), // overdue
-  pT('c', 'Home Server', { goal: 'G3', status: 'in-progress' }),                  // minority goal
+  pT('c', 'Home Server', { goal: 'G3', status: 'in-progress' }),                  // same NAME, different goal — distinct node
   pT('d', 'Health',      { goal: 'G3', status: 'todo' }),
   pT('e', '',            { goal: 'G4', status: 'todo' }),                         // unsorted
 ];
-const projMs = [
-  normalizeMilestone({ id: 'm1', name: 'M1', taskIds: ['a', 'b'], completed: true,  updatedAt: 1 }),
-  normalizeMilestone({ id: 'm2', name: 'M2', taskIds: ['d'],      completed: false, updatedAt: 1 }),
-  normalizeMilestone({ id: 'm3', name: 'M3', taskIds: [],         completed: false, updatedAt: 1 }),
-  normalizeMilestone({ id: 'm4', name: 'M4', taskIds: ['ghost'],  completed: false, updatedAt: 1 }),
+const secMs = [
+  normalizeMilestone({ id: 'm1', name: 'M1', goal: 'G1', taskIds: ['a', 'b'], completed: true,  updatedAt: 1 }),
+  normalizeMilestone({ id: 'm2', name: 'M2', goal: 'G3', taskIds: ['d'],      completed: false, updatedAt: 1 }),
+  normalizeMilestone({ id: 'm3', name: 'M3', goal: 'G1', taskIds: [],         completed: false, updatedAt: 1 }),
+  normalizeMilestone({ id: 'm4', name: 'M4', goal: 'G1', taskIds: ['ghost'],  completed: false, updatedAt: 1 }),
+  // linked task exists but under a DIFFERENT goal than the milestone — must not count
+  normalizeMilestone({ id: 'm5', name: 'M5', goal: 'G2', taskIds: ['a'],      completed: false, updatedAt: 1 }),
 ];
 
-const projs = buildProjects(projTasks, projMs, '2026-07-12');
-const P = (id) => projs.find(p => p.id === id);
-ok(projs.length === 3, `three projects, got ${projs.length}`);
+const tree = buildGoalSections(secTasks, secMs, '2026-07-12');
+ok(tree.length === 4, `all four goals present, got ${tree.length}`);
+ok(tree.map(g => g.goal).join(',') === 'G1,G2,G3,G4', 'goals in G1..G4 order');
 
-const hs = P('Home Server');
-ok(hs.total === 3 && hs.done === 1 && hs.open === 2, `Home Server counts: ${JSON.stringify(hs)}`);
-ok(hs.inProgress === 1, 'inProgress counted');
-ok(hs.overdue === 1, 'overdue counts only open past-due (done one excluded)');
-ok(hs.goal === 'G1' && hs.mixedGoals === true, 'dominant goal wins, mix flagged');
-ok(Math.abs(hs.progress - 1 / 3) < 1e-9, 'progress = done/total');
-ok(hs.msTotal === 1 && hs.msDone === 1, 'milestone derived onto Home Server via linked tasks');
+const g1 = tree.find(g => g.goal === 'G1');
+const g2 = tree.find(g => g.goal === 'G2');
+const g3 = tree.find(g => g.goal === 'G3');
+ok(g1.sections.length === 1, `G1 has one section, got ${g1.sections.length}`);
+ok(g2.sections.length === 0, 'G2 has zero sections but the goal node still exists');
+ok(g3.sections.length === 2, `G3 has two sections (Home Server + Health), got ${g3.sections.length}`);
 
-ok(P('Health').mixedGoals === false, 'single-goal project not flagged mixed');
-ok(P('').name === 'Unsorted', 'empty section bucket labeled Unsorted');
-ok(projs[projs.length - 1].id === UNSORTED_ID, 'Unsorted pinned last regardless of size');
-ok(projs[0].id === 'Home Server', 'projects sorted by open desc');
+const g1hs = g1.sections.find(s => s.id === sectionKey('G1', 'Home Server'));
+ok(g1hs.total === 2 && g1hs.done === 1 && g1hs.open === 1, `G1 Home Server counts: ${JSON.stringify(g1hs)}`);
+ok(g1hs.overdue === 1, 'open + past-due task (b) counts as overdue; done task (a) does not');
+ok(Math.abs(g1hs.progress - 0.5) < 1e-9, 'progress = done/total');
 
-// every live task lands in exactly one project — nothing silently vanishes
-ok(projs.reduce((a, p) => a + p.total, 0) === projTasks.length, 'task coverage is total');
+const g3hs = g3.sections.find(s => s.id === sectionKey('G3', 'Home Server'));
+ok(g3hs.total === 1 && g3hs.inProgress === 1, 'same-named section under G3 is a separate node from G1\u2019s');
+ok(g3hs !== g1hs, 'G1::Home Server and G3::Home Server are distinct objects');
+
+ok(g1.open === g1.sections.reduce((a, s) => a + s.open, 0), 'goal.open sums its sections');
+
+const g4 = tree.find(g => g.goal === 'G4');
+ok(g4.sections.length === 1 && g4.sections[0].section === UNSORTED_ID, 'unfiled G4 task collects under Unsorted');
+ok(g4.sections[0].name === 'Unsorted', 'Unsorted section labeled correctly');
+
+// sort order: alphabetical, Unsorted always last regardless of name
+const alphaTasks = [
+  pT('x', 'Zebra',  { goal: 'G1' }), pT('y', 'Alpha', { goal: 'G1' }), pT('z', '', { goal: 'G1' }),
+];
+const alphaTree = buildGoalSections(alphaTasks, [], '2026-07-12');
+const alphaG1 = alphaTree.find(g => g.goal === 'G1');
+ok(alphaG1.sections.map(s => s.name).join(',') === 'Alpha,Zebra,Unsorted', 'alphabetical with Unsorted pinned last');
 
 // tombstones excluded
-const withDead = buildProjects([...projTasks, pT('z', 'Home Server', { deleted: true })], [], '2026-07-12');
-ok(withDead.find(p => p.id === 'Home Server').total === 3, 'tombstoned tasks excluded');
+const withDead = buildGoalSections([...secTasks, pT('zz', 'Home Server', { goal: 'G1', deleted: true })], [], '2026-07-12');
+const withDeadHs = withDead.find(g => g.goal === 'G1').sections.find(s => s.section === 'Home Server');
+ok(withDeadHs.total === 2, 'tombstoned tasks excluded from counts');
 
-// milestone derivation rules
-const secBy = sectionByTaskId(projTasks);
-ok(milestoneProjectId(projMs[0], secBy) === 'Home Server', 'milestone derives from linked task section');
-ok(milestoneProjectId(projMs[2], secBy) === null, 'no links -> null, not Unsorted');
-ok(milestoneProjectId(projMs[3], secBy) === null, 'only stale links -> null');
-const split = normalizeMilestone({ id: 'm5', name: 'M5', taskIds: ['a', 'b', 'd'], updatedAt: 1 });
-ok(milestoneProjectId(split, secBy) === 'Home Server', 'split milestone goes to most-linked section');
-const tie = normalizeMilestone({ id: 'm6', name: 'M6', taskIds: ['c', 'd'], updatedAt: 1 });
-ok(milestoneProjectId(tie, secBy) === 'Health', 'tie breaks alphabetically (deterministic)');
+// milestone -> section derivation, scoped to the milestone's own goal
+ok(g1hs.msTotal === 1 && g1hs.msDone === 1, 'milestone m1 (goal G1) derives onto G1::Home Server via linked tasks');
+ok(g3.sections.find(s => s.section === 'Health').msTotal === 1, 'milestone m2 (goal G3) derives onto G3::Health');
+ok(g1.sections.every(s => s.msTotal === (s.section === 'Home Server' ? 1 : 0)), 'm3 (no links) and m4 (stale link) contribute nothing');
+ok(g2.sections.length === 0, 'm5 targets G2 but its only linked task (a) is goal G1, so it derives nothing and G2 stays empty');
+
+const byIdForMs = taskById(secTasks);
+ok(milestoneSectionId(secMs[0], byIdForMs) === 'Home Server', 'milestoneSectionId direct check');
+ok(milestoneSectionId(secMs[2], byIdForMs) === null, 'no links -> null, not Unsorted');
+ok(milestoneSectionId(secMs[3], byIdForMs) === null, 'only stale links -> null');
+ok(milestoneSectionId(secMs[4], byIdForMs) === null, 'linked task exists but wrong goal -> null');
+
+const splitMs = normalizeMilestone({ id: 'm6', name: 'M6', goal: 'G1', taskIds: ['a', 'b'], updatedAt: 1 });
+ok(milestoneSectionId(splitMs, byIdForMs) === 'Home Server', 'split milestone goes to most-linked section within its goal');
 
 // membership helpers
-ok(tasksInProject(projTasks, 'Home Server').map(t => t.id).join(',') === 'a,b,c', 'tasksInProject');
-ok(tasksInProject(projTasks, '').map(t => t.id).join(',') === 'e', 'tasksInProject unsorted');
-ok(milestonesInProject(projMs, projTasks, 'Home Server').map(m => m.id).join(',') === 'm1', 'milestonesInProject');
-ok(milestonesInProject(projMs, projTasks, '').length === 0, 'unlinked milestones do not fall into Unsorted');
+ok(tasksInSection(secTasks, 'G1', 'Home Server').map(t => t.id).join(',') === 'a,b', 'tasksInSection scoped by goal');
+ok(tasksInSection(secTasks, 'G3', 'Home Server').map(t => t.id).join(',') === 'c', 'tasksInSection: same name, different goal, different result');
+ok(tasksInSection(secTasks, 'G4', '').map(t => t.id).join(',') === 'e', 'tasksInSection unsorted');
+ok(milestonesInSection(secMs, secTasks, 'G1', 'Home Server').map(m => m.id).join(',') === 'm1', 'milestonesInSection');
+ok(milestonesInSection(secMs, secTasks, 'G2', '').length === 0, 'wrong-goal milestone does not leak into Unsorted');
+
+// lookup by key
+ok(sectionByKey(secTasks, secMs, '2026-07-12', sectionKey('G1', 'Home Server')).total === 2, 'sectionByKey finds the node');
+ok(sectionByKey(secTasks, secMs, '2026-07-12', 'G1::Nonexistent') === null, 'sectionByKey returns null for a missing node');
+
+// every live task lands in exactly one node — nothing silently vanishes
+const totalInTree = tree.reduce((a, g) => a + g.sections.reduce((b, s) => b + s.total, 0), 0);
+ok(totalInTree === secTasks.length, 'task coverage is total across the whole tree');
 
 // empty inputs are safe
-ok(buildProjects([], []).length === 0, 'no tasks -> no projects');
+const emptyTree = buildGoalSections([], []);
+ok(emptyTree.length === 4 && emptyTree.every(g => g.sections.length === 0 && g.open === 0), 'no tasks -> four empty goal nodes, no throw');
 
 
 // ── Search ──
