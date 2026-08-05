@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "lastUpdated": "2026-08-05T19:20:18.000Z",
+  "lastUpdated": "2026-08-05T20:16:09.000Z",
   "updatedBy": "Claude",
   "tasks": [
     {
@@ -1393,7 +1393,7 @@
     {
       "id": "p07",
       "name": "Confirm Microsoft account fully detached \u2014 no Tier 1 accounts remaining",
-      "notes": "",
+      "notes": "Verify no Tier 1 (identity/financial/medical/career) login still routes through the Microsoft account \u2014 closes out the SimpleLogin migration for the highest-stakes accounts.",
       "goal": "G1",
       "priority": "High",
       "status": "backlog",
@@ -1414,7 +1414,7 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958079,
-      "updatedAt": 1784316958079
+      "updatedAt": 1785960969568
     },
     {
       "id": "a02",
@@ -2269,7 +2269,7 @@
     {
       "id": "a37",
       "name": "Continue Phase 1 stealth incentives at next meetup + score readiness checklist",
-      "notes": "",
+      "notes": "Ongoing Phase 1 tactic: use natural gathering incentives to draw new contacts without an explicit pitch. Score the readiness checklist afterward to gauge distance from Phase 2.",
       "goal": "G2",
       "priority": "High",
       "status": "todo",
@@ -2288,7 +2288,7 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958079,
-      "updatedAt": 1784316958079
+      "updatedAt": 1785960969568
     },
     {
       "id": "a38",
@@ -2473,7 +2473,7 @@
     {
       "id": "a45",
       "name": "Are you following your Father's counsel?",
-      "notes": "",
+      "notes": "Reflection checkpoint on whether current actions align with your father's counsel/values.",
       "goal": "G1",
       "priority": "Mid",
       "status": "backlog",
@@ -2492,7 +2492,7 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958080,
-      "updatedAt": 1784316958080
+      "updatedAt": 1785960969568
     },
     {
       "id": "a46",
@@ -2643,7 +2643,7 @@
     {
       "id": "b06",
       "name": "Review DNA results when returned",
-      "notes": "",
+      "notes": "Read through the DNA test results once they arrive; feeds directly into b07's supplement research.",
       "goal": "G3",
       "priority": "High",
       "status": "backlog",
@@ -2664,12 +2664,12 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958080,
-      "updatedAt": 1784316958080
+      "updatedAt": 1785960969568
     },
     {
       "id": "b07",
       "name": "Research supplements based on DNA results",
-      "notes": "",
+      "notes": "Use DNA findings to research which supplements are actually indicated, rather than guessing.",
       "goal": "G3",
       "priority": "High",
       "status": "backlog",
@@ -2690,7 +2690,7 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958080,
-      "updatedAt": 1784316958080
+      "updatedAt": 1785960969568
     },
     {
       "id": "b08",
@@ -2771,7 +2771,7 @@
     {
       "id": "b11",
       "name": "Purchase microfiber-catching laundry bag or filter",
-      "notes": "",
+      "notes": "Buy a laundry bag/filter that catches synthetic microfibers before they wash into wastewater.",
       "goal": "G3",
       "priority": "Mid",
       "status": "backlog",
@@ -2790,12 +2790,12 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958080,
-      "updatedAt": 1784316958080
+      "updatedAt": 1785960969568
     },
     {
       "id": "b12",
       "name": "Replace synthetic bedding with natural fiber alternatives",
-      "notes": "",
+      "notes": "Swap synthetic sheets/bedding for natural-fiber alternatives to cut synthetic exposure.",
       "goal": "G3",
       "priority": "Mid",
       "status": "backlog",
@@ -2814,12 +2814,12 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958080,
-      "updatedAt": 1784316958080
+      "updatedAt": 1785960969568
     },
     {
       "id": "b13",
       "name": "Switch household cleaners to natural alternatives",
-      "notes": "",
+      "notes": "Replace conventional chemical cleaners with natural alternatives.",
       "goal": "G3",
       "priority": "Mid",
       "status": "backlog",
@@ -2838,7 +2838,7 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958080,
-      "updatedAt": 1784316958080
+      "updatedAt": 1785960969568
     },
     {
       "id": "b14",
@@ -3011,7 +3011,7 @@
     {
       "id": "b21",
       "name": "Complete SAS intermediate module",
-      "notes": "",
+      "notes": "Finish the intermediate-level SAS course module, building on the completed introductory module.",
       "goal": "G4",
       "priority": "High",
       "status": "backlog",
@@ -3032,7 +3032,7 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958080,
-      "updatedAt": 1785874759342
+      "updatedAt": 1785960969568
     },
     {
       "id": "b22",
@@ -3061,7 +3061,7 @@
     {
       "id": "b23",
       "name": "Attend first social event with intention of meeting quality women",
-      "notes": "",
+      "notes": "First deliberate social outing aimed at meeting quality women, outside the dating-app pipeline.",
       "goal": "G2",
       "priority": "High",
       "status": "backlog",
@@ -3080,12 +3080,12 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958080,
-      "updatedAt": 1784316958080
+      "updatedAt": 1785960969568
     },
     {
       "id": "b24",
       "name": "Begin consistent approach practice \u2014 minimum 2/week",
-      "notes": "",
+      "notes": "Start a standing habit of approaching women in person at least twice a week, independent of dating apps.",
       "goal": "G2",
       "priority": "High",
       "status": "backlog",
@@ -3104,12 +3104,12 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958080,
-      "updatedAt": 1784316958080
+      "updatedAt": 1785960969568
     },
     {
       "id": "b25",
       "name": "Sign and print the Primal Longhouse Oath",
-      "notes": "",
+      "notes": "Print and formally sign the founding oath document for the tribe \u2014 precedes the first ritual reading.",
       "goal": "G2",
       "priority": "High",
       "status": "backlog",
@@ -3128,12 +3128,12 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958080,
-      "updatedAt": 1784316958080
+      "updatedAt": 1785960969568
     },
     {
       "id": "b26",
       "name": "Schedule the first elevated ritual gathering (read oath aloud)",
-      "notes": "",
+      "notes": "Set a date for the first formal gathering where the oath is read aloud to the group.",
       "goal": "G2",
       "priority": "High",
       "status": "backlog",
@@ -3154,7 +3154,7 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958080,
-      "updatedAt": 1784316958080
+      "updatedAt": 1785960969568
     },
     {
       "id": "c01",
@@ -3231,7 +3231,7 @@
     {
       "id": "c04",
       "name": "Discuss how much her mortgage is",
-      "notes": "",
+      "notes": "Conversation to learn a specific financial detail as part of vetting a dating prospect.",
       "goal": "G2",
       "priority": "Mid",
       "status": "backlog",
@@ -3250,7 +3250,7 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958080,
-      "updatedAt": 1784316958080
+      "updatedAt": 1785960969568
     },
     {
       "id": "c05",
@@ -3453,7 +3453,7 @@
     {
       "id": "c13",
       "name": "Audit kitchen \u2014 remaining plastic items",
-      "notes": "",
+      "notes": "Go through the kitchen and catalog plastic items not yet replaced in the microplastics-reduction effort.",
       "goal": "G3",
       "priority": "Mid",
       "status": "backlog",
@@ -3472,12 +3472,12 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958080,
-      "updatedAt": 1784316958080
+      "updatedAt": 1785960969568
     },
     {
       "id": "c14",
       "name": "Audit bathroom \u2014 remaining plastic items",
-      "notes": "",
+      "notes": "Same audit, applied to the bathroom.",
       "goal": "G3",
       "priority": "Mid",
       "status": "backlog",
@@ -3496,12 +3496,12 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958080,
-      "updatedAt": 1784316958080
+      "updatedAt": 1785960969568
     },
     {
       "id": "c15",
       "name": "Audit bedroom and living areas \u2014 remaining plastic items",
-      "notes": "",
+      "notes": "Same audit, applied to bedroom and living areas.",
       "goal": "G3",
       "priority": "Mid",
       "status": "backlog",
@@ -3520,12 +3520,12 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958080,
-      "updatedAt": 1784316958080
+      "updatedAt": 1785960969568
     },
     {
       "id": "c16",
       "name": "Build complete replacement shopping list from audit",
-      "notes": "",
+      "notes": "Compile one shopping list of replacement items from the three room audits.",
       "goal": "G3",
       "priority": "Mid",
       "status": "backlog",
@@ -3548,12 +3548,12 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958080,
-      "updatedAt": 1784316958080
+      "updatedAt": 1785960969568
     },
     {
       "id": "c17",
       "name": "Replace remaining synthetic carpets or rugs with natural",
-      "notes": "",
+      "notes": "Swap remaining synthetic carpet/rugs for natural-fiber alternatives.",
       "goal": "G3",
       "priority": "Mid",
       "status": "backlog",
@@ -3572,7 +3572,7 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958080,
-      "updatedAt": 1784316958080
+      "updatedAt": 1785960969568
     },
     {
       "id": "c18",
@@ -3601,7 +3601,7 @@
     {
       "id": "c19",
       "name": "Complete all replacements from audit list",
-      "notes": "",
+      "notes": "Work through and complete every item on the replacement shopping list.",
       "goal": "G3",
       "priority": "Mid",
       "status": "backlog",
@@ -3622,12 +3622,12 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958080,
-      "updatedAt": 1784316958080
+      "updatedAt": 1785960969568
     },
     {
       "id": "c20",
       "name": "Full home microplastics audit \u2014 all major vectors eliminated",
-      "notes": "",
+      "notes": "Final sweep confirming all major microplastic sources in the home have been addressed \u2014 capstone of the project.",
       "goal": "G3",
       "priority": "Mid",
       "status": "backlog",
@@ -3648,12 +3648,12 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958080,
-      "updatedAt": 1784316958080
+      "updatedAt": 1785960969568
     },
     {
       "id": "c21",
       "name": "Become the Ultimate man \u2014 daily practice review",
-      "notes": "",
+      "notes": "Periodic review of daily practices against the 'Ultimate Autonomous Man' identity standard.",
       "goal": "G1",
       "priority": "High",
       "status": "backlog",
@@ -3672,12 +3672,12 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958080,
-      "updatedAt": 1784316958080
+      "updatedAt": 1785960969568
     },
     {
       "id": "c22",
       "name": "Industry pays debts \u2014 financial discipline review",
-      "notes": "",
+      "notes": "Review of financial discipline habits, framed around the idea that consistent work \u2014 not luck \u2014 is what pays down debt.",
       "goal": "G1",
       "priority": "Mid",
       "status": "backlog",
@@ -3696,12 +3696,12 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958080,
-      "updatedAt": 1784316958080
+      "updatedAt": 1785960969568
     },
     {
       "id": "c23",
       "name": "Diligence is the mother of good luck \u2014 habit audit",
-      "notes": "",
+      "notes": "Audit current habits against the principle that diligence, not luck, drives outcomes.",
       "goal": "G1",
       "priority": "Mid",
       "status": "backlog",
@@ -3720,12 +3720,12 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958080,
-      "updatedAt": 1784316958080
+      "updatedAt": 1785960969568
     },
     {
       "id": "c24",
       "name": "Make a list of ends \u2014 life priorities audit",
-      "notes": "",
+      "notes": "Write out core life priorities ('ends') to check whether daily actions are actually serving them.",
       "goal": "G1",
       "priority": "Mid",
       "status": "backlog",
@@ -3744,7 +3744,7 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958080,
-      "updatedAt": 1784316958080
+      "updatedAt": 1785960969568
     },
     {
       "id": "d01",
@@ -3776,7 +3776,7 @@
     {
       "id": "d02",
       "name": "Cognition baseline test completed and documented",
-      "notes": "",
+      "notes": "Run and record a baseline cognitive-performance test, to compare against future re-tests.",
       "goal": "G3",
       "priority": "Mid",
       "status": "backlog",
@@ -3795,12 +3795,12 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958080,
-      "updatedAt": 1784316958080
+      "updatedAt": 1785960969568
     },
     {
       "id": "d03",
       "name": "Nutrition standard defined \u2014 based on 3 months data",
-      "notes": "",
+      "notes": "Define a settled nutrition standard based on three months of accumulated dietary data.",
       "goal": "G3",
       "priority": "Mid",
       "status": "backlog",
@@ -3819,12 +3819,12 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958080,
-      "updatedAt": 1784316958080
+      "updatedAt": 1785960969568
     },
     {
       "id": "d04",
       "name": "Q2 financial review \u2014 emergency fund %, debt, certs, net worth",
-      "notes": "",
+      "notes": "Quarterly financial check-in: emergency fund percentage, debt levels, certifications, net worth.",
       "goal": "G4",
       "priority": "Mid",
       "status": "backlog",
@@ -3843,12 +3843,12 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958080,
-      "updatedAt": 1785874759342
+      "updatedAt": 1785960969568
     },
     {
       "id": "z01",
       "name": "Research local martial arts and self-defense disciplines",
-      "notes": "",
+      "notes": "Research locally available martial arts/self-defense schools and disciplines, to choose one.",
       "goal": "G3",
       "priority": "Low",
       "status": "backlog",
@@ -3867,12 +3867,12 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958080,
-      "updatedAt": 1784316958080
+      "updatedAt": 1785960969568
     },
     {
       "id": "z02",
       "name": "Choose discipline and enroll in first class",
-      "notes": "",
+      "notes": "Pick a discipline from the research and sign up for the first class.",
       "goal": "G3",
       "priority": "Low",
       "status": "backlog",
@@ -3893,12 +3893,12 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958080,
-      "updatedAt": 1784316958080
+      "updatedAt": 1785960969568
     },
     {
       "id": "z03",
       "name": "Complete first four training sessions",
-      "notes": "",
+      "notes": "Attend and complete the first four sessions of the chosen discipline.",
       "goal": "G3",
       "priority": "Low",
       "status": "backlog",
@@ -3919,12 +3919,12 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958080,
-      "updatedAt": 1784316958080
+      "updatedAt": 1785960969568
     },
     {
       "id": "z04",
       "name": "Establish home drill routine \u2014 basics and movement daily",
-      "notes": "",
+      "notes": "Set up a daily at-home practice routine covering basics and movement, to reinforce class training.",
       "goal": "G3",
       "priority": "Low",
       "status": "backlog",
@@ -3945,12 +3945,12 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958080,
-      "updatedAt": 1784316958080
+      "updatedAt": 1785960969568
     },
     {
       "id": "z05",
       "name": "Schedule first quarterly sparring or skills assessment",
-      "notes": "",
+      "notes": "Book the first quarterly sparring session or skills test to gauge progress.",
       "goal": "G3",
       "priority": "Low",
       "status": "backlog",
@@ -3971,7 +3971,7 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958080,
-      "updatedAt": 1784316958080
+      "updatedAt": 1785960969568
     },
     {
       "id": "z08",
@@ -4050,7 +4050,7 @@
     {
       "id": "v01",
       "name": "Install OS \u2014 Ubuntu Server or Debian",
-      "notes": "",
+      "notes": "First step of the home server build: install a headless Linux server OS on the newly-assembled hardware (Ryzen 9 7900X / TUF X870), before network, SSH, or storage configuration begins.",
       "goal": "G1",
       "priority": "High",
       "status": "backlog",
@@ -4069,12 +4069,12 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1784393287371
+      "updatedAt": 1785960969568
     },
     {
       "id": "v02",
       "name": "Configure network \u2014 static IP + router port forwarding",
-      "notes": "",
+      "notes": "Set a static IP for the server and configure router port forwarding so services are reachable.",
       "goal": "G1",
       "priority": "High",
       "status": "backlog",
@@ -4093,12 +4093,12 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1784393287371
+      "updatedAt": 1785960969568
     },
     {
       "id": "v03",
       "name": "SSH access confirmed and secured",
-      "notes": "",
+      "notes": "Verify SSH access works and is hardened before exposing the server further.",
       "goal": "G1",
       "priority": "High",
       "status": "backlog",
@@ -4117,7 +4117,7 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1784393287371
+      "updatedAt": 1785960969568
     },
     {
       "id": "v04",
@@ -4148,7 +4148,7 @@
     {
       "id": "v05",
       "name": "Configure firewall (UFW) \u2014 allow only required ports",
-      "notes": "",
+      "notes": "Set up UFW firewall rules allowing only the ports the server actually needs.",
       "goal": "G1",
       "priority": "High",
       "status": "backlog",
@@ -4167,12 +4167,12 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1784393287371
+      "updatedAt": 1785960969568
     },
     {
       "id": "v06",
       "name": "Set up automated backups \u2014 drives + config files",
-      "notes": "",
+      "notes": "Configure automated backups for both data drives and server config files.",
       "goal": "G1",
       "priority": "High",
       "status": "backlog",
@@ -4191,12 +4191,12 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1784393287371
+      "updatedAt": 1785960969568
     },
     {
       "id": "v07",
       "name": "SSL certificate via Let's Encrypt (Certbot)",
-      "notes": "",
+      "notes": "Issue and configure a free SSL certificate via Certbot/Let's Encrypt for encrypted access to server services.",
       "goal": "G1",
       "priority": "High",
       "status": "backlog",
@@ -4215,12 +4215,12 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1784393287371
+      "updatedAt": 1785960969568
     },
     {
       "id": "v08",
       "name": "Install and configure Nextcloud \u2014 files, calendar, contacts",
-      "notes": "",
+      "notes": "Set up Nextcloud for self-hosted file storage, calendar, and contacts.",
       "goal": "G1",
       "priority": "High",
       "status": "backlog",
@@ -4239,12 +4239,12 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1784393287371
+      "updatedAt": 1785960969568
     },
     {
       "id": "v09",
       "name": "Install and configure Immich \u2014 photo library (Google Photos replacement)",
-      "notes": "",
+      "notes": "Set up Immich as the self-hosted photo library, replacing Google Photos.",
       "goal": "G1",
       "priority": "High",
       "status": "backlog",
@@ -4263,7 +4263,7 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1784393287371
+      "updatedAt": 1785960969568
     },
     {
       "id": "v10",
@@ -4316,7 +4316,7 @@
     {
       "id": "v12",
       "name": "Continue assertive readiness log \u2014 review 3 months of data, calculate engagement rate, set Q3 target",
-      "notes": "",
+      "notes": "Review three months of assertive-readiness log data, calculate the engagement rate, and set a Q3 target.",
       "goal": "G1",
       "priority": "Mid",
       "status": "backlog",
@@ -4335,12 +4335,12 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1784393287371
+      "updatedAt": 1785960969568
     },
     {
       "id": "v13",
       "name": "Quarterly identity reflection \u2014 write 1 page on what \"the Ultimate Autonomous Man\" means to you right now and whether the definition has evolved since Year of Foundation began",
-      "notes": "",
+      "notes": "Write a one-page reflection on what 'the Ultimate Autonomous Man' means right now, and how the definition has shifted since the Year of Foundation began.",
       "goal": "G1",
       "priority": "Mid",
       "status": "backlog",
@@ -4359,12 +4359,12 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1784393287371
+      "updatedAt": 1785960969568
     },
     {
       "id": "v14",
       "name": "Identify one community project or mentorship opportunity to lead by Q4 \u2014 research options and commit to one",
-      "notes": "",
+      "notes": "Research options and commit to leading one community project or mentorship effort by Q4.",
       "goal": "G2",
       "priority": "Mid",
       "status": "backlog",
@@ -4383,12 +4383,12 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1784393287371
+      "updatedAt": 1785960969568
     },
     {
       "id": "v15",
       "name": "Relationship status review \u2014 am I approaching consistently? What's working? What's not? Journal reflection",
-      "notes": "",
+      "notes": "Journal reflection: is the approach-practice happening consistently? What's working, what isn't?",
       "goal": "G2",
       "priority": "Mid",
       "status": "backlog",
@@ -4407,7 +4407,7 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1784393287371
+      "updatedAt": 1785960969568
     },
     {
       "id": "v16",
@@ -4460,7 +4460,7 @@
     {
       "id": "v18",
       "name": "Bring down Mom's expenses",
-      "notes": "",
+      "notes": "Find ways to reduce Mom's monthly expenses.",
       "goal": "G2",
       "priority": "Mid",
       "status": "backlog",
@@ -4479,12 +4479,12 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1784393287371
+      "updatedAt": 1785960969568
     },
     {
       "id": "v19",
       "name": "Confirm HSA at IRS limit ($4,400: $3,900 election + $500 incentive)",
-      "notes": "",
+      "notes": "Verify HSA contributions hit the IRS limit ($4,400 total: $3,900 election + $500 employer incentive).",
       "goal": "G4",
       "priority": "High",
       "status": "backlog",
@@ -4503,12 +4503,12 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1785874759342
+      "updatedAt": 1785960969568
     },
     {
       "id": "v20",
       "name": "Adopt any unused benefits available from Northrop",
-      "notes": "",
+      "notes": "Review Northrop's benefits package for anything unused that should be activated.",
       "goal": "G4",
       "priority": "High",
       "status": "backlog",
@@ -4527,12 +4527,12 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1785874759342
+      "updatedAt": 1785960969568
     },
     {
       "id": "v21",
       "name": "Write one chapter",
-      "notes": "",
+      "notes": "Write one chapter of the personal book/journal project.",
       "goal": "G1",
       "priority": "Mid",
       "status": "backlog",
@@ -4551,7 +4551,7 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1785874759342
+      "updatedAt": 1785960969568
     },
     {
       "id": "v22",
@@ -4580,7 +4580,7 @@
     {
       "id": "v23",
       "name": "Define 3-year career trajectory at Northrop \u2014 target role, required skills, timeline",
-      "notes": "",
+      "notes": "Map out a 3-year career path at Northrop: target role, skills needed, rough timeline.",
       "goal": "G4",
       "priority": "Low",
       "status": "backlog",
@@ -4599,12 +4599,12 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1785874759342
+      "updatedAt": 1785960969568
     },
     {
       "id": "v24",
       "name": "Build professional network map \u2014 identify 5 key relationships to develop",
-      "notes": "",
+      "notes": "Identify 5 people worth deliberately building professional relationships with.",
       "goal": "G4",
       "priority": "Low",
       "status": "backlog",
@@ -4623,7 +4623,7 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1785874759342
+      "updatedAt": 1785960969568
     },
     {
       "id": "v25",
@@ -4820,7 +4820,7 @@
     {
       "id": "r01",
       "name": "Procure Seagate Expansion 4TB power adapter (SRD0NF2-compatible)",
-      "notes": "",
+      "notes": "Buy a compatible power adapter (SRD0NF2-compatible) for the Seagate 4TB external drive \u2014 needed before recovery imaging can start.",
       "goal": "G1",
       "priority": "High",
       "status": "todo",
@@ -4839,12 +4839,12 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1785859437941,
-      "updatedAt": 1785859402285
+      "updatedAt": 1785960969568
     },
     {
       "id": "r02",
       "name": "Verify 4TB external spins up + SMART clean before trusting as image target",
-      "notes": "",
+      "notes": "Confirm the 4TB external drive powers on and passes a SMART health check before trusting it as the recovery image target.",
       "goal": "G1",
       "priority": "High",
       "status": "todo",
@@ -4863,12 +4863,12 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1785859437942,
-      "updatedAt": 1785859402285
+      "updatedAt": 1785960969568
     },
     {
       "id": "r03",
       "name": "ddrescue image /dev/sdb \u2192 4TB external (unattended overnight block)",
-      "notes": "",
+      "notes": "Unattended overnight ddrescue disk image of the failing drive onto the verified 4TB external \u2014 the core data-recovery step.",
       "goal": "G1",
       "priority": "Mid",
       "status": "todo",
@@ -4887,12 +4887,12 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1785859437942,
-      "updatedAt": 1785859402285
+      "updatedAt": 1785960969568
     },
     {
       "id": "r04",
       "name": "PhotoRec carve against image only \u2014 never the original drive",
-      "notes": "",
+      "notes": "Run PhotoRec file carving against the disk image only (never the original drive) to recover deleted/damaged files.",
       "goal": "G1",
       "priority": "Mid",
       "status": "todo",
@@ -4911,12 +4911,12 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1785859437942,
-      "updatedAt": 1785859402285
+      "updatedAt": 1785960969568
     },
     {
       "id": "r05",
       "name": "Triage carved output \u2014 HARD 4-hour timebox, target = the LibreOffice/text files only",
-      "notes": "",
+      "notes": "Sort through PhotoRec's carved output within a strict 4-hour window, focusing only on LibreOffice/text files.",
       "goal": "G1",
       "priority": "Mid",
       "status": "todo",
@@ -4935,12 +4935,12 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1785859437942,
-      "updatedAt": 1785859402285
+      "updatedAt": 1785960969568
     },
     {
       "id": "r06",
       "name": "Classify surviving files by compartment before they leave recovery-work (no netvm until sorted)",
-      "notes": "",
+      "notes": "Sort recovered files into their proper security compartments before they get network access \u2014 Qubes compartmentalization discipline.",
       "goal": "G1",
       "priority": "Mid",
       "status": "todo",
@@ -4959,12 +4959,12 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1785859437942,
-      "updatedAt": 1785859402285
+      "updatedAt": 1785960969568
     },
     {
       "id": "r07",
       "name": "KILL GATE \u2014 declare recovery complete or abandoned; release 2TB drive to server pool",
-      "notes": "",
+      "notes": "Decision point: formally declare the data-recovery effort finished or abandoned, then release the 2TB drive back into the server storage pool.",
       "goal": "G1",
       "priority": "High",
       "status": "todo",
@@ -4983,12 +4983,12 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1785859437942,
-      "updatedAt": 1785859402285
+      "updatedAt": 1785960969568
     },
     {
       "id": "r08",
       "name": "NVMe (ex-Qubes boot) recovery \u2014 attempt once or write off; TRIM likely already decided this",
-      "notes": "",
+      "notes": "One attempt at recovering the old Qubes boot NVMe drive; TRIM likely already destroyed the data, so this may just confirm it's unrecoverable.",
       "goal": "G1",
       "priority": "Low",
       "status": "todo",
@@ -5007,7 +5007,7 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1785859437942,
-      "updatedAt": 1785859402285
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_001",
@@ -5276,7 +5276,7 @@
     {
       "id": "f26_014",
       "name": "Adopt any unused benefits available from Northrop",
-      "notes": "",
+      "notes": "Same underlying task as v20 (re-created in the f26 batch) \u2014 activate any unused Northrop benefits.",
       "goal": "G4",
       "priority": "High",
       "status": "todo",
@@ -5295,12 +5295,12 @@
       "sortOrder": 14,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1785874759342
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_015",
       "name": "Domain name pointed at server OR Tailscale VPN for private access",
-      "notes": "",
+      "notes": "Set up either a public domain pointed at the server or a Tailscale VPN for private remote access.",
       "goal": "G1",
       "priority": "Mid",
       "status": "todo",
@@ -5319,7 +5319,7 @@
       "sortOrder": 15,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_016",
@@ -5348,7 +5348,7 @@
     {
       "id": "f26_017",
       "name": "Fail2ban configured \u2014 intrusion prevention active",
-      "notes": "",
+      "notes": "Install and configure Fail2ban to automatically block repeated failed login attempts.",
       "goal": "G1",
       "priority": "Mid",
       "status": "todo",
@@ -5367,12 +5367,12 @@
       "sortOrder": 17,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_018",
       "name": "Automatic security updates configured (unattended-upgrades)",
-      "notes": "",
+      "notes": "Set up unattended-upgrades so security patches install automatically.",
       "goal": "G1",
       "priority": "Mid",
       "status": "todo",
@@ -5391,7 +5391,7 @@
       "sortOrder": 18,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_019",
@@ -5468,7 +5468,7 @@
     {
       "id": "f26_022",
       "name": "90-day training program review \u2014 continue or switch",
-      "notes": "",
+      "notes": "After 90 days on the current gym program, decide whether to continue it or switch.",
       "goal": "G3",
       "priority": "High",
       "status": "todo",
@@ -5487,12 +5487,12 @@
       "sortOrder": 22,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1785874759342
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_023",
       "name": "Microsoft associate cert (AZ-104/SC-200/DP-203) \u2014 study underway, exam scheduled",
-      "notes": "",
+      "notes": "Track progress on the AZ-104/SC-200/DP-203 certification study, with exam scheduling underway.",
       "goal": "G4",
       "priority": "High",
       "status": "todo",
@@ -5511,12 +5511,12 @@
       "sortOrder": 23,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1785874759342
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_024",
       "name": "First elevated ritual gathering HELD \u2014 oath read aloud",
-      "notes": "",
+      "notes": "Confirms the oath-reading gathering actually took place, not just scheduled.",
       "goal": "G2",
       "priority": "High",
       "status": "todo",
@@ -5535,7 +5535,7 @@
       "sortOrder": 24,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_025",
@@ -5564,7 +5564,7 @@
     {
       "id": "f26_026",
       "name": "Document the build \u2014 full rebuild guide",
-      "notes": "",
+      "notes": "Write a complete documentation guide covering the server build, so it could be rebuilt from scratch if needed.",
       "goal": "G1",
       "priority": "Low",
       "status": "todo",
@@ -5583,7 +5583,7 @@
       "sortOrder": 26,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_027",
@@ -5612,7 +5612,7 @@
     {
       "id": "f26_028",
       "name": "MILESTONE: Core views complete",
-      "notes": "",
+      "notes": "Marks completion of Forge Native's core view set (list, Kanban, calendar, dashboard) \u2014 the Theta-phase milestone.",
       "goal": "G1",
       "priority": "High",
       "status": "todo",
@@ -5631,12 +5631,12 @@
       "sortOrder": 28,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_029",
       "name": "G1 quarterly checkpoint \u2014 is Unbound Time holding?",
-      "notes": "",
+      "notes": "Quarterly check on whether the Unbound Time leisure system is actually being followed as designed.",
       "goal": "G1",
       "priority": "High",
       "status": "todo",
@@ -5655,12 +5655,12 @@
       "sortOrder": 29,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1785874759342
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_030",
       "name": "Assertive readiness mid-quarter check \u2014 engagement rate, holding-ground trend",
-      "notes": "",
+      "notes": "Mid-quarter pulse check on the assertive-readiness engagement rate and whether holding-ground behavior is trending up.",
       "goal": "G1",
       "priority": "High",
       "status": "todo",
@@ -5679,12 +5679,12 @@
       "sortOrder": 30,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_031",
       "name": "Act on bloodwork + EKG findings from Dr. Kendell review",
-      "notes": "",
+      "notes": "Follow through on the action items from Dr. Kendell's review of the bloodwork and EKG results.",
       "goal": "G3",
       "priority": "High",
       "status": "todo",
@@ -5703,12 +5703,12 @@
       "sortOrder": 31,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_032",
       "name": "SAS advanced module started",
-      "notes": "",
+      "notes": "Begin the advanced SAS module after finishing intermediate.",
       "goal": "G4",
       "priority": "Mid",
       "status": "todo",
@@ -5727,12 +5727,12 @@
       "sortOrder": 32,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1785874759342
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_033",
       "name": "Phase 1 \u2192 Phase 2 assessment \u2014 is the squad ready for first formal quorum?",
-      "notes": "",
+      "notes": "Evaluate whether the current informal group (Phase 1) is ready to move to a formally recognized quorum (Phase 2).",
       "goal": "G2",
       "priority": "High",
       "status": "todo",
@@ -5751,12 +5751,12 @@
       "sortOrder": 33,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_034",
       "name": "Value-alignment journal \u2014 Theta entry",
-      "notes": "",
+      "notes": "Monthly journal entry logging aligned vs. misaligned actions during Theta, per the value-alignment habit.",
       "goal": "G1",
       "priority": "Mid",
       "status": "todo",
@@ -5775,12 +5775,12 @@
       "sortOrder": 34,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_035",
       "name": "Author Unbound Time tracking spec \u2014 or rule that it does not belong in Forge",
-      "notes": "",
+      "notes": "Decide and document whether Unbound Time (leisure-tier tracking) belongs in Forge at all; if yes, spec schema/UI before building \u2014 currently parked, not to be designed unprompted.",
       "goal": "G1",
       "priority": "High",
       "status": "backlog",
@@ -5799,7 +5799,7 @@
       "sortOrder": 35,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1785874759342
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_036",
@@ -5828,7 +5828,7 @@
     {
       "id": "f26_037",
       "name": "Metabolic health re-test completed",
-      "notes": "",
+      "notes": "Re-run the metabolic health panel to check progress since the original baseline test.",
       "goal": "G3",
       "priority": "High",
       "status": "backlog",
@@ -5847,7 +5847,7 @@
       "sortOrder": 37,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_038",
@@ -5948,7 +5948,7 @@
     {
       "id": "f26_042",
       "name": "Emergency fund checkpoint \u2014 confirm pace toward 75% by Nov 30",
-      "notes": "",
+      "notes": "Confirm the emergency fund is on pace to hit 75% of target by November 30.",
       "goal": "G4",
       "priority": "High",
       "status": "backlog",
@@ -5967,12 +5967,12 @@
       "sortOrder": 42,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1785874759342
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_043",
       "name": "Body composition follow-up scan #2 (vs. April baseline)",
-      "notes": "",
+      "notes": "Second body-composition scan, compared against the April baseline, to track physical progress.",
       "goal": "G3",
       "priority": "High",
       "status": "backlog",
@@ -5991,12 +5991,12 @@
       "sortOrder": 43,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_044",
       "name": "Wife search checkpoint \u2014 platform ~3 months, review and adjust",
-      "notes": "",
+      "notes": "~3-month review of the dating-platform search: what's working, what to adjust before continuing.",
       "goal": "G2",
       "priority": "High",
       "status": "backlog",
@@ -6015,7 +6015,7 @@
       "sortOrder": 44,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_045",
@@ -6044,7 +6044,7 @@
     {
       "id": "f26_046",
       "name": "Supplementation v1 locked against DNA + lab results",
-      "notes": "",
+      "notes": "Finalize the first version of the supplement stack, informed by DNA results and lab work.",
       "goal": "G3",
       "priority": "High",
       "status": "backlog",
@@ -6063,12 +6063,12 @@
       "sortOrder": 46,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_047",
       "name": "CS degree mid-year checkpoint \u2014 confirm Sept 2027 completion on track",
-      "notes": "",
+      "notes": "Mid-year check that the CS degree is still on pace for September 2027 completion.",
       "goal": "G4",
       "priority": "High",
       "status": "backlog",
@@ -6087,12 +6087,12 @@
       "sortOrder": 47,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1785874759342
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_048",
       "name": "Tribe at 4\u20136 members with vetting underway \u2014 confirm or push",
-      "notes": "",
+      "notes": "Checkpoint: confirm the tribe has grown to the target 4-6 member range with vetting active, or decide to push harder.",
       "goal": "G2",
       "priority": "High",
       "status": "backlog",
@@ -6111,12 +6111,12 @@
       "sortOrder": 48,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_049",
       "name": "MILESTONE: Feature parity with web Forge achieved",
-      "notes": "",
+      "notes": "Checkpoint marking Forge Native as a full functional replacement for the web prototype. Code-level parity may be close, but this stays open until the real task corpus has migrated from web Forge's localStorage.",
       "goal": "G1",
       "priority": "High",
       "status": "backlog",
@@ -6135,7 +6135,7 @@
       "sortOrder": 49,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1785874759342
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_050",
@@ -6164,7 +6164,7 @@
     {
       "id": "f26_051",
       "name": "Trajectory Read \u2014 Q3 (course-correct or stay-course decision)",
-      "notes": "",
+      "notes": "Quarterly trajectory read: decide whether to course-correct or stay the course based on Q3 evidence.",
       "goal": "G1",
       "priority": "High",
       "status": "backlog",
@@ -6183,12 +6183,12 @@
       "sortOrder": 51,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_052",
       "name": "Value-alignment journal \u2014 Iota entry",
-      "notes": "",
+      "notes": "Monthly value-alignment journal entry for Iota.",
       "goal": "G1",
       "priority": "Mid",
       "status": "backlog",
@@ -6207,12 +6207,12 @@
       "sortOrder": 52,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_053",
       "name": "Full QA pass \u2014 all views and features on device",
-      "notes": "",
+      "notes": "End-to-end manual QA of every view and feature on an actual Android device (not emulator) \u2014 remaining Kappa work.",
       "goal": "G1",
       "priority": "Mid",
       "status": "backlog",
@@ -6231,12 +6231,12 @@
       "sortOrder": 53,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1785874759342
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_054",
       "name": "Due-date color coding + UI polish pass",
-      "notes": "",
+      "notes": "Color-code tasks by due-date proximity/overdue status; general UI cleanup pass \u2014 low-priority Kappa polish item.",
       "goal": "G1",
       "priority": "Low",
       "status": "backlog",
@@ -6255,12 +6255,12 @@
       "sortOrder": 54,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1785874759342
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_055",
       "name": "Microsoft associate cert exam PASSED (or rescheduled with plan)",
-      "notes": "",
+      "notes": "Confirm the certification exam was passed, or note the reschedule plan if not.",
       "goal": "G4",
       "priority": "High",
       "status": "backlog",
@@ -6279,7 +6279,7 @@
       "sortOrder": 55,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1785874759342
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_056",
@@ -6308,7 +6308,7 @@
     {
       "id": "f26_057",
       "name": "Confirm CS degree on track for September 2027 completion via EdAssist",
-      "notes": "",
+      "notes": "Verify with EdAssist (Northrop's tuition-assistance program) that the degree timeline still holds for Sept 2027.",
       "goal": "G4",
       "priority": "High",
       "status": "backlog",
@@ -6327,12 +6327,12 @@
       "sortOrder": 57,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1785874759342
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_058",
       "name": "Draft investment thesis for 2027 live deployment decision",
-      "notes": "",
+      "notes": "Write a first draft of the reasoning/strategy behind live investment deployment planned for 2027.",
       "goal": "G4",
       "priority": "Mid",
       "status": "backlog",
@@ -6351,12 +6351,12 @@
       "sortOrder": 58,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1785874759342
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_059",
       "name": "Nutrition protocol decision LOCKED \u2014 keto continued or carnivore concluded",
-      "notes": "",
+      "notes": "Decide definitively whether to continue keto or conclude the carnivore experiment, based on accumulated data.",
       "goal": "G3",
       "priority": "High",
       "status": "backlog",
@@ -6375,12 +6375,12 @@
       "sortOrder": 59,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_060",
       "name": "Investment thesis first draft complete",
-      "notes": "",
+      "notes": "Confirms the first draft of the 2027 investment thesis is finished.",
       "goal": "G4",
       "priority": "High",
       "status": "backlog",
@@ -6399,12 +6399,12 @@
       "sortOrder": 60,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1785874759342
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_061",
       "name": "Archive web Forge (lightbearer77.github.io/The-Forge)",
-      "notes": "",
+      "notes": "Retire lightbearer77.github.io/The-Forge once the data migration is complete and Forge Native is the sole system of record \u2014 final step of the Kappa phase.",
       "goal": "G1",
       "priority": "Mid",
       "status": "backlog",
@@ -6423,12 +6423,12 @@
       "sortOrder": 61,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1785874759342
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_062",
       "name": "HRV + sleep protocol review \u2014 is optimization working under shift work?",
-      "notes": "",
+      "notes": "Check whether the sleep/HRV optimization protocol is actually working given the demands of shift work.",
       "goal": "G3",
       "priority": "High",
       "status": "backlog",
@@ -6447,12 +6447,12 @@
       "sortOrder": 62,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_063",
       "name": "G1 quarterly checkpoint \u2014 habit tracker + daily systems audit",
-      "notes": "",
+      "notes": "Quarterly review of the habit tracker and daily systems to confirm they're still functioning as intended.",
       "goal": "G1",
       "priority": "High",
       "status": "backlog",
@@ -6471,12 +6471,12 @@
       "sortOrder": 63,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_064",
       "name": "Phase 2 first formal quorum convened (if Theta assessment cleared)",
-      "notes": "",
+      "notes": "First official quorum meeting of the tribe, contingent on the Theta-month readiness assessment clearing.",
       "goal": "G2",
       "priority": "High",
       "status": "backlog",
@@ -6495,7 +6495,7 @@
       "sortOrder": 64,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_065",
@@ -6524,7 +6524,7 @@
     {
       "id": "f26_066",
       "name": "Vault capsule audit \u2014 count true capsules, decide Dataview surfacing vs. Asana triggers",
-      "notes": "",
+      "notes": "Count the true 'capsule' notes in the vault (dormant, date-triggered) and decide whether to surface them via Dataview or Forge triggers.",
       "goal": "G1",
       "priority": "Mid",
       "status": "backlog",
@@ -6543,12 +6543,12 @@
       "sortOrder": 66,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_067",
       "name": "Value-alignment journal \u2014 Kappa entry",
-      "notes": "",
+      "notes": "Monthly value-alignment journal entry for Kappa.",
       "goal": "G1",
       "priority": "Mid",
       "status": "backlog",
@@ -6567,12 +6567,12 @@
       "sortOrder": 67,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_068",
       "name": "Sign and print the Longhouse Oath \u2014 bring to next meetup",
-      "notes": "",
+      "notes": "Post-reformation renamed oath (formerly Primal Longhouse Oath); print and bring a physical copy to the next gathering.",
       "goal": "G2",
       "priority": "High",
       "status": "backlog",
@@ -6591,12 +6591,12 @@
       "sortOrder": 68,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_069",
       "name": "Schedule the first elevated ritual gathering (read oath aloud)",
-      "notes": "",
+      "notes": "Later-dated instance of the ritual-gathering task, after the oath rename \u2014 check whether this supersedes the earlier b26/f26_024 pair rather than duplicating it.",
       "goal": "G2",
       "priority": "Mid",
       "status": "backlog",
@@ -6615,7 +6615,7 @@
       "sortOrder": 69,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_070",
@@ -6644,7 +6644,7 @@
     {
       "id": "f26_071",
       "name": "Begin vetting pipeline (Forge Filter) for tribe expansion \u2014 target 4\u20136 over time",
-      "notes": "",
+      "notes": "Start a structured vetting process (the 'Forge Filter') for evaluating potential new tribe members, targeting 4-6 total over time.",
       "goal": "G2",
       "priority": "High",
       "status": "backlog",
@@ -6663,12 +6663,12 @@
       "sortOrder": 71,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_073",
       "name": "Clarify whether Northrop payroll HSA/FSA runs through HealthEquity or Fidelity",
-      "notes": "",
+      "notes": "Determine whether Northrop's payroll-integrated HSA/FSA runs through HealthEquity or Fidelity \u2014 separate from the personal HSA consolidation already done.",
       "goal": "G4",
       "priority": "Mid",
       "status": "backlog",
@@ -6687,12 +6687,12 @@
       "sortOrder": 73,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1785874759342
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_074",
       "name": "Q4 benefits open enrollment review (Northrop window)",
-      "notes": "",
+      "notes": "Review Northrop's Q4 open enrollment window and make any needed benefits elections.",
       "goal": "G4",
       "priority": "High",
       "status": "backlog",
@@ -6711,12 +6711,12 @@
       "sortOrder": 74,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1785874759342
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_075",
       "name": "Emergency fund \u2014 final push toward 75%",
-      "notes": "",
+      "notes": "Final push to close the gap and hit the 75% emergency fund target before the Nov 30 deadline.",
       "goal": "G4",
       "priority": "High",
       "status": "backlog",
@@ -6735,12 +6735,12 @@
       "sortOrder": 75,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1785874759342
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_076",
       "name": "Microplastics protocol moves to maintained standard",
-      "notes": "",
+      "notes": "Shift the microplastics-reduction protocol from active project mode to an ongoing maintained habit.",
       "goal": "G3",
       "priority": "Mid",
       "status": "backlog",
@@ -6759,12 +6759,12 @@
       "sortOrder": 76,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_077",
       "name": "Deferred environmental items \u2014 bedding, air purifiers, clothing audit, rug replacement",
-      "notes": "",
+      "notes": "Catch up on lower-priority environmental items (bedding, air purifiers, clothing audit, rug replacement) pushed back earlier.",
       "goal": "G3",
       "priority": "Low",
       "status": "backlog",
@@ -6783,12 +6783,12 @@
       "sortOrder": 77,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_078",
       "name": "\u26a0\ufe0f Oath signing push \u2014 all three men signed before year-end",
-      "notes": "",
+      "notes": "Push to get all three core tribe members signed on the oath before 2026 ends.",
       "goal": "G2",
       "priority": "High",
       "status": "backlog",
@@ -6807,12 +6807,12 @@
       "sortOrder": 78,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_079",
       "name": "War council / monthly gathering cadence confirmed as habit",
-      "notes": "",
+      "notes": "Confirm the monthly tribe gathering ('war council') has become a reliable, repeating habit rather than an occasional event.",
       "goal": "G2",
       "priority": "High",
       "status": "backlog",
@@ -6831,12 +6831,12 @@
       "sortOrder": 79,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_080",
       "name": "Value-alignment journal \u2014 Lambda entry",
-      "notes": "",
+      "notes": "Monthly value-alignment journal entry for Lambda.",
       "goal": "G1",
       "priority": "Mid",
       "status": "backlog",
@@ -6855,12 +6855,12 @@
       "sortOrder": 80,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_081",
       "name": "Wife search 6-month review (gate criterion)",
-      "notes": "",
+      "notes": "6-month formal review of the wife search \u2014 a gate criterion determining whether to continue the current approach or change strategy.",
       "goal": "G2",
       "priority": "High",
       "status": "backlog",
@@ -6879,12 +6879,12 @@
       "sortOrder": 81,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_082",
       "name": "Body composition scan #3 (pre-gate)",
-      "notes": "",
+      "notes": "Third body-composition scan, taken just before the year-end gate review.",
       "goal": "G3",
       "priority": "High",
       "status": "backlog",
@@ -6903,12 +6903,12 @@
       "sortOrder": 82,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_083",
       "name": "Confirm training block at 6+ months continuous",
-      "notes": "",
+      "notes": "Verify the training block has run continuously for 6+ months without a break.",
       "goal": "G3",
       "priority": "High",
       "status": "backlog",
@@ -6927,12 +6927,12 @@
       "sortOrder": 83,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_084",
       "name": "Emergency fund hits 75% ($17,662) by Nov 30 \u2014 CONFIRM",
-      "notes": "",
+      "notes": "Confirmation checkpoint that the emergency fund actually reached the $17,662 (75%) target by the deadline.",
       "goal": "G4",
       "priority": "High",
       "status": "backlog",
@@ -6951,12 +6951,12 @@
       "sortOrder": 84,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1785874759342
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_085",
       "name": "Prep annual bloodwork re-run for 2027 (schedule with Dr. Kendell)",
-      "notes": "",
+      "notes": "Schedule next year's bloodwork panel with Dr. Kendell ahead of time.",
       "goal": "G3",
       "priority": "Mid",
       "status": "backlog",
@@ -6975,12 +6975,12 @@
       "sortOrder": 85,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_086",
       "name": "Investment thesis finalized \u2014 ready for 2027 deployment decision",
-      "notes": "",
+      "notes": "Finalize the 2027 investment thesis, ready to act on when the deployment window opens.",
       "goal": "G4",
       "priority": "High",
       "status": "backlog",
@@ -6999,12 +6999,12 @@
       "sortOrder": 86,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1785874759342
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_087",
       "name": "Confirm tribe foundation \u2014 entering 2027 with a real Phase 2 squad?",
-      "notes": "",
+      "notes": "Year-end check: is the tribe entering 2027 as a genuine, formally organized Phase 2 group, or still informal?",
       "goal": "G2",
       "priority": "High",
       "status": "backlog",
@@ -7023,7 +7023,7 @@
       "sortOrder": 87,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_088",
@@ -7100,7 +7100,7 @@
     {
       "id": "f26_091",
       "name": "Draft 2027 season structure \u2014 G1 is season-shaped, not tiered",
-      "notes": "",
+      "notes": "Draft the 2027 structure for G1, built around seasons (like the current Assertive Correction Season) rather than tiers.",
       "goal": "G1",
       "priority": "High",
       "status": "backlog",
@@ -7119,12 +7119,12 @@
       "sortOrder": 91,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_092",
       "name": "Value-alignment journal \u2014 Mu entry",
-      "notes": "",
+      "notes": "Monthly value-alignment journal entry for Mu.",
       "goal": "G1",
       "priority": "Mid",
       "status": "backlog",
@@ -7143,7 +7143,7 @@
       "sortOrder": 92,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_093",
@@ -7172,7 +7172,7 @@
     {
       "id": "f26_094",
       "name": "Annual review \u2014 2026 gate vs. plan (G2)",
-      "notes": "",
+      "notes": "Year-end review comparing G2 (Longhouse/Tribe) actual progress against the original 2026 plan and gate criteria.",
       "goal": "G2",
       "priority": "High",
       "status": "backlog",
@@ -7191,12 +7191,12 @@
       "sortOrder": 94,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_095",
       "name": "Annual review + benefits open enrollment \u2014 2026 (G4)",
-      "notes": "",
+      "notes": "Year-end financial (G4) review combined with final benefits open-enrollment actions for 2026.",
       "goal": "G4",
       "priority": "High",
       "status": "backlog",
@@ -7215,12 +7215,12 @@
       "sortOrder": 95,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1785874759342
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_096",
       "name": "G3 Progression Checkpoint \u2014 6 Month",
-      "notes": "",
+      "notes": "Six-month formal checkpoint on G3 (physical/health) progress across all fronts.",
       "goal": "G3",
       "priority": "High",
       "status": "backlog",
@@ -7239,12 +7239,12 @@
       "sortOrder": 96,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_097",
       "name": "G1 year-end self-assessment \u2014 sovereignty, equanimity, truth-seeking",
-      "notes": "",
+      "notes": "Year-end self-assessment across G1's three pillars: sovereignty, equanimity, truth-seeking.",
       "goal": "G1",
       "priority": "High",
       "status": "backlog",
@@ -7263,12 +7263,12 @@
       "sortOrder": 97,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_098",
       "name": "Maturity Assessment #4 \u2014 full-year L1\u2013L6 \u00d7 G1\u2013G4 read",
-      "notes": "",
+      "notes": "Full-year Maturity Assessment: score all six rungs (L1-L6) across all four goals (G1-G4).",
       "goal": "G1",
       "priority": "High",
       "status": "backlog",
@@ -7287,7 +7287,7 @@
       "sortOrder": 98,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_099",
@@ -7364,7 +7364,7 @@
     {
       "id": "f26_102",
       "name": "Yule bl\u00f3t \u2014 held at the V\u00e9",
-      "notes": "",
+      "notes": "Yule seasonal ritual (bl\u00f3t), held at the household's consecrated outdoor space (the V\u00e9) \u2014 part of the wheel-of-year Asatru cadence.",
       "goal": "G2",
       "priority": "High",
       "status": "backlog",
@@ -7383,7 +7383,7 @@
       "sortOrder": 102,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_103",
@@ -7412,7 +7412,7 @@
     {
       "id": "f26_104",
       "name": "\ud83c\udfaf 2026 Annual Gate \u2014 G2 / G3 / G4 gate criteria scored",
-      "notes": "",
+      "notes": "Score the year-end gate criteria for G2, G3, and G4 \u2014 the formal pass/fail checkpoint for 2026.",
       "goal": "G1",
       "priority": "High",
       "status": "backlog",
@@ -7431,12 +7431,12 @@
       "sortOrder": 104,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_105",
       "name": "2026 End-of-Month + Monthly Analysis (Nu close) + annual Trajectory Pulse",
-      "notes": "",
+      "notes": "Final month-close ritual for 2026: End-of-Month review, Monthly Analysis, and the annual Trajectory Pulse entry.",
       "goal": "G1",
       "priority": "High",
       "status": "backlog",
@@ -7455,12 +7455,12 @@
       "sortOrder": 105,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_106",
       "name": "Ratify 2027 plan \u2014 G1 season structure + G2/G3/G4 execution chunks signed",
-      "notes": "",
+      "notes": "Formally sign off on the 2027 plan \u2014 G1 season structure plus G2/G3/G4 execution chunks.",
       "goal": "G1",
       "priority": "High",
       "status": "backlog",
@@ -7479,12 +7479,12 @@
       "sortOrder": 106,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785960969568
     },
     {
       "id": "f26_107",
       "name": "Restamp Master Priority List + Master Milestones for 2027 (Alpha opens Jan 1)",
-      "notes": "",
+      "notes": "Update the Master Priority List and Master Milestones documents to reflect 2027, ready for Alpha month to open on Jan 1.",
       "goal": "G1",
       "priority": "High",
       "status": "backlog",
@@ -7503,7 +7503,7 @@
       "sortOrder": 107,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1785960969568
     }
   ],
   "milestones": [
