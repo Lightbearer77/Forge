@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, Component, useRef } from 'react';
 import {
   View, Text, StatusBar, StyleSheet, FlatList, TextInput,
-  TouchableOpacity, ScrollView, Alert,
+  TouchableOpacity, ScrollView, Alert, BackHandler,
 } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -160,6 +160,20 @@ function AppContent() {
       await runSync(true);
     })();
   }, []);
+
+  // Android hardware back: walk the overlay stack in the same order the
+  // on-screen ‹ BACK / ✕ controls do, rather than exiting the app from
+  // whatever layer happens to be on top.
+  useEffect(() => {
+    const sub = BackHandler.addEventListener('hardwareBackPress', () => {
+      if (msEditing) { setMsEditing(null); return true; }
+      if (editing) { setEditing(null); return true; }
+      if (activeSectionKey !== null) { setActiveSectionKey(null); return true; }
+      if (showSections) { setShowSections(false); return true; }
+      return false;
+    });
+    return () => sub.remove();
+  }, [msEditing, editing, activeSectionKey, showSections]);
 
   const addTask = useCallback(async () => {
     const name = draft.trim();
@@ -464,7 +478,7 @@ function AppContent() {
         milestones={milestones}
         today={today}
         activeKey={activeSectionKey}
-        onSelect={(s) => { setActiveSectionKey(s.id); setShowSections(false); }}
+        onSelect={(s) => setActiveSectionKey(s.id)}
         onClose={() => setShowSections(false)}
       />
 
