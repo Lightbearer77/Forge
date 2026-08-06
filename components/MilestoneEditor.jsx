@@ -185,6 +185,7 @@ const styles = StyleSheet.create({
     ...StyleSheet.absoluteFillObject,
     backgroundColor: 'rgba(0,0,0,0.6)',
     justifyContent: 'flex-end',
+    zIndex: 100,
   },
   sheet: {
     backgroundColor: COLORS.bgDeep,
