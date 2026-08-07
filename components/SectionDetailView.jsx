@@ -7,13 +7,16 @@ import {
   tasksInSection, milestonesInSection, taskById, childrenOf,
   subtaskProgress, isBlocked, isOverdue, milestoneProgress,
   sectionByKey, sectionLabel, UNSORTED_ID,
+  applyFilters, filterCount, DEFAULT_FILTERS,
 } from '../lib/selectors';
+import FilterBar from './FilterBar';
 
 // Lanes in the order work actually moves, not storage order.
 const LANES = ['in-progress', 'todo', 'backlog', 'done'];
 
 export default function SectionDetailView({
   sectionKey, tasks, milestones = [], today,
+  filters = DEFAULT_FILTERS, onFiltersChange = () => {},
   onEditTask, onToggleTask, onEditMilestone, onToggleMilestone, onClose,
 }) {
   // sectionKey carries goal+section (see lib/selectors sectionKey/sectionByKey).
@@ -57,10 +60,19 @@ export default function SectionDetailView({
     [mine, mineIds],
   );
 
+  // Filters apply only to the root rows being listed — never to `mine` or
+  // `childMap`, so a completed subtask still renders under a surviving
+  // open parent instead of vanishing and making the parent's done/total
+  // counter lie.
+  const filteredRoots = useMemo(
+    () => applyFilters(roots, filters),
+    [roots, filters],
+  );
+
   const lanes = useMemo(() => {
     const g = {};
     for (const l of LANES) g[l] = [];
-    for (const t of roots) (g[t.status] || (g[t.status] = [])).push(t);
+    for (const t of filteredRoots) (g[t.status] || (g[t.status] = [])).push(t);
     for (const l of Object.keys(g)) {
       g[l].sort((a, b) => {
         if (a.dueDate && b.dueDate) return a.dueDate.localeCompare(b.dueDate);
@@ -70,7 +82,13 @@ export default function SectionDetailView({
       });
     }
     return g;
-  }, [roots]);
+  }, [filteredRoots]);
+
+  // Section has rows but the active filters exclude all of them — distinct
+  // from "section is genuinely empty," which points the user at a
+  // different fix (file a task here) than this does (loosen the filters).
+  const filteredToNothing = mine.length > 0 && roots.length > 0
+    && filteredRoots.length === 0 && filterCount(filters) > 0;
 
   const color = GOAL_COLORS[section.goal] || COLORS.textMuted;
 
@@ -106,6 +124,10 @@ export default function SectionDetailView({
               color={section.blocked > 0 ? COLORS.priorityHigh : undefined} />
             <Stat label="OVERDUE" value={section.overdue}
               color={section.overdue > 0 ? COLORS.priorityHigh : undefined} />
+          </View>
+
+          <View style={styles.filterRow}>
+            <FilterBar filters={filters} onChange={onFiltersChange} showGoals={false} />
           </View>
 
           {myMs.length > 0 && (
@@ -171,6 +193,12 @@ export default function SectionDetailView({
           {mine.length === 0 && (
             <Text style={styles.empty}>
               No tasks in this section. Set a {section.goal} task's SECTION to "{section.name}" to file it here.
+            </Text>
+          )}
+
+          {filteredToNothing && (
+            <Text style={styles.empty}>
+              No tasks match the current filters.
             </Text>
           )}
         </ScrollView>
@@ -281,6 +309,7 @@ const styles = StyleSheet.create({
   },
   fill: { height: 4, borderRadius: 2 },
   statRow: { flexDirection: 'row', gap: 8, marginTop: 12 },
+  filterRow: { flexDirection: 'row', marginTop: 12, marginBottom: 4 },
   stat: {
     flex: 1,
     backgroundColor: COLORS.bgSurface,
