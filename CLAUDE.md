@@ -66,6 +66,23 @@ profile → standalone APK. Owner `lightbearer77`, EAS project id
     `ProjectDetailView.jsx` / `buildProjects`, committed Theta 4/Aug 1) was
     fully replaced, not extended — those files and functions no longer
     exist. If you see references to them anywhere, the reference is stale.
+11. **List/section filtering: `SectionDetailView` was RETAINED, not
+    replaced by a filtered List view** (Option 2 of a three-option
+    analysis; do not re-run that analysis). Filter state is one shared
+    object — `{ hideCompleted, goals, statuses, priorities }` — persisted
+    on-device at settings key `listFilters`, never synced via
+    forge-sync.json. Empty arrays mean UNCONSTRAINED, not "show none";
+    composition across dimensions is strict AND (hideCompleted +
+    statuses:['done'] correctly yields zero results — this is not a bug to
+    fix). `components/FilterBar.jsx` is the one shared control, mounted
+    twice: List view (`showGoals`) and `SectionDetailView`
+    (`showGoals={false}`, since a section is already goal-scoped). Filters
+    apply only to the rows being listed — top-level tasks in List view,
+    root tasks in section detail — never to a surviving parent's already-
+    rendered children, and never to `SectionDetailView`'s stat row,
+    progress bar, or milestone panel, which represent unfiltered section
+    truth. `lib/selectors.js` exposes `DEFAULT_FILTERS`, `sanitizeFilters`,
+    `applyFilters`, `filterCount`.
 
 ## forge-sync.json — authoring guide for Claude instances
 
@@ -144,7 +161,7 @@ Not built (deliberately): overdue digest, per-task offsets, snooze.
   plus enough bodyContent paddingBottom (220) for the deepest input to
   scroll clear. Same fix applied in Hearth v1.7.2.
 - Manual reordering (sort_order is stored but no drag UI), section grouping
-  in list view, per-goal filter chips, web Forge archival after migration.
+  in list view, web Forge archival after migration.
 
 ## Working rules (hard-won; violating these cost days on Hearth)
 
