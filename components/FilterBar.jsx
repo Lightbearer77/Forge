@@ -1,8 +1,10 @@
-import { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { useState, useRef } from 'react';
+import { View, Text, TouchableOpacity, StyleSheet, Modal, Pressable } from 'react-native';
 import { COLORS, FONTS, GOAL_COLORS, PRIORITY_COLORS } from '../lib/theme';
 import { STATUSES, STATUS_LABELS, PRIORITIES, GOALS } from '../lib/model';
 import { DEFAULT_FILTERS, filterCount } from '../lib/selectors';
+
+const PANEL_WIDTH = 220;
 
 // Shared filter control for List view and SectionDetailView. One component,
 // two mount points — showGoals=false in section detail, since a section is
@@ -12,7 +14,25 @@ import { DEFAULT_FILTERS, filterCount } from '../lib/selectors';
 // section and back.
 export default function FilterBar({ filters, onChange, showGoals = true }) {
   const [open, setOpen] = useState(false);
+  const [anchor, setAnchor] = useState(null); // { top, left } in window coords
+  const triggerRef = useRef(null);
   const count = filterCount(filters);
+
+  // Modal needs the trigger's on-screen position to anchor the panel visually
+  // right below the button, since the panel now renders inside a full-screen
+  // Modal (required for outside-tap-to-close to catch taps anywhere on
+  // screen) rather than as a small absolutely-positioned sibling.
+  const openPanel = () => {
+    if (triggerRef.current) {
+      triggerRef.current.measureInWindow((x, y, width, height) => {
+        setAnchor({ top: y + height + 4, left: Math.max(8, x + width - PANEL_WIDTH) });
+        setOpen(true);
+      });
+    } else {
+      setOpen(true);
+    }
+  };
+  const closePanel = () => setOpen(false);
 
   const toggleArrayValue = (key, value) => {
     const cur = filters[key] || [];
@@ -36,7 +56,7 @@ export default function FilterBar({ filters, onChange, showGoals = true }) {
 
   return (
     <View style={styles.wrap}>
-      <TouchableOpacity onPress={() => setOpen(o => !o)} style={styles.trigger}>
+      <TouchableOpacity ref={triggerRef} onPress={() => (open ? closePanel() : openPanel())} style={styles.trigger}>
         <Text style={styles.triggerText}>
           FILTER {open ? '▴' : '▾'}
         </Text>
@@ -47,86 +67,98 @@ export default function FilterBar({ filters, onChange, showGoals = true }) {
         )}
       </TouchableOpacity>
 
-      {open && (
-        <View style={styles.panel}>
-          <TouchableOpacity onPress={toggleHideCompleted} style={styles.toggleRow}>
-            <View style={[styles.toggleBox, filters.hideCompleted && styles.toggleBoxOn]}>
-              <Text style={styles.toggleMark}>{filters.hideCompleted ? '✓' : ''}</Text>
-            </View>
-            <Text style={styles.toggleLabel}>Hide completed</Text>
-          </TouchableOpacity>
+      <Modal
+        visible={open}
+        transparent
+        animationType="none"
+        onRequestClose={closePanel}
+        statusBarTranslucent
+      >
+        {/* Invisible full-screen catcher — anywhere NOT covered by the
+            panel (rendered after, so it wins hit-testing) closes on tap. */}
+        <Pressable style={StyleSheet.absoluteFill} onPress={closePanel} />
 
-          {showGoals && (
-            <>
-              <Text style={styles.groupLabel}>GOAL</Text>
-              <View style={styles.chipRow}>
-                {GOALS.map(g => {
-                  const on = (filters.goals || []).includes(g);
-                  const color = GOAL_COLORS[g] || COLORS.textMuted;
-                  return (
-                    <TouchableOpacity
-                      key={g}
-                      onPress={() => toggleArrayValue('goals', g)}
-                      style={[
-                        styles.chip,
-                        { borderColor: color },
-                        on && { backgroundColor: `${color}33` },
-                      ]}
-                    >
-                      <Text style={[styles.chipText, on && { color }]}>{g}</Text>
-                    </TouchableOpacity>
-                  );
-                })}
+        {anchor && (
+          <View style={[styles.panel, { top: anchor.top, left: anchor.left }]}>
+            <TouchableOpacity onPress={toggleHideCompleted} style={styles.toggleRow}>
+              <View style={[styles.toggleBox, filters.hideCompleted && styles.toggleBoxOn]}>
+                <Text style={styles.toggleMark}>{filters.hideCompleted ? '✓' : ''}</Text>
               </View>
-            </>
-          )}
-
-          <Text style={styles.groupLabel}>STATUS</Text>
-          <View style={styles.chipRow}>
-            {STATUSES.map(s => {
-              const on = (filters.statuses || []).includes(s);
-              return (
-                <TouchableOpacity
-                  key={s}
-                  onPress={() => toggleArrayValue('statuses', s)}
-                  style={[styles.chip, on && styles.chipOn]}
-                >
-                  <Text style={[styles.chipText, on && { color: COLORS.accent }]}>
-                    {(STATUS_LABELS[s] || s).toUpperCase()}
-                  </Text>
-                </TouchableOpacity>
-              );
-            })}
-          </View>
-
-          <Text style={styles.groupLabel}>PRIORITY</Text>
-          <View style={styles.chipRow}>
-            {PRIORITIES.map(p => {
-              const on = (filters.priorities || []).includes(p);
-              const color = PRIORITY_COLORS[p] || COLORS.textMuted;
-              return (
-                <TouchableOpacity
-                  key={p}
-                  onPress={() => toggleArrayValue('priorities', p)}
-                  style={[
-                    styles.chip,
-                    { borderColor: color },
-                    on && { backgroundColor: `${color}33` },
-                  ]}
-                >
-                  <Text style={[styles.chipText, on && { color }]}>{p.toUpperCase()}</Text>
-                </TouchableOpacity>
-              );
-            })}
-          </View>
-
-          {count > 0 && (
-            <TouchableOpacity onPress={clear} style={styles.clearRow}>
-              <Text style={styles.clearText}>CLEAR FILTERS</Text>
+              <Text style={styles.toggleLabel}>Hide completed</Text>
             </TouchableOpacity>
-          )}
-        </View>
-      )}
+
+            {showGoals && (
+              <>
+                <Text style={styles.groupLabel}>GOAL</Text>
+                <View style={styles.chipRow}>
+                  {GOALS.map(g => {
+                    const on = (filters.goals || []).includes(g);
+                    const color = GOAL_COLORS[g] || COLORS.textMuted;
+                    return (
+                      <TouchableOpacity
+                        key={g}
+                        onPress={() => toggleArrayValue('goals', g)}
+                        style={[
+                          styles.chip,
+                          { borderColor: color },
+                          on && { backgroundColor: `${color}33` },
+                        ]}
+                      >
+                        <Text style={[styles.chipText, on && { color }]}>{g}</Text>
+                      </TouchableOpacity>
+                    );
+                  })}
+                </View>
+              </>
+            )}
+
+            <Text style={styles.groupLabel}>STATUS</Text>
+            <View style={styles.chipRow}>
+              {STATUSES.map(s => {
+                const on = (filters.statuses || []).includes(s);
+                return (
+                  <TouchableOpacity
+                    key={s}
+                    onPress={() => toggleArrayValue('statuses', s)}
+                    style={[styles.chip, on && styles.chipOn]}
+                  >
+                    <Text style={[styles.chipText, on && { color: COLORS.accent }]}>
+                      {(STATUS_LABELS[s] || s).toUpperCase()}
+                    </Text>
+                  </TouchableOpacity>
+                );
+              })}
+            </View>
+
+            <Text style={styles.groupLabel}>PRIORITY</Text>
+            <View style={styles.chipRow}>
+              {PRIORITIES.map(p => {
+                const on = (filters.priorities || []).includes(p);
+                const color = PRIORITY_COLORS[p] || COLORS.textMuted;
+                return (
+                  <TouchableOpacity
+                    key={p}
+                    onPress={() => toggleArrayValue('priorities', p)}
+                    style={[
+                      styles.chip,
+                      { borderColor: color },
+                      on && { backgroundColor: `${color}33` },
+                    ]}
+                  >
+                    <Text style={[styles.chipText, on && { color }]}>{p.toUpperCase()}</Text>
+                  </TouchableOpacity>
+                );
+              })}
+            </View>
+
+            {count > 0 && (
+              <TouchableOpacity onPress={clear} style={styles.clearRow}>
+                <Text style={styles.clearText}>CLEAR FILTERS</Text>
+              </TouchableOpacity>
+            )}
+          </View>
+        )}
+      </Modal>
     </View>
   );
 }
@@ -164,21 +196,19 @@ const styles = StyleSheet.create({
     fontFamily: FONTS.mono,
     color: COLORS.bgDeep,
   },
-  // Panel z-index stays below 100 (the TaskEditor/MilestoneEditor backdrop
-  // layer) and below SectionDetailView's own 60 is fine since this panel is
-  // a child of that view when mounted there — it only needs to clear the
-  // sort menu (20) and its own siblings, not the app-wide overlay stack.
+  // Panel renders inside a transparent full-screen Modal (see openPanel/
+  // closePanel) rather than as a small absolutely-positioned sibling of
+  // `trigger` — that's what lets a tap anywhere else on screen close it.
+  // Position (top/left) is supplied inline from the measured trigger
+  // anchor; this style only carries the fixed visual chrome.
   panel: {
     position: 'absolute',
-    top: 32,
-    right: 0,
     backgroundColor: COLORS.bgElevated,
     borderWidth: 1,
     borderColor: COLORS.borderMid,
     borderRadius: 4,
     padding: 12,
-    minWidth: 220,
-    zIndex: 30,
+    minWidth: PANEL_WIDTH,
   },
   toggleRow: { flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 10 },
   toggleBox: {
