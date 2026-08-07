@@ -11,12 +11,14 @@ import { fmtGreekLong, todayISO } from './lib/constants';
 import {
   taskById, childrenOf, topLevelTasks, subtaskProgress, isBlocked,
   sortTasksForList, SORT_MODES, SORT_LABELS, searchTasks,
+  applyFilters, sanitizeFilters, filterCount, DEFAULT_FILTERS,
 } from './lib/selectors';
 import { GOALS, newTask, newMilestone } from './lib/model';
 import {
   initDatabase, getAllTasks, saveTask, saveTasks, deleteTask,
   getAllMilestones, saveMilestone, saveMilestones, deleteMilestone,
   getAllRunes, saveRune, saveRunes, ensureRunesSeeded,
+  getSetting, setSetting,
 } from './lib/storage';
 import { fetchSyncFile, mergeSyncFile } from './lib/sync';
 import TaskRow from './components/TaskRow';
@@ -29,6 +31,7 @@ import DashboardView from './components/DashboardView';
 import RunesView from './components/RunesView';
 import SectionSidebar from './components/SectionSidebar';
 import SectionDetailView from './components/SectionDetailView';
+import FilterBar from './components/FilterBar';
 import { requestNotificationPermissions, refreshAllNotifications } from './lib/notifications';
 
 // ─── ErrorBoundary: crashes render on-screen, never a silent kick-out ───
@@ -86,6 +89,7 @@ function AppContent() {
   const [showSections, setShowSections] = useState(false);
   const [activeSectionKey, setActiveSectionKey] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
+  const [filters, setFilters] = useState(DEFAULT_FILTERS);
 
   const today = todayISO();
 
@@ -152,6 +156,12 @@ function AppContent() {
         await ensureRunesSeeded();
         await requestNotificationPermissions();
         await reload();
+        try {
+          const raw = await getSetting('listFilters');
+          if (raw) setFilters(sanitizeFilters(JSON.parse(raw)));
+        } catch (e) {
+          console.warn('Filter settings load failed, using defaults', e);
+        }
       } catch (e) {
         console.warn('Init failed', e);
       } finally {
@@ -174,6 +184,17 @@ function AppContent() {
     });
     return () => sub.remove();
   }, [msEditing, editing, activeSectionKey, showSections]);
+
+  // Filters are on-device UI preference (like the sync token and notify
+  // settings) — persisted to the settings table, never synced via
+  // forge-sync.json.
+  const updateFilters = useCallback((next) => {
+    const clean = sanitizeFilters(next);
+    setFilters(clean);
+    setSetting('listFilters', JSON.stringify(clean)).catch((e) =>
+      console.warn('Filter settings save failed', e)
+    );
+  }, []);
 
   const addTask = useCallback(async () => {
     const name = draft.trim();
@@ -278,8 +299,9 @@ function AppContent() {
   const topTasks = topLevelTasks(tasks);
   const isSearching = searchQuery.trim().length > 0;
   const listSource = isSearching ? searchTasks(tasks, searchQuery) : topTasks;
+  const filtered = applyFilters(listSource, filters);
 
-  const sorted = sortTasksForList(listSource, sortBy);
+  const sorted = sortTasksForList(filtered, sortBy);
 
   if (!ready) {
     return <View style={[styles.container, { paddingTop: insets.top }]} />;
@@ -376,11 +398,15 @@ function AppContent() {
                 </View>
               )}
             </View>
+
+            <FilterBar filters={filters} onChange={updateFilters} showGoals />
           </View>
 
-          {isSearching && (
+          {(isSearching || filterCount(filters) > 0) && (
             <Text style={styles.resultCount}>
-              {sorted.length} result{sorted.length === 1 ? '' : 's'} for "{searchQuery.trim()}"
+              {sorted.length} result{sorted.length === 1 ? '' : 's'}
+              {isSearching ? ` for "${searchQuery.trim()}"` : ''}
+              {filterCount(filters) > 0 ? ` · ${filterCount(filters)} filter${filterCount(filters) === 1 ? '' : 's'} active` : ''}
             </Text>
           )}
 
@@ -426,7 +452,9 @@ function AppContent() {
               <Text style={styles.empty}>
                 {isSearching
                   ? `No tasks match "${searchQuery.trim()}".`
-                  : 'Nothing on the anvil. Add a task, or Sync to pull forge-sync.json.'}
+                  : filterCount(filters) > 0
+                    ? 'No tasks match the current filters.'
+                    : 'Nothing on the anvil. Add a task, or Sync to pull forge-sync.json.'}
               </Text>
             }
           />
@@ -488,6 +516,8 @@ function AppContent() {
           tasks={tasks}
           milestones={milestones}
           today={today}
+          filters={filters}
+          onFiltersChange={updateFilters}
           onEditTask={openEditor}
           onToggleTask={toggleDone}
           onEditMilestone={openMilestone}
