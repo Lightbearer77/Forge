@@ -45,7 +45,8 @@ const { groupByStatus, isOverdue, tasksByDueDate, dashboardStats, isoWeekTag,
   milestoneProgress, milestonesByDueDate, sortTasksForList, SORT_MODES,
   buildGoalSections, tasksInSection, milestonesInSection, milestoneSectionId,
   sectionByKey, sectionKey, sectionLabel, UNSORTED_ID,
-  matchesSearch, searchTasks } =
+  matchesSearch, searchTasks,
+  DEFAULT_FILTERS, sanitizeFilters, applyFilters, filterCount } =
   await import(pathToFileURL(join(stage, 'selectors.mjs')).href);
 
 let pass = 0, fail = 0;
@@ -435,6 +436,100 @@ ok(searchTasks(withSub, 'DDR5').map(t => t.id).join(',') === 'child', 'searchTas
 // searchTasks composes with sortTasksForList exactly like the List view does
 const composed = sortTasksForList(searchTasks(searchSet, 'hsa'), 'goal');
 ok(composed.length === 2, 'search + sort composes cleanly');
+
+// ══ 4b. Filters (List view + SectionDetailView, shared shape) ══
+
+// --- sanitizeFilters: defensive against malformed input ---
+ok(JSON.stringify(sanitizeFilters(null)) === JSON.stringify(DEFAULT_FILTERS),
+  'sanitizeFilters(null) -> defaults');
+ok(JSON.stringify(sanitizeFilters(undefined)) === JSON.stringify(DEFAULT_FILTERS),
+  'sanitizeFilters(undefined) -> defaults');
+ok(JSON.stringify(sanitizeFilters('not an object')) === JSON.stringify(DEFAULT_FILTERS),
+  'sanitizeFilters(string) -> defaults');
+ok(JSON.stringify(sanitizeFilters([])) === JSON.stringify(DEFAULT_FILTERS),
+  'sanitizeFilters(array) -> defaults (array has no goals/statuses/priorities keys)');
+ok(JSON.stringify(sanitizeFilters({})) === JSON.stringify(DEFAULT_FILTERS),
+  'sanitizeFilters({}) -> defaults for every missing key');
+
+const unknownVocab = sanitizeFilters({
+  goals: ['G1', 'G9', 'G1'], statuses: ['todo', 'bogus'], priorities: ['High', 'Extreme'],
+});
+ok(unknownVocab.goals.join(',') === 'G1', 'sanitizeFilters drops unknown goal + dedupes');
+ok(unknownVocab.statuses.join(',') === 'todo', 'sanitizeFilters drops unknown status');
+ok(unknownVocab.priorities.join(',') === 'High', 'sanitizeFilters drops unknown priority');
+
+ok(sanitizeFilters({ hideCompleted: 1 }).hideCompleted === true, 'sanitizeFilters coerces truthy hideCompleted');
+ok(sanitizeFilters({ hideCompleted: 0 }).hideCompleted === false, 'sanitizeFilters coerces falsy hideCompleted');
+ok(sanitizeFilters({ hideCompleted: 'yes' }).hideCompleted === true, 'sanitizeFilters coerces truthy string hideCompleted');
+ok(sanitizeFilters({ hideCompleted: '' }).hideCompleted === false, 'sanitizeFilters coerces falsy string hideCompleted');
+
+// --- applyFilters: fixture set spanning goal/status/priority/deleted ---
+const fT = (id, extra = {}) =>
+  normalizeTask({ id, name: `task-${id}`, updatedAt: 1, createdAt: 1, ...extra });
+
+const filterSet = [
+  fT('a', { goal: 'G1', status: 'todo',        priority: 'High' }),
+  fT('b', { goal: 'G2', status: 'in-progress', priority: 'Mid' }),
+  fT('c', { goal: 'G3', status: 'done',        priority: 'Low' }),
+  fT('d', { goal: 'G4', status: 'backlog',     priority: 'High' }),
+  fT('e', { goal: 'G1', status: 'done',        priority: 'Low', deleted: true }),
+];
+
+ok(applyFilters(filterSet, DEFAULT_FILTERS).length === 4,
+  'applyFilters: default/empty filters = identity (tombstone still excluded)');
+ok(applyFilters(filterSet, null).length === 4,
+  'applyFilters: null filters treated as defaults, not a crash');
+
+ok(applyFilters(filterSet, { hideCompleted: true }).map(t => t.id).join(',') === 'a,b,d',
+  'applyFilters: hideCompleted drops status=done, tombstone stays excluded');
+
+ok(applyFilters(filterSet, { goals: ['G1', 'G3'] }).map(t => t.id).join(',') === 'a,c',
+  'applyFilters: goals dimension in isolation');
+ok(applyFilters(filterSet, { statuses: ['todo', 'backlog'] }).map(t => t.id).join(',') === 'a,d',
+  'applyFilters: statuses dimension in isolation');
+ok(applyFilters(filterSet, { priorities: ['High'] }).map(t => t.id).join(',') === 'a,d',
+  'applyFilters: priorities dimension in isolation');
+
+// AND composition across two dimensions
+ok(applyFilters(filterSet, { goals: ['G1', 'G4'], priorities: ['High'] }).map(t => t.id).join(',') === 'a,d',
+  'applyFilters: two-dimension AND composition');
+
+// AND composition across three dimensions
+ok(applyFilters(filterSet, { goals: ['G1', 'G2', 'G4'], statuses: ['todo', 'backlog'], priorities: ['High'] })
+  .map(t => t.id).join(',') === 'a,d',
+  'applyFilters: three-dimension AND composition');
+
+// Intended empty-result case: hideCompleted + statuses:['done'] is a real,
+// non-error contradiction — strict AND, not "smart" conflict resolution.
+ok(applyFilters(filterSet, { hideCompleted: true, statuses: ['done'] }).length === 0,
+  'applyFilters: hideCompleted + statuses:["done"] correctly yields zero results');
+
+// Non-mutation
+const beforeSnapshot = JSON.stringify(filterSet);
+applyFilters(filterSet, { hideCompleted: true, goals: ['G1'] });
+ok(JSON.stringify(filterSet) === beforeSnapshot, 'applyFilters does not mutate its input array');
+
+// --- filterCount: active dimensions, not active values ---
+ok(filterCount(DEFAULT_FILTERS) === 0, 'filterCount: defaults = 0');
+ok(filterCount({ hideCompleted: true }) === 1, 'filterCount: hideCompleted alone = 1');
+ok(filterCount({ goals: ['G1', 'G2', 'G3'] }) === 1,
+  'filterCount: multi-value single dimension still counts as 1');
+ok(filterCount({ hideCompleted: true, goals: ['G1'], statuses: ['done'], priorities: ['High'] }) === 4,
+  'filterCount: all four dimensions active = 4');
+
+// --- Pipeline order: filter(search(x)) must equal search(filter(x)) in
+// membership — a regression guard for anyone reordering the App.js chain.
+const pipelineSet = [
+  fT('p1', { goal: 'G1', status: 'todo', name: 'Confirm HSA transfer' }),
+  fT('p2', { goal: 'G1', status: 'done', name: 'Confirm HSA closure' }),
+  fT('p3', { goal: 'G2', status: 'todo', name: 'Unrelated HSA note' }),
+];
+const filterThenSearch = searchTasks(applyFilters(pipelineSet, { goals: ['G1'] }), 'hsa');
+const searchThenFilter = applyFilters(searchTasks(pipelineSet, 'hsa'), { goals: ['G1'] });
+ok(
+  filterThenSearch.map(t => t.id).sort().join(',') === searchThenFilter.map(t => t.id).sort().join(','),
+  'filter+search commute on membership regardless of order'
+);
 
 // ══ 5. Milestones: model + merge + progress ══
 const wm = fromWebMilestone({ id: 'ms4_04', name: 'Habit tracker configured', goal: 'G1',
