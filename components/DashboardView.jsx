@@ -4,6 +4,8 @@ import { COLORS, FONTS, GOAL_COLORS } from '../lib/theme';
 import { GOALS } from '../lib/model';
 import { dashboardStats, taskById, milestoneProgress } from '../lib/selectors';
 import { gregToGreek, fmtGreek } from '../lib/constants';
+import UnboundTimeDonut from './UnboundTimeDonut';
+import OutputChart from './OutputChart';
 
 export default function DashboardView({ tasks, milestones = [], today, onEdit, onEditMilestone, onToggleMilestone, onAddMilestone }) {
   const stats = useMemo(() => dashboardStats(tasks, today), [tasks, today]);
@@ -25,6 +27,9 @@ export default function DashboardView({ tasks, milestones = [], today, onEdit, o
         <Stat label="OVERDUE" value={stats.overdue.length}
           color={stats.overdue.length > 0 ? COLORS.priorityHigh : undefined} />
       </View>
+
+      <UnboundTimeDonut tasks={tasks} today={today} />
+      <OutputChart tasks={tasks} today={today} />
 
       <Text style={styles.sectionTitle}>BY GOAL</Text>
       {GOALS.map(goal => {
