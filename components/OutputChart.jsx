@@ -1,17 +1,15 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import Svg, { Path, Line, Circle } from 'react-native-svg';
+import Svg, { Path, Line, Circle, Rect, Text as SvgText } from 'react-native-svg';
 import { COLORS, FONTS } from '../lib/theme';
 import { dailyCompletions } from '../lib/selectors';
 import { fmtGreek } from '../lib/constants';
 
 const DAYS = 28;
-const VB_W = 300;
-const VB_H = 130; // equals the Svg's real rendered height (see width="100%"
-                   // below) so y-coordinates map 1:1 to dp and absolute
-                   // Text labels can be positioned with plain pixel values.
-const PAD_TOP = 18;    // room for hollow over-cap markers + their value label
-const PAD_BOTTOM = 6;
+const PLOT_H = 110;
+const PAD_TOP = 12;
+const LABEL_H = 16;   // strip below the baseline holding per-day counts
+const CHART_H = PAD_TOP + PLOT_H + LABEL_H;
 
 // Soft-cap scale for the y-axis. A straightforward percentile does NOT
 // work here: with a sparse active-day count (this corpus runs ~7 active
@@ -21,10 +19,11 @@ const PAD_BOTTOM = 6;
 //
 // Instead: peel at most ONE value off the top, and only when it dwarfs
 // the next-highest day (>3x, and >5 in absolute terms so ordinary daily
-// variance is never touched). That single day renders as a hollow,
-// labeled marker (see overCap below) instead of setting the scale.
-// A second big day is treated as real signal, not noise, and is never
-// peeled — two comparably-large days is a pattern, not a fluke.
+// variance is never touched). That day's bar is clamped to the top of the
+// plot, but its true count is still printed beneath it like every other
+// day, so nothing is hidden — the outlier just stops setting the scale.
+// A second comparably-large day is treated as signal, not noise, and is
+// never peeled: two big days is a pattern.
 //   [1,2,2,2,3,8,27]  -> peels 27, scales to 8  (real-data case)
 //   [2,3,27,27]       -> no peel, scales to 27  (two big days = signal)
 //   [3,4,5,6,7]        -> no peel, gentle spread untouched
@@ -39,108 +38,102 @@ const softCapMax = (nonZeroCounts) => {
 };
 
 export default function OutputChart({ tasks, today, softCap = true }) {
-  const { display, rollingMean, yMax, hasAny } = useMemo(() => {
-    // Fetch 6 extra buffer days so every one of the DAYS displayed days gets
-    // a genuine 7-day TRAILING mean (including days just before the visible
-    // window), rather than a partial average that reads artificially low
-    // near the left edge of the chart.
-    const buffered = dailyCompletions(tasks, today, DAYS + 6);
-    const display = buffered.slice(6);
+  // Real rendered width, measured. The chart deliberately does NOT use a
+  // viewBox with preserveAspectRatio="none": that stretches the x-axis
+  // independently of y, which would visibly distort the per-day count
+  // glyphs. Measuring once and drawing in true pixels keeps text upright.
+  const [width, setWidth] = useState(0);
 
-    const rollingMean = display.map((_, i) => {
-      const windowSlice = buffered.slice(i, i + 7);
-      const sum = windowSlice.reduce((s, r) => s + r.count, 0);
-      return sum / 7;
-    });
-
-    const nonZero = display.map(r => r.count).filter(c => c > 0);
-    const rawMax = Math.max(1, ...display.map(r => r.count));
-    const yMax = softCap ? softCapMax(nonZero) : rawMax;
-
-    return { display, rollingMean, yMax, hasAny: nonZero.length > 0 };
+  const { series, yMax, hasAny } = useMemo(() => {
+    const series = dailyCompletions(tasks, today, DAYS);
+    const nonZero = series.map(r => r.count).filter(c => c > 0);
+    const rawMax = Math.max(1, ...series.map(r => r.count));
+    return {
+      series,
+      yMax: softCap ? softCapMax(nonZero) : rawMax,
+      hasAny: nonZero.length > 0,
+    };
   }, [tasks, today, softCap]);
 
-  const lastIdx = display.length - 1;
-  const xFor = (i) => (i / lastIdx) * VB_W;
-  const yFor = (count) => {
-    const clamped = Math.min(count, yMax);
-    const usable = VB_H - PAD_TOP - PAD_BOTTOM;
-    return PAD_TOP + usable - (clamped / yMax) * usable;
-  };
-  const baselineY = yFor(0);
+  const lastIdx = series.length - 1;
+  const slot = width / DAYS;
+  const barW = Math.max(2, slot * 0.55);
+  const xFor = (i) => slot * i + slot / 2;   // centre of each day's slot
+  const baselineY = PAD_TOP + PLOT_H;
+  const yFor = (count) => baselineY - (Math.min(count, yMax) / yMax) * PLOT_H;
 
-  const linePath = display
+  const linePath = series
     .map((r, i) => `${i === 0 ? 'M' : 'L'} ${xFor(i).toFixed(2)} ${yFor(r.count).toFixed(2)}`)
     .join(' ');
   const areaPath = `${linePath} L ${xFor(lastIdx).toFixed(2)} ${baselineY.toFixed(2)} `
     + `L ${xFor(0).toFixed(2)} ${baselineY.toFixed(2)} Z`;
-  const meanPath = rollingMean
-    .map((m, i) => `${i === 0 ? 'M' : 'L'} ${xFor(i).toFixed(2)} ${yFor(m).toFixed(2)}`)
-    .join(' ');
-
-  const overCap = display
-    .map((r, i) => ({ ...r, i }))
-    .filter(r => r.count > yMax);
 
   return (
     <View style={styles.wrap}>
       <Text style={styles.sectionTitle}>OUTPUT · LAST {DAYS} DAYS</Text>
 
-      <View style={styles.card}>
-        {!hasAny ? (
-          <View>
-            <Svg width="100%" height={VB_H} viewBox={`0 0 ${VB_W} ${VB_H}`} preserveAspectRatio="none">
-              <Line x1={0} y1={baselineY} x2={VB_W} y2={baselineY} stroke={COLORS.borderSubtle} strokeWidth={1} />
-            </Svg>
-            <Text style={styles.emptyText}>No completions logged in this window.</Text>
-          </View>
-        ) : (
-          <View>
-            <Svg width="100%" height={VB_H} viewBox={`0 0 ${VB_W} ${VB_H}`} preserveAspectRatio="none">
-              <Line x1={0} y1={baselineY} x2={VB_W} y2={baselineY} stroke={COLORS.borderSubtle} strokeWidth={1} />
-              <Path d={areaPath} fill={COLORS.accent} fillOpacity={0.18} />
-              <Path d={linePath} stroke={COLORS.accent} strokeWidth={2} fill="none" />
-              <Path d={meanPath} stroke={COLORS.textMuted} strokeWidth={1} strokeDasharray="3,3" fill="none" />
-              {overCap.map(r => (
-                <Circle
-                  key={`cap-${r.i}`}
-                  cx={xFor(r.i)} cy={yFor(r.count)} r={4}
-                  stroke={COLORS.accent} strokeWidth={1.5} fill={COLORS.bgSurface}
-                />
-              ))}
-              <Circle cx={xFor(lastIdx)} cy={yFor(display[lastIdx].count)} r={3} fill={COLORS.accent} />
-            </Svg>
+      <View style={styles.card} onLayout={(e) => setWidth(e.nativeEvent.layout.width)}>
+        {width > 0 && (
+          <Svg width={width} height={CHART_H}>
+            <Line
+              x1={0} y1={baselineY} x2={width} y2={baselineY}
+              stroke={COLORS.borderSubtle} strokeWidth={1}
+            />
 
-            {/* Value labels for clamped days — left is a % of chart width
-                (the Svg stretches via width="100%"), top is a literal
-                pixel offset (VB_H is chosen to equal the Svg's real
-                rendered height, so viewBox y-units already equal dp). */}
-            {overCap.map(r => (
-              <Text
-                key={`cap-label-${r.i}`}
-                style={[styles.capLabel, {
-                  left: `${(r.i / lastIdx) * 100}%`,
-                  top: yFor(r.count) - 13,
-                }]}
-              >
-                {r.count}
-              </Text>
-            ))}
-          </View>
+            {hasAny && (
+              <>
+                {/* Bars sit behind the line so the trend still reads on top. */}
+                {series.map((r, i) => (
+                  r.count > 0 ? (
+                    <Rect
+                      key={`bar-${r.iso}`}
+                      x={xFor(i) - barW / 2}
+                      y={yFor(r.count)}
+                      width={barW}
+                      height={Math.max(1, baselineY - yFor(r.count))}
+                      fill={COLORS.accent}
+                      fillOpacity={0.32}
+                      rx={1}
+                    />
+                  ) : null
+                ))}
+
+                <Path d={areaPath} fill={COLORS.accent} fillOpacity={0.12} />
+                <Path d={linePath} stroke={COLORS.accent} strokeWidth={2} fill="none" />
+                <Circle cx={xFor(lastIdx)} cy={yFor(series[lastIdx].count)} r={3} fill={COLORS.accent} />
+
+                {/* Per-day counts. Zero days are left blank rather than
+                    printing 21 zeroes across a phone-width axis — the gap
+                    already reads as nothing happened, and the noise would
+                    bury the days that did. */}
+                {series.map((r, i) => (
+                  r.count > 0 ? (
+                    <SvgText
+                      key={`n-${r.iso}`}
+                      x={xFor(i)}
+                      y={baselineY + 11}
+                      fontSize={7}
+                      fill={COLORS.textMuted}
+                      textAnchor="middle"
+                    >
+                      {String(r.count)}
+                    </SvgText>
+                  ) : null
+                ))}
+              </>
+            )}
+          </Svg>
+        )}
+
+        {!hasAny && width > 0 && (
+          <Text style={styles.emptyText}>No completions logged in this window.</Text>
         )}
 
         {hasAny && (
           <View style={styles.xLabels}>
-            <Text style={styles.xLabel}>{fmtGreek(display[0].iso)}</Text>
-            <Text style={styles.xLabel}>{fmtGreek(display[Math.floor(lastIdx / 2)].iso)}</Text>
-            <Text style={styles.xLabel}>{fmtGreek(display[lastIdx].iso)}</Text>
-          </View>
-        )}
-
-        {hasAny && (
-          <View style={styles.legendRow}>
-            <Text style={[styles.legendItem, { color: COLORS.accent }]}>— daily</Text>
-            <Text style={[styles.legendItem, { color: COLORS.textMuted }]}>┄ 7-day mean</Text>
+            <Text style={styles.xLabel}>{fmtGreek(series[0].iso)}</Text>
+            <Text style={styles.xLabel}>{fmtGreek(series[Math.floor(lastIdx / 2)].iso)}</Text>
+            <Text style={styles.xLabel}>{fmtGreek(series[lastIdx].iso)}</Text>
           </View>
         )}
       </View>
@@ -160,20 +153,12 @@ const styles = StyleSheet.create({
     paddingVertical: 12, paddingHorizontal: 10,
   },
   emptyText: {
-    position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
-    textAlign: 'center', textAlignVertical: 'center',
+    textAlign: 'center', marginTop: -CHART_H / 2 - 4, marginBottom: CHART_H / 2 + 4,
     fontSize: 11, fontFamily: FONTS.mono, color: COLORS.textFaint,
-  },
-  capLabel: {
-    position: 'absolute',
-    fontSize: 8, fontFamily: FONTS.mono, color: COLORS.accent,
-    transform: [{ translateX: -8 }],
   },
   xLabels: {
     flexDirection: 'row', justifyContent: 'space-between',
-    marginTop: 6, paddingHorizontal: 2,
+    marginTop: 4, paddingHorizontal: 2,
   },
   xLabel: { fontSize: 8, fontFamily: FONTS.mono, color: COLORS.textFaint },
-  legendRow: { flexDirection: 'row', gap: 16, marginTop: 8, justifyContent: 'center' },
-  legendItem: { fontSize: 9, fontFamily: FONTS.mono, letterSpacing: 0.5 },
 });
