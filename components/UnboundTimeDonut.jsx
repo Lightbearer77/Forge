@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import Svg, { Circle, Line } from 'react-native-svg';
+import Svg, { Circle } from 'react-native-svg';
 import { COLORS, FONTS } from '../lib/theme';
 import { unboundTimeWeek, recentWeeksUnbound } from '../lib/selectors';
 
@@ -9,36 +9,29 @@ const STROKE = 14;
 const RADIUS = (SIZE - STROKE) / 2;
 const CENTER = SIZE / 2;
 const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
-const THRESHOLD_PCT = 90;
 
 // Ring geometry: the progress Circle is drawn from angle 0 (3 o'clock) and
 // rotated -90deg so it starts at 12 and sweeps clockwise as strokeDashoffset
-// shrinks. The threshold tick is computed independently at the same -90deg
-// reference so it lines up with where "90%" actually falls on the arc —
-// it is NOT just a fixed decoration, it moves if THRESHOLD_PCT ever changes.
-const tickAngleRad = ((-90 + (THRESHOLD_PCT / 100) * 360) * Math.PI) / 180;
-const TICK_INNER = RADIUS - STROKE / 2 - 2;
-const TICK_OUTER = RADIUS + STROKE / 2 + 2;
-const TICK_X1 = CENTER + TICK_INNER * Math.cos(tickAngleRad);
-const TICK_Y1 = CENTER + TICK_INNER * Math.sin(tickAngleRad);
-const TICK_X2 = CENTER + TICK_OUTER * Math.cos(tickAngleRad);
-const TICK_Y2 = CENTER + TICK_OUTER * Math.sin(tickAngleRad);
+// shrinks. Under the output model the whole ring IS the target, so there is
+// no interior threshold tick to draw — a full ring means target met.
 
-// Caption strings are ported near-verbatim from the Obsidian MCI template's
-// "Unbound Time Progress" dataviewjs block, so the app and the vault say
-// the same thing about the same instrument. CANDIDATE TEXT — Connor should
-// ratify or rewrite these, not treat them as finished copy.
+// Caption strings for the OUTPUT model (Option B). CANDIDATE TEXT —
+// Connor should ratify or rewrite these, not treat them as finished copy.
+// Note what these deliberately never do: frame a shortfall as failure.
+// Unbound Time's base is unconditional; this ring tracks only the separate
+// additive tier, so a miss is information, not a penalty.
 function captionFor(stats) {
-  if (stats.total === 0) {
-    return { text: 'No High+Mid tasks due this week.', color: COLORS.textFaint };
-  }
-  if (stats.belowMinimum) {
-    return { text: 'Threshold needs \u22655 tagged tasks.', color: COLORS.textMuted };
+  if (stats.done === 0) {
+    return { text: 'No High+Mid completions logged this week.', color: COLORS.textFaint };
   }
   if (stats.atThreshold) {
-    return { text: 'Threshold met \u2014 counts toward the monthly tier.', color: COLORS.ok };
+    return { text: 'Target met \u2014 counts toward the monthly tier.', color: COLORS.ok };
   }
-  return { text: 'Below 90% \u2014 Unbound Time is unaffected.', color: COLORS.textMuted };
+  const remaining = stats.target - stats.done;
+  return {
+    text: `${remaining} more High+Mid to reach this week's target.`,
+    color: COLORS.textMuted,
+  };
 }
 
 export default function UnboundTimeDonut({ tasks, today }) {
@@ -52,7 +45,7 @@ export default function UnboundTimeDonut({ tasks, today }) {
   // readout without that decision.
   const weeks = useMemo(() => recentWeeksUnbound(tasks, today, 4), [tasks, today]);
 
-  const arcColor = stats.total === 0
+  const arcColor = stats.done === 0
     ? COLORS.bgElevated
     : (stats.atThreshold ? COLORS.ok : COLORS.accent);
   const offset = CIRCUMFERENCE - (stats.pct / 100) * CIRCUMFERENCE;
@@ -69,7 +62,7 @@ export default function UnboundTimeDonut({ tasks, today }) {
               cx={CENTER} cy={CENTER} r={RADIUS}
               stroke={COLORS.bgElevated} strokeWidth={STROKE} fill="none"
             />
-            {stats.total > 0 && (
+            {stats.done > 0 && (
               <Circle
                 cx={CENTER} cy={CENTER} r={RADIUS}
                 stroke={arcColor} strokeWidth={STROKE} fill="none"
@@ -79,14 +72,10 @@ export default function UnboundTimeDonut({ tasks, today }) {
                 transform={`rotate(-90 ${CENTER} ${CENTER})`}
               />
             )}
-            <Line
-              x1={TICK_X1} y1={TICK_Y1} x2={TICK_X2} y2={TICK_Y2}
-              stroke={COLORS.textMuted} strokeWidth={2}
-            />
           </Svg>
           <View style={styles.ringCenter} pointerEvents="none">
-            <Text style={styles.pct}>{stats.pct}%</Text>
-            <Text style={styles.frac}>{stats.done}/{stats.total} HIGH+MID</Text>
+            <Text style={styles.pct}>{stats.done}/{stats.target}</Text>
+            <Text style={styles.frac}>HIGH+MID DONE</Text>
           </View>
         </View>
 
