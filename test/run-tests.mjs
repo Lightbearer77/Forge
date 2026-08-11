@@ -47,7 +47,8 @@ const { groupByStatus, isOverdue, tasksByDueDate, dashboardStats, isoWeekTag,
   sectionByKey, sectionKey, sectionLabel, UNSORTED_ID,
   matchesSearch, searchTasks,
   DEFAULT_FILTERS, sanitizeFilters, applyFilters, filterCount,
-  unboundTimeWeek, recentWeeksUnbound, dailyCompletions } =
+  unboundTimeWeek, recentWeeksUnbound, dailyCompletions,
+  isoWeekRange, UNBOUND_WEEKLY_TARGET } =
   await import(pathToFileURL(join(stage, 'selectors.mjs')).href);
 
 let pass = 0, fail = 0;
@@ -532,144 +533,210 @@ ok(
   'filter+search commute on membership regardless of order'
 );
 
-// ══ 4c. Dashboard visuals: Unbound Time & daily output ══
+// ══ 4c. Dashboard visuals: Unbound Time (output model) & daily output ══
 const uT = (id, extra = {}) => normalizeTask({ id, name: id, status: 'todo', updatedAt: 1, ...extra });
 
-// today = Theta 26, 2026-08-10, a Monday -> ISO week W33 (Mon-Sun).
-ok(isoWeekTag('2026-08-10') === 'W33', `sanity: W tag for 2026-08-10: ${isoWeekTag('2026-08-10')}`);
+// today = Theta 27, 2026-08-11 (a Tuesday) -> ISO week W33, Mon 08-10..Sun 08-16.
+ok(isoWeekTag('2026-08-11') === 'W33', `sanity: W tag for 2026-08-11: ${isoWeekTag('2026-08-11')}`);
 
-ok(unboundTimeWeek([], '2026-08-10').total === 0
-  && unboundTimeWeek([], '2026-08-10').pct === 0
-  && unboundTimeWeek([], '2026-08-10').atThreshold === false,
-  'unboundTimeWeek: empty task list');
+// --- isoWeekRange ---
+{
+  const r = isoWeekRange('2026-08-11');
+  ok(r.start === '2026-08-10' && r.end === '2026-08-16',
+    `isoWeekRange: Tue -> Mon..Sun, got ${r.start}..${r.end}`);
+}
+{
+  const r = isoWeekRange('2026-08-10');
+  ok(r.start === '2026-08-10' && r.end === '2026-08-16', 'isoWeekRange: Monday is its own week start');
+}
+{
+  const r = isoWeekRange('2026-08-16');
+  ok(r.start === '2026-08-10' && r.end === '2026-08-16', 'isoWeekRange: Sunday closes the same week');
+}
+{
+  // Range must span a month boundary cleanly.
+  const r = isoWeekRange('2026-09-02');
+  ok(r.start === '2026-08-31' && r.end === '2026-09-06',
+    `isoWeekRange: spans month boundary, got ${r.start}..${r.end}`);
+}
+
+// --- unboundTimeWeek: OUTPUT model (counts completedAt, ignores dueDate) ---
+ok(UNBOUND_WEEKLY_TARGET === 5, `UNBOUND_WEEKLY_TARGET is the hand-set dial: ${UNBOUND_WEEKLY_TARGET}`);
 
 {
-  // 10 High+Mid due this week, 9 done -> 90%, at threshold.
+  const r = unboundTimeWeek([], '2026-08-11');
+  ok(r.done === 0 && r.pct === 0 && r.atThreshold === false && r.target === 5,
+    `unboundTimeWeek: empty list, got ${JSON.stringify(r)}`);
+}
+
+{
+  // 5 High+Mid completed this week -> target met.
   const rows = [];
-  for (let i = 0; i < 5; i++) rows.push(uT(`h${i}`, { priority: 'High', dueDate: '2026-08-11', status: 'done', completedAt: '2026-08-11' }));
-  for (let i = 0; i < 4; i++) rows.push(uT(`m${i}`, { priority: 'Mid', dueDate: '2026-08-12', status: 'done', completedAt: '2026-08-12' }));
-  rows.push(uT('open1', { priority: 'Mid', dueDate: '2026-08-13', status: 'todo' }));
-  const r = unboundTimeWeek(rows, '2026-08-10');
-  ok(r.total === 10 && r.done === 9 && r.pct === 90 && r.atThreshold === true,
-    `unboundTimeWeek: 9/10 -> 90% at threshold, got ${JSON.stringify(r)}`);
+  for (let i = 0; i < 5; i++) {
+    rows.push(uT(`d${i}`, { priority: 'High', status: 'done', completedAt: '2026-08-11' }));
+  }
+  const r = unboundTimeWeek(rows, '2026-08-11');
+  ok(r.done === 5 && r.pct === 100 && r.atThreshold === true,
+    `unboundTimeWeek: 5/5 target met, got ${JSON.stringify(r)}`);
 }
 
 {
-  // 4 High+Mid due this week, all done -> 100%, but total < 5 so NOT at threshold.
   const rows = [
-    uT('a', { priority: 'High', dueDate: '2026-08-10', status: 'done', completedAt: '2026-08-10' }),
-    uT('b', { priority: 'High', dueDate: '2026-08-11', status: 'done', completedAt: '2026-08-11' }),
-    uT('c', { priority: 'Mid', dueDate: '2026-08-12', status: 'done', completedAt: '2026-08-12' }),
-    uT('d', { priority: 'Mid', dueDate: '2026-08-13', status: 'done', completedAt: '2026-08-13' }),
+    uT('a', { priority: 'High', status: 'done', completedAt: '2026-08-10' }),
+    uT('b', { priority: 'Mid', status: 'done', completedAt: '2026-08-12' }),
   ];
-  const r = unboundTimeWeek(rows, '2026-08-10');
-  ok(r.total === 4 && r.pct === 100 && r.atThreshold === false && r.belowMinimum === true,
-    `unboundTimeWeek: 4/4 done but below 5-task minimum -> not at threshold, got ${JSON.stringify(r)}`);
+  const r = unboundTimeWeek(rows, '2026-08-11');
+  ok(r.done === 2 && r.pct === 40 && r.atThreshold === false,
+    `unboundTimeWeek: 2/5 -> 40%, got ${JSON.stringify(r)}`);
 }
 
 {
-  // Low priority tasks are excluded from both total and done.
+  // THE POINT OF THE MODEL SWAP: a task due months ago but completed this
+  // week counts in full. Under the old due-week model this scored zero.
+  const rows = [uT('late', { priority: 'High', dueDate: '2026-04-01', status: 'done', completedAt: '2026-08-11' })];
+  const r = unboundTimeWeek(rows, '2026-08-11');
+  ok(r.done === 1, 'unboundTimeWeek: overdue task completed this week still counts');
+}
+
+{
+  // Converse: due this week but NOT completed contributes nothing.
+  const rows = [uT('open', { priority: 'High', dueDate: '2026-08-12', status: 'todo' })];
+  const r = unboundTimeWeek(rows, '2026-08-11');
+  ok(r.done === 0, 'unboundTimeWeek: due this week but open contributes nothing');
+}
+
+{
+  // A task with NO due date at all still counts when completed this week.
+  const rows = [uT('nodue', { priority: 'Mid', status: 'done', completedAt: '2026-08-11' })];
+  ok(unboundTimeWeek(rows, '2026-08-11').done === 1, 'unboundTimeWeek: dateless task counts on completion');
+}
+
+{
   const rows = [
-    uT('h1', { priority: 'High', dueDate: '2026-08-10', status: 'done', completedAt: '2026-08-10' }),
-    uT('l1', { priority: 'Low', dueDate: '2026-08-11', status: 'done', completedAt: '2026-08-11' }),
-    uT('l2', { priority: 'Low', dueDate: '2026-08-12', status: 'todo' }),
+    uT('h', { priority: 'High', status: 'done', completedAt: '2026-08-11' }),
+    uT('l', { priority: 'Low', status: 'done', completedAt: '2026-08-11' }),
   ];
-  const r = unboundTimeWeek(rows, '2026-08-10');
-  ok(r.total === 1 && r.done === 1, `unboundTimeWeek: Low priority excluded, got ${JSON.stringify(r)}`);
+  ok(unboundTimeWeek(rows, '2026-08-11').done === 1, 'unboundTimeWeek: Low priority excluded');
 }
 
 {
-  // Blank stored `week` is still counted — this is the entire point of
-  // deriving from dueDate instead of trusting the stored field.
-  const r = unboundTimeWeek([uT('x', { priority: 'High', dueDate: '2026-08-11', week: '' })], '2026-08-10');
-  ok(r.total === 1, 'unboundTimeWeek: blank stored week field does not exclude a task');
+  // Week boundaries are exact on both ends.
+  const before = [uT('x', { priority: 'High', status: 'done', completedAt: '2026-08-09' })];
+  const after = [uT('y', { priority: 'High', status: 'done', completedAt: '2026-08-17' })];
+  ok(unboundTimeWeek(before, '2026-08-11').done === 0, 'unboundTimeWeek: Sunday before window excluded');
+  ok(unboundTimeWeek(after, '2026-08-11').done === 0, 'unboundTimeWeek: Monday after window excluded');
 }
 
 {
-  // A stale/wrong stored `week` (old Thursday-anchored bug residue) is
-  // ignored — bucketing follows dueDate, not the stored tag.
-  const r = unboundTimeWeek([uT('x', { priority: 'High', dueDate: '2026-08-11', week: 'W99' })], '2026-08-10');
-  ok(r.total === 1, 'unboundTimeWeek: stale stored week field is ignored, dueDate wins');
+  const rows = [uT('x', { priority: 'High', status: 'done', completedAt: '2026-08-11', deleted: true })];
+  ok(unboundTimeWeek(rows, '2026-08-11').done === 0, 'unboundTimeWeek: deleted excluded');
 }
 
 {
-  const r = unboundTimeWeek([uT('x', { priority: 'High', dueDate: '2026-08-11', deleted: true })], '2026-08-10');
-  ok(r.total === 0, 'unboundTimeWeek: deleted tasks excluded');
+  const rows = [uT('x', { priority: 'High', status: 'done', completedAt: '' })];
+  ok(unboundTimeWeek(rows, '2026-08-11').done === 0, 'unboundTimeWeek: blank completedAt excluded');
 }
 
 {
-  const r = unboundTimeWeek([uT('x', { priority: 'High' })], '2026-08-10');
-  ok(r.total === 0, 'unboundTimeWeek: no dueDate excludes entirely');
+  // Overachievement fills the ring but never overflows it; `done` keeps truth.
+  const rows = [];
+  for (let i = 0; i < 12; i++) {
+    rows.push(uT(`o${i}`, { priority: 'High', status: 'done', completedAt: '2026-08-11' }));
+  }
+  const r = unboundTimeWeek(rows, '2026-08-11');
+  ok(r.done === 12 && r.pct === 100 && r.atThreshold === true,
+    `unboundTimeWeek: pct caps at 100 while done stays uncapped, got ${JSON.stringify(r)}`);
 }
 
 {
-  // ISO Monday boundary: Sunday 08-09 is W32, Monday 08-10 is W33.
-  const sun = uT('sun', { priority: 'High', dueDate: '2026-08-09' });
-  const mon = uT('mon', { priority: 'High', dueDate: '2026-08-10' });
-  const rSun = unboundTimeWeek([sun], '2026-08-09');
-  const rMon = unboundTimeWeek([mon], '2026-08-10');
-  ok(rSun.weekTag === 'W32' && rMon.weekTag === 'W33',
-    `unboundTimeWeek: Sun/Mon land in different ISO weeks, got ${rSun.weekTag}/${rMon.weekTag}`);
+  // Target is injectable so the dial can be raised deliberately.
+  const rows = [];
+  for (let i = 0; i < 5; i++) {
+    rows.push(uT(`t${i}`, { priority: 'High', status: 'done', completedAt: '2026-08-11' }));
+  }
+  const r = unboundTimeWeek(rows, '2026-08-11', 10);
+  ok(r.target === 10 && r.done === 5 && r.pct === 50 && r.atThreshold === false,
+    `unboundTimeWeek: custom target honoured, got ${JSON.stringify(r)}`);
 }
 
-// recentWeeksUnbound
+// --- recentWeeksUnbound ---
 {
-  const weeks = recentWeeksUnbound([], '2026-08-10', 4);
-  ok(weeks.length === 4, `recentWeeksUnbound: returns exactly n entries, got ${weeks.length}`);
-  ok(weeks[weeks.length - 1].weekTag === 'W33', `recentWeeksUnbound: last entry is current week, got ${weeks[weeks.length - 1].weekTag}`);
-  ok(weeks[0].weekTag === 'W30', `recentWeeksUnbound: oldest entry 3 weeks back, got ${weeks[0].weekTag}`);
+  const weeks = recentWeeksUnbound([], '2026-08-11', 4);
+  ok(weeks.length === 4, `recentWeeksUnbound: n entries, got ${weeks.length}`);
+  ok(weeks[3].weekTag === 'W33' && weeks[0].weekTag === 'W30',
+    `recentWeeksUnbound: oldest..newest W30..W33, got ${weeks.map(w => w.weekTag).join(',')}`);
 }
 {
-  // Year boundary: today = 2027-01-04 (W01). Walking back should not
-  // produce W00 or a negative tag.
+  // Completions land in the correct historical bucket, not all in the last.
+  const rows = [
+    uT('a', { priority: 'High', status: 'done', completedAt: '2026-07-22' }), // W30
+    uT('b', { priority: 'High', status: 'done', completedAt: '2026-08-11' }), // W33
+  ];
+  const weeks = recentWeeksUnbound(rows, '2026-08-11', 4);
+  ok(weeks[0].done === 1 && weeks[1].done === 0 && weeks[2].done === 0 && weeks[3].done === 1,
+    `recentWeeksUnbound: buckets by completion week, got ${weeks.map(w => w.done).join(',')}`);
+}
+{
   const weeks = recentWeeksUnbound([], '2027-01-04', 4);
   ok(weeks.every(w => /^W\d{2}$/.test(w.weekTag) && w.weekTag !== 'W00'),
     `recentWeeksUnbound: no malformed tags across year boundary, got ${weeks.map(w => w.weekTag).join(',')}`);
 }
-
-// dailyCompletions
 {
-  const series = dailyCompletions([], '2026-08-10', 28);
+  // Year-boundary pooling guard: 2026-W01 and 2027-W01 share a TAG but must
+  // not share a bucket. A completion in Jan 2026 must not appear in a Jan
+  // 2027 week — this is exactly why the selector ranges on dates, not tags.
+  const rows = [uT('old', { priority: 'High', status: 'done', completedAt: '2026-01-02' })];
+  const r = unboundTimeWeek(rows, '2027-01-06');
+  ok(r.done === 0, 'unboundTimeWeek: same week tag in a different year does not pool');
+}
+
+// --- dailyCompletions (unchanged by the model swap) ---
+{
+  const series = dailyCompletions([], '2026-08-11', 28);
   ok(series.length === 28, `dailyCompletions: window length, got ${series.length}`);
-  ok(series[0].iso === '2026-07-14' && series[27].iso === '2026-08-10',
+  ok(series[0].iso === '2026-07-15' && series[27].iso === '2026-08-11',
     `dailyCompletions: zero-filled, oldest first, got ${series[0].iso}..${series[27].iso}`);
   ok(series.every(r => r.count === 0), 'dailyCompletions: empty input is all zeros');
 }
 {
-  const rows = [uT('a', { status: 'done', completedAt: '2026-08-10' })];
-  const series = dailyCompletions(rows, '2026-08-10', 28);
-  ok(series[27].count === 1, 'dailyCompletions: completion on endISO lands in final bucket');
-}
-{
-  // One day before window start is excluded (start boundary).
-  const rows = [uT('a', { status: 'done', completedAt: '2026-07-13' })];
-  const series = dailyCompletions(rows, '2026-08-10', 28);
-  ok(series.reduce((s, r) => s + r.count, 0) === 0, 'dailyCompletions: day before window start excluded');
-}
-{
-  // One day after endISO is excluded (end boundary).
   const rows = [uT('a', { status: 'done', completedAt: '2026-08-11' })];
-  const series = dailyCompletions(rows, '2026-08-10', 28);
-  ok(series.reduce((s, r) => s + r.count, 0) === 0, 'dailyCompletions: day after endISO excluded');
+  ok(dailyCompletions(rows, '2026-08-11', 28)[27].count === 1,
+    'dailyCompletions: completion on endISO lands in final bucket');
+}
+{
+  const rows = [uT('a', { status: 'done', completedAt: '2026-07-14' })];
+  ok(dailyCompletions(rows, '2026-08-11', 28).reduce((s, r) => s + r.count, 0) === 0,
+    'dailyCompletions: day before window start excluded');
+}
+{
+  const rows = [uT('a', { status: 'done', completedAt: '2026-08-12' })];
+  ok(dailyCompletions(rows, '2026-08-11', 28).reduce((s, r) => s + r.count, 0) === 0,
+    'dailyCompletions: day after endISO excluded');
 }
 {
   const rows = [
     uT('a', { status: 'done', completedAt: '2026-08-01' }),
     uT('b', { status: 'done', completedAt: '2026-08-01' }),
   ];
-  const series = dailyCompletions(rows, '2026-08-10', 28);
-  const day = series.find(r => r.iso === '2026-08-01');
+  const day = dailyCompletions(rows, '2026-08-11', 28).find(r => r.iso === '2026-08-01');
   ok(day.count === 2, `dailyCompletions: same-date completions sum, got ${day.count}`);
 }
 {
   const rows = [uT('a', { status: 'done', completedAt: '' })];
-  const series = dailyCompletions(rows, '2026-08-10', 28);
-  ok(series.reduce((s, r) => s + r.count, 0) === 0, 'dailyCompletions: done with blank completedAt contributes nothing');
+  ok(dailyCompletions(rows, '2026-08-11', 28).reduce((s, r) => s + r.count, 0) === 0,
+    'dailyCompletions: done with blank completedAt contributes nothing');
 }
 {
   const rows = [uT('a', { status: 'done', completedAt: '2026-08-01', deleted: true })];
-  const series = dailyCompletions(rows, '2026-08-10', 28);
-  ok(series.reduce((s, r) => s + r.count, 0) === 0, 'dailyCompletions: deleted done tasks excluded');
+  ok(dailyCompletions(rows, '2026-08-11', 28).reduce((s, r) => s + r.count, 0) === 0,
+    'dailyCompletions: deleted done tasks excluded');
+}
+{
+  // dailyCompletions counts ALL priorities — it is an output chart, not the
+  // Unbound Time cohort. Guards against someone "helpfully" aligning them.
+  const rows = [uT('low', { priority: 'Low', status: 'done', completedAt: '2026-08-11' })];
+  ok(dailyCompletions(rows, '2026-08-11', 28)[27].count === 1,
+    'dailyCompletions: Low priority still counts (chart is all output)');
 }
 
 // ══ 5. Milestones: model + merge + progress ══
