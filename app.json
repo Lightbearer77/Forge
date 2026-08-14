@@ -1,3 +1,4 @@
+cat > app.json << 'EOF'
 {
   "expo": {
     "name": "Forge",
@@ -32,7 +33,9 @@
     ],
     "extra": {
       "eas": {
-        "projectID": "6764deaf-e1ff-49d7-b6c8-c49a545afc7a"
+        "projectId": "6764deaf-e1ff-49d7-b6c8-c49a545afc7a"
+      }
+    }
   }
 }
 
