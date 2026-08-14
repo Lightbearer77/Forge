@@ -1,20 +1,37 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { View, Text, ScrollView, TouchableOpacity, StyleSheet } from 'react-native';
 import { COLORS, FONTS, GOAL_COLORS } from '../lib/theme';
 import { GOALS } from '../lib/model';
-import { dashboardStats, taskById, milestoneProgress } from '../lib/selectors';
+import {
+  dashboardStats, taskById, milestoneProgress,
+  sortMilestonesForList, applyMsFilters, msFilterCount, MS_SORT_MODES, MS_SORT_LABELS,
+} from '../lib/selectors';
 import { gregToGreek, fmtGreek } from '../lib/constants';
 import UnboundTimeDonut from './UnboundTimeDonut';
 import OutputChart from './OutputChart';
+import MilestoneFilterBar from './MilestoneFilterBar';
 
-export default function DashboardView({ tasks, milestones = [], today, onEdit, onEditMilestone, onToggleMilestone, onAddMilestone }) {
+export default function DashboardView({
+  tasks, milestones = [], today, onEdit, onEditMilestone, onToggleMilestone, onAddMilestone,
+  msFilters, onMsFiltersChange, msSortBy, onMsSortByChange,
+}) {
   const stats = useMemo(() => dashboardStats(tasks, today), [tasks, today]);
   const byId = useMemo(() => taskById(tasks), [tasks]);
-  const openMs = useMemo(() =>
-    milestones.filter(m => !m.completed)
-      .sort((a, b) => (a.dueDate || '9999').localeCompare(b.dueDate || '9999')),
-    [milestones]);
-  const doneMsCount = milestones.length - openMs.length;
+  const [msSortMenuOpen, setMsSortMenuOpen] = useState(false);
+
+  // Total counts are always over the FULL live set, independent of the
+  // filter — the header should read as ground truth, not as "however many
+  // happen to be showing right now."
+  const liveMs = useMemo(() => milestones.filter(m => !m.deleted), [milestones]);
+  const doneMsCount = liveMs.filter(m => m.completed).length;
+  const openMsCount = liveMs.length - doneMsCount;
+
+  const shownMs = useMemo(
+    () => sortMilestonesForList(applyMsFilters(milestones, msFilters), msSortBy),
+    [milestones, msFilters, msSortBy]
+  );
+  const msActiveFilters = msFilterCount(msFilters);
+
   const g = gregToGreek(today);
   const monthName = g?.isPlanningDay ? 'Planning' : (g?.monthName || 'month');
 
@@ -51,19 +68,60 @@ export default function DashboardView({ tasks, milestones = [], today, onEdit, o
       })}
 
       <View style={{ marginTop: 20 }}>
-        <Text style={styles.sectionTitle}>MILESTONES · {openMs.length} OPEN</Text>
-        {openMs.map(ms => {
+        <Text style={styles.sectionTitle}>MILESTONES · {openMsCount} OPEN · {doneMsCount} DONE</Text>
+
+        <View style={styles.msControls}>
+          <View style={styles.sortWrap}>
+            <TouchableOpacity onPress={() => setMsSortMenuOpen(o => !o)} style={styles.sortTrigger}>
+              <Text style={styles.sortTriggerText}>
+                SORT: {MS_SORT_LABELS[msSortBy].toUpperCase()} {msSortMenuOpen ? '▴' : '▾'}
+              </Text>
+            </TouchableOpacity>
+            {msSortMenuOpen && (
+              <View style={styles.sortMenu}>
+                {MS_SORT_MODES.map(mode => (
+                  <TouchableOpacity
+                    key={mode}
+                    onPress={() => { onMsSortByChange(mode); setMsSortMenuOpen(false); }}
+                    style={styles.sortMenuItem}
+                  >
+                    <Text style={[styles.sortMenuItemText, mode === msSortBy && { color: COLORS.accent }]}>
+                      {MS_SORT_LABELS[mode]}
+                    </Text>
+                  </TouchableOpacity>
+                ))}
+              </View>
+            )}
+          </View>
+          <MilestoneFilterBar filters={msFilters} onChange={onMsFiltersChange} />
+        </View>
+
+        {msActiveFilters > 0 && (
+          <Text style={styles.msResultCount}>
+            {shownMs.length} shown · {msActiveFilters} filter{msActiveFilters === 1 ? '' : 's'} active
+          </Text>
+        )}
+
+        {shownMs.map(ms => {
           const prog = milestoneProgress(ms, byId);
           return (
             <TouchableOpacity key={ms.id} style={styles.msRow} onPress={() => onEditMilestone(ms)}>
               <TouchableOpacity
                 onPress={() => onToggleMilestone(ms)}
                 hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
-                style={styles.msCheck}
-              />
+                style={[
+                  styles.msCheck,
+                  ms.completed && {
+                    backgroundColor: GOAL_COLORS[ms.goal] || COLORS.accent,
+                    borderColor: GOAL_COLORS[ms.goal] || COLORS.accent,
+                  },
+                ]}
+              >
+                {ms.completed && <Text style={styles.msCheckMark}>✓</Text>}
+              </TouchableOpacity>
               <Text style={[styles.msDiamond, { color: GOAL_COLORS[ms.goal] || COLORS.textMuted }]}>◆</Text>
               <View style={{ flex: 1 }}>
-                <Text style={styles.msName} numberOfLines={1}>{ms.name}</Text>
+                <Text style={[styles.msName, ms.completed && styles.msNameDone]} numberOfLines={1}>{ms.name}</Text>
                 <Text style={styles.msSub}>
                   {ms.msTag ? `${ms.msTag} · ` : ''}
                   {ms.dueDate ? `due ${fmtGreek(ms.dueDate)}` : 'no target'}
@@ -73,9 +131,10 @@ export default function DashboardView({ tasks, milestones = [], today, onEdit, o
             </TouchableOpacity>
           );
         })}
-        {openMs.length === 0 && <Text style={styles.emptyText}>No open milestones.</Text>}
-        {doneMsCount > 0 && (
-          <Text style={styles.msDoneCount}>{doneMsCount} completed</Text>
+        {shownMs.length === 0 && (
+          <Text style={styles.emptyText}>
+            {msActiveFilters > 0 ? 'No milestones match the current filters.' : 'No milestones yet.'}
+          </Text>
         )}
         <TouchableOpacity onPress={onAddMilestone} style={styles.msAdd}>
           <Text style={styles.msAddText}>＋ NEW MILESTONE</Text>
@@ -162,11 +221,28 @@ const styles = StyleSheet.create({
   msCheck: {
     width: 18, height: 18, borderWidth: 1.5,
     borderColor: COLORS.borderStrong, borderRadius: 9,
+    alignItems: 'center', justifyContent: 'center',
   },
   msDiamond: { fontSize: 12 },
   msName: { fontSize: 13, fontFamily: FONTS.body, color: COLORS.textPrimary },
+  msNameDone: { color: COLORS.textMuted, textDecorationLine: 'line-through' },
   msSub: { fontSize: 9, fontFamily: FONTS.mono, letterSpacing: 0.5, color: COLORS.textMuted, marginTop: 2 },
-  msDoneCount: { fontSize: 9, fontFamily: FONTS.mono, color: COLORS.textFaint, paddingVertical: 4 },
+  msCheckMark: { fontSize: 11, color: COLORS.bgDeep, textAlign: 'center', lineHeight: 17 },
+  msControls: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8, gap: 8 },
+  msResultCount: { fontSize: 9, fontFamily: FONTS.mono, letterSpacing: 0.5, color: COLORS.textFaint, marginBottom: 6 },
+  sortWrap: { position: 'relative' },
+  sortTrigger: {
+    borderWidth: 1, borderColor: COLORS.borderMid, borderRadius: 4,
+    paddingHorizontal: 10, paddingVertical: 6, backgroundColor: COLORS.bgSurface,
+  },
+  sortTriggerText: { fontSize: 9, fontFamily: FONTS.mono, letterSpacing: 1, color: COLORS.textSecondary },
+  sortMenu: {
+    position: 'absolute', top: 32, left: 0, zIndex: 20,
+    backgroundColor: COLORS.bgElevated, borderWidth: 1, borderColor: COLORS.borderMid,
+    borderRadius: 4, paddingVertical: 4,
+  },
+  sortMenuItem: { paddingHorizontal: 12, paddingVertical: 9 },
+  sortMenuItemText: { fontSize: 11, fontFamily: FONTS.mono, letterSpacing: 1, color: COLORS.textSecondary },
   msAdd: {
     borderWidth: 1, borderColor: COLORS.borderMid, borderRadius: 4,
     borderStyle: 'dashed', paddingVertical: 10, alignItems: 'center', marginTop: 4,
