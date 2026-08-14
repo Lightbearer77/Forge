@@ -1,4 +1,3 @@
-cat > app.json << 'EOF'
 {
   "expo": {
     "name": "Forge",
