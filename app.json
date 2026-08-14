@@ -29,6 +29,10 @@
     "owner": "lightbearer77",
     "plugins": [
       "expo-sqlite"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectID": "6764deaf-e1ff-49d7-b6c8-c49a545afc7a"
   }
 }
+
