@@ -47,6 +47,8 @@ const { groupByStatus, isOverdue, tasksByDueDate, dashboardStats, isoWeekTag,
   sectionByKey, sectionKey, sectionLabel, UNSORTED_ID,
   matchesSearch, searchTasks,
   DEFAULT_FILTERS, sanitizeFilters, applyFilters, filterCount,
+  MS_SORT_MODES, MS_SORT_LABELS, sortMilestonesForList,
+  MS_DEFAULT_FILTERS, sanitizeMsFilters, applyMsFilters, msFilterCount,
   unboundTimeWeek, recentWeeksUnbound, dailyCompletions,
   isoWeekRange, UNBOUND_WEEKLY_TARGET } =
   await import(pathToFileURL(join(stage, 'selectors.mjs')).href);
@@ -532,6 +534,95 @@ ok(
   filterThenSearch.map(t => t.id).sort().join(',') === searchThenFilter.map(t => t.id).sort().join(','),
   'filter+search commute on membership regardless of order'
 );
+
+// ══ 4b-ms. Dashboard milestone sorting & filters ══
+const sMs = (id, extra = {}) => normalizeMilestone({ id, name: id, updatedAt: 1, createdAt: 1, ...extra });
+
+// --- sortMilestonesForList ---
+ok(MS_SORT_MODES.length === 3 && MS_SORT_MODES.includes('due') && MS_SORT_MODES.includes('manual'),
+  'MS_SORT_MODES shape');
+
+const msDueSet = [
+  sMs('nodate1'),
+  sMs('late',  { dueDate: '2026-08-01' }),
+  sMs('early', { dueDate: '2026-07-10' }),
+  sMs('mid',   { dueDate: '2026-07-20' }),
+];
+const msByDue = sortMilestonesForList(msDueSet, 'due');
+ok(msByDue.map(m => m.id).slice(0, 3).join(',') === 'early,mid,late', `ms due ascending: ${msByDue.map(m=>m.id)}`);
+ok(msByDue.slice(3).every(m => !m.dueDate), 'undated milestones sort after all dated ones');
+ok(msDueSet[0].dueDate === '' && msDueSet[1].dueDate === '2026-08-01', 'sortMilestonesForList does not mutate input order');
+
+const msGoalSet = [
+  sMs('a', { goal: 'G3', sortOrder: 0 }),
+  sMs('b', { goal: 'G1', sortOrder: 1 }),
+  sMs('c', { goal: 'G4', sortOrder: 0 }),
+  sMs('d', { goal: 'G2', sortOrder: 0 }),
+];
+ok(sortMilestonesForList(msGoalSet, 'goal').map(m => m.goal).join(',') === 'G1,G2,G3,G4',
+  'ms goal mode orders G1..G4');
+
+const msManualSet = [
+  sMs('a', { sortOrder: 2, createdAt: 1 }),
+  sMs('b', { sortOrder: 0, createdAt: 5 }),
+  sMs('c', { sortOrder: 0, createdAt: 2 }),
+];
+ok(sortMilestonesForList(msManualSet, 'manual').map(m => m.id).join(',') === 'c,b,a',
+  'ms manual mode: sortOrder then createdAt tiebreak');
+
+for (const mode of MS_SORT_MODES) {
+  const msTieSet = [
+    sMs('a', { sortOrder: 1, createdAt: 1, dueDate: '2026-07-10', goal: 'G1' }),
+    sMs('b', { sortOrder: 0, createdAt: 1, dueDate: '2026-07-10', goal: 'G1' }),
+  ];
+  ok(sortMilestonesForList(msTieSet, mode).map(m => m.id).join(',') === 'b,a', `ms ${mode} mode ties break on sortOrder`);
+}
+
+// --- sanitizeMsFilters: defensive against malformed input ---
+ok(JSON.stringify(sanitizeMsFilters(null)) === JSON.stringify(MS_DEFAULT_FILTERS),
+  'sanitizeMsFilters(null) -> defaults');
+ok(JSON.stringify(sanitizeMsFilters(undefined)) === JSON.stringify(MS_DEFAULT_FILTERS),
+  'sanitizeMsFilters(undefined) -> defaults');
+ok(JSON.stringify(sanitizeMsFilters({})) === JSON.stringify(MS_DEFAULT_FILTERS),
+  'sanitizeMsFilters({}) -> defaults for every missing key');
+ok(MS_DEFAULT_FILTERS.hideCompleted === false,
+  'MS_DEFAULT_FILTERS.hideCompleted defaults to false — completed milestones are visible out of the box');
+
+const msUnknownVocab = sanitizeMsFilters({ goals: ['G1', 'G9', 'G1'] });
+ok(msUnknownVocab.goals.join(',') === 'G1', 'sanitizeMsFilters drops unknown goal + dedupes');
+ok(sanitizeMsFilters({ hideCompleted: 1 }).hideCompleted === true, 'sanitizeMsFilters coerces truthy hideCompleted');
+
+// --- applyMsFilters: fixture set spanning goal/completed/deleted ---
+const msFilterSet = [
+  sMs('a', { goal: 'G1', completed: false }),
+  sMs('b', { goal: 'G2', completed: true }),
+  sMs('c', { goal: 'G3', completed: false }),
+  sMs('d', { goal: 'G4', completed: true }),
+  sMs('e', { goal: 'G1', completed: true, deleted: true }),
+];
+
+ok(applyMsFilters(msFilterSet, MS_DEFAULT_FILTERS).length === 4,
+  'applyMsFilters: default/empty filters = identity, tombstone excluded — this is the actual dashboard fix, ' +
+  'completed milestones (b, d) are included by default');
+ok(applyMsFilters(msFilterSet, null).length === 4,
+  'applyMsFilters: null filters treated as defaults, not a crash');
+
+ok(applyMsFilters(msFilterSet, { hideCompleted: true }).map(m => m.id).join(',') === 'a,c',
+  'applyMsFilters: hideCompleted drops completed=true, tombstone stays excluded');
+ok(applyMsFilters(msFilterSet, { goals: ['G1', 'G3'] }).map(m => m.id).join(',') === 'a,c',
+  'applyMsFilters: goals dimension in isolation');
+ok(applyMsFilters(msFilterSet, { hideCompleted: true, goals: ['G2', 'G4'] }).length === 0,
+  'applyMsFilters: two-dimension AND composition can legitimately yield zero results');
+
+const msBeforeSnapshot = JSON.stringify(msFilterSet);
+applyMsFilters(msFilterSet, { hideCompleted: true, goals: ['G1'] });
+ok(JSON.stringify(msFilterSet) === msBeforeSnapshot, 'applyMsFilters does not mutate its input array');
+
+// --- msFilterCount: active dimensions, not active values ---
+ok(msFilterCount(MS_DEFAULT_FILTERS) === 0, 'msFilterCount: defaults = 0');
+ok(msFilterCount({ hideCompleted: true }) === 1, 'msFilterCount: hideCompleted alone = 1');
+ok(msFilterCount({ goals: ['G1', 'G2', 'G3'] }) === 1, 'msFilterCount: multi-value single dimension still counts as 1');
+ok(msFilterCount({ hideCompleted: true, goals: ['G1'] }) === 2, 'msFilterCount: both dimensions active = 2');
 
 // ══ 4c. Dashboard visuals: Unbound Time (output model) & daily output ══
 const uT = (id, extra = {}) => normalizeTask({ id, name: id, status: 'todo', updatedAt: 1, ...extra });
