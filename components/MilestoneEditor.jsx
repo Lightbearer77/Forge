@@ -13,7 +13,7 @@ import TaskPicker from './TaskPicker';
 const toISO = (d) =>
   `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 
-export default function MilestoneEditor({ milestone, isNew, allTasks, onSave, onDelete, onClose }) {
+export default function MilestoneEditor({ milestone, isNew, allTasks, onSave, onDelete, onClose, onOpenTask }) {
   const [form, setForm] = useState(milestone);
   const [showPicker, setShowPicker] = useState(false);
   const [linking, setLinking] = useState(false);
@@ -121,10 +121,15 @@ export default function MilestoneEditor({ milestone, isNew, allTasks, onSave, on
             <Text style={styles.fieldLabel}>LINKED TASKS · {linkedTasks.length}</Text>
             {linkedTasks.map(t => (
               <View key={t.id} style={styles.linkRow}>
-                <View style={[styles.linkBar, { backgroundColor: GOAL_COLORS[t.goal] || COLORS.textMuted }]} />
-                <Text style={[styles.linkName, t.status === 'done' && styles.linkDone]} numberOfLines={1}>
-                  {t.name}
-                </Text>
+                <TouchableOpacity
+                  style={styles.linkTapArea}
+                  onPress={() => onOpenTask && onOpenTask(t)}
+                >
+                  <View style={[styles.linkBar, { backgroundColor: GOAL_COLORS[t.goal] || COLORS.textMuted }]} />
+                  <Text style={[styles.linkName, t.status === 'done' && styles.linkDone]} numberOfLines={1}>
+                    {t.name}
+                  </Text>
+                </TouchableOpacity>
                 <TouchableOpacity
                   onPress={() => update('taskIds', form.taskIds.filter(id => id !== t.id))}
                   hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
@@ -236,6 +241,10 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.bgSurface,
     borderWidth: 1, borderColor: COLORS.borderSubtle, borderRadius: 4,
     marginBottom: 5, overflow: 'hidden',
+  },
+  linkTapArea: {
+    flex: 1, alignSelf: 'stretch',
+    flexDirection: 'row', alignItems: 'center',
   },
   linkBar: { width: 3, alignSelf: 'stretch' },
   linkName: { flex: 1, fontSize: 12, fontFamily: FONTS.body, color: COLORS.textPrimary, padding: 9 },
