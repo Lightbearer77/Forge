@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "lastUpdated": "2026-08-14T17:29:33.796Z",
-  "updatedBy": "Claude",
+  "lastUpdated": "2026-08-14T17:31:51.449Z",
+  "updatedBy": "Forge",
   "tasks": [
     {
       "id": "t_seed_hsa_transfer",
@@ -4463,7 +4463,7 @@
       "notes": "Find ways to reduce Mom's monthly expenses.",
       "goal": "G2",
       "priority": "Mid",
-      "status": "backlog",
+      "status": "done",
       "section": "Family",
       "level": 2,
       "month": "M06",
@@ -4474,12 +4474,12 @@
       "blockedBy": [],
       "milestone": false,
       "recurrence": "none",
-      "completed": false,
-      "completedAt": "",
+      "completed": true,
+      "completedAt": "2026-08-10",
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1785960969568
+      "updatedAt": 1786393139571
     },
     {
       "id": "v19",
@@ -5231,7 +5231,7 @@
       "notes": "overdue Jun 19",
       "goal": "G2",
       "priority": "Mid",
-      "status": "todo",
+      "status": "done",
       "section": "Longhouse & Tribe",
       "level": 0,
       "month": "M08",
@@ -5242,12 +5242,12 @@
       "blockedBy": [],
       "milestone": false,
       "recurrence": "none",
-      "completed": false,
-      "completedAt": "",
+      "completed": true,
+      "completedAt": "2026-08-12",
       "sortOrder": 12,
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1786549022292
     },
     {
       "id": "f26_013",
