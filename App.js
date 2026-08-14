@@ -12,6 +12,7 @@ import {
   taskById, childrenOf, topLevelTasks, subtaskProgress, isBlocked,
   sortTasksForList, SORT_MODES, SORT_LABELS, searchTasks,
   applyFilters, sanitizeFilters, filterCount, DEFAULT_FILTERS,
+  sanitizeMsFilters, MS_DEFAULT_FILTERS,
 } from './lib/selectors';
 import { GOALS, newTask, newMilestone } from './lib/model';
 import {
@@ -90,6 +91,8 @@ function AppContent() {
   const [activeSectionKey, setActiveSectionKey] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [filters, setFilters] = useState(DEFAULT_FILTERS);
+  const [msFilters, setMsFilters] = useState(MS_DEFAULT_FILTERS);
+  const [msSortBy, setMsSortBy] = useState('due');
 
   const today = todayISO();
 
@@ -162,6 +165,12 @@ function AppContent() {
         } catch (e) {
           console.warn('Filter settings load failed, using defaults', e);
         }
+        try {
+          const rawMs = await getSetting('dashMsFilters');
+          if (rawMs) setMsFilters(sanitizeMsFilters(JSON.parse(rawMs)));
+        } catch (e) {
+          console.warn('Dashboard milestone filter settings load failed, using defaults', e);
+        }
       } catch (e) {
         console.warn('Init failed', e);
       } finally {
@@ -193,6 +202,18 @@ function AppContent() {
     setFilters(clean);
     setSetting('listFilters', JSON.stringify(clean)).catch((e) =>
       console.warn('Filter settings save failed', e)
+    );
+  }, []);
+
+  // Dashboard milestone filters are also an on-device UI preference, never
+  // synced via forge-sync.json — same discipline as updateFilters above.
+  // Sort mode (msSortBy) deliberately is NOT persisted, matching the task
+  // List view's sortBy, which also resets to its default each launch.
+  const updateMsFilters = useCallback((next) => {
+    const clean = sanitizeMsFilters(next);
+    setMsFilters(clean);
+    setSetting('dashMsFilters', JSON.stringify(clean)).catch((e) =>
+      console.warn('Dashboard milestone filter settings save failed', e)
     );
   }, []);
 
@@ -479,6 +500,8 @@ function AppContent() {
           tasks={tasks} milestones={milestones} today={today}
           onEdit={openEditor} onEditMilestone={openMilestone}
           onToggleMilestone={toggleMilestone} onAddMilestone={startNewMilestone}
+          msFilters={msFilters} onMsFiltersChange={updateMsFilters}
+          msSortBy={msSortBy} onMsSortByChange={setMsSortBy}
         />
       )}
 
