@@ -182,11 +182,14 @@ function AppContent() {
 
   // Android hardware back: walk the overlay stack in the same order the
   // on-screen ‹ BACK / ✕ controls do, rather than exiting the app from
-  // whatever layer happens to be on top.
+  // whatever layer happens to be on top. `editing` is checked before
+  // `msEditing` because a task can now be opened FROM a milestone (stacked
+  // on top of it) — back must close the top layer first, not the one
+  // underneath it.
   useEffect(() => {
     const sub = BackHandler.addEventListener('hardwareBackPress', () => {
-      if (msEditing) { setMsEditing(null); return true; }
       if (editing) { setEditing(null); return true; }
+      if (msEditing) { setMsEditing(null); return true; }
       if (activeSectionKey !== null) { setActiveSectionKey(null); return true; }
       if (showSections) { setShowSections(false); return true; }
       return false;
@@ -509,8 +512,26 @@ function AppContent() {
         <RunesView runes={runes} onToggleEarned={toggleRuneEarned} />
       )}
 
+      {/* MilestoneEditor renders BEFORE TaskEditor so a task opened from a
+          milestone (onOpenTask below) stacks visually on top of it, not
+          behind it — both carry zIndex:100, so sibling render order is
+          what actually decides paint order here. */}
+      {msEditing && (
+        <MilestoneEditor
+          key={msEditing.ms.id}
+          milestone={msEditing.ms}
+          isNew={msEditing.isNew}
+          allTasks={tasks}
+          onSave={handleSaveMilestone}
+          onDelete={handleDeleteMilestone}
+          onClose={() => setMsEditing(null)}
+          onOpenTask={(t) => setEditing({ task: t, isNew: false })}
+        />
+      )}
+
       {editing && (
         <TaskEditor
+          key={editing.task.id}
           task={editing.task}
           isNew={editing.isNew}
           allTasks={tasks}
@@ -550,17 +571,6 @@ function AppContent() {
       )}
 
       <SettingsPanel visible={showSettings} onClose={() => setShowSettings(false)} />
-
-      {msEditing && (
-        <MilestoneEditor
-          milestone={msEditing.ms}
-          isNew={msEditing.isNew}
-          allTasks={tasks}
-          onSave={handleSaveMilestone}
-          onDelete={handleDeleteMilestone}
-          onClose={() => setMsEditing(null)}
-        />
-      )}
     </View>
   );
 }
