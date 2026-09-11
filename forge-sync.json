@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "lastUpdated": "2026-08-26T21:55:36.897Z",
+  "lastUpdated": "2026-09-11T00:44:42.030Z",
   "updatedBy": "Forge",
   "tasks": [
     {
@@ -3234,7 +3234,7 @@
       "notes": "Conversation to learn a specific financial detail as part of vetting a dating prospect.",
       "goal": "G2",
       "priority": "Mid",
-      "status": "backlog",
+      "status": "done",
       "section": "Financial & Legal",
       "level": 2,
       "month": "M06",
@@ -3245,12 +3245,12 @@
       "blockedBy": [],
       "milestone": false,
       "recurrence": "none",
-      "completed": false,
-      "completedAt": "",
+      "completed": true,
+      "completedAt": "2026-08-26",
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958080,
-      "updatedAt": 1785960969568
+      "updatedAt": 1787782537229
     },
     {
       "id": "c05",
@@ -5008,6 +5008,30 @@
       "deleted": false,
       "createdAt": 1785859437942,
       "updatedAt": 1785960969568
+    },
+    {
+      "id": "t_1787781509736_o82wu4",
+      "name": "Find Grandfather clock for Mom's or your place",
+      "notes": "",
+      "goal": "G1",
+      "priority": "Mid",
+      "status": "todo",
+      "section": "",
+      "level": 0,
+      "month": "",
+      "week": "",
+      "startDate": "",
+      "dueDate": "",
+      "parentId": "",
+      "blockedBy": [],
+      "milestone": false,
+      "recurrence": "none",
+      "completed": false,
+      "completedAt": "",
+      "sortOrder": 0,
+      "deleted": true,
+      "createdAt": 1787781509736,
+      "updatedAt": 1787781547885
     },
     {
       "id": "f26_001",
