@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "lastUpdated": "2026-10-17T19:34:44.262Z",
+  "lastUpdated": "2026-10-17T20:54:38.762Z",
   "updatedBy": "Claude",
   "tasks": [
     {
@@ -8546,6 +8546,54 @@
       "deleted": false,
       "createdAt": 1792265683750,
       "updatedAt": 1792265683750
+    },
+    {
+      "id": "f26_137",
+      "name": "Othala — grandfather's name into daily practice, anchored at the Vé beside grandmother's",
+      "notes": "Rune Othala (G2, Adopt/deepen). Formally incorporate grandfather's name into daily practice with a physical anchor at the Vé alongside grandmother's; open the lineage roster as first pass toward the three-generation document. Move later if the Vé anchor needs more time.",
+      "goal": "G2",
+      "priority": "Mid",
+      "status": "backlog",
+      "section": "Identity & Practice",
+      "level": 0,
+      "month": "M11",
+      "week": "W44",
+      "startDate": "",
+      "dueDate": "2026-10-30",
+      "parentId": "",
+      "blockedBy": [],
+      "milestone": false,
+      "recurrence": "none",
+      "completed": false,
+      "completedAt": "",
+      "sortOrder": 137,
+      "deleted": false,
+      "createdAt": 1792270478365,
+      "updatedAt": 1792270478365
+    },
+    {
+      "id": "f26_138",
+      "name": "Hagalaz — set the standing vow at the Vé during the Winter Nights blót",
+      "notes": "Rune Hagalaz (G1, Adopt). Standing vow at the winter threshold: when disruption hits, bring it to the Vé rather than going dark under duress. Vow wording is Connor's. Set it at the Oct 31 blót; Dec 30 (Nu) is the backstop check. The rune itself is earned on the concrete instance, not the calendar, and stays a manual call.",
+      "goal": "G1",
+      "priority": "Mid",
+      "status": "backlog",
+      "section": "Identity & Practice",
+      "level": 0,
+      "month": "M11",
+      "week": "W44",
+      "startDate": "",
+      "dueDate": "2026-10-31",
+      "parentId": "",
+      "blockedBy": [],
+      "milestone": false,
+      "recurrence": "none",
+      "completed": false,
+      "completedAt": "",
+      "sortOrder": 138,
+      "deleted": false,
+      "createdAt": 1792270478365,
+      "updatedAt": 1792270478365
     }
   ],
   "milestones": [
@@ -10357,13 +10405,13 @@
       "month": "Lambda",
       "tag": "G2",
       "adoptStatus": "Adopt/deepen",
-      "taskId": "",
+      "taskId": "f26_137",
       "earned": false,
       "earnedAt": "",
       "sortOrder": 14,
       "deleted": false,
       "createdAt": 1000000000000,
-      "updatedAt": 1000000000000
+      "updatedAt": 1792270478365
     },
     {
       "id": "rune_Algiz",
@@ -10442,13 +10490,13 @@
       "month": "Lambda (set) / Nu (due-by backstop)",
       "tag": "G1",
       "adoptStatus": "Adopt",
-      "taskId": "",
+      "taskId": "f26_138",
       "earned": false,
       "earnedAt": "",
       "sortOrder": 19,
       "deleted": false,
       "createdAt": 1000000000000,
-      "updatedAt": 1000000000000
+      "updatedAt": 1792270478365
     },
     {
       "id": "rune_Isa",
