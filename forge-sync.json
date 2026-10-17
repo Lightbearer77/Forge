@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "lastUpdated": "2026-10-17T20:54:38.762Z",
+  "lastUpdated": "2026-10-17T21:32:41.140Z",
   "updatedBy": "Claude",
   "tasks": [
     {
@@ -8594,6 +8594,32 @@
       "deleted": false,
       "createdAt": 1792270478365,
       "updatedAt": 1792270478365
+    },
+    {
+      "id": "f26_139",
+      "name": "Hagalaz — check: did the vow get used?",
+      "notes": "Rune Hagalaz backstop (Nu). A review, not a deadline: did a real disruption come and did I bring it to the Vé rather than going dark? If an instance occurred, the rune can be marked earned (Connor's call); if not, carry the vow forward. Set at f26_138 on Oct 31.",
+      "goal": "G1",
+      "priority": "Mid",
+      "status": "backlog",
+      "section": "Identity & Practice",
+      "level": 0,
+      "month": "M13",
+      "week": "W53",
+      "startDate": "",
+      "dueDate": "2026-12-30",
+      "parentId": "",
+      "blockedBy": [
+        "f26_138"
+      ],
+      "milestone": false,
+      "recurrence": "none",
+      "completed": false,
+      "completedAt": "",
+      "sortOrder": 139,
+      "deleted": false,
+      "createdAt": 1792272760665,
+      "updatedAt": 1792272760665
     }
   ],
   "milestones": [
@@ -8651,19 +8677,19 @@
     {
       "id": "ms7_05",
       "name": "Assertive Correction Season — opened and instrumented: belief spine posted where seen daily; assertive-readiness log running (3 logged opportunities/week)",
-      "notes": "Manual checkpoint, no discrete task — evidenced by the belief spine posted where seen daily and the assertive-readiness log holding ≥3 logged opportunities/week.",
+      "notes": "Manual checkpoint, no discrete task — evidenced by the belief spine posted where seen daily and the assertive-readiness log holding ≥3 logged opportunities/week. | Closed Lambda 10 with the Assertive Correction season (Connor). The readiness log was not kept as a measured log, so closure rests on self-report. Successor: ms11_04.",
       "goal": "G1",
       "month": "",
       "dueDate": "",
       "msTag": "MS7",
       "msWeek": "MSW29",
       "taskIds": [],
-      "completed": false,
-      "completedAt": "",
+      "completed": true,
+      "completedAt": "2026-10-17",
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1786728570260
+      "updatedAt": 1792272760665
     },
     {
       "id": "ms2027_01",
@@ -9738,7 +9764,7 @@
     {
       "id": "ms8_03",
       "name": "Assertive readiness mid-quarter check — engagement rate calculated, holding-ground trend reviewed",
-      "notes": "Single-task checkpoint — mid-quarter pulse on the assertive-readiness engagement rate and whether holding-ground behavior is trending up.",
+      "notes": "Single-task checkpoint — mid-quarter pulse on the assertive-readiness engagement rate and whether holding-ground behavior is trending up. | Closed Lambda 10 with the Assertive Correction season (Connor). The engagement rate and holding-ground trend were not measured as written; closure rests on self-report. Successor: ms11_04.",
       "goal": "G1",
       "month": "M08",
       "dueDate": "2026-08-12",
@@ -9747,12 +9773,12 @@
       "taskIds": [
         "f26_030"
       ],
-      "completed": false,
-      "completedAt": "",
+      "completed": true,
+      "completedAt": "2026-10-17",
       "sortOrder": 0,
       "deleted": true,
       "createdAt": 1784393287371,
-      "updatedAt": 1791565483228
+      "updatedAt": 1792272760665
     },
     {
       "id": "ms8_04",
