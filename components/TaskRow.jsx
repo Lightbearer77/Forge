@@ -1,5 +1,5 @@
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import { COLORS, FONTS, GOAL_COLORS, PRIORITY_COLORS } from '../lib/theme';
+import { COLORS, FONTS, GOAL_COLORS, PRIORITY_COLORS, FLAG_ROW } from '../lib/theme';
 import { STATUS_LABELS, FLAG_LABELS } from '../lib/model';
 import { fmtGreek } from '../lib/constants';
 import { isOverdue, isFlagged } from '../lib/selectors';
@@ -16,7 +16,7 @@ export default function TaskRow({ task, today, blocked = false, progress = null,
       onPress={() => onPress(task)}
       onLongPress={() => onLongPress(task)}
       activeOpacity={0.7}
-      style={styles.row}
+      style={[styles.row, flagged && FLAG_ROW]}
     >
       <View style={[styles.goalBar, { backgroundColor: goalColor }]} />
 
@@ -36,7 +36,7 @@ export default function TaskRow({ task, today, blocked = false, progress = null,
           {task.milestone ? '🏴 ' : ''}{task.name}
         </Text>
         <View style={styles.subRow}>
-          <Text style={styles.subText}>{STATUS_LABELS[task.status] || task.status}</Text>
+          <Text style={[styles.subText, flagged && styles.subTextFlagged]}>{STATUS_LABELS[task.status] || task.status}</Text>
           {blocked && <Text style={styles.blockedTag}> 🔒 BLOCKED</Text>}
           {flagged && <Text style={styles.flagTag}> ⚑ {FLAG_LABELS[task.flag].toUpperCase()}</Text>}
           {retired && !!task.flag && (
@@ -46,7 +46,7 @@ export default function TaskRow({ task, today, blocked = false, progress = null,
             <Text style={styles.progressTag}> · {progress.done}/{progress.total}</Text>
           )}
           {!!task.dueDate && (
-            <Text style={[styles.subText, overdue && { color: COLORS.priorityHigh }]}>
+            <Text style={[styles.subText, flagged && styles.subTextFlagged, overdue && { color: COLORS.priorityHigh }]}>
               {' '}· due {fmtGreek(task.dueDate)}
             </Text>
           )}
@@ -114,8 +114,12 @@ const styles = StyleSheet.create({
   flagTag: {
     fontSize: 9,
     fontFamily: FONTS.mono,
+    fontWeight: '700',
     letterSpacing: 1,
-    color: COLORS.accent,
+    color: COLORS.flagText,
+  },
+  subTextFlagged: {
+    color: COLORS.flagText,
   },
   blockedTag: {
     fontSize: 9,

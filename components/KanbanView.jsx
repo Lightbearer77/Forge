@@ -1,5 +1,5 @@
 import { View, Text, ScrollView, FlatList, TouchableOpacity, StyleSheet, useWindowDimensions } from 'react-native';
-import { COLORS, FONTS, GOAL_COLORS, PRIORITY_COLORS } from '../lib/theme';
+import { COLORS, FONTS, GOAL_COLORS, PRIORITY_COLORS, FLAG_ROW } from '../lib/theme';
 import { BOARD_STATUSES, STATUS_LABELS } from '../lib/model';
 import { groupByStatus, isOverdue, isFlagged, taskById, childrenOf, topLevelTasks, subtaskProgress, isBlocked } from '../lib/selectors';
 import { useMemo } from 'react';
@@ -60,7 +60,7 @@ function Card({ task, status, today, blocked, progress, onEdit, onMove }) {
   const overdue = isOverdue(task, today);
   const flagged = isFlagged(task);
   return (
-    <TouchableOpacity onPress={() => onEdit(task)} activeOpacity={0.7} style={styles.card}>
+    <TouchableOpacity onPress={() => onEdit(task)} activeOpacity={0.7} style={[styles.card, flagged && FLAG_ROW]}>
       <View style={[styles.cardBar, { backgroundColor: GOAL_COLORS[task.goal] || COLORS.textMuted }]} />
       <View style={styles.cardBody}>
         <Text style={[styles.cardName, task.milestone && { color: COLORS.accent, fontWeight: '700' }]} numberOfLines={2}>

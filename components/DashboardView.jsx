@@ -1,9 +1,9 @@
 import { useMemo, useState } from 'react';
 import { View, Text, ScrollView, TouchableOpacity, StyleSheet } from 'react-native';
-import { COLORS, FONTS, GOAL_COLORS } from '../lib/theme';
+import { COLORS, FONTS, GOAL_COLORS, FLAG_ROW } from '../lib/theme';
 import { GOALS, FLAG_LABELS } from '../lib/model';
 import {
-  dashboardStats, taskById, milestoneProgress, flagAgeDays,
+  dashboardStats, taskById, milestoneProgress, flagAgeDays, isFlagged,
   sortMilestonesForList, applyMsFilters, msFilterCount, MS_SORT_MODES, MS_SORT_LABELS,
 } from '../lib/selectors';
 import { gregToGreek, fmtGreek } from '../lib/constants';
@@ -149,7 +149,7 @@ export default function DashboardView({
       <TaskListSection
         title={`FLAGGED · ${stats.flagged.length} · FOR WA REVIEW`}
         tasks={stats.flagged} today={today} onEdit={onEdit}
-        tint={COLORS.accent} empty="Nothing flagged."
+        tint={COLORS.flagText} empty="Nothing flagged."
         right={(t) => {
           const d = flagAgeDays(t, today);
           return `${d === null ? '—' : `${d}d`} · ${FLAG_LABELS[t.flag] || ''}`;
@@ -183,7 +183,7 @@ function TaskListSection({ title, tasks, onEdit, tint, empty, right }) {
       {tasks.length === 0 ? (
         <Text style={styles.emptyText}>{empty}</Text>
       ) : tasks.map(task => (
-        <TouchableOpacity key={task.id} style={styles.taskRow} onPress={() => onEdit(task)}>
+        <TouchableOpacity key={task.id} style={[styles.taskRow, isFlagged(task) && FLAG_ROW]} onPress={() => onEdit(task)}>
           <View style={[styles.taskBar, { backgroundColor: GOAL_COLORS[task.goal] || COLORS.textMuted }]} />
           <Text style={styles.taskName} numberOfLines={1}>{task.name}</Text>
           <Text style={[styles.taskDue, tint && { color: tint }]}>

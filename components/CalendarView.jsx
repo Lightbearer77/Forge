@@ -1,12 +1,12 @@
 import { useState, useMemo } from 'react';
 import { View, Text, TouchableOpacity, ScrollView, StyleSheet, useWindowDimensions, Modal } from 'react-native';
-import { COLORS, FONTS, GOAL_COLORS } from '../lib/theme';
+import { COLORS, FONTS, GOAL_COLORS, FLAG_ROW } from '../lib/theme';
 import {
   GREEK_MONTHS, greekMonthDays, gregToGreek, dayOfWeek,
   nextGreekMonth, prevGreekMonth, fmtGreekLong, fmtGreg,
 } from '../lib/constants';
 import { STATUS_LABELS } from '../lib/model';
-import { tasksByDueDate, milestonesByDueDate } from '../lib/selectors';
+import { tasksByDueDate, milestonesByDueDate, isFlagged } from '../lib/selectors';
 
 const CELL_GAP = 2;
 const PAD = 8;
@@ -99,7 +99,7 @@ export default function CalendarView({ tasks, milestones = [], today, onEdit, on
               {sheetTasks.map(task => (
                 <TouchableOpacity
                   key={task.id}
-                  style={styles.sheetRow}
+                  style={[styles.sheetRow, isFlagged(task) && FLAG_ROW]}
                   onPress={() => { setSheetDate(null); onEdit(task); }}
                 >
                   <View style={[styles.sheetRowBar, { backgroundColor: GOAL_COLORS[task.goal] || COLORS.textMuted }]} />
@@ -107,7 +107,9 @@ export default function CalendarView({ tasks, milestones = [], today, onEdit, on
                     <Text style={[styles.sheetRowName, task.status === 'done' && styles.sheetRowDone]} numberOfLines={1}>
                       {task.name}
                     </Text>
-                    <Text style={styles.sheetRowStatus}>{STATUS_LABELS[task.status]}</Text>
+                    <Text style={[styles.sheetRowStatus, isFlagged(task) && { color: COLORS.flagText }]}>
+                      {STATUS_LABELS[task.status]}{isFlagged(task) ? ' · ⚑ FLAGGED' : ''}
+                    </Text>
                   </View>
                 </TouchableOpacity>
               ))}
@@ -155,7 +157,7 @@ function DayCell({ iso, cellSize, isToday, tasks, hasMilestone, onPress }) {
         <View
           key={task.id}
           style={[styles.cellBanner, {
-            backgroundColor: GOAL_COLORS[task.goal] || COLORS.textMuted,
+            backgroundColor: isFlagged(task) ? COLORS.flag : (GOAL_COLORS[task.goal] || COLORS.textMuted),
             opacity: task.status === 'done' ? 0.4 : 1,
           }]}
         >

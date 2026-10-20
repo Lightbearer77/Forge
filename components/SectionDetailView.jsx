@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { View, Text, ScrollView, TouchableOpacity, StyleSheet } from 'react-native';
-import { COLORS, FONTS, GOAL_COLORS } from '../lib/theme';
+import { COLORS, FONTS, GOAL_COLORS, FLAG_ROW } from '../lib/theme';
 import { STATUS_LABELS, FLAG_LABELS } from '../lib/model';
 import { fmtGreek } from '../lib/constants';
 import {
@@ -236,7 +236,7 @@ function TaskLine({ task, today, blocked, progress, childRows, onEditTask, onTog
   return (
     <View style={styles.taskWrap}>
       <TouchableOpacity
-        style={styles.taskRow}
+        style={[styles.taskRow, flagged && FLAG_ROW]}
         onPress={() => onEditTask(task)}
         activeOpacity={0.7}
       >
@@ -260,7 +260,7 @@ function TaskLine({ task, today, blocked, progress, childRows, onEditTask, onTog
             {progress.total > 0 && (
               <Text style={styles.subText}>{progress.done}/{progress.total} sub · </Text>
             )}
-            <Text style={[styles.subText, overdue && { color: COLORS.priorityHigh }]}>
+            <Text style={[styles.subText, flagged && { color: COLORS.flagText }, overdue && { color: COLORS.priorityHigh }]}>
               {task.dueDate ? `due ${fmtGreek(task.dueDate)}` : 'no date'}
             </Text>
           </View>
@@ -360,7 +360,7 @@ const styles = StyleSheet.create({
   taskSub: { flexDirection: 'row', alignItems: 'center', marginTop: 3, flexWrap: 'wrap' },
   subText: { fontSize: 9, fontFamily: FONTS.mono, letterSpacing: 0.5, color: COLORS.textMuted },
   blockedTag: { fontSize: 9, fontFamily: FONTS.mono, letterSpacing: 1, color: COLORS.priorityHigh },
-  flagTag: { fontSize: 9, fontFamily: FONTS.mono, letterSpacing: 1, color: COLORS.accent },
+  flagTag: { fontSize: 9, fontFamily: FONTS.mono, fontWeight: '700', letterSpacing: 1, color: COLORS.flagText },
   retiredName: { color: COLORS.textMuted, fontStyle: 'italic' },
   subRow: {
     flexDirection: 'row', alignItems: 'center',

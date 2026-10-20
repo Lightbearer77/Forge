@@ -103,6 +103,16 @@ profile → standalone APK. Owner `lightbearer77`, EAS project id
       FLAGGED list (oldest flag first), which is the WA review worklist.
     - No `replaced_by` field (adopt-first): rewrite a task in place, then
       clear its flag.
+    - **Flagged tasks render red everywhere** (v0.10.1): `FLAG_ROW` from
+      `lib/theme.js` on list rows, board cards, section rows, dashboard rows
+      and the calendar day sheet; calendar day-cell banners fill with
+      `COLORS.flag`. The 3px goal strip is kept so the goal stays readable.
+      The red is a distinct hue from G3 maroon and High-priority orange — do
+      not "unify" it with either.
+    - A task deferred for **money/capacity is NOT a viability flag** — it is
+      still viable. Back-burner = Backlog status + no due date, optionally
+      `blockedBy` a G4 funding task. Flags are only for "this task no longer
+      leads to its goal"; mixing in deferrals pollutes the MA's reason data.
     - `applyFilters` hides retired tasks unless `retired` is explicitly in
       `statuses` — the one deliberate exception to "empty = unconstrained".
       FilterBar's contract is unchanged (its status chips come from
