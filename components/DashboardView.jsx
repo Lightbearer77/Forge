@@ -1,9 +1,9 @@
 import { useMemo, useState } from 'react';
 import { View, Text, ScrollView, TouchableOpacity, StyleSheet } from 'react-native';
 import { COLORS, FONTS, GOAL_COLORS } from '../lib/theme';
-import { GOALS } from '../lib/model';
+import { GOALS, FLAG_LABELS } from '../lib/model';
 import {
-  dashboardStats, taskById, milestoneProgress,
+  dashboardStats, taskById, milestoneProgress, flagAgeDays,
   sortMilestonesForList, applyMsFilters, msFilterCount, MS_SORT_MODES, MS_SORT_LABELS,
 } from '../lib/selectors';
 import { gregToGreek, fmtGreek } from '../lib/constants';
@@ -50,7 +50,7 @@ export default function DashboardView({
 
       <Text style={styles.sectionTitle}>BY GOAL</Text>
       {GOALS.map(goal => {
-        const s = stats.byGoal[goal] || { open: 0, doneThisMonth: 0 };
+        const s = stats.byGoal[goal] || { open: 0, doneThisMonth: 0, flagged: 0, retiredThisMonth: 0 };
         const total = s.open + s.doneThisMonth;
         const ratio = total > 0 ? s.doneThisMonth / total : 0;
         return (
@@ -62,7 +62,9 @@ export default function DashboardView({
                 backgroundColor: GOAL_COLORS[goal],
               }]} />
             </View>
-            <Text style={styles.goalNums}>{s.doneThisMonth}✓ · {s.open} open</Text>
+            <Text style={styles.goalNums}>
+              {s.doneThisMonth}✓ · {s.open} open{s.flagged > 0 ? ` · ⚑${s.flagged}` : ''}
+            </Text>
           </View>
         );
       })}
@@ -141,6 +143,22 @@ export default function DashboardView({
         </TouchableOpacity>
       </View>
 
+      {/* The WA viability-review worklist: open tasks raised as non-viable,
+          oldest flag first. Flagged tasks are deliberately absent from the
+          OVERDUE / DUE SOON lists below. */}
+      <TaskListSection
+        title={`FLAGGED · ${stats.flagged.length} · FOR WA REVIEW`}
+        tasks={stats.flagged} today={today} onEdit={onEdit}
+        tint={COLORS.accent} empty="Nothing flagged."
+        right={(t) => {
+          const d = flagAgeDays(t, today);
+          return `${d === null ? '—' : `${d}d`} · ${FLAG_LABELS[t.flag] || ''}`;
+        }}
+      />
+      <Text style={styles.emptyText}>
+        RETIRED THIS MONTH · {stats.retiredThisMonth}
+      </Text>
+
       <TaskListSection title="OVERDUE" tasks={stats.overdue} today={today}
         onEdit={onEdit} tint={COLORS.priorityHigh} empty="Nothing overdue." />
       <TaskListSection title="DUE SOON · NEXT 7 DAYS" tasks={stats.dueSoon} today={today}
@@ -158,7 +176,7 @@ function Stat({ label, value, color }) {
   );
 }
 
-function TaskListSection({ title, tasks, onEdit, tint, empty }) {
+function TaskListSection({ title, tasks, onEdit, tint, empty, right }) {
   return (
     <View style={{ marginTop: 20 }}>
       <Text style={styles.sectionTitle}>{title}</Text>
@@ -168,7 +186,9 @@ function TaskListSection({ title, tasks, onEdit, tint, empty }) {
         <TouchableOpacity key={task.id} style={styles.taskRow} onPress={() => onEdit(task)}>
           <View style={[styles.taskBar, { backgroundColor: GOAL_COLORS[task.goal] || COLORS.textMuted }]} />
           <Text style={styles.taskName} numberOfLines={1}>{task.name}</Text>
-          <Text style={[styles.taskDue, tint && { color: tint }]}>{fmtGreek(task.dueDate)}</Text>
+          <Text style={[styles.taskDue, tint && { color: tint }]}>
+            {right ? right(task) : fmtGreek(task.dueDate)}
+          </Text>
         </TouchableOpacity>
       ))}
     </View>
@@ -201,7 +221,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   goalBarFill: { height: 6, borderRadius: 3 },
-  goalNums: { width: 92, textAlign: 'right', fontSize: 9, fontFamily: FONTS.mono, color: COLORS.textMuted },
+  goalNums: { width: 120, textAlign: 'right', fontSize: 9, fontFamily: FONTS.mono, color: COLORS.textMuted },
   taskRow: {
     flexDirection: 'row', alignItems: 'center',
     backgroundColor: COLORS.bgSurface,

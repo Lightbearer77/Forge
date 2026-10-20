@@ -1,7 +1,7 @@
 import { View, Text, ScrollView, FlatList, TouchableOpacity, StyleSheet, useWindowDimensions } from 'react-native';
 import { COLORS, FONTS, GOAL_COLORS, PRIORITY_COLORS } from '../lib/theme';
-import { STATUSES, STATUS_LABELS } from '../lib/model';
-import { groupByStatus, isOverdue, taskById, childrenOf, topLevelTasks, subtaskProgress, isBlocked } from '../lib/selectors';
+import { BOARD_STATUSES, STATUS_LABELS } from '../lib/model';
+import { groupByStatus, isOverdue, isFlagged, taskById, childrenOf, topLevelTasks, subtaskProgress, isBlocked } from '../lib/selectors';
 import { useMemo } from 'react';
 import { fmtGreek } from '../lib/constants';
 
@@ -28,7 +28,7 @@ export default function KanbanView({ tasks, today, onEdit, onMove }) {
       showsHorizontalScrollIndicator={false}
       contentContainerStyle={styles.lanes}
     >
-      {STATUSES.map((status) => (
+      {BOARD_STATUSES.map((status) => (
         <View key={status} style={[styles.lane, { width: laneWidth }]}>
           <View style={styles.laneHeader}>
             <View style={[styles.laneDot, { backgroundColor: STATUS_COLORS[status] }]} />
@@ -56,14 +56,15 @@ export default function KanbanView({ tasks, today, onEdit, onMove }) {
 }
 
 function Card({ task, status, today, blocked, progress, onEdit, onMove }) {
-  const idx = STATUSES.indexOf(status);
+  const idx = BOARD_STATUSES.indexOf(status);
   const overdue = isOverdue(task, today);
+  const flagged = isFlagged(task);
   return (
     <TouchableOpacity onPress={() => onEdit(task)} activeOpacity={0.7} style={styles.card}>
       <View style={[styles.cardBar, { backgroundColor: GOAL_COLORS[task.goal] || COLORS.textMuted }]} />
       <View style={styles.cardBody}>
         <Text style={[styles.cardName, task.milestone && { color: COLORS.accent, fontWeight: '700' }]} numberOfLines={2}>
-          {task.milestone ? '🏴 ' : ''}{blocked ? '🔒 ' : ''}{task.name}
+          {task.milestone ? '🏴 ' : ''}{blocked ? '🔒 ' : ''}{flagged ? '⚑ ' : ''}{task.name}
         </Text>
         <View style={styles.cardFooter}>
           {progress?.total > 0 && (
@@ -78,17 +79,17 @@ function Card({ task, status, today, blocked, progress, onEdit, onMove }) {
           <View style={styles.moveBtns}>
             <TouchableOpacity
               disabled={idx === 0}
-              onPress={() => onMove(task, STATUSES[idx - 1])}
+              onPress={() => onMove(task, BOARD_STATUSES[idx - 1])}
               hitSlop={{ top: 8, bottom: 8, left: 6, right: 6 }}
             >
               <Text style={[styles.moveArrow, idx === 0 && { opacity: 0.2 }]}>‹</Text>
             </TouchableOpacity>
             <TouchableOpacity
-              disabled={idx === STATUSES.length - 1}
-              onPress={() => onMove(task, STATUSES[idx + 1])}
+              disabled={idx === BOARD_STATUSES.length - 1}
+              onPress={() => onMove(task, BOARD_STATUSES[idx + 1])}
               hitSlop={{ top: 8, bottom: 8, left: 6, right: 6 }}
             >
-              <Text style={[styles.moveArrow, idx === STATUSES.length - 1 && { opacity: 0.2 }]}>›</Text>
+              <Text style={[styles.moveArrow, idx === BOARD_STATUSES.length - 1 && { opacity: 0.2 }]}>›</Text>
             </TouchableOpacity>
           </View>
         </View>

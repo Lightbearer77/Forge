@@ -1,12 +1,14 @@
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { COLORS, FONTS, GOAL_COLORS, PRIORITY_COLORS } from '../lib/theme';
-import { STATUS_LABELS } from '../lib/model';
+import { STATUS_LABELS, FLAG_LABELS } from '../lib/model';
 import { fmtGreek } from '../lib/constants';
-import { isOverdue } from '../lib/selectors';
+import { isOverdue, isFlagged } from '../lib/selectors';
 
 export default function TaskRow({ task, today, blocked = false, progress = null, onToggleDone, onPress, onLongPress }) {
   const goalColor = GOAL_COLORS[task.goal] || COLORS.textMuted;
   const done = task.status === 'done';
+  const retired = task.status === 'retired';
+  const flagged = isFlagged(task);
   const overdue = isOverdue(task, today);
 
   return (
@@ -28,7 +30,7 @@ export default function TaskRow({ task, today, blocked = false, progress = null,
 
       <View style={styles.body}>
         <Text
-          style={[styles.name, task.milestone && styles.nameMilestone, done && styles.nameDone]}
+          style={[styles.name, task.milestone && styles.nameMilestone, done && styles.nameDone, retired && styles.nameRetired]}
           numberOfLines={2}
         >
           {task.milestone ? '🏴 ' : ''}{task.name}
@@ -36,6 +38,10 @@ export default function TaskRow({ task, today, blocked = false, progress = null,
         <View style={styles.subRow}>
           <Text style={styles.subText}>{STATUS_LABELS[task.status] || task.status}</Text>
           {blocked && <Text style={styles.blockedTag}> 🔒 BLOCKED</Text>}
+          {flagged && <Text style={styles.flagTag}> ⚑ {FLAG_LABELS[task.flag].toUpperCase()}</Text>}
+          {retired && !!task.flag && (
+            <Text style={styles.subText}> · {FLAG_LABELS[task.flag]}</Text>
+          )}
           {progress && progress.total > 0 && (
             <Text style={styles.progressTag}> · {progress.done}/{progress.total}</Text>
           )}
@@ -100,6 +106,16 @@ const styles = StyleSheet.create({
   nameMilestone: {
     color: COLORS.accent,
     fontWeight: '700',
+  },
+  nameRetired: {
+    color: COLORS.textMuted,
+    fontStyle: 'italic',
+  },
+  flagTag: {
+    fontSize: 9,
+    fontFamily: FONTS.mono,
+    letterSpacing: 1,
+    color: COLORS.accent,
   },
   blockedTag: {
     fontSize: 9,

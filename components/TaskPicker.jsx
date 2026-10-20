@@ -11,6 +11,7 @@ export default function TaskPicker({ visible, tasks, excludeIds = [], title, onP
     const q = query.trim().toLowerCase();
     return tasks
       .filter(t => !excluded.has(t.id))
+      .filter(t => t.status !== 'retired')
       .filter(t => !q || t.name.toLowerCase().includes(q))
       .slice(0, 60);
   }, [tasks, excluded, query]);

@@ -31,6 +31,7 @@ const {
   isLeapYear, fmtGreekLong,
 } = await import(pathToFileURL(join(stage, 'constants.mjs')).href);
 const { newTask, normalizeTask, fromWebTask, STATUSES, PRIORITIES, GOALS,
+  BOARD_STATUSES, STATUS_LABELS, FLAGS, FLAG_LABELS,
   newMilestone, normalizeMilestone, fromWebMilestone,
   newRune, normalizeRune } =
   await import(pathToFileURL(join(stage, 'model.mjs')).href);
@@ -50,7 +51,8 @@ const { groupByStatus, isOverdue, tasksByDueDate, dashboardStats, isoWeekTag,
   MS_SORT_MODES, MS_SORT_LABELS, sortMilestonesForList,
   MS_DEFAULT_FILTERS, sanitizeMsFilters, applyMsFilters, msFilterCount,
   unboundTimeWeek, recentWeeksUnbound, dailyCompletions,
-  isoWeekRange, UNBOUND_WEEKLY_TARGET } =
+  isoWeekRange, UNBOUND_WEEKLY_TARGET,
+  isFlagged, isRetired, flagAgeDays } =
   await import(pathToFileURL(join(stage, 'selectors.mjs')).href);
 
 let pass = 0, fail = 0;
@@ -207,7 +209,7 @@ res = mergeSyncFile(state, serializeTasks(state));
 ok(res.changed.length === 0 && res.report.localWon === 2, 'merge: idempotent on own snapshot');
 
 // vocab sanity for UI layers
-ok(STATUSES.length === 4 && PRIORITIES.length === 3 && GOALS.length === 4, 'vocab sizes');
+ok(STATUSES.length === 5 && PRIORITIES.length === 3 && GOALS.length === 4, 'vocab sizes');
 
 // ══ 4. Selectors ══
 const st = (id, status, extra = {}) => normalizeTask({ id, name: id, status, updatedAt: 1, ...extra });
@@ -1031,6 +1033,164 @@ const s = summarize(B({ tasks: [tk('t1', '2026-07-25')], milestones: [mk_ms('m1'
 ok(s.total === 2 && s.tasks === 1 && s.milestones === 1, 'summarize counts');
 ok(s.nextTitle.startsWith('Milestone: '), 'summarize next is soonest');
 ok(summarize([]).total === 0 && summarize([]).nextAt === null, 'summarize empty');
+
+// ══ 7. Viability flag + retired status ══
+// A flagged task is OPEN but never "behind"; a retired task is closed history
+// that is neither done nor missed. Both must stay out of every denominator
+// and every nag (overdue, notifications, calendar), and a retired blocker
+// must release its dependents.
+const vt = (id, extra = {}) =>
+  normalizeTask({ id, name: id, status: 'todo', updatedAt: 1, ...extra });
+
+// vocabulary
+ok(STATUSES.includes('retired') && STATUSES.length === 5, 'retired is a status');
+ok(BOARD_STATUSES.length === 4 && !BOARD_STATUSES.includes('retired'), 'board never gets a retired lane');
+ok(BOARD_STATUSES.every(x => STATUSES.includes(x)), 'board statuses are a subset of statuses');
+ok(STATUS_LABELS.retired === 'Retired', 'retired has a label');
+ok(FLAGS.length === 5 && FLAGS.every(f => !!FLAG_LABELS[f]), 'every flag reason has a label');
+
+// model
+const vnt = newTask({ name: 'x' });
+ok(vnt.flag === '' && vnt.flagDate === '', 'newTask starts unflagged');
+const vnf = normalizeTask({ id: 'f1', name: 'f', flag: 'obsolete', flagDate: '2026-10-19' });
+ok(vnf.flag === 'obsolete' && vnf.flagDate === '2026-10-19', 'flag fields carried');
+ok(normalizeTask({ id: 'f2', name: 'f', flag: 'banana' }).flag === '', 'invalid flag clamped to unflagged');
+const vleg = normalizeTask({ id: 'f3', name: 'f' });
+ok(vleg.flag === '' && vleg.flagDate === '', 'legacy task without flag fields -> unflagged');
+const vret = normalizeTask({
+  id: 'r1', name: 'r', status: 'retired', completed: true, completedAt: '2026-10-01',
+  flag: 'wrong-scope', flagDate: '2026-10-19',
+});
+ok(vret.status === 'retired' && vret.completed === false && vret.completedAt === '', 'retired is not completed');
+ok(vret.flag === 'wrong-scope' && vret.flagDate === '2026-10-19', 'retired keeps its reason and date');
+
+// sync: retired + flag survive the protocol's normalize step
+const vsync = mergeSyncFile([], { version: 1, tasks: [
+  { id: 's1', name: 's', status: 'retired', flag: 'plan-changed', flagDate: '2026-10-19', updatedAt: 5 },
+] });
+ok(vsync.changed.length === 1 && vsync.changed[0].status === 'retired'
+  && vsync.changed[0].flag === 'plan-changed', 'retired + flag survive sync merge');
+
+// helpers
+ok(isFlagged(vt('a', { flag: 'flagged' })) === true, 'isFlagged: flagged open task');
+ok(isFlagged(vt('a')) === false, 'isFlagged: unflagged task');
+ok(isFlagged(vt('a', { flag: 'obsolete', status: 'done' })) === false, 'isFlagged: done is resolved');
+ok(isFlagged(vt('a', { flag: 'obsolete', status: 'retired' })) === false, 'isFlagged: retired is resolved');
+ok(isRetired(vt('a', { status: 'retired' })) === true && isRetired(vt('a')) === false, 'isRetired');
+ok(flagAgeDays(vt('a', { flag: 'flagged', flagDate: '2026-10-12' }), '2026-10-19') === 7, 'flagAgeDays counts days');
+ok(flagAgeDays(vt('a', { flag: 'flagged' }), '2026-10-19') === null, 'flagAgeDays: no date -> null');
+ok(flagAgeDays(vt('a', { flagDate: '2026-10-25' }), '2026-10-19') === 0, 'flagAgeDays clamps future date to 0');
+
+// overdue
+ok(isOverdue(vt('o', { dueDate: '2026-10-01' }), '2026-10-19') === true, 'unflagged past-due is overdue');
+ok(isOverdue(vt('o', { dueDate: '2026-10-01', flag: 'obsolete' }), '2026-10-19') === false, 'flagged is never overdue');
+ok(isOverdue(vt('o', { dueDate: '2026-10-01', status: 'retired' }), '2026-10-19') === false, 'retired is never overdue');
+
+// calendar mapping
+const vdm = tasksByDueDate([
+  vt('a', { dueDate: '2026-10-19' }),
+  vt('b', { dueDate: '2026-10-19', status: 'retired' }),
+  vt('c', { dueDate: '2026-10-19', flag: 'flagged' }),
+], ['2026-10-19']);
+ok(vdm['2026-10-19'].map(t => t.id).join(',') === 'a,c', 'retired off the calendar; flagged stays');
+
+// dashboard stats
+const VTODAY = '2026-10-19';
+const vg = gregToGreek(VTODAY);
+const vr = greekMonthRange(vg.monthId, vg.year);
+const vstats = dashboardStats([
+  vt('open1', { goal: 'G1', dueDate: '2026-10-01' }),
+  vt('flag1', { goal: 'G1', dueDate: '2026-10-02', flag: 'obsolete', flagDate: '2026-10-10' }),
+  vt('flag2', { goal: 'G2', flag: 'flagged', flagDate: '2026-10-15' }),
+  vt('flag3', { goal: 'G2', flag: 'flagged' }),
+  vt('soon1', { goal: 'G3', dueDate: '2026-10-21' }),
+  vt('soonFlag', { goal: 'G3', dueDate: '2026-10-21', flag: 'plan-changed', flagDate: '2026-10-18' }),
+  vt('ret1', { goal: 'G1', status: 'retired', flag: 'obsolete', flagDate: vr.start }),
+  vt('ret2', { goal: 'G2', status: 'retired', flag: 'wrong-scope', flagDate: '2026-01-05' }),
+  vt('done1', { goal: 'G1', status: 'done', completedAt: vr.start }),
+], VTODAY);
+ok(vstats.open === 6, `retired excluded from open; flagged still open (${vstats.open})`);
+ok(vstats.overdue.map(t => t.id).join(',') === 'open1', 'flagged excluded from overdue');
+ok(vstats.dueSoon.map(t => t.id).join(',') === 'soon1', 'flagged excluded from due-soon');
+ok(vstats.flagged.map(t => t.id).join(',') === 'flag1,flag2,soonFlag,flag3',
+  `flagged worklist: oldest first, undated last (${vstats.flagged.map(t => t.id)})`);
+ok(vstats.retiredThisMonth === 1, `retiredThisMonth counts by flagDate in the Greek month (${vstats.retiredThisMonth})`);
+ok(vstats.doneThisMonth === 1, 'doneThisMonth unaffected by retirements');
+ok(vstats.byGoal.G1.open === 2 && vstats.byGoal.G1.flagged === 1
+  && vstats.byGoal.G1.retiredThisMonth === 1 && vstats.byGoal.G1.doneThisMonth === 1, 'byGoal G1 counts');
+ok(vstats.byGoal.G2.open === 2 && vstats.byGoal.G2.flagged === 2
+  && vstats.byGoal.G2.retiredThisMonth === 0, 'byGoal G2 counts (out-of-month retirement excluded)');
+ok(vstats.byGoal.G3.open === 2 && vstats.byGoal.G3.flagged === 1, 'byGoal G3 counts');
+
+// sections
+const vsec = [
+  vt('s1', { goal: 'G1', section: 'S', status: 'done' }),
+  vt('s2', { goal: 'G1', section: 'S' }),
+  vt('s3', { goal: 'G1', section: 'S', status: 'retired' }),
+  vt('s4', { goal: 'G1', section: 'S', flag: 'obsolete', dueDate: '2026-10-01' }),
+];
+const vnode = buildGoalSections(vsec, [], VTODAY)[0].sections.find(x => x.section === 'S');
+ok(vnode.total === 3 && vnode.done === 1 && vnode.open === 2 && vnode.retired === 1,
+  'section: retired counted apart from total/open/done');
+ok(vnode.flagged === 1 && vnode.overdue === 0, 'section: flagged task not overdue');
+ok(Math.abs(vnode.progress - 1 / 3) < 1e-9, 'section: retired excluded from progress denominator');
+
+// dependencies / subtasks / milestones
+const vdep = [vt('blk', { status: 'retired' }), vt('dep', { blockedBy: ['blk'] }),
+  vt('blk2'), vt('dep2', { blockedBy: ['blk2'] })];
+const vdepById = taskById(vdep);
+ok(isBlocked(vdep[1], vdepById) === false, 'retired blocker unblocks its dependents');
+ok(isBlocked(vdep[3], vdepById) === true, 'live blocker still blocks');
+
+const vkids = [vt('par'), vt('k1', { parentId: 'par', status: 'done' }),
+  vt('k2', { parentId: 'par' }), vt('k3', { parentId: 'par', status: 'retired' })];
+const vkp = subtaskProgress(vkids[0], childrenOf(vkids));
+ok(vkp.done === 1 && vkp.total === 2, 'retired subtasks leave n/m');
+const vmp = milestoneProgress(
+  normalizeMilestone({ id: 'mx', name: 'M', taskIds: ['k1', 'k2', 'k3'], updatedAt: 1 }),
+  taskById(vkids));
+ok(vmp.done === 1 && vmp.total === 2, 'retired tasks leave milestone n/m');
+
+const vrp = [vt('rpar', { status: 'retired' }), vt('rkid', { parentId: 'rpar' })];
+ok(topLevelTasks(vrp).map(t => t.id).sort().join(',') === 'rkid,rpar',
+  'child of a retired parent surfaces at top level (never silently vanishes)');
+
+// filters + sorting
+const vaf = [vt('live1'), vt('ret', { status: 'retired' }), vt('dn', { status: 'done' })];
+ok(applyFilters(vaf, DEFAULT_FILTERS).map(t => t.id).join(',') === 'live1,dn', 'retired hidden by default');
+ok(applyFilters(vaf, { statuses: ['retired'] }).map(t => t.id).join(',') === 'ret', 'status filter reveals retired');
+ok(applyFilters(vaf, { statuses: ['todo', 'retired'] }).length === 2, 'retired composes with other statuses');
+ok(sanitizeFilters({ statuses: ['retired'] }).statuses[0] === 'retired', 'retired is valid filter vocab');
+ok(filterCount({ statuses: ['retired'] }) === 1, 'retired status filter counts as one dimension');
+ok(sortTasksForList([vt('r', { status: 'retired' }), vt('t'), vt('dn', { status: 'done' })], 'status')
+  .map(t => t.id).join(',') === 't,dn,r', 'status sort puts retired last');
+ok(groupByStatus(vaf).retired.length === 1, 'groupByStatus carries a retired bucket');
+
+// notifications
+ok(B({ tasks: [tk('a', '2026-07-25', { flag: 'flagged' })] }).length === 0, 'flagged tasks never notify');
+ok(B({ tasks: [tk('a', '2026-07-25', { status: 'retired' })] }).length === 0, 'retired tasks never notify');
+const vnb = [tk('a', '2026-07-25', { blockedBy: ['b'] }), tk('b', '2026-08-01', { status: 'retired' })];
+ok(!B({ tasks: vnb, lead: [0] }).find(x => x.data.taskId === 'a').body.includes('blocked'),
+  'retired blocker not marked blocked in notifications');
+
+// storage: schema/SQL consistency (expo-sqlite can't load under node, so this
+// is a static guard against the classic column/placeholder mismatch)
+const storageSrc = readFileSync(join(root, 'lib', 'storage.js'), 'utf8');
+const vins = /INSERT INTO tasks \(([^)]*)\)\s*VALUES \(([^)]*)\)/.exec(storageSrc);
+const vinsCols = vins[1].split(',').map(x => x.trim()).filter(Boolean);
+const vinsQs = vins[2].split(',').map(x => x.trim());
+ok(vinsCols.length === vinsQs.length && vinsQs.every(x => x === '?'),
+  `task upsert: ${vinsCols.length} columns match ${vinsQs.length} placeholders`);
+ok(vinsCols.includes('flag') && vinsCols.includes('flag_date'), 'task upsert writes flag columns');
+const vupBlock = /const UPSERT_SQL = `([\s\S]*?)`;/.exec(storageSrc)[1];
+for (const c of vinsCols.filter(c => c !== 'id' && c !== 'created_at')) {
+  ok(vupBlock.includes(`${c} = excluded.${c}`), `task upsert updates ${c} on conflict`);
+}
+const vcreate = /CREATE TABLE IF NOT EXISTS tasks \(([\s\S]*?)\);/.exec(storageSrc)[1];
+ok(vcreate.includes('flag TEXT') && vcreate.includes('flag_date TEXT'), 'fresh-install CREATE carries flag columns');
+ok(/SCHEMA_VERSION = 5/.test(storageSrc), 'schema version is 5');
+ok(/\n\s*5: async \(db\)/.test(storageSrc) && storageSrc.includes("PRAGMA table_info(tasks)"),
+  'migration 5 exists and is guarded by PRAGMA table_info');
 
 console.log(`\n${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);

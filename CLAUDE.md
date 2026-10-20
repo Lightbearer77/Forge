@@ -84,6 +84,42 @@ profile → standalone APK. Owner `lightbearer77`, EAS project id
     truth. `lib/selectors.js` exposes `DEFAULT_FILTERS`, `sanitizeFilters`,
     `applyFilters`, `filterCount`.
 
+12. **Viability flag + `retired` status (schema v5).** Added so the weekly
+    WA viability review can retire tasks that no longer lead to their goal
+    without poisoning the completion data. Do not re-open.
+    - `retired` is a **status** (in `STATUSES`, NOT in `BOARD_STATUSES` — the
+      board never gets a lane for it). It is neither done nor missed:
+      `completed` stays false, and retired tasks are excluded from `open`,
+      section `total`/`progress`, subtask n/m, and milestone n/m. A **retired
+      blocker unblocks its dependents** (`isBlocked`, `buildTriggers`).
+    - Two columns: `flag` (`''` | `flagged` | `obsolete` | `wrong-scope` |
+      `plan-changed` | `needs-rewrite`) and `flagDate`. `flagged` is the
+      one-tap quick flag; the other values are the *reason* and are what the
+      MA reads. A retired task keeps its reason; `flagDate` is when the flag
+      was raised and is **re-stamped at retirement** (that is how retirements
+      are counted per Greek month — `dashboardStats.retiredThisMonth`).
+    - A flagged task is still **open** but never **behind**: `isOverdue`,
+      due-soon, and notifications all skip it. It surfaces on the Dashboard
+      FLAGGED list (oldest flag first), which is the WA review worklist.
+    - No `replaced_by` field (adopt-first): rewrite a task in place, then
+      clear its flag.
+    - `applyFilters` hides retired tasks unless `retired` is explicitly in
+      `statuses` — the one deliberate exception to "empty = unconstrained".
+      FilterBar's contract is unchanged (its status chips come from
+      `STATUSES`, so Retired appears there for free).
+    - A retired parent's live children surface at top level
+      (`topLevelTasks`, `SectionDetailView`) so subtasks never vanish.
+    - Migration 5 is **guarded** by `PRAGMA table_info(tasks)` because
+      `ALTER TABLE ADD COLUMN` is not idempotent (a fresh install's CREATE
+      already carries the columns).
+    - **Rollout:** an older build's `normalizeTask` drops `flag`/`flagDate`
+      and clamps `retired` to `todo`. Install the new APK and do one Push
+      from the phone BEFORE flagging/retiring anything via `forge-sync.json`.
+    - Known follow-ups (not in v5): `forge-sync-obsidian` keys on
+      `completed`, so retired tasks stay open lines in the vault until the
+      plugin writes them as Tasks-cancelled (`[-] … ❌ date`); the MA
+      Dataview queries must be checked for how they treat `[-]`.
+
 ## forge-sync.json — authoring guide for Claude instances
 
 This file is the Claude ⇄ Forge bridge. The app pulls on launch and via

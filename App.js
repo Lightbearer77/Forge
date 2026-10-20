@@ -229,6 +229,9 @@ function AppContent() {
   }, [draft, draftGoal, reload]);
 
   const toggleDone = useCallback(async (task) => {
+    // A retired task is closed history; the checkbox must not silently
+    // convert it to "done". Restore it from the hold menu instead.
+    if (task.status === 'retired') return;
     const done = task.status !== 'done';
     await saveTask({
       ...task,
@@ -303,15 +306,46 @@ function AppContent() {
     setEditing(null);
   }, [reload]);
 
-  const confirmDelete = useCallback((task) => {
-    Alert.alert('Delete task?', `"${task.name}" will be removed.`, [
-      { text: 'Cancel', style: 'cancel' },
-      {
-        text: 'Delete', style: 'destructive',
-        onPress: async () => { await deleteTask(task.id); await reload(); },
-      },
-    ]);
+  // One-tap viability flag (the reason gets picked later, in the editor). A
+  // flagged task drops out of overdue/notifications and onto the WA worklist.
+  const toggleFlag = useCallback(async (task) => {
+    const raising = !task.flag;
+    await saveTask({
+      ...task,
+      flag: raising ? 'flagged' : '',
+      flagDate: raising ? today : '',
+      updatedAt: Date.now(),
+    });
+    await reload();
+  }, [reload, today]);
+
+  const restoreTask = useCallback(async (task) => {
+    await saveTask({ ...task, status: 'todo', flag: '', flagDate: '', updatedAt: Date.now() });
+    await reload();
   }, [reload]);
+
+  // Long-press menu: Cancel / Flag-or-Unflag (Restore, if retired) / Delete.
+  const taskActions = useCallback((task) => {
+    const retired = task.status === 'retired';
+    Alert.alert(
+      task.name,
+      retired
+        ? 'Retired — restore it to the To Do list, or delete it.'
+        : task.flag
+          ? 'Flagged for the weekly viability review.'
+          : 'Flag it for the weekly viability review, or delete it.',
+      [
+        { text: 'Cancel', style: 'cancel' },
+        retired
+          ? { text: 'Restore', onPress: () => restoreTask(task) }
+          : { text: task.flag ? 'Unflag' : 'Flag', onPress: () => toggleFlag(task) },
+        {
+          text: 'Delete', style: 'destructive',
+          onPress: async () => { await deleteTask(task.id); await reload(); },
+        },
+      ],
+    );
+  }, [reload, toggleFlag, restoreTask]);
 
   const cycleDraftGoal = () => {
     const idx = GOALS.indexOf(draftGoal);
@@ -469,7 +503,7 @@ function AppContent() {
                 progress={subtaskProgress(item, childMap)}
                 onToggleDone={toggleDone}
                 onPress={openEditor}
-                onLongPress={confirmDelete}
+                onLongPress={taskActions}
               />
             )}
             ListEmptyComponent={
@@ -482,7 +516,7 @@ function AppContent() {
               </Text>
             }
           />
-          <Text style={styles.hint}>tap = edit · box = done · hold = delete</Text>
+          <Text style={styles.hint}>tap = edit · box = done · hold = flag / delete</Text>
         </>
       )}
 

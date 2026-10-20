@@ -5,7 +5,7 @@ import {
 } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { COLORS, FONTS, GOAL_COLORS, PRIORITY_COLORS } from '../lib/theme';
-import { GOALS, PRIORITIES, STATUSES, STATUS_LABELS } from '../lib/model';
+import { GOALS, PRIORITIES, STATUSES, STATUS_LABELS, FLAGS, FLAG_LABELS } from '../lib/model';
 import { fmtGreekLong, fmtGreg, gregToGreek, todayISO } from '../lib/constants';
 import { isoWeekTag } from '../lib/selectors';
 import TaskPicker from './TaskPicker';
@@ -29,6 +29,20 @@ export default function TaskEditor({
     .filter(Boolean);
   const update = (key, value) => setForm(f => ({ ...f, [key]: value }));
 
+  // Viability flag. Tapping the active reason clears the flag (that is how a
+  // rewritten task is "resolved" — edit it in place, then clear). flagDate is
+  // when the flag was raised; re-picking a reason keeps the original date so
+  // the task's age at WA review doesn't reset, and a retired task's date
+  // (its retirement day) is never disturbed by editing its reason.
+  const setFlag = (reason) => setForm(f => {
+    const next = f.flag === reason ? '' : reason;
+    let flagDate;
+    if (f.status === 'retired') flagDate = f.flagDate || todayISO();
+    else if (!next) flagDate = '';
+    else flagDate = f.flag ? (f.flagDate || todayISO()) : todayISO();
+    return { ...f, flag: next, flagDate };
+  });
+
   const handleSave = () => {
     if (!form.name.trim()) {
       Alert.alert('Name required', 'Give the task a name before saving.');
@@ -38,6 +52,8 @@ export default function TaskEditor({
     // Status is authoritative for completion
     if (final.status === 'done' && !final.completedAt) final.completedAt = todayISO();
     if (final.status !== 'done') final.completedAt = '';
+    // Retiring re-stamps flagDate so the MA can count retirements per Greek month
+    if (final.status === 'retired' && task.status !== 'retired') final.flagDate = todayISO();
     // Due date drives the Greek month / ISO week tags (the tagging spine)
     if (final.dueDate) {
       const g = gregToGreek(final.dueDate);
@@ -168,6 +184,19 @@ export default function TaskEditor({
               />
             </View>
 
+            <Text style={styles.fieldLabel}>VIABILITY</Text>
+            <View style={styles.chipRow}>
+              {FLAGS.map(fl => (
+                <Chip
+                  key={fl}
+                  active={form.flag === fl}
+                  color={COLORS.priorityHigh}
+                  label={`${fl === 'flagged' ? '⚑ ' : ''}${FLAG_LABELS[fl].toUpperCase()}`}
+                  onPress={() => setFlag(fl)}
+                />
+              ))}
+            </View>
+
             <View style={styles.dateSection}>
               <DateField label="DUE" field="dueDate" />
               <DateField label="START" field="startDate" />
@@ -185,8 +214,8 @@ export default function TaskEditor({
             <Text style={styles.fieldLabel}>BLOCKED BY · {blockers.length}</Text>
             {blockers.map(b => (
               <View key={b.id} style={styles.linkRow}>
-                <Text style={[styles.linkName, b.status === 'done' && styles.linkDone]} numberOfLines={1}>
-                  {b.status === 'done' ? '✓ ' : '🔒 '}{b.name}
+                <Text style={[styles.linkName, (b.status === 'done' || b.status === 'retired') && styles.linkDone]} numberOfLines={1}>
+                  {b.status === 'done' ? '✓ ' : b.status === 'retired' ? '⊘ ' : '🔒 '}{b.name}
                 </Text>
                 <TouchableOpacity
                   onPress={() => update('blockedBy', form.blockedBy.filter(id => id !== b.id))}

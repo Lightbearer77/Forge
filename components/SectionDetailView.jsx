@@ -1,18 +1,20 @@
 import { useMemo } from 'react';
 import { View, Text, ScrollView, TouchableOpacity, StyleSheet } from 'react-native';
 import { COLORS, FONTS, GOAL_COLORS } from '../lib/theme';
-import { STATUS_LABELS } from '../lib/model';
+import { STATUS_LABELS, FLAG_LABELS } from '../lib/model';
 import { fmtGreek } from '../lib/constants';
 import {
   tasksInSection, milestonesInSection, taskById, childrenOf,
-  subtaskProgress, isBlocked, isOverdue, milestoneProgress,
+  subtaskProgress, isBlocked, isOverdue, isFlagged, milestoneProgress,
   sectionByKey, sectionLabel, UNSORTED_ID,
   applyFilters, filterCount, DEFAULT_FILTERS,
 } from '../lib/selectors';
 import FilterBar from './FilterBar';
 
-// Lanes in the order work actually moves, not storage order.
-const LANES = ['in-progress', 'todo', 'backlog', 'done'];
+// Lanes in the order work actually moves, not storage order. `retired` only
+// ever has rows when the status filter explicitly selects it (applyFilters
+// hides retired otherwise), and is last — closed history, not a to-do.
+const LANES = ['in-progress', 'todo', 'backlog', 'done', 'retired'];
 
 export default function SectionDetailView({
   sectionKey, tasks, milestones = [], today,
@@ -37,7 +39,7 @@ export default function SectionDetailView({
   const section = node || {
     id: sectionKey, goal, section: rawSection, name: sectionLabel(rawSection),
     total: 0, open: 0, done: 0, inProgress: 0, blocked: 0, overdue: 0,
-    msTotal: 0, msDone: 0, progress: 0,
+    flagged: 0, retired: 0, msTotal: 0, msDone: 0, progress: 0,
   };
 
   const mine = useMemo(
@@ -55,9 +57,15 @@ export default function SectionDetailView({
   const byId = useMemo(() => taskById(tasks), [tasks]);
   const childMap = useMemo(() => childrenOf(mine), [mine]);
   const mineIds = useMemo(() => new Set(mine.map(t => t.id)), [mine]);
+  const retiredIds = useMemo(
+    () => new Set(mine.filter(t => t.status === 'retired').map(t => t.id)),
+    [mine],
+  );
+  // A retired parent is hidden by default, so its live children surface as
+  // roots (subtasks must never silently vanish).
   const roots = useMemo(
-    () => mine.filter(t => !t.parentId || !mineIds.has(t.parentId)),
-    [mine, mineIds],
+    () => mine.filter(t => !t.parentId || !mineIds.has(t.parentId) || retiredIds.has(t.parentId)),
+    [mine, mineIds, retiredIds],
   );
 
   // Filters apply only to the root rows being listed — never to `mine` or
@@ -181,7 +189,9 @@ export default function SectionDetailView({
                     today={today}
                     blocked={isBlocked(t, byId)}
                     progress={subtaskProgress(t, childMap)}
-                    childRows={childMap[t.id] || []}
+                    childRows={t.status === 'retired'
+                      ? []
+                      : (childMap[t.id] || []).filter(c => c.status !== 'retired')}
                     onEditTask={onEditTask}
                     onToggleTask={onToggleTask}
                   />
@@ -218,6 +228,8 @@ function Stat({ label, value, color }) {
 
 function TaskLine({ task, today, blocked, progress, childRows, onEditTask, onToggleTask }) {
   const done = task.status === 'done';
+  const retired = task.status === 'retired';
+  const flagged = isFlagged(task);
   const overdue = isOverdue(task, today);
   const color = GOAL_COLORS[task.goal] || COLORS.textMuted;
 
@@ -237,11 +249,14 @@ function TaskLine({ task, today, blocked, progress, childRows, onEditTask, onTog
           {done && <Text style={styles.checkMark}>✓</Text>}
         </TouchableOpacity>
         <View style={styles.taskBody}>
-          <Text style={[styles.taskName, done && styles.strike]} numberOfLines={2}>
+          <Text style={[styles.taskName, done && styles.strike, retired && styles.retiredName]} numberOfLines={2}>
             {task.milestone ? '🏴 ' : ''}{task.name}
           </Text>
           <View style={styles.taskSub}>
             {blocked && <Text style={styles.blockedTag}>🔒 BLOCKED </Text>}
+            {flagged && (
+              <Text style={styles.flagTag}>⚑ {FLAG_LABELS[task.flag].toUpperCase()} </Text>
+            )}
             {progress.total > 0 && (
               <Text style={styles.subText}>{progress.done}/{progress.total} sub · </Text>
             )}
@@ -345,6 +360,8 @@ const styles = StyleSheet.create({
   taskSub: { flexDirection: 'row', alignItems: 'center', marginTop: 3, flexWrap: 'wrap' },
   subText: { fontSize: 9, fontFamily: FONTS.mono, letterSpacing: 0.5, color: COLORS.textMuted },
   blockedTag: { fontSize: 9, fontFamily: FONTS.mono, letterSpacing: 1, color: COLORS.priorityHigh },
+  flagTag: { fontSize: 9, fontFamily: FONTS.mono, letterSpacing: 1, color: COLORS.accent },
+  retiredName: { color: COLORS.textMuted, fontStyle: 'italic' },
   subRow: {
     flexDirection: 'row', alignItems: 'center',
     marginLeft: 22, marginTop: 4,
