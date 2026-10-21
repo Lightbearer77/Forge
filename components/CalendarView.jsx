@@ -161,7 +161,9 @@ function DayCell({ iso, cellSize, isToday, tasks, hasMilestone, onPress }) {
             opacity: task.status === 'done' ? 0.4 : 1,
           }]}
         >
-          <Text style={styles.cellBannerText} numberOfLines={1}>{task.name}</Text>
+          <Text style={styles.cellBannerText} numberOfLines={1}>
+            {isFlagged(task) ? '⚑ ' : ''}{task.name}
+          </Text>
         </View>
       ))}
       {hidden > 0 && <Text style={styles.cellMore}>+{hidden}</Text>}
