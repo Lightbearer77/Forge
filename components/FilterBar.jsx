@@ -44,6 +44,10 @@ export default function FilterBar({ filters, onChange, showGoals = true }) {
     onChange({ ...filters, hideCompleted: !filters.hideCompleted });
   };
 
+  const toggleHideFlagged = () => {
+    onChange({ ...filters, hideFlagged: !filters.hideFlagged });
+  };
+
   const clear = () => {
     onChange({
       ...DEFAULT_FILTERS,
@@ -85,6 +89,13 @@ export default function FilterBar({ filters, onChange, showGoals = true }) {
                 <Text style={styles.toggleMark}>{filters.hideCompleted ? '✓' : ''}</Text>
               </View>
               <Text style={styles.toggleLabel}>Hide completed</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={toggleHideFlagged} style={styles.toggleRow}>
+              <View style={[styles.toggleBox, filters.hideFlagged && styles.toggleBoxOn]}>
+                <Text style={styles.toggleMark}>{filters.hideFlagged ? '✓' : ''}</Text>
+              </View>
+              <Text style={styles.toggleLabel}>Hide flagged ⚑</Text>
             </TouchableOpacity>
 
             {showGoals && (

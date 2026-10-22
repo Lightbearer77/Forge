@@ -521,7 +521,9 @@ ok(filterCount({ hideCompleted: true }) === 1, 'filterCount: hideCompleted alone
 ok(filterCount({ goals: ['G1', 'G2', 'G3'] }) === 1,
   'filterCount: multi-value single dimension still counts as 1');
 ok(filterCount({ hideCompleted: true, goals: ['G1'], statuses: ['done'], priorities: ['High'] }) === 4,
-  'filterCount: all four dimensions active = 4');
+  'filterCount: four dimensions active = 4');
+ok(filterCount({ hideCompleted: true, hideFlagged: true, goals: ['G1'], statuses: ['done'], priorities: ['High'] }) === 5,
+  'filterCount: all five dimensions active = 5');
 
 // --- Pipeline order: filter(search(x)) must equal search(filter(x)) in
 // membership — a regression guard for anyone reordering the App.js chain.
@@ -1172,6 +1174,23 @@ ok(B({ tasks: [tk('a', '2026-07-25', { status: 'retired' })] }).length === 0, 'r
 const vnb = [tk('a', '2026-07-25', { blockedBy: ['b'] }), tk('b', '2026-08-01', { status: 'retired' })];
 ok(!B({ tasks: vnb, lead: [0] }).find(x => x.data.taskId === 'a').body.includes('blocked'),
   'retired blocker not marked blocked in notifications');
+
+// hideFlagged filter (v0.10.3)
+ok(DEFAULT_FILTERS.hideFlagged === false, 'hideFlagged defaults off — flagged tasks visible out of the box');
+ok(sanitizeFilters({ hideCompleted: true, goals: ['G1'] }).hideFlagged === false,
+  'pre-feature saved filters (no hideFlagged key) load as unflagged-visible');
+ok(sanitizeFilters({ hideFlagged: 1 }).hideFlagged === true, 'sanitizeFilters coerces truthy hideFlagged');
+ok(filterCount({ hideFlagged: true }) === 1, 'filterCount: hideFlagged alone = 1');
+const vhf = [vt('plain'), vt('fl', { flag: 'flagged' }), vt('fr', { flag: 'obsolete' }),
+  vt('fdone', { flag: 'obsolete', status: 'done' }), vt('fret', { flag: 'obsolete', status: 'retired' })];
+ok(applyFilters(vhf, DEFAULT_FILTERS).map(t => t.id).join(',') === 'plain,fl,fr,fdone',
+  'flagged visible by default (retired still hidden)');
+ok(applyFilters(vhf, { hideFlagged: true }).map(t => t.id).join(',') === 'plain,fdone',
+  'hideFlagged drops open flagged tasks only; a done task keeping its reason stays');
+ok(applyFilters(vhf, { hideFlagged: true, statuses: ['retired'] }).map(t => t.id).join(',') === 'fret',
+  'hideFlagged does not hide a retired task (resolved flags are not "flagged")');
+ok(applyFilters(vhf, { hideFlagged: true, hideCompleted: true }).map(t => t.id).join(',') === 'plain',
+  'hideFlagged + hideCompleted compose (strict AND)');
 
 // storage: schema/SQL consistency (expo-sqlite can't load under node, so this
 // is a static guard against the classic column/placeholder mismatch)

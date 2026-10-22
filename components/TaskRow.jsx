@@ -23,7 +23,7 @@ export default function TaskRow({ task, today, blocked = false, progress = null,
       <TouchableOpacity
         onPress={() => onToggleDone(task)}
         hitSlop={{ top: 10, bottom: 10, left: 10, right: 6 }}
-        style={[styles.checkbox, done && { backgroundColor: goalColor, borderColor: goalColor }]}
+        style={[styles.checkbox, flagged && { borderColor: COLORS.flagFaint }, done && { backgroundColor: goalColor, borderColor: goalColor }]}
       >
         {done && <Text style={styles.checkmark}>✓</Text>}
       </TouchableOpacity>
@@ -54,7 +54,7 @@ export default function TaskRow({ task, today, blocked = false, progress = null,
         </View>
       </View>
 
-      <Text style={styles.goalTag}>{task.goal}</Text>
+      <Text style={[styles.goalTag, flagged && { color: COLORS.flagFaint }]}>{task.goal}</Text>
     </TouchableOpacity>
   );
 }

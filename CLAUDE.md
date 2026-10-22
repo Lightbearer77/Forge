@@ -69,7 +69,9 @@ profile → standalone APK. Owner `lightbearer77`, EAS project id
 11. **List/section filtering: `SectionDetailView` was RETAINED, not
     replaced by a filtered List view** (Option 2 of a three-option
     analysis; do not re-run that analysis). Filter state is one shared
-    object — `{ hideCompleted, goals, statuses, priorities }` — persisted
+    object — `{ hideCompleted, hideFlagged, goals, statuses, priorities }`
+    (`hideFlagged` added v0.10.3 at Connor's request; it hides OPEN flagged
+    tasks only, via `isFlagged`) — persisted
     on-device at settings key `listFilters`, never synced via
     forge-sync.json. Empty arrays mean UNCONSTRAINED, not "show none";
     composition across dimensions is strict AND (hideCompleted +
@@ -103,8 +105,9 @@ profile → standalone APK. Owner `lightbearer77`, EAS project id
       FLAGGED list (oldest flag first), which is the WA review worklist.
     - No `replaced_by` field (adopt-first): rewrite a task in place, then
       clear its flag.
-    - **Flagged tasks render yellow everywhere** (red in v0.10.1, yellow
-      from v0.10.2 at Connor's call): `FLAG_ROW` from
+    - **Flagged tasks render yellow everywhere** (red in v0.10.1, bright
+      yellow in v0.10.2, toned to a dark yellow fill with a bright border in
+      v0.10.3 — all at Connor's call): `FLAG_ROW` from
       `lib/theme.js` on list rows, board cards, section rows, dashboard rows
       and the calendar day sheet; calendar day-cell banners fill with
       `COLORS.flag` and get a ⚑ prefix. The 3px goal strip is kept so the

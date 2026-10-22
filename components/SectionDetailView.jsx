@@ -244,7 +244,7 @@ function TaskLine({ task, today, blocked, progress, childRows, onEditTask, onTog
         <TouchableOpacity
           onPress={() => onToggleTask(task)}
           hitSlop={{ top: 10, bottom: 10, left: 10, right: 6 }}
-          style={[styles.check, done && { backgroundColor: color, borderColor: color }]}
+          style={[styles.check, flagged && { borderColor: COLORS.flagFaint }, done && { backgroundColor: color, borderColor: color }]}
         >
           {done && <Text style={styles.checkMark}>✓</Text>}
         </TouchableOpacity>
