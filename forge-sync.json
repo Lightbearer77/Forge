@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "lastUpdated": "2026-10-27T17:41:48.497Z",
-  "updatedBy": "Claude",
+  "lastUpdated": "2026-11-01T22:31:18.280Z",
+  "updatedBy": "Forge",
   "tasks": [
     {
       "id": "t_seed_hsa_transfer",
@@ -23,6 +23,8 @@
       "completed": true,
       "completedAt": "2026-07-13",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1783895268353,
       "updatedAt": 1785874759342
@@ -47,6 +49,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": true,
       "createdAt": 1783895268353,
       "updatedAt": 1785644143494
@@ -71,6 +75,8 @@
       "completed": true,
       "completedAt": "2026-07-13",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1783895268353,
       "updatedAt": 1785874759342
@@ -95,6 +101,8 @@
       "completed": true,
       "completedAt": "2026-07-12",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": true,
       "createdAt": 1783895348748,
       "updatedAt": 1783895382194
@@ -119,6 +127,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": true,
       "createdAt": 1783895372665,
       "updatedAt": 1783971245310
@@ -143,6 +153,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": true,
       "createdAt": 1783987531921,
       "updatedAt": 1785647941315
@@ -167,6 +179,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": true,
       "createdAt": 1783987535404,
       "updatedAt": 1785647941315
@@ -191,6 +205,8 @@
       "completed": true,
       "completedAt": "2026-04-23",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958078,
       "updatedAt": 1784316958078
@@ -217,6 +233,8 @@
       "completed": true,
       "completedAt": "2026-04-27",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958078,
       "updatedAt": 1784316958078
@@ -243,6 +261,8 @@
       "completed": true,
       "completedAt": "2026-04-23",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958078,
       "updatedAt": 1784316958078
@@ -267,6 +287,8 @@
       "completed": true,
       "completedAt": "2026-04-23",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1784316958079
@@ -294,6 +316,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1791391054018
@@ -320,6 +344,8 @@
       "completed": true,
       "completedAt": "2026-08-05",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1785951385134
@@ -346,6 +372,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1791391053978
@@ -372,6 +400,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1791391053979
@@ -398,6 +428,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1791391053980
@@ -424,6 +456,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1791391053981
@@ -434,7 +468,7 @@
       "notes": "",
       "goal": "G1",
       "priority": "High",
-      "status": "backlog",
+      "status": "done",
       "section": "Digital Sovereignty",
       "level": 1,
       "month": "M05",
@@ -447,12 +481,14 @@
       ],
       "milestone": false,
       "recurrence": "none",
-      "completed": false,
-      "completedAt": "",
+      "completed": true,
+      "completedAt": "2026-10-20",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
-      "updatedAt": 1791391053982
+      "updatedAt": 1792517430283
     },
     {
       "id": "t1_07",
@@ -460,7 +496,7 @@
       "notes": "",
       "goal": "G1",
       "priority": "High",
-      "status": "backlog",
+      "status": "done",
       "section": "Digital Sovereignty",
       "level": 1,
       "month": "M05",
@@ -473,12 +509,14 @@
       ],
       "milestone": false,
       "recurrence": "none",
-      "completed": false,
-      "completedAt": "",
+      "completed": true,
+      "completedAt": "2026-10-20",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
-      "updatedAt": 1791391053983
+      "updatedAt": 1792517432274
     },
     {
       "id": "t1_08",
@@ -486,7 +524,7 @@
       "notes": "",
       "goal": "G1",
       "priority": "High",
-      "status": "backlog",
+      "status": "done",
       "section": "Digital Sovereignty",
       "level": 1,
       "month": "M05",
@@ -499,12 +537,14 @@
       ],
       "milestone": false,
       "recurrence": "none",
-      "completed": false,
-      "completedAt": "",
+      "completed": true,
+      "completedAt": "2026-10-20",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
-      "updatedAt": 1791391053984
+      "updatedAt": 1792517433141
     },
     {
       "id": "t1_09",
@@ -512,7 +552,7 @@
       "notes": "",
       "goal": "G1",
       "priority": "High",
-      "status": "backlog",
+      "status": "done",
       "section": "Digital Sovereignty",
       "level": 1,
       "month": "M05",
@@ -525,12 +565,14 @@
       ],
       "milestone": false,
       "recurrence": "none",
-      "completed": false,
-      "completedAt": "",
+      "completed": true,
+      "completedAt": "2026-10-20",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
-      "updatedAt": 1791391053985
+      "updatedAt": 1792517433816
     },
     {
       "id": "t1_10",
@@ -538,7 +580,7 @@
       "notes": "",
       "goal": "G1",
       "priority": "High",
-      "status": "backlog",
+      "status": "done",
       "section": "Digital Sovereignty",
       "level": 1,
       "month": "M05",
@@ -551,12 +593,14 @@
       ],
       "milestone": false,
       "recurrence": "none",
-      "completed": false,
-      "completedAt": "",
+      "completed": true,
+      "completedAt": "2026-10-20",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
-      "updatedAt": 1791391053986
+      "updatedAt": 1792517434298
     },
     {
       "id": "t1_11",
@@ -564,7 +608,7 @@
       "notes": "",
       "goal": "G1",
       "priority": "High",
-      "status": "backlog",
+      "status": "done",
       "section": "Digital Sovereignty",
       "level": 1,
       "month": "M05",
@@ -577,12 +621,14 @@
       ],
       "milestone": false,
       "recurrence": "none",
-      "completed": false,
-      "completedAt": "",
+      "completed": true,
+      "completedAt": "2026-10-20",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
-      "updatedAt": 1791391053987
+      "updatedAt": 1792517435763
     },
     {
       "id": "t1_12",
@@ -590,7 +636,7 @@
       "notes": "",
       "goal": "G1",
       "priority": "High",
-      "status": "backlog",
+      "status": "done",
       "section": "Digital Sovereignty",
       "level": 1,
       "month": "M05",
@@ -603,12 +649,14 @@
       ],
       "milestone": false,
       "recurrence": "none",
-      "completed": false,
-      "completedAt": "",
+      "completed": true,
+      "completedAt": "2026-10-20",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
-      "updatedAt": 1791391053988
+      "updatedAt": 1792517436429
     },
     {
       "id": "t1_13",
@@ -632,6 +680,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1791391053989
@@ -658,6 +708,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1791391053990
@@ -684,6 +736,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1791391053991
@@ -710,6 +764,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1791391053992
@@ -720,7 +776,7 @@
       "notes": "",
       "goal": "G1",
       "priority": "High",
-      "status": "backlog",
+      "status": "done",
       "section": "Digital Sovereignty",
       "level": 1,
       "month": "M05",
@@ -733,12 +789,14 @@
       ],
       "milestone": false,
       "recurrence": "none",
-      "completed": false,
-      "completedAt": "",
+      "completed": true,
+      "completedAt": "2026-10-20",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
-      "updatedAt": 1791391053993
+      "updatedAt": 1792543837527
     },
     {
       "id": "t1_18",
@@ -762,6 +820,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1791391053994
@@ -772,7 +832,7 @@
       "notes": "",
       "goal": "G1",
       "priority": "High",
-      "status": "backlog",
+      "status": "done",
       "section": "Digital Sovereignty",
       "level": 1,
       "month": "M05",
@@ -785,12 +845,14 @@
       ],
       "milestone": false,
       "recurrence": "none",
-      "completed": false,
-      "completedAt": "",
+      "completed": true,
+      "completedAt": "2026-10-20",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
-      "updatedAt": 1791391053995
+      "updatedAt": 1792543836436
     },
     {
       "id": "t1_20",
@@ -814,6 +876,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1791391053996
@@ -824,7 +888,7 @@
       "notes": "",
       "goal": "G1",
       "priority": "High",
-      "status": "backlog",
+      "status": "done",
       "section": "Digital Sovereignty",
       "level": 1,
       "month": "M05",
@@ -837,12 +901,14 @@
       ],
       "milestone": false,
       "recurrence": "none",
-      "completed": false,
-      "completedAt": "",
+      "completed": true,
+      "completedAt": "2026-10-23",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
-      "updatedAt": 1791391053997
+      "updatedAt": 1792754150185
     },
     {
       "id": "t1_22",
@@ -850,7 +916,7 @@
       "notes": "",
       "goal": "G1",
       "priority": "High",
-      "status": "backlog",
+      "status": "done",
       "section": "Digital Sovereignty",
       "level": 1,
       "month": "M05",
@@ -863,12 +929,14 @@
       ],
       "milestone": false,
       "recurrence": "none",
-      "completed": false,
-      "completedAt": "",
+      "completed": true,
+      "completedAt": "2026-10-23",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
-      "updatedAt": 1791391053998
+      "updatedAt": 1792754148168
     },
     {
       "id": "t1_23",
@@ -892,6 +960,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1791391053999
@@ -918,6 +988,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1791391054000
@@ -944,6 +1016,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1791391054001
@@ -970,6 +1044,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1791391054002
@@ -996,6 +1072,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1791391054003
@@ -1022,6 +1100,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1791391054004
@@ -1048,6 +1128,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1791391054005
@@ -1074,6 +1156,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1791391054006
@@ -1100,6 +1184,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1791391054007
@@ -1126,6 +1212,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1789088386260
@@ -1152,6 +1240,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1789088386260
@@ -1178,6 +1268,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1789088386260
@@ -1204,6 +1296,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1789088386260
@@ -1230,6 +1324,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1789088386260
@@ -1256,6 +1352,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1789088386260
@@ -1282,6 +1380,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1789088386260
@@ -1308,6 +1408,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1789088386260
@@ -1334,6 +1436,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1789088386260
@@ -1360,6 +1464,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1789088386260
@@ -1386,6 +1492,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1789088386260
@@ -1412,6 +1520,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1789088386260
@@ -1436,6 +1546,8 @@
       "completed": true,
       "completedAt": "2026-05-02",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1785874759342
@@ -1460,6 +1572,8 @@
       "completed": true,
       "completedAt": "2026-05-02",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1785874759342
@@ -1484,6 +1598,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1785874759342
@@ -1508,6 +1624,8 @@
       "completed": true,
       "completedAt": "2026-05-02",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1784316958079
@@ -1532,6 +1650,8 @@
       "completed": true,
       "completedAt": "2026-05-02",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1784316958079
@@ -1556,6 +1676,8 @@
       "completed": true,
       "completedAt": "2026-05-02",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1784316958079
@@ -1580,6 +1702,8 @@
       "completed": true,
       "completedAt": "2026-05-02",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1784316958079
@@ -1604,6 +1728,8 @@
       "completed": true,
       "completedAt": "2026-05-02",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1784316958079
@@ -1628,6 +1754,8 @@
       "completed": true,
       "completedAt": "2026-07-17",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1784328947445
@@ -1652,6 +1780,8 @@
       "completed": true,
       "completedAt": "2026-04-08",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1784316958079
@@ -1676,6 +1806,8 @@
       "completed": true,
       "completedAt": "2026-04-08",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1784316958079
@@ -1700,6 +1832,8 @@
       "completed": true,
       "completedAt": "2026-04-02",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1784316958079
@@ -1724,6 +1858,8 @@
       "completed": true,
       "completedAt": "2026-05-02",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1784316958079
@@ -1748,6 +1884,8 @@
       "completed": true,
       "completedAt": "2026-05-02",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1784316958079
@@ -1772,6 +1910,8 @@
       "completed": true,
       "completedAt": "2026-05-02",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1784316958079
@@ -1796,6 +1936,8 @@
       "completed": true,
       "completedAt": "2026-05-02",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1784316958079
@@ -1820,6 +1962,8 @@
       "completed": true,
       "completedAt": "2026-05-02",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1784316958079
@@ -1844,6 +1988,8 @@
       "completed": true,
       "completedAt": "2026-07-17",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1784328952007
@@ -1868,6 +2014,8 @@
       "completed": true,
       "completedAt": "2026-07-17",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1784328960573
@@ -1892,6 +2040,8 @@
       "completed": true,
       "completedAt": "2026-05-02",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1784316958079
@@ -1916,6 +2066,8 @@
       "completed": true,
       "completedAt": "2026-05-02",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1784316958079
@@ -1942,6 +2094,8 @@
       "completed": true,
       "completedAt": "2026-05-02",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1784316958079
@@ -1968,6 +2122,8 @@
       "completed": true,
       "completedAt": "2026-05-02",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1784316958079
@@ -1992,6 +2148,8 @@
       "completed": true,
       "completedAt": "2026-05-02",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1784316958079
@@ -2016,6 +2174,8 @@
       "completed": true,
       "completedAt": "2026-05-02",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1784316958079
@@ -2040,6 +2200,8 @@
       "completed": true,
       "completedAt": "2026-07-17",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1784328961533
@@ -2064,6 +2226,8 @@
       "completed": true,
       "completedAt": "2026-05-02",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1785874759342
@@ -2090,6 +2254,8 @@
       "completed": true,
       "completedAt": "2026-05-02",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1785874759342
@@ -2116,6 +2282,8 @@
       "completed": true,
       "completedAt": "2026-05-02",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1785874759342
@@ -2140,6 +2308,8 @@
       "completed": true,
       "completedAt": "2026-05-02",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1785874759342
@@ -2166,6 +2336,8 @@
       "completed": true,
       "completedAt": "2026-07-17",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1785874759342
@@ -2190,6 +2362,8 @@
       "completed": true,
       "completedAt": "2026-04-02",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1785874786617
@@ -2214,6 +2388,8 @@
       "completed": true,
       "completedAt": "2026-04-02",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1785874759342
@@ -2238,6 +2414,8 @@
       "completed": true,
       "completedAt": "2026-05-02",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1784316958079
@@ -2262,6 +2440,8 @@
       "completed": true,
       "completedAt": "2026-05-02",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1784316958079
@@ -2276,7 +2456,7 @@
       "section": "Longhouse & Tribe",
       "level": 3,
       "month": "M05",
-      "week": "",
+      "week": "W18",
       "startDate": "2026-04-25",
       "dueDate": "2026-04-30",
       "parentId": "",
@@ -2286,9 +2466,11 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "wrong-scope",
+      "flagDate": "2026-10-20",
       "deleted": false,
       "createdAt": 1784316958079,
-      "updatedAt": 1785960969568
+      "updatedAt": 1792542689247
     },
     {
       "id": "a38",
@@ -2310,6 +2492,8 @@
       "completed": true,
       "completedAt": "2026-05-02",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1784316958079
@@ -2336,6 +2520,8 @@
       "completed": true,
       "completedAt": "2026-05-02",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1784316958079
@@ -2362,6 +2548,8 @@
       "completed": true,
       "completedAt": "2026-05-02",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1784316958079
@@ -2388,6 +2576,8 @@
       "completed": true,
       "completedAt": "2026-05-02",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1784316958079
@@ -2416,6 +2606,8 @@
       "completed": true,
       "completedAt": "2026-05-02",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1784316958079
@@ -2442,6 +2634,8 @@
       "completed": true,
       "completedAt": "2026-05-09",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958079,
       "updatedAt": 1784316958079
@@ -2466,6 +2660,8 @@
       "completed": true,
       "completedAt": "2026-04-02",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
       "updatedAt": 1784316958080
@@ -2490,6 +2686,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": true,
       "createdAt": 1784316958080,
       "updatedAt": 1789088386260
@@ -2514,6 +2712,8 @@
       "completed": true,
       "completedAt": "2026-04-02",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
       "updatedAt": 1785874759342
@@ -2538,6 +2738,8 @@
       "completed": true,
       "completedAt": "2026-07-17",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
       "updatedAt": 1784328984898
@@ -2562,6 +2764,8 @@
       "completed": true,
       "completedAt": "2026-05-09",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
       "updatedAt": 1784316958080
@@ -2586,6 +2790,8 @@
       "completed": true,
       "completedAt": "2026-07-17",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
       "updatedAt": 1784328987736
@@ -2610,6 +2816,8 @@
       "completed": true,
       "completedAt": "2026-07-17",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
       "updatedAt": 1784328988984
@@ -2636,6 +2844,8 @@
       "completed": true,
       "completedAt": "2026-07-17",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
       "updatedAt": 1784328990086
@@ -2662,6 +2872,8 @@
       "completed": true,
       "completedAt": "2026-08-06",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
       "updatedAt": 1786042323336
@@ -2688,6 +2900,8 @@
       "completed": true,
       "completedAt": "2026-08-06",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
       "updatedAt": 1786042605866
@@ -2714,6 +2928,8 @@
       "completed": true,
       "completedAt": "2026-07-17",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
       "updatedAt": 1784329008694
@@ -2740,6 +2956,8 @@
       "completed": true,
       "completedAt": "2026-07-17",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
       "updatedAt": 1784329010880
@@ -2764,6 +2982,8 @@
       "completed": true,
       "completedAt": "2026-08-01",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
       "updatedAt": 1785645330349
@@ -2777,8 +2997,8 @@
       "status": "backlog",
       "section": "Health & Body",
       "level": 1,
-      "month": "",
-      "week": "",
+      "month": "M05",
+      "week": "W19",
       "startDate": "2026-05-03",
       "dueDate": "2026-05-05",
       "parentId": "",
@@ -2788,9 +3008,11 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "needs-rewrite",
+      "flagDate": "2026-10-20",
       "deleted": false,
       "createdAt": 1784316958080,
-      "updatedAt": 1789088386260
+      "updatedAt": 1792516945613
     },
     {
       "id": "b12",
@@ -2801,10 +3023,10 @@
       "status": "backlog",
       "section": "Health & Body",
       "level": 1,
-      "month": "",
-      "week": "",
-      "startDate": "2026-05-07",
-      "dueDate": "2026-05-10",
+      "month": "M05",
+      "week": "W19",
+      "startDate": "",
+      "dueDate": "",
       "parentId": "",
       "blockedBy": [],
       "milestone": false,
@@ -2812,9 +3034,11 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
-      "updatedAt": 1789088386260
+      "updatedAt": 1792516962425
     },
     {
       "id": "b13",
@@ -2825,8 +3049,8 @@
       "status": "backlog",
       "section": "Health & Body",
       "level": 1,
-      "month": "",
-      "week": "",
+      "month": "M05",
+      "week": "W20",
       "startDate": "2026-05-12",
       "dueDate": "2026-05-15",
       "parentId": "",
@@ -2836,9 +3060,11 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "plan-changed",
+      "flagDate": "2026-10-20",
       "deleted": false,
       "createdAt": 1784316958080,
-      "updatedAt": 1789088386260
+      "updatedAt": 1792494188171
     },
     {
       "id": "b14",
@@ -2860,6 +3086,8 @@
       "completed": true,
       "completedAt": "2026-07-17",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
       "updatedAt": 1784329126919
@@ -2884,6 +3112,8 @@
       "completed": true,
       "completedAt": "2026-07-17",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
       "updatedAt": 1784329128530
@@ -2908,6 +3138,8 @@
       "completed": true,
       "completedAt": "2026-07-17",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
       "updatedAt": 1784329130581
@@ -2932,6 +3164,8 @@
       "completed": true,
       "completedAt": "2026-07-17",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
       "updatedAt": 1784329133918
@@ -2956,6 +3190,8 @@
       "completed": true,
       "completedAt": "2026-07-17",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
       "updatedAt": 1784329135502
@@ -2980,6 +3216,8 @@
       "completed": true,
       "completedAt": "2026-07-17",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
       "updatedAt": 1784329137828
@@ -3004,6 +3242,8 @@
       "completed": true,
       "completedAt": "2026-07-17",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
       "updatedAt": 1784329140452
@@ -3030,6 +3270,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": true,
       "createdAt": 1784316958080,
       "updatedAt": 1789088386260
@@ -3054,6 +3296,8 @@
       "completed": true,
       "completedAt": "2026-07-17",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
       "updatedAt": 1785874759342
@@ -3078,6 +3322,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": true,
       "createdAt": 1784316958080,
       "updatedAt": 1789088386260
@@ -3102,6 +3348,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
       "updatedAt": 1789088386260
@@ -3126,6 +3374,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": true,
       "createdAt": 1784316958080,
       "updatedAt": 1789088446271
@@ -3140,7 +3390,7 @@
       "section": "Longhouse & Tribe",
       "level": 4,
       "month": "M06",
-      "week": "",
+      "week": "W22",
       "startDate": "2026-05-28",
       "dueDate": "2026-05-31",
       "parentId": "",
@@ -3152,9 +3402,11 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "plan-changed",
+      "flagDate": "2026-10-20",
       "deleted": false,
       "createdAt": 1784316958080,
-      "updatedAt": 1785960969568
+      "updatedAt": 1792494986841
     },
     {
       "id": "c01",
@@ -3176,6 +3428,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
       "updatedAt": 1785647921260
@@ -3200,6 +3454,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": true,
       "createdAt": 1784316958080,
       "updatedAt": 1785647921260
@@ -3224,6 +3480,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": true,
       "createdAt": 1784316958080,
       "updatedAt": 1785647921260
@@ -3248,6 +3506,8 @@
       "completed": true,
       "completedAt": "2026-08-26",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
       "updatedAt": 1787782537229
@@ -3272,6 +3532,8 @@
       "completed": true,
       "completedAt": "2026-07-17",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
       "updatedAt": 1785874759342
@@ -3296,6 +3558,8 @@
       "completed": true,
       "completedAt": "2026-07-17",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
       "updatedAt": 1785874759342
@@ -3320,6 +3584,8 @@
       "completed": true,
       "completedAt": "2026-07-17",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
       "updatedAt": 1785874759342
@@ -3344,6 +3610,8 @@
       "completed": true,
       "completedAt": "2026-07-17",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
       "updatedAt": 1784329177305
@@ -3370,6 +3638,8 @@
       "completed": true,
       "completedAt": "2026-07-17",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
       "updatedAt": 1784329179649
@@ -3396,6 +3666,8 @@
       "completed": true,
       "completedAt": "2026-07-17",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
       "updatedAt": 1784329181391
@@ -3422,6 +3694,8 @@
       "completed": true,
       "completedAt": "2026-07-17",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
       "updatedAt": 1784329183720
@@ -3446,6 +3720,8 @@
       "completed": true,
       "completedAt": "2026-07-17",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
       "updatedAt": 1784329187056
@@ -3460,7 +3736,7 @@
       "section": "Microplastics",
       "level": 1,
       "month": "M06",
-      "week": "",
+      "week": "W24",
       "startDate": "2026-06-08",
       "dueDate": "2026-06-10",
       "parentId": "",
@@ -3470,9 +3746,11 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "plan-changed",
+      "flagDate": "2026-10-20",
       "deleted": false,
       "createdAt": 1784316958080,
-      "updatedAt": 1785960969568
+      "updatedAt": 1792495022188
     },
     {
       "id": "c14",
@@ -3494,6 +3772,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": true,
       "createdAt": 1784316958080,
       "updatedAt": 1789088386260
@@ -3518,6 +3798,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": true,
       "createdAt": 1784316958080,
       "updatedAt": 1789088386260
@@ -3546,6 +3828,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
       "updatedAt": 1785960969568
@@ -3570,6 +3854,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
       "updatedAt": 1789088386260
@@ -3594,6 +3880,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
       "updatedAt": 1789088386260
@@ -3620,6 +3908,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
       "updatedAt": 1789088386260
@@ -3646,6 +3936,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": true,
       "createdAt": 1784316958080,
       "updatedAt": 1789088386260
@@ -3670,6 +3962,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": true,
       "createdAt": 1784316958080,
       "updatedAt": 1789088386260
@@ -3694,6 +3988,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": true,
       "createdAt": 1784316958080,
       "updatedAt": 1789088386260
@@ -3718,6 +4014,8 @@
       "completed": true,
       "completedAt": "2026-08-26",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
       "updatedAt": 1787780860132
@@ -3742,6 +4040,8 @@
       "completed": true,
       "completedAt": "2026-08-26",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
       "updatedAt": 1787781104606
@@ -3769,6 +4069,8 @@
       "completed": true,
       "completedAt": "2026-08-09",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
       "updatedAt": 1786728570260
@@ -3793,6 +4095,8 @@
       "completed": true,
       "completedAt": "2026-08-09",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
       "updatedAt": 1786728570260
@@ -3817,6 +4121,8 @@
       "completed": true,
       "completedAt": "2026-08-09",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
       "updatedAt": 1786728570260
@@ -3841,6 +4147,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": true,
       "createdAt": 1784316958080,
       "updatedAt": 1789088386260
@@ -3865,6 +4173,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
       "updatedAt": 1789088386260
@@ -3891,6 +4201,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
       "updatedAt": 1789088386260
@@ -3917,6 +4229,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
       "updatedAt": 1789088386260
@@ -3943,6 +4257,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
       "updatedAt": 1789088386260
@@ -3969,6 +4285,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
       "updatedAt": 1789088386260
@@ -3993,6 +4311,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
       "updatedAt": 1784316958080
@@ -4017,6 +4337,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
       "updatedAt": 1784316958080
@@ -4043,21 +4365,23 @@
       "completed": true,
       "completedAt": "2026-08-05",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
       "updatedAt": 1785951365585
     },
     {
       "id": "v01",
-      "name": "Install OS — Ubuntu Server or Debian",
+      "name": "Install OS — Devuan",
       "notes": "First step of the home server build: install a headless Linux server OS on the newly-assembled hardware (Ryzen 9 7900X / TUF X870), before network, SSH, or storage configuration begins.",
       "goal": "G1",
       "priority": "High",
       "status": "backlog",
       "section": "Home Server",
       "level": 1,
-      "month": "",
-      "week": "",
+      "month": "M06",
+      "week": "W24",
       "startDate": "",
       "dueDate": "2026-06-08",
       "parentId": "",
@@ -4067,9 +4391,11 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1789088386260
+      "updatedAt": 1792495009736
     },
     {
       "id": "v02",
@@ -4091,6 +4417,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784393287371,
       "updatedAt": 1789088386260
@@ -4115,6 +4443,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784393287371,
       "updatedAt": 1789088386260
@@ -4141,6 +4471,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784393287371,
       "updatedAt": 1789088386260
@@ -4165,6 +4497,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784393287371,
       "updatedAt": 1789088386260
@@ -4189,6 +4523,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784393287371,
       "updatedAt": 1789088386260
@@ -4213,6 +4549,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784393287371,
       "updatedAt": 1789088386260
@@ -4237,6 +4575,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784393287371,
       "updatedAt": 1789088386260
@@ -4261,6 +4601,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784393287371,
       "updatedAt": 1789088386260
@@ -4285,6 +4627,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784393287371,
       "updatedAt": 1789088386260
@@ -4309,6 +4653,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": true,
       "createdAt": 1784393287371,
       "updatedAt": 1789088386260
@@ -4333,6 +4679,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": true,
       "createdAt": 1784393287371,
       "updatedAt": 1789088386260
@@ -4357,6 +4705,8 @@
       "completed": true,
       "completedAt": "2026-08-26",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784393287371,
       "updatedAt": 1787781119177
@@ -4381,6 +4731,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784393287371,
       "updatedAt": 1785960969568
@@ -4405,6 +4757,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784393287371,
       "updatedAt": 1789088386260
@@ -4429,6 +4783,8 @@
       "completed": true,
       "completedAt": "2026-07-22",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784393287371,
       "updatedAt": 1785644143494
@@ -4453,6 +4809,8 @@
       "completed": true,
       "completedAt": "2026-07-22",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784393287371,
       "updatedAt": 1785644143494
@@ -4477,6 +4835,8 @@
       "completed": true,
       "completedAt": "2026-08-10",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784393287371,
       "updatedAt": 1786393139571
@@ -4501,6 +4861,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784393287371,
       "updatedAt": 1785960969568
@@ -4525,6 +4887,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784393287371,
       "updatedAt": 1785960969568
@@ -4549,6 +4913,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784393287371,
       "updatedAt": 1789088386260
@@ -4573,6 +4939,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784393287371,
       "updatedAt": 1785859402285
@@ -4597,6 +4965,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784393287371,
       "updatedAt": 1785960969568
@@ -4621,6 +4991,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784393287371,
       "updatedAt": 1785960969568
@@ -4645,6 +5017,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784393287371,
       "updatedAt": 1785874759342
@@ -4669,6 +5043,8 @@
       "completed": true,
       "completedAt": "2026-07-12",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784393287371,
       "updatedAt": 1784393287371
@@ -4693,6 +5069,8 @@
       "completed": true,
       "completedAt": "2026-07-12",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784393287371,
       "updatedAt": 1784393287371
@@ -4717,6 +5095,8 @@
       "completed": true,
       "completedAt": "2026-06-16",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784393287371,
       "updatedAt": 1784393287371
@@ -4741,6 +5121,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": true,
       "createdAt": 1784582884128,
       "updatedAt": 1785644143494
@@ -4765,6 +5147,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": true,
       "createdAt": 1784582884128,
       "updatedAt": 1785647921260
@@ -4789,6 +5173,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": true,
       "createdAt": 1784582884128,
       "updatedAt": 1785644143494
@@ -4813,6 +5199,8 @@
       "completed": true,
       "completedAt": "2026-08-01",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1785644143494,
       "updatedAt": 1785874759342
@@ -4837,6 +5225,8 @@
       "completed": true,
       "completedAt": "2026-08-20",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1785859437941,
       "updatedAt": 1787225371742
@@ -4861,6 +5251,8 @@
       "completed": true,
       "completedAt": "2026-08-20",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1785859437942,
       "updatedAt": 1787225394155
@@ -4885,6 +5277,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1785859437942,
       "updatedAt": 1789088386260
@@ -4909,6 +5303,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1785859437942,
       "updatedAt": 1785960969568
@@ -4933,6 +5329,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1785859437942,
       "updatedAt": 1785960969568
@@ -4957,6 +5355,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1785859437942,
       "updatedAt": 1785960969568
@@ -4981,6 +5381,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1785859437942,
       "updatedAt": 1792265683750
@@ -5005,6 +5407,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1785859437942,
       "updatedAt": 1785960969568
@@ -5029,6 +5433,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
       "deleted": true,
       "createdAt": 1787781509736,
       "updatedAt": 1787781547885
@@ -5053,6 +5459,8 @@
       "completed": true,
       "completedAt": "2026-07-29",
       "sortOrder": 1,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1785370188066
@@ -5077,6 +5485,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 1,
+      "flag": "",
+      "flagDate": "",
       "deleted": true,
       "createdAt": 1789088449288,
       "updatedAt": 1789088450320
@@ -5101,6 +5511,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 1,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1789088450321,
       "updatedAt": 1789088450321
@@ -5125,6 +5537,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 2,
+      "flag": "",
+      "flagDate": "",
       "deleted": true,
       "createdAt": 1784582884128,
       "updatedAt": 1789088386260
@@ -5149,6 +5563,8 @@
       "completed": true,
       "completedAt": "2026-09-23",
       "sortOrder": 2,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1789088449289,
       "updatedAt": 1790189804371
@@ -5173,6 +5589,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 2,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1789088450322,
       "updatedAt": 1791409633615
@@ -5197,6 +5615,8 @@
       "completed": true,
       "completedAt": "2026-08-26",
       "sortOrder": 3,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1787781193447
@@ -5221,6 +5641,8 @@
       "completed": true,
       "completedAt": "2026-10-07",
       "sortOrder": 3,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1789088449290,
       "updatedAt": 1791395990278
@@ -5245,6 +5667,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 3,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1789088450323,
       "updatedAt": 1789088450323
@@ -5269,6 +5693,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 4,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1789088449291,
       "updatedAt": 1789088449291
@@ -5293,6 +5719,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 5,
+      "flag": "",
+      "flagDate": "",
       "deleted": true,
       "createdAt": 1789088449292,
       "updatedAt": 1789088450314
@@ -5317,6 +5745,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 6,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1789088386260
@@ -5341,6 +5771,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 6,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1789088449293,
       "updatedAt": 1789088449293
@@ -5365,6 +5797,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 7,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1785874759342
@@ -5389,6 +5823,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 7,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1789088449294,
       "updatedAt": 1789088450325
@@ -5413,6 +5849,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 8,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1789088386260
@@ -5437,6 +5875,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 8,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1789088449295,
       "updatedAt": 1789088449295
@@ -5461,6 +5901,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 9,
+      "flag": "",
+      "flagDate": "",
       "deleted": true,
       "createdAt": 1784582884128,
       "updatedAt": 1789088386260
@@ -5485,6 +5927,8 @@
       "completed": true,
       "completedAt": "2026-10-07",
       "sortOrder": 9,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1789088449296,
       "updatedAt": 1791395952498
@@ -5509,6 +5953,8 @@
       "completed": true,
       "completedAt": "2026-08-20",
       "sortOrder": 10,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1787225360661
@@ -5535,6 +5981,8 @@
       "completed": true,
       "completedAt": "2026-10-07",
       "sortOrder": 10,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1789088449297,
       "updatedAt": 1791396022505
@@ -5559,6 +6007,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 11,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1784582884128
@@ -5583,6 +6033,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 11,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1789088449298,
       "updatedAt": 1789088449298
@@ -5607,6 +6059,8 @@
       "completed": true,
       "completedAt": "2026-08-12",
       "sortOrder": 12,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1786549022292
@@ -5631,6 +6085,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 12,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1789088449299,
       "updatedAt": 1789088449299
@@ -5655,6 +6111,8 @@
       "completed": true,
       "completedAt": "2026-08-05",
       "sortOrder": 13,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1785957618059
@@ -5683,6 +6141,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 13,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1789088449300,
       "updatedAt": 1789088449300
@@ -5707,6 +6167,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 14,
+      "flag": "",
+      "flagDate": "",
       "deleted": true,
       "createdAt": 1784582884128,
       "updatedAt": 1787781183977
@@ -5731,6 +6193,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 14,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1789088449301,
       "updatedAt": 1789088449301
@@ -5755,6 +6219,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 15,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1789088386260
@@ -5781,6 +6247,8 @@
       "completed": true,
       "completedAt": "2026-10-07",
       "sortOrder": 15,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1789088449302,
       "updatedAt": 1791396033756
@@ -5805,6 +6273,8 @@
       "completed": true,
       "completedAt": "2026-07-28",
       "sortOrder": 16,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1785874759342
@@ -5829,6 +6299,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 16,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1789088449303,
       "updatedAt": 1789088449303
@@ -5853,6 +6325,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 17,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1789088386260
@@ -5879,6 +6353,8 @@
       "completed": true,
       "completedAt": "2026-10-07",
       "sortOrder": 17,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1789088449304,
       "updatedAt": 1791396042324
@@ -5903,6 +6379,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 18,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1789088386260
@@ -5927,6 +6405,8 @@
       "completed": true,
       "completedAt": "2026-09-23",
       "sortOrder": 18,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1789088449305,
       "updatedAt": 1790191207284
@@ -5951,6 +6431,8 @@
       "completed": true,
       "completedAt": "2026-07-28",
       "sortOrder": 19,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1785290552524
@@ -5975,6 +6457,8 @@
       "completed": true,
       "completedAt": "2026-09-23",
       "sortOrder": 19,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1789088449306,
       "updatedAt": 1790189961075
@@ -5999,6 +6483,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 19,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1789088450315,
       "updatedAt": 1789088450315
@@ -6023,6 +6509,8 @@
       "completed": true,
       "completedAt": "2026-08-05",
       "sortOrder": 20,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1785957618059
@@ -6047,6 +6535,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 20,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1789088449307,
       "updatedAt": 1789088449307
@@ -6071,6 +6561,8 @@
       "completed": true,
       "completedAt": "2026-10-07",
       "sortOrder": 20,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1789088450316,
       "updatedAt": 1791396046459
@@ -6095,6 +6587,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 21,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1789088386260
@@ -6119,6 +6613,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 21,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1789088450317,
       "updatedAt": 1789088450317
@@ -6143,6 +6639,8 @@
       "completed": true,
       "completedAt": "2026-08-09",
       "sortOrder": 22,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1786728570260
@@ -6167,6 +6665,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 22,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1789088450318,
       "updatedAt": 1789088450318
@@ -6191,6 +6691,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 23,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1785960969568
@@ -6215,6 +6717,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 24,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1785960969568
@@ -6239,6 +6743,8 @@
       "completed": true,
       "completedAt": "2026-07-28",
       "sortOrder": 25,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1785874759342
@@ -6263,6 +6769,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 26,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1789088386260
@@ -6287,6 +6795,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 27,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1789088386260
@@ -6311,6 +6821,8 @@
       "completed": true,
       "completedAt": "2026-08-26",
       "sortOrder": 28,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1787781245328
@@ -6335,6 +6847,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 29,
+      "flag": "",
+      "flagDate": "",
       "deleted": true,
       "createdAt": 1784582884128,
       "updatedAt": 1789088446264
@@ -6359,6 +6873,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 30,
+      "flag": "",
+      "flagDate": "",
       "deleted": true,
       "createdAt": 1784582884128,
       "updatedAt": 1789088386260
@@ -6383,6 +6899,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 31,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1785960969568
@@ -6407,6 +6925,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 32,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1789088386260
@@ -6431,6 +6951,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 33,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1789088386260
@@ -6455,6 +6977,8 @@
       "completed": true,
       "completedAt": "2026-07-16",
       "sortOrder": 34,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1786728570260
@@ -6479,6 +7003,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 35,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1785960969568
@@ -6503,6 +7029,8 @@
       "completed": true,
       "completedAt": "2026-08-05",
       "sortOrder": 36,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1785957618059
@@ -6527,6 +7055,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 37,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1785960969568
@@ -6551,6 +7081,8 @@
       "completed": true,
       "completedAt": "2026-08-05",
       "sortOrder": 38,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1785957618059
@@ -6575,6 +7107,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 39,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1785874759342
@@ -6599,6 +7133,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 40,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1785874759342
@@ -6623,6 +7159,8 @@
       "completed": true,
       "completedAt": "2026-08-05",
       "sortOrder": 41,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1785957618059
@@ -6647,6 +7185,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 42,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1785960969568
@@ -6671,6 +7211,8 @@
       "completed": true,
       "completedAt": "2026-08-09",
       "sortOrder": 43,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1786728570260
@@ -6695,6 +7237,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 44,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1785960969568
@@ -6719,6 +7263,8 @@
       "completed": true,
       "completedAt": "2026-08-05",
       "sortOrder": 45,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1785957618059
@@ -6743,6 +7289,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 46,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1792265683750
@@ -6767,6 +7315,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 47,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1792265683750
@@ -6791,6 +7341,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 48,
+      "flag": "",
+      "flagDate": "",
       "deleted": true,
       "createdAt": 1784582884128,
       "updatedAt": 1789088448286
@@ -6815,6 +7367,8 @@
       "completed": true,
       "completedAt": "2026-10-10",
       "sortOrder": 49,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1792265683750
@@ -6839,6 +7393,8 @@
       "completed": true,
       "completedAt": "2026-09-24",
       "sortOrder": 50,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1790272558567
@@ -6863,6 +7419,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 51,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1792265683750
@@ -6887,6 +7445,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 52,
+      "flag": "",
+      "flagDate": "",
       "deleted": true,
       "createdAt": 1784582884128,
       "updatedAt": 1792265683750
@@ -6911,6 +7471,8 @@
       "completed": true,
       "completedAt": "2026-10-10",
       "sortOrder": 53,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1792265683750
@@ -6935,6 +7497,8 @@
       "completed": true,
       "completedAt": "2026-10-10",
       "sortOrder": 54,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1792265683750
@@ -6959,6 +7523,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 55,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1792265683750
@@ -6983,6 +7549,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 56,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1792265683750
@@ -7007,6 +7575,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 57,
+      "flag": "",
+      "flagDate": "",
       "deleted": true,
       "createdAt": 1784582884128,
       "updatedAt": 1789088446268
@@ -7031,6 +7601,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 58,
+      "flag": "",
+      "flagDate": "",
       "deleted": true,
       "createdAt": 1784582884128,
       "updatedAt": 1789088446267
@@ -7055,6 +7627,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 59,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1792265683750
@@ -7065,7 +7639,7 @@
       "notes": "Confirms the first draft of the 2027 investment thesis is finished. | Carried from Kappa (was due 2026-10-07).",
       "goal": "G4",
       "priority": "High",
-      "status": "backlog",
+      "status": "done",
       "section": "Financial",
       "level": 0,
       "month": "M11",
@@ -7076,12 +7650,14 @@
       "blockedBy": [],
       "milestone": false,
       "recurrence": "none",
-      "completed": false,
-      "completedAt": "",
+      "completed": true,
+      "completedAt": "2026-10-28",
       "sortOrder": 60,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1792265683750
+      "updatedAt": 1793199818560
     },
     {
       "id": "f26_061",
@@ -7103,6 +7679,8 @@
       "completed": true,
       "completedAt": "2026-10-10",
       "sortOrder": 61,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1792265683750
@@ -7127,6 +7705,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 62,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1792265683750
@@ -7151,6 +7731,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 63,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1792265683750
@@ -7175,6 +7757,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 64,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1792265683750
@@ -7199,6 +7783,8 @@
       "completed": true,
       "completedAt": "2026-10-17",
       "sortOrder": 65,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1792265683750
@@ -7223,6 +7809,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 66,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1792265683750
@@ -7247,6 +7835,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 67,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1792265683750
@@ -7271,6 +7861,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 68,
+      "flag": "",
+      "flagDate": "",
       "deleted": true,
       "createdAt": 1784582884128,
       "updatedAt": 1789088446270
@@ -7295,6 +7887,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 69,
+      "flag": "",
+      "flagDate": "",
       "deleted": true,
       "createdAt": 1784582884128,
       "updatedAt": 1789088386260
@@ -7319,6 +7913,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 70,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1784582884128
@@ -7343,6 +7939,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 71,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1785960969568
@@ -7353,7 +7951,7 @@
       "notes": "Determine whether Northrop's payroll-integrated HSA/FSA runs through HealthEquity or Fidelity — separate from the personal HSA consolidation already done. | Moved up from Nov 4 so the answer feeds f26_074.",
       "goal": "G4",
       "priority": "Mid",
-      "status": "backlog",
+      "status": "done",
       "section": "Financial",
       "level": 0,
       "month": "M11",
@@ -7364,12 +7962,14 @@
       "blockedBy": [],
       "milestone": false,
       "recurrence": "none",
-      "completed": false,
-      "completedAt": "",
+      "completed": true,
+      "completedAt": "2026-10-28",
       "sortOrder": 73,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1792265683750
+      "updatedAt": 1793200507636
     },
     {
       "id": "f26_074",
@@ -7391,6 +7991,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 74,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1792265683750
@@ -7415,6 +8017,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 75,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1792265683750
@@ -7439,6 +8043,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 76,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1792265683750
@@ -7463,6 +8069,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 77,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1792265683750
@@ -7487,6 +8095,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 78,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1792265683750
@@ -7511,6 +8121,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 79,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1785960969568
@@ -7535,6 +8147,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 80,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1785960969568
@@ -7559,6 +8173,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 81,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1785960969568
@@ -7583,6 +8199,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 82,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1785960969568
@@ -7607,6 +8225,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 83,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1785960969568
@@ -7631,6 +8251,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 84,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1785960969568
@@ -7655,6 +8277,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 85,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1785960969568
@@ -7679,6 +8303,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 86,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1785960969568
@@ -7703,6 +8329,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 87,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1785960969568
@@ -7811,6 +8439,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 91,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1785960969568
@@ -7835,6 +8465,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 92,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1785960969568
@@ -7859,6 +8491,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 93,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1784582884128
@@ -7883,6 +8517,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 94,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1785960969568
@@ -7907,6 +8543,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 95,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1785960969568
@@ -7931,6 +8569,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 96,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1785960969568
@@ -7955,6 +8595,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 97,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1785960969568
@@ -7979,6 +8621,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 98,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1785960969568
@@ -8003,6 +8647,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 99,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1784582884128
@@ -8027,6 +8673,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 100,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1784582884128
@@ -8051,6 +8699,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 101,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1784582884128
@@ -8075,6 +8725,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 102,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1785960969568
@@ -8099,6 +8751,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 103,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1784582884128
@@ -8123,6 +8777,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 104,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1785960969568
@@ -8147,6 +8803,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 105,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1785960969568
@@ -8171,6 +8829,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 106,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1785960969568
@@ -8195,6 +8855,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 107,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
       "updatedAt": 1785960969568
@@ -8219,6 +8881,8 @@
       "completed": true,
       "completedAt": "2026-08-09",
       "sortOrder": 108,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1786677249224,
       "updatedAt": 1786677249224
@@ -8243,6 +8907,8 @@
       "completed": true,
       "completedAt": "2026-08-04",
       "sortOrder": 109,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1786677249224,
       "updatedAt": 1786677249224
@@ -8267,6 +8933,8 @@
       "completed": true,
       "completedAt": "2026-08-17",
       "sortOrder": 110,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1786677249224,
       "updatedAt": 1786677249224
@@ -8291,6 +8959,8 @@
       "completed": true,
       "completedAt": "",
       "sortOrder": 111,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1786677249224,
       "updatedAt": 1786677249224
@@ -8315,6 +8985,8 @@
       "completed": true,
       "completedAt": "2026-08-03",
       "sortOrder": 112,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1786677249224,
       "updatedAt": 1786677249224
@@ -8339,6 +9011,8 @@
       "completed": true,
       "completedAt": "2026-08-02",
       "sortOrder": 113,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1786677249224,
       "updatedAt": 1786677249224
@@ -8363,6 +9037,8 @@
       "completed": true,
       "completedAt": "2026-08-02",
       "sortOrder": 114,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1786677249224,
       "updatedAt": 1786677249224
@@ -8387,6 +9063,8 @@
       "completed": true,
       "completedAt": "2026-08-17",
       "sortOrder": 115,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1786677249224,
       "updatedAt": 1786677249224
@@ -8411,6 +9089,8 @@
       "completed": true,
       "completedAt": "2026-08-02",
       "sortOrder": 116,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1786677249224,
       "updatedAt": 1786677249224
@@ -8435,6 +9115,8 @@
       "completed": true,
       "completedAt": "",
       "sortOrder": 117,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1786677249224,
       "updatedAt": 1786677249224
@@ -8459,6 +9141,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 118,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1786856691663,
       "updatedAt": 1789088446274
@@ -8483,6 +9167,8 @@
       "completed": true,
       "completedAt": "2026-08-15",
       "sortOrder": 119,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1786856691663,
       "updatedAt": 1786856691663
@@ -8507,6 +9193,8 @@
       "completed": true,
       "completedAt": "2026-08-15",
       "sortOrder": 120,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1786856691663,
       "updatedAt": 1786856691663
@@ -8531,6 +9219,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 135,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1792265683750,
       "updatedAt": 1792265683750
@@ -8555,6 +9245,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 136,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1792265683750,
       "updatedAt": 1792265683750
@@ -8579,6 +9271,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 137,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1792270478365,
       "updatedAt": 1792270478365
@@ -8603,6 +9297,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 138,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1792270478365,
       "updatedAt": 1792270478365
@@ -8629,6 +9325,8 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 139,
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1792272760665,
       "updatedAt": 1792272760665
@@ -10371,44 +11069,6 @@
       "updatedAt": 1786728570260
     },
     {
-      "id": "ms9_02",
-      "name": "Supplementation v1 locked against DNA + lab results",
-      "notes": "Single-task checkpoint — finalize the first supplement stack, informed by DNA results and lab work.",
-      "goal": "G3",
-      "month": "M11",
-      "dueDate": "2026-10-25",
-      "msTag": "MS11",
-      "msWeek": "MSW43",
-      "taskIds": [
-        "f26_046"
-      ],
-      "completed": false,
-      "completedAt": "",
-      "sortOrder": 0,
-      "deleted": false,
-      "createdAt": 1784393287371,
-      "updatedAt": 1792265683750
-    },
-    {
-      "id": "ms8_05",
-      "name": "Legacy drive recovery resolved — files recovered OR formally abandoned; 2TB drive released",
-      "notes": "Single-task checkpoint — kill-gate decision to declare the data-recovery effort finished or abandoned, then release the 2TB drive back to the server pool.",
-      "goal": "G1",
-      "month": "M11",
-      "dueDate": "2026-10-24",
-      "msTag": "MS11",
-      "msWeek": "MSW43",
-      "taskIds": [
-        "r07"
-      ],
-      "completed": false,
-      "completedAt": "",
-      "sortOrder": 0,
-      "deleted": false,
-      "createdAt": 1785859437942,
-      "updatedAt": 1792265683750
-    },
-    {
       "id": "ms9_03",
       "name": "Q3 Assertive Correction milestone — holding ground is the default in 3 of 5 logged situations/week, two months running",
       "notes": "Manual checkpoint, no discrete task — evidenced by holding-ground behavior being the default in 3 of 5 logged situations/week, two months running. | Closed Lambda 10 on self-report (\"more often than not, I stood up\"). No log was kept, so the 3-of-5 criterion was not measured. Successor: ms11_04.",
@@ -10462,42 +11122,26 @@
       "updatedAt": 1789088446278
     },
     {
-      "id": "ms10_04",
-      "name": "Explicit tribe conversation held with Members 1, 2 and 3 (Asatru group)",
-      "notes": "Single-task checkpoint — the direct conversation about tribe/Longhouse commitment actually happens, not just gets scheduled. Group changed Lambda 10: Asatru-faith group that meets monthly.",
-      "goal": "G2",
-      "month": "M11",
-      "dueDate": "2026-10-28",
-      "msTag": "MS11",
-      "msWeek": "MSW44",
+      "id": "ms10_03",
+      "name": "Forge Native is the sole system — web Forge archived",
+      "notes": "Single-task-cluster checkpoint — full QA pass, UI polish, feature parity, and web-Forge archival all land before Kappa closes.",
+      "goal": "G1",
+      "month": "M10",
+      "dueDate": "2026-10-07",
+      "msTag": "MS10",
+      "msWeek": "MSW41",
       "taskIds": [
-        "f26_056"
+        "f26_049",
+        "f26_053",
+        "f26_054",
+        "f26_061"
       ],
-      "completed": false,
-      "completedAt": "",
+      "completed": true,
+      "completedAt": "2026-10-10",
       "sortOrder": 0,
       "deleted": false,
-      "createdAt": 1789088446282,
-      "updatedAt": 1792265683750
-    },
-    {
-      "id": "ms10_05",
-      "name": "Microsoft associate cert exam booked with a firm date (or passed)",
-      "notes": "Single-task checkpoint — closes the gap between 'exam scheduled' (f26_023's claim) and reality; a real date on the calendar, or the exam already passed.",
-      "goal": "G4",
-      "month": "M11",
-      "dueDate": "2026-10-26",
-      "msTag": "MS11",
-      "msWeek": "MSW44",
-      "taskIds": [
-        "f26_055"
-      ],
-      "completed": false,
-      "completedAt": "",
-      "sortOrder": 0,
-      "deleted": false,
-      "createdAt": 1789088446283,
-      "updatedAt": 1792265683750
+      "createdAt": 1789088446281,
+      "updatedAt": 1791695836498
     },
     {
       "id": "ms10_01",
@@ -10538,26 +11182,80 @@
       "updatedAt": 1792265683750
     },
     {
-      "id": "ms10_03",
-      "name": "Forge Native is the sole system — web Forge archived",
-      "notes": "Single-task-cluster checkpoint — full QA pass, UI polish, feature parity, and web-Forge archival all land before Kappa closes.",
+      "id": "ms8_05",
+      "name": "Legacy drive recovery resolved — files recovered OR formally abandoned; 2TB drive released",
+      "notes": "Single-task checkpoint — kill-gate decision to declare the data-recovery effort finished or abandoned, then release the 2TB drive back to the server pool.",
       "goal": "G1",
-      "month": "M10",
-      "dueDate": "2026-10-07",
-      "msTag": "MS10",
-      "msWeek": "MSW41",
+      "month": "M11",
+      "dueDate": "2026-10-24",
+      "msTag": "MS11",
+      "msWeek": "MSW43",
       "taskIds": [
-        "f26_049",
-        "f26_053",
-        "f26_054",
-        "f26_061"
+        "r07"
       ],
-      "completed": true,
-      "completedAt": "2026-10-10",
+      "completed": false,
+      "completedAt": "",
       "sortOrder": 0,
       "deleted": false,
-      "createdAt": 1789088446281,
-      "updatedAt": 1791695836498
+      "createdAt": 1785859437942,
+      "updatedAt": 1792265683750
+    },
+    {
+      "id": "ms9_02",
+      "name": "Supplementation v1 locked against DNA + lab results",
+      "notes": "Single-task checkpoint — finalize the first supplement stack, informed by DNA results and lab work.",
+      "goal": "G3",
+      "month": "M11",
+      "dueDate": "2026-10-25",
+      "msTag": "MS11",
+      "msWeek": "MSW43",
+      "taskIds": [
+        "f26_046"
+      ],
+      "completed": false,
+      "completedAt": "",
+      "sortOrder": 0,
+      "deleted": false,
+      "createdAt": 1784393287371,
+      "updatedAt": 1792265683750
+    },
+    {
+      "id": "ms10_05",
+      "name": "Microsoft associate cert exam booked with a firm date (or passed)",
+      "notes": "Single-task checkpoint — closes the gap between 'exam scheduled' (f26_023's claim) and reality; a real date on the calendar, or the exam already passed.",
+      "goal": "G4",
+      "month": "M11",
+      "dueDate": "2026-10-26",
+      "msTag": "MS11",
+      "msWeek": "MSW44",
+      "taskIds": [
+        "f26_055"
+      ],
+      "completed": false,
+      "completedAt": "",
+      "sortOrder": 0,
+      "deleted": false,
+      "createdAt": 1789088446283,
+      "updatedAt": 1792265683750
+    },
+    {
+      "id": "ms10_04",
+      "name": "Explicit tribe conversation held with Members 1, 2 and 3 (Asatru group)",
+      "notes": "Single-task checkpoint — the direct conversation about tribe/Longhouse commitment actually happens, not just gets scheduled. Group changed Lambda 10: Asatru-faith group that meets monthly.",
+      "goal": "G2",
+      "month": "M11",
+      "dueDate": "2026-10-28",
+      "msTag": "MS11",
+      "msWeek": "MSW44",
+      "taskIds": [
+        "f26_056"
+      ],
+      "completed": false,
+      "completedAt": "",
+      "sortOrder": 0,
+      "deleted": false,
+      "createdAt": 1789088446282,
+      "updatedAt": 1792265683750
     },
     {
       "id": "ms6_01",
@@ -10598,6 +11296,26 @@
       "deleted": false,
       "createdAt": 1784393287371,
       "updatedAt": 1786728570260
+    },
+    {
+      "id": "ms11_04",
+      "name": "Assertive Calibration — know when to assert, and land it without offense",
+      "notes": "Successor to the Assertive Correction Season (ms9_03, closed on self-report). Goal: learn when to assert, when it would offend, and how to land the point without offending. Tracked with the Assert:: line in the Daily Recap (A/H/M | L/P/N/? | O0/O1/O2). Criterion to be set by Connor after the f26_136 baseline read.",
+      "goal": "G1",
+      "month": "M11",
+      "dueDate": "2026-11-04",
+      "msTag": "MS11",
+      "msWeek": "MSW45",
+      "taskIds": [
+        "f26_135",
+        "f26_136"
+      ],
+      "completed": false,
+      "completedAt": "",
+      "sortOrder": 0,
+      "deleted": false,
+      "createdAt": 1792265683750,
+      "updatedAt": 1792265683750
     },
     {
       "id": "ms11_02",
@@ -10693,26 +11411,6 @@
       "deleted": false,
       "createdAt": 1784393287371,
       "updatedAt": 1786728570260
-    },
-    {
-      "id": "ms11_04",
-      "name": "Assertive Calibration — know when to assert, and land it without offense",
-      "notes": "Successor to the Assertive Correction Season (ms9_03, closed on self-report). Goal: learn when to assert, when it would offend, and how to land the point without offending. Tracked with the Assert:: line in the Daily Recap (A/H/M | L/P/N/? | O0/O1/O2). Criterion to be set by Connor after the f26_136 baseline read.",
-      "goal": "G1",
-      "month": "M11",
-      "dueDate": "2026-11-04",
-      "msTag": "MS11",
-      "msWeek": "MSW45",
-      "taskIds": [
-        "f26_135",
-        "f26_136"
-      ],
-      "completed": false,
-      "completedAt": "",
-      "sortOrder": 0,
-      "deleted": false,
-      "createdAt": 1792265683750,
-      "updatedAt": 1792265683750
     }
   ],
   "runes": [
