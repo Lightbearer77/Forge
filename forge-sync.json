@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "lastUpdated": "2026-11-02T18:19:14.942Z",
+  "lastUpdated": "2026-11-02T18:38:01.407Z",
   "updatedBy": "Claude",
   "tasks": [
     {
@@ -5364,16 +5364,16 @@
     {
       "id": "r07",
       "name": "KILL GATE — declare recovery complete or abandoned; release 2TB drive to server pool",
-      "notes": "Decision point: formally declare the data-recovery effort finished or abandoned, then release the 2TB drive back into the server storage pool. | Carried from Kappa (was due 2026-09-25).",
+      "notes": "Decision point: formally declare the data-recovery effort finished or abandoned, then release the 2TB drive back into the server storage pool. | Carried from Kappa (was due 2026-09-25). | Moved from 10-24 (Kappa carry-over review).",
       "goal": "G1",
       "priority": "High",
       "status": "todo",
       "section": "Home Server",
       "level": 0,
       "month": "M11",
-      "week": "W43",
+      "week": "W45",
       "startDate": "",
-      "dueDate": "2026-10-24",
+      "dueDate": "2026-11-03",
       "parentId": "",
       "blockedBy": [],
       "milestone": false,
@@ -5385,7 +5385,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1785859437942,
-      "updatedAt": 1792265683750
+      "updatedAt": 1793644680970
     },
     {
       "id": "r08",
@@ -7402,16 +7402,16 @@
     {
       "id": "f26_051",
       "name": "Trajectory Read — Q3 (course-correct or stay-course decision)",
-      "notes": "Quarterly trajectory read: decide whether to course-correct or stay the course based on Q3 evidence. | Record in the read: tribe path now runs through the Asatru-faith group that meets monthly; Robbie and Andrew are friends, not tribe. Carried from Kappa (was due 2026-09-27).",
+      "notes": "Quarterly trajectory read: decide whether to course-correct or stay the course based on Q3 evidence. | Record in the read: tribe path now runs through the Asatru-faith group that meets monthly; Robbie and Andrew are friends, not tribe. Carried from Kappa (was due 2026-09-27). | Moved from 10-20 (Kappa carry-over review).",
       "goal": "G1",
       "priority": "High",
       "status": "backlog",
       "section": "Planning & Review",
       "level": 0,
-      "month": "M11",
-      "week": "W43",
+      "month": "M12",
+      "week": "W45",
       "startDate": "",
-      "dueDate": "2026-10-20",
+      "dueDate": "2026-11-06",
       "parentId": "",
       "blockedBy": [],
       "milestone": false,
@@ -7423,7 +7423,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1792265683750
+      "updatedAt": 1793644680970
     },
     {
       "id": "f26_052",
@@ -7610,16 +7610,16 @@
     {
       "id": "f26_059",
       "name": "Nutrition protocol decision LOCKED — keto continued or carnivore concluded",
-      "notes": "Decide definitively whether to continue keto or conclude the carnivore experiment, based on accumulated data. | Carried from Kappa (was due 2026-10-01).",
+      "notes": "Decide definitively whether to continue keto or conclude the carnivore experiment, based on accumulated data. | Carried from Kappa (was due 2026-10-01). | Moved from 10-22 (Kappa carry-over review).",
       "goal": "G3",
       "priority": "High",
       "status": "backlog",
       "section": "Health & Body",
       "level": 0,
       "month": "M11",
-      "week": "W43",
+      "week": "W45",
       "startDate": "",
-      "dueDate": "2026-10-22",
+      "dueDate": "2026-11-02",
       "parentId": "",
       "blockedBy": [],
       "milestone": false,
@@ -7631,7 +7631,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1792265683750
+      "updatedAt": 1793644680970
     },
     {
       "id": "f26_060",
@@ -7714,16 +7714,16 @@
     {
       "id": "f26_063",
       "name": "G1 quarterly checkpoint — habit tracker + daily systems audit",
-      "notes": "Quarterly review of the habit tracker and daily systems to confirm they're still functioning as intended. Absorbs the overdue Theta checkpoint (f26_029, 'is Unbound Time holding?') — folded into this review rather than run separately. | Carried from Kappa (was due 2026-10-07).",
+      "notes": "Quarterly review of the habit tracker and daily systems to confirm they're still functioning as intended. Absorbs the overdue Theta checkpoint (f26_029, 'is Unbound Time holding?') — folded into this review rather than run separately. | Carried from Kappa (was due 2026-10-07). | Moved from 10-21 (Kappa carry-over review).",
       "goal": "G1",
       "priority": "High",
       "status": "backlog",
       "section": "Planning & Review",
       "level": 0,
       "month": "M11",
-      "week": "W43",
+      "week": "W45",
       "startDate": "",
-      "dueDate": "2026-10-21",
+      "dueDate": "2026-11-04",
       "parentId": "",
       "blockedBy": [],
       "milestone": false,
@@ -7735,7 +7735,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1792265683750
+      "updatedAt": 1793644680970
     },
     {
       "id": "f26_064",
