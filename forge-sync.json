@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "lastUpdated": "2026-11-02T18:38:01.407Z",
+  "lastUpdated": "2026-11-02T18:39:29.927Z",
   "updatedBy": "Claude",
   "tasks": [
     {
@@ -7272,16 +7272,16 @@
     {
       "id": "f26_046",
       "name": "Supplementation v1 locked against DNA + lab results",
-      "notes": "Finalize the first version of the supplement stack, informed by DNA results and lab work. | Carried from Kappa (was due 2026-09-24).",
+      "notes": "Finalize the first version of the supplement stack, informed by DNA results and lab work. | Carried from Kappa (was due 2026-09-24). | On hold (Connor, Nov 2; was 10-25). DNA and lab results not in hand. Revisit when results arrive, or at the Mu EoM.",
       "goal": "G3",
       "priority": "High",
       "status": "backlog",
       "section": "Health & Body",
       "level": 0,
-      "month": "M11",
-      "week": "W43",
+      "month": "",
+      "week": "",
       "startDate": "",
-      "dueDate": "2026-10-25",
+      "dueDate": "",
       "parentId": "",
       "blockedBy": [],
       "milestone": false,
@@ -7293,7 +7293,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1792265683750
+      "updatedAt": 1793644769859
     },
     {
       "id": "f26_047",
@@ -7740,16 +7740,16 @@
     {
       "id": "f26_064",
       "name": "Phase 2 first formal quorum convened (if Theta assessment cleared)",
-      "notes": "First official quorum meeting of the tribe, contingent on the Theta-month readiness assessment clearing. | Moved from Oct 24 to Nov 4 so it follows the Members 1-3 conversation (f26_056, Oct 28). | Moved from 11-04 (W45 load review; follows f26_056).",
+      "notes": "First official quorum meeting of the tribe, contingent on the Theta-month readiness assessment clearing. | Moved from Oct 24 to Nov 4 so it follows the Members 1-3 conversation (f26_056, Oct 28). | Moved from 11-04 (W45 load review; follows f26_056). | On hold (Connor, Nov 2; was 11-21). Follows the f26_056 hold; revisit at the Mu EoM.",
       "goal": "G2",
       "priority": "High",
       "status": "backlog",
       "section": "Longhouse & Tribe",
       "level": 0,
-      "month": "M12",
-      "week": "W47",
+      "month": "",
+      "week": "",
       "startDate": "",
-      "dueDate": "2026-11-21",
+      "dueDate": "",
       "parentId": "",
       "blockedBy": [],
       "milestone": false,
@@ -7761,7 +7761,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1793581713894
+      "updatedAt": 1793644769859
     },
     {
       "id": "f26_065",
@@ -8078,16 +8078,16 @@
     {
       "id": "f26_078",
       "name": "⚠️ Oath signing push — all three core members signed before year-end",
-      "notes": "Push to get all three core tribe members (Members 1, 2, 3, the Asatru group) signed on the oath before 2026 ends. Names changed Lambda 10; Robbie/Andrew are friends, not tribe. | Moved from 11-04 (W45 load review; follows f26_056).",
+      "notes": "Push to get all three core tribe members (Members 1, 2, 3, the Asatru group) signed on the oath before 2026 ends. Names changed Lambda 10; Robbie/Andrew are friends, not tribe. | Moved from 11-04 (W45 load review; follows f26_056). | On hold (Connor, Nov 2; was 11-14). Follows the f26_056 hold; revisit at the Mu EoM.",
       "goal": "G2",
       "priority": "High",
       "status": "backlog",
       "section": "Longhouse & Tribe",
       "level": 0,
-      "month": "M12",
-      "week": "W46",
+      "month": "",
+      "week": "",
       "startDate": "",
-      "dueDate": "2026-11-14",
+      "dueDate": "",
       "parentId": "",
       "blockedBy": [],
       "milestone": false,
@@ -8099,21 +8099,21 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1793581713894
+      "updatedAt": 1793644769859
     },
     {
       "id": "f26_079",
       "name": "War council / monthly gathering cadence confirmed as habit",
-      "notes": "Confirm the monthly tribe gathering ('war council') has become a reliable, repeating habit rather than an occasional event.\nTasks-app reminder (Oct 27): set a reminder for planning the monthly friends get-together.",
+      "notes": "Confirm the monthly tribe gathering ('war council') has become a reliable, repeating habit rather than an occasional event.\nTasks-app reminder (Oct 27): set a reminder for planning the monthly friends get-together. | Moved from 11-04 (W45 month-alignment review; body protocol took the Top3 slot).",
       "goal": "G2",
       "priority": "High",
       "status": "backlog",
       "section": "Longhouse & Tribe",
       "level": 0,
-      "month": "M11",
-      "week": "W45",
+      "month": "M12",
+      "week": "W46",
       "startDate": "",
-      "dueDate": "2026-11-04",
+      "dueDate": "2026-11-09",
       "parentId": "",
       "blockedBy": [],
       "milestone": false,
@@ -8125,7 +8125,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1793576764374
+      "updatedAt": 1793644769859
     },
     {
       "id": "f26_080",
