@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "lastUpdated": "2026-11-02T18:47:10.778Z",
+  "lastUpdated": "2026-11-02T18:50:01.727Z",
   "updatedBy": "Claude",
   "tasks": [
     {
@@ -8026,16 +8026,16 @@
     {
       "id": "f26_076",
       "name": "Microplastics protocol moves to maintained standard",
-      "notes": "Shift the microplastics-reduction protocol from active project mode to an ongoing maintained habit. | Moved up from Nov 4.",
+      "notes": "Shift the microplastics-reduction protocol from active project mode to an ongoing maintained habit. | Moved up from Nov 4. | On hold (Connor, Nov 2; was 11-03) with ms11_01. New date to be set, possibly 2027.",
       "goal": "G3",
       "priority": "Mid",
       "status": "backlog",
       "section": "Microplastics",
       "level": 0,
-      "month": "M11",
-      "week": "W45",
+      "month": "",
+      "week": "",
       "startDate": "",
-      "dueDate": "2026-11-03",
+      "dueDate": "",
       "parentId": "",
       "blockedBy": [],
       "milestone": false,
@@ -8047,7 +8047,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1792265683750
+      "updatedAt": 1793645401320
     },
     {
       "id": "f26_077",
@@ -11540,12 +11540,12 @@
     {
       "id": "ms11_01",
       "name": "Microplastics protocol to maintained standard; deferred environmental items done",
-      "notes": "Aggregate of two tasks — shift the microplastics protocol from active project to maintained habit, plus catch-up on deferred items (bedding, air purifiers, clothing audit, rug replacement).",
+      "notes": "Aggregate of two tasks — shift the microplastics protocol from active project to maintained habit, plus catch-up on deferred items (bedding, air purifiers, clothing audit, rug replacement). | On hold (Connor, Nov 2; was Nov 4). New date to be set, possibly 2027.",
       "goal": "G3",
-      "month": "M11",
-      "dueDate": "2026-11-04",
+      "month": "",
+      "dueDate": "",
       "msTag": "MS11",
-      "msWeek": "MSW45",
+      "msWeek": "",
       "taskIds": [
         "f26_076",
         "f26_077"
@@ -11555,17 +11555,17 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1786728570260
+      "updatedAt": 1793645401320
     },
     {
       "id": "ms11_04",
       "name": "Assertive Calibration — know when to assert, and land it without offense",
-      "notes": "Successor to the Assertive Correction Season (ms9_03, closed on self-report). Goal: learn when to assert, when it would offend, and how to land the point without offending. Tracked with the Assert:: line in the Daily Recap (A/H/M | L/P/N/? | O0/O1/O2). Criterion to be set by Connor after the f26_136 baseline read.",
+      "notes": "Successor to the Assertive Correction Season (ms9_03, closed on self-report). Goal: learn when to assert, when it would offend, and how to land the point without offending. Tracked with the Assert:: line in the Daily Recap (A/H/M | L/P/N/? | O0/O1/O2). Criterion to be set by Connor after the f26_136 baseline read. | Moved from Nov 4 to the end of Mu, Dec 2 (Connor, Nov 2): few assert opportunities lately; baseline read f26_136 moved to Nov 22.",
       "goal": "G1",
-      "month": "M11",
-      "dueDate": "2026-11-04",
-      "msTag": "MS11",
-      "msWeek": "MSW45",
+      "month": "M12",
+      "dueDate": "2026-12-02",
+      "msTag": "MS12",
+      "msWeek": "MSW49",
       "taskIds": [
         "f26_135",
         "f26_136"
@@ -11575,7 +11575,7 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1792265683750,
-      "updatedAt": 1792265683750
+      "updatedAt": 1793645401320
     },
     {
       "id": "ms11_02",
