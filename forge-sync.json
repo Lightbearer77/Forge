@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "lastUpdated": "2026-11-02T18:39:29.927Z",
+  "lastUpdated": "2026-11-02T18:47:10.778Z",
   "updatedBy": "Claude",
   "tasks": [
     {
@@ -7610,10 +7610,10 @@
     {
       "id": "f26_059",
       "name": "Nutrition protocol decision LOCKED — keto continued or carnivore concluded",
-      "notes": "Decide definitively whether to continue keto or conclude the carnivore experiment, based on accumulated data. | Carried from Kappa (was due 2026-10-01). | Moved from 10-22 (Kappa carry-over review).",
+      "notes": "Decide definitively whether to continue keto or conclude the carnivore experiment, based on accumulated data. | Carried from Kappa (was due 2026-10-01). | Moved from 10-22 (Kappa carry-over review). | Decision (Connor, Nov 2): staying with carnivore.",
       "goal": "G3",
       "priority": "High",
-      "status": "backlog",
+      "status": "done",
       "section": "Health & Body",
       "level": 0,
       "month": "M11",
@@ -7624,14 +7624,14 @@
       "blockedBy": [],
       "milestone": false,
       "recurrence": "none",
-      "completed": false,
-      "completedAt": "",
+      "completed": true,
+      "completedAt": "2026-11-02",
       "sortOrder": 59,
       "flag": "",
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1793644680970
+      "updatedAt": 1793645222890
     },
     {
       "id": "f26_060",
@@ -8052,16 +8052,16 @@
     {
       "id": "f26_077",
       "name": "Deferred environmental items — bedding, air purifiers, clothing audit, rug replacement",
-      "notes": "Catch up on lower-priority environmental items (bedding, air purifiers, clothing audit, rug replacement) pushed back earlier. | Moved up from Nov 4.",
+      "notes": "Catch up on lower-priority environmental items (bedding, air purifiers, clothing audit, rug replacement) pushed back earlier. | Moved up from Nov 4. | Backlogged (Connor, Nov 2; was 11-02): important parts mostly done; remainder back-burner.",
       "goal": "G3",
       "priority": "Low",
       "status": "backlog",
       "section": "Microplastics",
       "level": 0,
-      "month": "M11",
-      "week": "W45",
+      "month": "",
+      "week": "",
       "startDate": "",
-      "dueDate": "2026-11-02",
+      "dueDate": "",
       "parentId": "",
       "blockedBy": [],
       "milestone": false,
@@ -8073,7 +8073,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1792265683750
+      "updatedAt": 1793645222890
     },
     {
       "id": "f26_078",
@@ -9228,16 +9228,16 @@
     {
       "id": "f26_136",
       "name": "Assertive Calibration — baseline read of the Assert log",
-      "notes": "First read of the Assert:: entries. When did asserting land, when did it cost, where did holding back serve. Connor sets the ms11_04 criterion from this read; do not pre-set it. | Moved from 11-01 (W44 closeout triage). | Moved from 11-08 (W45 load review).",
+      "notes": "First read of the Assert:: entries. When did asserting land, when did it cost, where did holding back serve. Connor sets the ms11_04 criterion from this read; do not pre-set it. | Moved from 11-01 (W44 closeout triage). | Moved from 11-08 (W45 load review). | Moved from 11-02 (Connor, Nov 2): few assert opportunities lately; waiting for more entries.",
       "goal": "G1",
       "priority": "Mid",
       "status": "backlog",
       "section": "Planning & Review",
       "level": 0,
-      "month": "M11",
-      "week": "W45",
+      "month": "M12",
+      "week": "W47",
       "startDate": "",
-      "dueDate": "2026-11-02",
+      "dueDate": "2026-11-22",
       "parentId": "",
       "blockedBy": [],
       "milestone": false,
@@ -9249,7 +9249,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1792265683750,
-      "updatedAt": 1793581713894
+      "updatedAt": 1793645222890
     },
     {
       "id": "f26_137",
