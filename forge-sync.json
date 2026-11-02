@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "lastUpdated": "2026-11-02T01:04:27.596Z",
+  "lastUpdated": "2026-11-02T01:08:47.096Z",
   "updatedBy": "Claude",
   "tasks": [
     {
@@ -7532,16 +7532,16 @@
     {
       "id": "f26_056",
       "name": "Run the explicit tribe conversation with Members 1, 2 and 3 (Asatru group)",
-      "notes": "do early — 2026, not 2028 | Lambda 10 update: tribe path now runs through the Asatru-faith group that meets monthly (Members 1, 2, 3). Robbie and Andrew are friends, not tribe. Carried from Kappa (was due 2026-09-30).",
+      "notes": "do early — 2026, not 2028 | Lambda 10 update: tribe path now runs through the Asatru-faith group that meets monthly (Members 1, 2, 3). Robbie and Andrew are friends, not tribe. Carried from Kappa (was due 2026-09-30). | Moved from 10-28 (W45 load review).",
       "goal": "G2",
       "priority": "High",
       "status": "backlog",
       "section": "Longhouse & Tribe",
       "level": 0,
-      "month": "M11",
-      "week": "W44",
+      "month": "M12",
+      "week": "W45",
       "startDate": "",
-      "dueDate": "2026-10-28",
+      "dueDate": "2026-11-07",
       "parentId": "",
       "blockedBy": [],
       "milestone": false,
@@ -7553,7 +7553,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1792265683750
+      "updatedAt": 1793581713894
     },
     {
       "id": "f26_057",
@@ -7740,16 +7740,16 @@
     {
       "id": "f26_064",
       "name": "Phase 2 first formal quorum convened (if Theta assessment cleared)",
-      "notes": "First official quorum meeting of the tribe, contingent on the Theta-month readiness assessment clearing. | Moved from Oct 24 to Nov 4 so it follows the Members 1-3 conversation (f26_056, Oct 28).",
+      "notes": "First official quorum meeting of the tribe, contingent on the Theta-month readiness assessment clearing. | Moved from Oct 24 to Nov 4 so it follows the Members 1-3 conversation (f26_056, Oct 28). | Moved from 11-04 (W45 load review; follows f26_056).",
       "goal": "G2",
       "priority": "High",
       "status": "backlog",
       "section": "Longhouse & Tribe",
       "level": 0,
-      "month": "M11",
-      "week": "W45",
+      "month": "M12",
+      "week": "W47",
       "startDate": "",
-      "dueDate": "2026-11-04",
+      "dueDate": "2026-11-21",
       "parentId": "",
       "blockedBy": [],
       "milestone": false,
@@ -7761,7 +7761,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1792265683750
+      "updatedAt": 1793581713894
     },
     {
       "id": "f26_065",
@@ -8078,16 +8078,16 @@
     {
       "id": "f26_078",
       "name": "⚠️ Oath signing push — all three core members signed before year-end",
-      "notes": "Push to get all three core tribe members (Members 1, 2, 3, the Asatru group) signed on the oath before 2026 ends. Names changed Lambda 10; Robbie/Andrew are friends, not tribe.",
+      "notes": "Push to get all three core tribe members (Members 1, 2, 3, the Asatru group) signed on the oath before 2026 ends. Names changed Lambda 10; Robbie/Andrew are friends, not tribe. | Moved from 11-04 (W45 load review; follows f26_056).",
       "goal": "G2",
       "priority": "High",
       "status": "backlog",
       "section": "Longhouse & Tribe",
       "level": 0,
-      "month": "M11",
-      "week": "W45",
+      "month": "M12",
+      "week": "W46",
       "startDate": "",
-      "dueDate": "2026-11-04",
+      "dueDate": "2026-11-14",
       "parentId": "",
       "blockedBy": [],
       "milestone": false,
@@ -8099,7 +8099,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1792265683750
+      "updatedAt": 1793581713894
     },
     {
       "id": "f26_079",
@@ -9228,16 +9228,16 @@
     {
       "id": "f26_136",
       "name": "Assertive Calibration — baseline read of the Assert log",
-      "notes": "First read of the Assert:: entries. When did asserting land, when did it cost, where did holding back serve. Connor sets the ms11_04 criterion from this read; do not pre-set it. | Moved from 11-01 (W44 closeout triage).",
+      "notes": "First read of the Assert:: entries. When did asserting land, when did it cost, where did holding back serve. Connor sets the ms11_04 criterion from this read; do not pre-set it. | Moved from 11-01 (W44 closeout triage). | Moved from 11-08 (W45 load review).",
       "goal": "G1",
       "priority": "Mid",
       "status": "backlog",
       "section": "Planning & Review",
       "level": 0,
-      "month": "M12",
+      "month": "M11",
       "week": "W45",
       "startDate": "",
-      "dueDate": "2026-11-08",
+      "dueDate": "2026-11-02",
       "parentId": "",
       "blockedBy": [],
       "milestone": false,
@@ -9249,7 +9249,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1792265683750,
-      "updatedAt": 1793581467230
+      "updatedAt": 1793581713894
     },
     {
       "id": "f26_137",
