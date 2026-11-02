@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "lastUpdated": "2026-11-01T23:46:56.029Z",
-  "updatedBy": "Claude",
+  "lastUpdated": "2026-11-02T00:14:23.422Z",
+  "updatedBy": "Forge",
   "tasks": [
     {
       "id": "t_seed_hsa_transfer",
@@ -3334,11 +3334,11 @@
       "notes": "Start a standing habit of approaching women in person at least twice a week, independent of dating apps.",
       "goal": "G2",
       "priority": "High",
-      "status": "backlog",
+      "status": "in-progress",
       "section": "Longhouse & Tribe",
       "level": 3,
-      "month": "",
-      "week": "",
+      "month": "M05",
+      "week": "W20",
       "startDate": "2026-05-10",
       "dueDate": "2026-05-14",
       "parentId": "",
@@ -3352,7 +3352,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
-      "updatedAt": 1789088386260
+      "updatedAt": 1793578385106
     },
     {
       "id": "b25",
@@ -3866,11 +3866,11 @@
       "notes": "Rules for tribe and future family",
       "goal": "G3",
       "priority": "Mid",
-      "status": "backlog",
+      "status": "in-progress",
       "section": "Microplastics",
       "level": 3,
-      "month": "",
-      "week": "",
+      "month": "M07",
+      "week": "W25",
       "startDate": "2026-06-17",
       "dueDate": "2026-06-20",
       "parentId": "",
@@ -3884,7 +3884,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
-      "updatedAt": 1789088386260
+      "updatedAt": 1793578460119
     },
     {
       "id": "c19",
@@ -5263,11 +5263,11 @@
       "notes": "Unattended overnight ddrescue disk image of the failing drive onto the verified 4TB external — the core data-recovery step.",
       "goal": "G1",
       "priority": "Mid",
-      "status": "todo",
+      "status": "backlog",
       "section": "Home Server",
       "level": 0,
-      "month": "",
-      "week": "",
+      "month": "M08",
+      "week": "W33",
       "startDate": "",
       "dueDate": "2026-08-11",
       "parentId": "",
@@ -5281,7 +5281,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1785859437942,
-      "updatedAt": 1789088386260
+      "updatedAt": 1793574401879
     },
     {
       "id": "r04",
