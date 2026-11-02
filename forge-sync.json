@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "lastUpdated": "2026-11-02T18:50:01.727Z",
+  "lastUpdated": "2026-11-02T19:05:11.524Z",
   "updatedBy": "Claude",
   "tasks": [
     {
@@ -4844,16 +4844,16 @@
     {
       "id": "v19",
       "name": "Confirm HSA at IRS limit ($4,400: $3,900 election + $500 incentive)",
-      "notes": "Verify HSA contributions hit the IRS limit ($4,400 total: $3,900 election + $500 employer incentive).",
+      "notes": "Verify HSA contributions hit the IRS limit ($4,400 total: $3,900 election + $500 employer incentive). | Moved from 07-15 (folded into the Nov 3 benefits session with f26_074; Connor, Nov 2).",
       "goal": "G4",
       "priority": "High",
       "status": "backlog",
       "section": "Financial",
       "level": 2,
-      "month": "M07",
-      "week": "W28",
+      "month": "M11",
+      "week": "W45",
       "startDate": "",
-      "dueDate": "2026-07-15",
+      "dueDate": "2026-11-03",
       "parentId": "",
       "blockedBy": [],
       "milestone": false,
@@ -4865,21 +4865,21 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1785960969568
+      "updatedAt": 1793646311427
     },
     {
       "id": "v20",
       "name": "Adopt any unused benefits available from Northrop",
-      "notes": "Review Northrop's benefits package for anything unused that should be activated.",
+      "notes": "Review Northrop's benefits package for anything unused that should be activated. | Moved from 07-20 (folded into the Nov 3 benefits session with f26_074; Connor, Nov 2).",
       "goal": "G4",
       "priority": "High",
       "status": "backlog",
       "section": "Financial",
       "level": 2,
-      "month": "M07",
-      "week": "W30",
+      "month": "M11",
+      "week": "W45",
       "startDate": "",
-      "dueDate": "2026-07-20",
+      "dueDate": "2026-11-03",
       "parentId": "",
       "blockedBy": [],
       "milestone": false,
@@ -4891,7 +4891,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1785960969568
+      "updatedAt": 1793646311427
     },
     {
       "id": "v21",
