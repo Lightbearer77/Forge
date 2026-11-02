@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "lastUpdated": "2026-11-02T01:08:47.096Z",
+  "lastUpdated": "2026-11-02T18:19:14.942Z",
   "updatedBy": "Claude",
   "tasks": [
     {
@@ -7506,16 +7506,16 @@
     {
       "id": "f26_055",
       "name": "Book Microsoft associate cert exam (AZ-104/SC-200/DP-203)",
-      "notes": "Not yet scheduled — study underway per f26_023, but no exam date is booked. Book a firm date; renamed from 'PASSED (or rescheduled)' which assumed a booking that doesn't exist. | Carried from Kappa (was due 2026-09-30). | Moved from 10-26 (W44 closeout triage).",
+      "notes": "Not yet scheduled — study underway per f26_023, but no exam date is booked. Book a firm date; renamed from 'PASSED (or rescheduled)' which assumed a booking that doesn't exist. | Carried from Kappa (was due 2026-09-30). | Moved from 10-26 (W44 closeout triage). | On hold (Connor, Nov 2; was 11-06). Revisit at the Mu EoM.",
       "goal": "G4",
       "priority": "High",
       "status": "backlog",
       "section": "Career & Credentials",
       "level": 0,
-      "month": "M12",
-      "week": "W45",
+      "month": "",
+      "week": "",
       "startDate": "",
-      "dueDate": "2026-11-06",
+      "dueDate": "",
       "parentId": "",
       "blockedBy": [],
       "milestone": false,
@@ -7527,21 +7527,21 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1793581467230
+      "updatedAt": 1793643554540
     },
     {
       "id": "f26_056",
       "name": "Run the explicit tribe conversation with Members 1, 2 and 3 (Asatru group)",
-      "notes": "do early — 2026, not 2028 | Lambda 10 update: tribe path now runs through the Asatru-faith group that meets monthly (Members 1, 2, 3). Robbie and Andrew are friends, not tribe. Carried from Kappa (was due 2026-09-30). | Moved from 10-28 (W45 load review).",
+      "notes": "do early — 2026, not 2028 | Lambda 10 update: tribe path now runs through the Asatru-faith group that meets monthly (Members 1, 2, 3). Robbie and Andrew are friends, not tribe. Carried from Kappa (was due 2026-09-30). | Moved from 10-28 (W45 load review). | On hold (Connor, Nov 2; was 11-07). Revisit at the Mu EoM.",
       "goal": "G2",
       "priority": "High",
       "status": "backlog",
       "section": "Longhouse & Tribe",
       "level": 0,
-      "month": "M12",
-      "week": "W45",
+      "month": "",
+      "week": "",
       "startDate": "",
-      "dueDate": "2026-11-07",
+      "dueDate": "",
       "parentId": "",
       "blockedBy": [],
       "milestone": false,
@@ -7553,7 +7553,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1793581713894
+      "updatedAt": 1793643554540
     },
     {
       "id": "f26_057",
