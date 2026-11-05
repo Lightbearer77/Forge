@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "lastUpdated": "2026-11-05T18:38:15.790Z",
-  "updatedBy": "Forge",
+  "lastUpdated": "2026-11-05T20:07:58.783Z",
+  "updatedBy": "Claude",
   "tasks": [
     {
       "id": "t_seed_hsa_transfer",
@@ -4159,7 +4159,7 @@
       "notes": "Research locally available martial arts/self-defense schools and disciplines, to choose one.",
       "goal": "G3",
       "priority": "Low",
-      "status": "backlog",
+      "status": "done",
       "section": "Combat Readiness",
       "level": 2,
       "month": "",
@@ -4170,14 +4170,14 @@
       "blockedBy": [],
       "milestone": false,
       "recurrence": "none",
-      "completed": false,
-      "completedAt": "",
+      "completed": true,
+      "completedAt": "2026-08-04",
       "sortOrder": 0,
       "flag": "",
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
-      "updatedAt": 1789088386260
+      "updatedAt": 1793909278620
     },
     {
       "id": "z02",
@@ -4185,7 +4185,7 @@
       "notes": "Pick a discipline from the research and sign up for the first class.",
       "goal": "G3",
       "priority": "Low",
-      "status": "backlog",
+      "status": "done",
       "section": "Combat Readiness",
       "level": 2,
       "month": "",
@@ -4198,14 +4198,14 @@
       ],
       "milestone": false,
       "recurrence": "none",
-      "completed": false,
-      "completedAt": "",
+      "completed": true,
+      "completedAt": "2026-08-04",
       "sortOrder": 0,
       "flag": "",
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
-      "updatedAt": 1789088386260
+      "updatedAt": 1793909278620
     },
     {
       "id": "z03",
@@ -5003,7 +5003,7 @@
       "notes": "Placeholder for the archive sweep; tag items only as they are pulled forward.",
       "goal": "G1",
       "priority": "Low",
-      "status": "backlog",
+      "status": "done",
       "section": "Planning & Review",
       "level": 1,
       "month": "",
@@ -5014,14 +5014,14 @@
       "blockedBy": [],
       "milestone": false,
       "recurrence": "none",
-      "completed": false,
-      "completedAt": "",
+      "completed": true,
+      "completedAt": "2026-08-04",
       "sortOrder": 0,
       "flag": "",
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1785874759342
+      "updatedAt": 1793909278620
     },
     {
       "id": "v26",
@@ -9257,7 +9257,7 @@
       "notes": "Assertive Calibration tracking. One line per situation: Assert:: situation | A/H/M | L/P/N/? | O0/O1/O2. A=asserted, H=held back on purpose, M=missed. L=landed, P=partly, N=no, ?=unknown. O0/O1/O2=offense none/some/clear. Record the other person's visible reaction, not a guess. Log held-back and missed too. Vault edit: DR template only, one file. HabitNow's readiness log counts opportunities; this line records outcomes.",
       "goal": "G1",
       "priority": "Mid",
-      "status": "backlog",
+      "status": "done",
       "section": "Planning & Review",
       "level": 0,
       "month": "M11",
@@ -9268,14 +9268,14 @@
       "blockedBy": [],
       "milestone": false,
       "recurrence": "none",
-      "completed": false,
-      "completedAt": "",
+      "completed": true,
+      "completedAt": "2026-10-25",
       "sortOrder": 135,
       "flag": "",
       "flagDate": "",
       "deleted": false,
       "createdAt": 1792265683750,
-      "updatedAt": 1792265683750
+      "updatedAt": 1793909278620
     },
     {
       "id": "f26_136",
@@ -11697,12 +11697,12 @@
       "taskIds": [
         "f26_059"
       ],
-      "completed": false,
-      "completedAt": "",
+      "completed": true,
+      "completedAt": "2026-11-02",
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1792265683750
+      "updatedAt": 1793909278620
     },
     {
       "id": "ms6_01",
