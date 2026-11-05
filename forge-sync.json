@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "lastUpdated": "2026-11-05T16:37:28.278Z",
+  "lastUpdated": "2026-11-05T16:44:04.629Z",
   "updatedBy": "Forge",
   "tasks": [
     {
@@ -5371,9 +5371,9 @@
       "section": "Home Server",
       "level": 0,
       "month": "M12",
-      "week": "W47",
+      "week": "W49",
       "startDate": "",
-      "dueDate": "",
+      "dueDate": "2026-12-02",
       "parentId": "",
       "blockedBy": [],
       "milestone": false,
@@ -5385,7 +5385,7 @@
       "flagDate": "2026-11-05",
       "deleted": false,
       "createdAt": 1785859437942,
-      "updatedAt": 1793896613789
+      "updatedAt": 1793897031262
     },
     {
       "id": "r08",
