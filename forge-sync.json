@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "lastUpdated": "2026-11-02T19:15:37.136Z",
-  "updatedBy": "Claude",
+  "lastUpdated": "2026-11-05T16:22:51.903Z",
+  "updatedBy": "Forge",
   "tasks": [
     {
       "id": "t_seed_hsa_transfer",
@@ -2452,7 +2452,7 @@
       "notes": "Ongoing Phase 1 tactic: use natural gathering incentives to draw new contacts without an explicit pitch. Score the readiness checklist afterward to gauge distance from Phase 2.",
       "goal": "G2",
       "priority": "High",
-      "status": "todo",
+      "status": "retired",
       "section": "Longhouse & Tribe",
       "level": 3,
       "month": "M05",
@@ -2467,10 +2467,10 @@
       "completedAt": "",
       "sortOrder": 0,
       "flag": "wrong-scope",
-      "flagDate": "2026-10-20",
+      "flagDate": "2026-11-03",
       "deleted": false,
       "createdAt": 1784316958079,
-      "updatedAt": 1792542689247
+      "updatedAt": 1793716913968
     },
     {
       "id": "a38",
@@ -3334,7 +3334,7 @@
       "notes": "Start a standing habit of approaching women in person at least twice a week, independent of dating apps.",
       "goal": "G2",
       "priority": "High",
-      "status": "in-progress",
+      "status": "backlog",
       "section": "Longhouse & Tribe",
       "level": 3,
       "month": "M05",
@@ -3348,11 +3348,11 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
-      "flag": "",
-      "flagDate": "",
+      "flag": "flagged",
+      "flagDate": "2026-11-03",
       "deleted": false,
       "createdAt": 1784316958080,
-      "updatedAt": 1793578385106
+      "updatedAt": 1793716937057
     },
     {
       "id": "b25",
@@ -3866,7 +3866,7 @@
       "notes": "Rules for tribe and future family",
       "goal": "G3",
       "priority": "Mid",
-      "status": "in-progress",
+      "status": "backlog",
       "section": "Microplastics",
       "level": 3,
       "month": "M11",
@@ -3880,11 +3880,11 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
-      "flag": "",
-      "flagDate": "",
+      "flag": "plan-changed",
+      "flagDate": "2026-11-03",
       "deleted": false,
       "createdAt": 1784316958080,
-      "updatedAt": 1793578592379
+      "updatedAt": 1793716947852
     },
     {
       "id": "c19",
@@ -4847,7 +4847,7 @@
       "notes": "Verify HSA contributions hit the IRS limit ($4,400 total: $3,900 election + $500 employer incentive). | Moved from 07-15 (folded into the Nov 3 benefits session with f26_074; Connor, Nov 2).",
       "goal": "G4",
       "priority": "High",
-      "status": "backlog",
+      "status": "in-progress",
       "section": "Financial",
       "level": 2,
       "month": "M11",
@@ -4865,7 +4865,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1793646311427
+      "updatedAt": 1793716855927
     },
     {
       "id": "v20",
@@ -4873,7 +4873,7 @@
       "notes": "Review Northrop's benefits package for anything unused that should be activated. | Moved from 07-20 (folded into the Nov 3 benefits session with f26_074; Connor, Nov 2).",
       "goal": "G4",
       "priority": "High",
-      "status": "backlog",
+      "status": "in-progress",
       "section": "Financial",
       "level": 2,
       "month": "M11",
@@ -4891,7 +4891,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1793646311427
+      "updatedAt": 1793716860863
     },
     {
       "id": "v21",
@@ -5381,11 +5381,11 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
-      "flag": "",
-      "flagDate": "",
+      "flag": "needs-rewrite",
+      "flagDate": "2026-11-05",
       "deleted": false,
       "createdAt": 1785859437942,
-      "updatedAt": 1793646937055
+      "updatedAt": 1793895604398
     },
     {
       "id": "r08",
@@ -5438,6 +5438,58 @@
       "deleted": true,
       "createdAt": 1787781509736,
       "updatedAt": 1787781547885
+    },
+    {
+      "id": "t_1793668672275_b1lxy4",
+      "name": "EoM template: Final Summation, §2–4 regex fix, §6 rewrite, day-order sort",
+      "notes": "Replaced the Value-Alignment Audit with Final Summation. Fixed Win/Loss/Lesson regex to stay on the same line. §6 now handles start-only time logs. Recaps now sort by day number. Replaces the retired value-alignment journal task.",
+      "goal": "G1",
+      "priority": "Mid",
+      "status": "done",
+      "section": "Planning & Review",
+      "level": 0,
+      "month": "M11",
+      "week": "W45",
+      "startDate": "",
+      "dueDate": "2026-11-02",
+      "parentId": "",
+      "blockedBy": [],
+      "milestone": false,
+      "recurrence": "none",
+      "completed": true,
+      "completedAt": "2026-11-02",
+      "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
+      "deleted": false,
+      "createdAt": 1793668672275,
+      "updatedAt": 1793668744296
+    },
+    {
+      "id": "t_1793668754709_9yz8id",
+      "name": "EoM fixes in Kappa/Iota notes + first Final Summation run",
+      "notes": "Apply the regex and sort fixes to the Kappa and Iota notes, add the new §7 to Iota, then run the Lambda summation and send me the §2–4 output.",
+      "goal": "G1",
+      "priority": "Mid",
+      "status": "in-progress",
+      "section": "",
+      "level": 0,
+      "month": "M11",
+      "week": "W45",
+      "startDate": "",
+      "dueDate": "2026-11-04",
+      "parentId": "",
+      "blockedBy": [],
+      "milestone": false,
+      "recurrence": "none",
+      "completed": false,
+      "completedAt": "",
+      "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
+      "deleted": false,
+      "createdAt": 1793668754709,
+      "updatedAt": 1793716868167
     },
     {
       "id": "f26_001",
@@ -5757,7 +5809,7 @@
       "notes": "Wall confirmed: east wall, south of the sliding glass door.",
       "goal": "G2",
       "priority": "Mid",
-      "status": "in-progress",
+      "status": "todo",
       "section": "Lounge & Office",
       "level": 0,
       "month": "",
@@ -5775,7 +5827,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1789088449293,
-      "updatedAt": 1789088449293
+      "updatedAt": 1793721101094
     },
     {
       "id": "f26_007",
@@ -5783,7 +5835,7 @@
       "notes": "overdue Jun 27",
       "goal": "G4",
       "priority": "High",
-      "status": "todo",
+      "status": "backlog",
       "section": "Career & Credentials",
       "level": 0,
       "month": "M08",
@@ -5797,11 +5849,11 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 7,
-      "flag": "",
-      "flagDate": "",
+      "flag": "needs-rewrite",
+      "flagDate": "2026-11-05",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1785874759342
+      "updatedAt": 1793895629235
     },
     {
       "id": "f26_114",
@@ -5835,11 +5887,11 @@
       "notes": "overdue Jun 30",
       "goal": "G3",
       "priority": "Mid",
-      "status": "todo",
+      "status": "backlog",
       "section": "Microplastics",
       "level": 0,
-      "month": "",
-      "week": "",
+      "month": "M08",
+      "week": "W32",
       "startDate": "",
       "dueDate": "2026-08-05",
       "parentId": "",
@@ -5849,11 +5901,11 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 8,
-      "flag": "",
-      "flagDate": "",
+      "flag": "plan-changed",
+      "flagDate": "2026-11-05",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1789088386260
+      "updatedAt": 1793895515469
     },
     {
       "id": "f26_115",
@@ -6677,7 +6729,7 @@
       "notes": "Track progress on the AZ-104/SC-200/DP-203 certification study, with exam scheduling underway.",
       "goal": "G4",
       "priority": "High",
-      "status": "todo",
+      "status": "backlog",
       "section": "Career & Credentials",
       "level": 0,
       "month": "M08",
@@ -6691,11 +6743,11 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 23,
-      "flag": "",
-      "flagDate": "",
+      "flag": "needs-rewrite",
+      "flagDate": "2026-11-05",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1785960969568
+      "updatedAt": 1793892622700
     },
     {
       "id": "f26_024",
@@ -6911,11 +6963,11 @@
       "notes": "Begin the advanced SAS module after finishing intermediate.",
       "goal": "G4",
       "priority": "Mid",
-      "status": "todo",
+      "status": "backlog",
       "section": "Career & Credentials",
       "level": 0,
-      "month": "",
-      "week": "",
+      "month": "M08",
+      "week": "W33",
       "startDate": "",
       "dueDate": "2026-08-12",
       "parentId": "",
@@ -6925,11 +6977,11 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 32,
-      "flag": "",
-      "flagDate": "",
+      "flag": "needs-rewrite",
+      "flagDate": "2026-11-05",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1789088386260
+      "updatedAt": 1793895635458
     },
     {
       "id": "f26_033",
@@ -7405,7 +7457,7 @@
       "notes": "Quarterly trajectory read: decide whether to course-correct or stay the course based on Q3 evidence. | Record in the read: tribe path now runs through the Asatru-faith group that meets monthly; Robbie and Andrew are friends, not tribe. Carried from Kappa (was due 2026-09-27). | Moved from 10-20 (Kappa carry-over review).",
       "goal": "G1",
       "priority": "High",
-      "status": "backlog",
+      "status": "in-progress",
       "section": "Planning & Review",
       "level": 0,
       "month": "M12",
@@ -7423,7 +7475,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1793644680970
+      "updatedAt": 1793716878713
     },
     {
       "id": "f26_052",
@@ -7523,11 +7575,11 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 55,
-      "flag": "",
-      "flagDate": "",
+      "flag": "needs-rewrite",
+      "flagDate": "2026-11-05",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1793643554540
+      "updatedAt": 1793892628316
     },
     {
       "id": "f26_056",
@@ -7818,10 +7870,10 @@
     {
       "id": "f26_067",
       "name": "Value-alignment journal — Kappa entry",
-      "notes": "Monthly value-alignment journal entry for Kappa. | Also covers the Iota entry (merged from f26_052). Carried from Kappa (was due 2026-10-07). | Moved from 10-30 (W44 closeout triage).",
+      "notes": "Monthly value-alignment journal entry for Kappa. | Also covers the Iota entry (merged from f26_052). Carried from Kappa (was due 2026-10-07). | Moved from 10-30 (W44 closeout triage).\n\nReplaced by EoM Final Summation (wins/losses → Coach report).",
       "goal": "G1",
       "priority": "Mid",
-      "status": "backlog",
+      "status": "retired",
       "section": "Planning & Review",
       "level": 0,
       "month": "M11",
@@ -7835,11 +7887,11 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 67,
-      "flag": "",
-      "flagDate": "",
+      "flag": "plan-changed",
+      "flagDate": "2026-11-02",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1793581467230
+      "updatedAt": 1793666938941
     },
     {
       "id": "f26_068",
@@ -7977,7 +8029,7 @@
       "notes": "Review Northrop's Q4 open enrollment window and make any needed benefits elections. | Moved up from Nov 4. | Moved from 10-29 (W44 closeout triage).",
       "goal": "G4",
       "priority": "High",
-      "status": "backlog",
+      "status": "done",
       "section": "Financial",
       "level": 0,
       "month": "M11",
@@ -7988,14 +8040,14 @@
       "blockedBy": [],
       "milestone": false,
       "recurrence": "none",
-      "completed": false,
-      "completedAt": "",
+      "completed": true,
+      "completedAt": "2026-11-03",
       "sortOrder": 74,
       "flag": "",
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1793581467230
+      "updatedAt": 1793747565882
     },
     {
       "id": "f26_075",
@@ -8043,11 +8095,11 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 76,
-      "flag": "",
-      "flagDate": "",
+      "flag": "plan-changed",
+      "flagDate": "2026-11-05",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1793645401320
+      "updatedAt": 1793895525373
     },
     {
       "id": "f26_077",
@@ -8095,11 +8147,11 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 78,
-      "flag": "",
-      "flagDate": "",
+      "flag": "needs-rewrite",
+      "flagDate": "2026-11-05",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1793644769859
+      "updatedAt": 1793895555461
     },
     {
       "id": "f26_079",
@@ -8133,7 +8185,7 @@
       "notes": "Monthly value-alignment journal entry for Lambda.",
       "goal": "G1",
       "priority": "Mid",
-      "status": "backlog",
+      "status": "retired",
       "section": "Planning & Review",
       "level": 0,
       "month": "M11",
@@ -8147,11 +8199,11 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 80,
-      "flag": "",
-      "flagDate": "",
+      "flag": "plan-changed",
+      "flagDate": "2026-11-03",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1785960969568
+      "updatedAt": 1793716822218
     },
     {
       "id": "f26_081",
@@ -9337,7 +9389,7 @@
       "notes": "Bring the long-range plans in line with the June 2026 Ubermensch Reformation Charter. Should land before Nu (Dec 3) so the annual Reckoning and the 2027 chunk tasks (f26_088–090) draw on updated plans.",
       "goal": "G1",
       "priority": "High",
-      "status": "backlog",
+      "status": "todo",
       "section": "Planning & Review",
       "level": 0,
       "month": "M12",
@@ -9355,7 +9407,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1793122699887,
-      "updatedAt": 1793581467230
+      "updatedAt": 1793716901454
     },
     {
       "id": "f26_141",
@@ -9857,7 +9909,7 @@
       "notes": "Review what was missed this year while it is still fresh. Inputs: pay stubs, credit card statements, Monarch summaries.",
       "goal": "G4",
       "priority": "High",
-      "status": "todo",
+      "status": "in-progress",
       "section": "Financial",
       "level": 0,
       "month": "M12",
@@ -9875,7 +9927,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1793576764374,
-      "updatedAt": 1793576764374
+      "updatedAt": 1793716883028
     },
     {
       "id": "f26_161",
@@ -10180,6 +10232,26 @@
       "deleted": false,
       "createdAt": 1784393287371,
       "updatedAt": 1792272760665
+    },
+    {
+      "id": "ms11_01",
+      "name": "Microplastics protocol to maintained standard; deferred environmental items done",
+      "notes": "Aggregate of two tasks — shift the microplastics protocol from active project to maintained habit, plus catch-up on deferred items (bedding, air purifiers, clothing audit, rug replacement). | On hold (Connor, Nov 2; was Nov 4). New date to be set, possibly 2027.",
+      "goal": "G3",
+      "month": "",
+      "dueDate": "",
+      "msTag": "MS11",
+      "msWeek": "",
+      "taskIds": [
+        "f26_076",
+        "f26_077"
+      ],
+      "completed": false,
+      "completedAt": "",
+      "sortOrder": 0,
+      "deleted": false,
+      "createdAt": 1784393287371,
+      "updatedAt": 1793645401320
     },
     {
       "id": "ms2027_01",
@@ -11538,46 +11610,6 @@
       "updatedAt": 1789088448287
     },
     {
-      "id": "ms11_01",
-      "name": "Microplastics protocol to maintained standard; deferred environmental items done",
-      "notes": "Aggregate of two tasks — shift the microplastics protocol from active project to maintained habit, plus catch-up on deferred items (bedding, air purifiers, clothing audit, rug replacement). | On hold (Connor, Nov 2; was Nov 4). New date to be set, possibly 2027.",
-      "goal": "G3",
-      "month": "",
-      "dueDate": "",
-      "msTag": "MS11",
-      "msWeek": "",
-      "taskIds": [
-        "f26_076",
-        "f26_077"
-      ],
-      "completed": false,
-      "completedAt": "",
-      "sortOrder": 0,
-      "deleted": false,
-      "createdAt": 1784393287371,
-      "updatedAt": 1793645401320
-    },
-    {
-      "id": "ms11_04",
-      "name": "Assertive Calibration — know when to assert, and land it without offense",
-      "notes": "Successor to the Assertive Correction Season (ms9_03, closed on self-report). Goal: learn when to assert, when it would offend, and how to land the point without offending. Tracked with the Assert:: line in the Daily Recap (A/H/M | L/P/N/? | O0/O1/O2). Criterion to be set by Connor after the f26_136 baseline read. | Moved from Nov 4 to the end of Mu, Dec 2 (Connor, Nov 2): few assert opportunities lately; baseline read f26_136 moved to Nov 22.",
-      "goal": "G1",
-      "month": "M12",
-      "dueDate": "2026-12-02",
-      "msTag": "MS12",
-      "msWeek": "MSW49",
-      "taskIds": [
-        "f26_135",
-        "f26_136"
-      ],
-      "completed": false,
-      "completedAt": "",
-      "sortOrder": 0,
-      "deleted": false,
-      "createdAt": 1792265683750,
-      "updatedAt": 1793645401320
-    },
-    {
       "id": "ms11_02",
       "name": "Body composition scan #3 (pre-gate)",
       "notes": "Single-task checkpoint — third body-composition scan, taken just before the year-end gate review.",
@@ -11671,6 +11703,26 @@
       "deleted": false,
       "createdAt": 1784393287371,
       "updatedAt": 1786728570260
+    },
+    {
+      "id": "ms11_04",
+      "name": "Assertive Calibration — know when to assert, and land it without offense",
+      "notes": "Successor to the Assertive Correction Season (ms9_03, closed on self-report). Goal: learn when to assert, when it would offend, and how to land the point without offending. Tracked with the Assert:: line in the Daily Recap (A/H/M | L/P/N/? | O0/O1/O2). Criterion to be set by Connor after the f26_136 baseline read. | Moved from Nov 4 to the end of Mu, Dec 2 (Connor, Nov 2): few assert opportunities lately; baseline read f26_136 moved to Nov 22.",
+      "goal": "G1",
+      "month": "M12",
+      "dueDate": "2026-12-02",
+      "msTag": "MS12",
+      "msWeek": "MSW49",
+      "taskIds": [
+        "f26_135",
+        "f26_136"
+      ],
+      "completed": false,
+      "completedAt": "",
+      "sortOrder": 0,
+      "deleted": false,
+      "createdAt": 1792265683750,
+      "updatedAt": 1793645401320
     }
   ],
   "runes": [
