@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "lastUpdated": "2026-11-05T18:36:12.242Z",
-  "updatedBy": "Claude",
+  "lastUpdated": "2026-11-05T18:38:15.790Z",
+  "updatedBy": "Forge",
   "tasks": [
     {
       "id": "t_seed_hsa_transfer",
@@ -5471,7 +5471,7 @@
       "notes": "Apply the regex and sort fixes to the Kappa and Iota notes, add the new §7 to Iota, then run the Lambda summation and send me the §2–4 output.",
       "goal": "G1",
       "priority": "Mid",
-      "status": "in-progress",
+      "status": "done",
       "section": "",
       "level": 0,
       "month": "M11",
@@ -5482,14 +5482,14 @@
       "blockedBy": [],
       "milestone": false,
       "recurrence": "none",
-      "completed": false,
-      "completedAt": "",
+      "completed": true,
+      "completedAt": "2026-11-05",
       "sortOrder": 0,
       "flag": "",
       "flagDate": "",
       "deleted": false,
       "createdAt": 1793668754709,
-      "updatedAt": 1793716868167
+      "updatedAt": 1793897218735
     },
     {
       "id": "f26_001",
@@ -10462,6 +10462,25 @@
       "updatedAt": 1793903772078
     },
     {
+      "id": "ms11_02",
+      "name": "Body composition scan #3 — opportunistic, take the first available slot",
+      "notes": "Single-task checkpoint — third body-composition scan, taken just before the year-end gate review.",
+      "goal": "G3",
+      "month": "",
+      "dueDate": "",
+      "msTag": "MS2027",
+      "msWeek": "",
+      "taskIds": [
+        "f26_082"
+      ],
+      "completed": false,
+      "completedAt": "",
+      "sortOrder": 0,
+      "deleted": false,
+      "createdAt": 1784393287371,
+      "updatedAt": 1793903772078
+    },
+    {
       "id": "ms2027_01",
       "name": "Combat effectiveness / self-defense foundation established",
       "notes": "Manual checkpoint, no discrete task and no month/due date set — unscheduled pending a combat-training plan.",
@@ -10477,6 +10496,64 @@
       "deleted": false,
       "createdAt": 1784393287371,
       "updatedAt": 1786728570260
+    },
+    {
+      "id": "ms9_06",
+      "name": "Bury the Chest v1 — 3-2-1 backup protocol defined and running across Qubes + server",
+      "notes": "Aggregate of two tasks — full data backup protocol and an encrypted offsite copy, both tracing back to the lesson that no backup protocol existed before the drive-recovery effort.",
+      "goal": "G1",
+      "month": "",
+      "dueDate": "",
+      "msTag": "MS2027",
+      "msWeek": "",
+      "taskIds": [
+        "v22",
+        "f26_021"
+      ],
+      "completed": false,
+      "completedAt": "",
+      "sortOrder": 0,
+      "deleted": false,
+      "createdAt": 1785859437942,
+      "updatedAt": 1793903772078
+    },
+    {
+      "id": "ms10_04",
+      "name": "Explicit tribe conversation held with Members 1, 2 and 3 (Asatru group)",
+      "notes": "Single-task checkpoint — the direct conversation about tribe/Longhouse commitment actually happens, not just gets scheduled. Group changed Lambda 10: Asatru-faith group that meets monthly.",
+      "goal": "G2",
+      "month": "",
+      "dueDate": "",
+      "msTag": "MS2027",
+      "msWeek": "",
+      "taskIds": [
+        "f26_056"
+      ],
+      "completed": false,
+      "completedAt": "",
+      "sortOrder": 0,
+      "deleted": false,
+      "createdAt": 1789088446282,
+      "updatedAt": 1793903772078
+    },
+    {
+      "id": "ms10_05",
+      "name": "Microsoft associate cert exam booked with a firm date (or passed)",
+      "notes": "Single-task checkpoint — closes the gap between 'exam scheduled' (f26_023's claim) and reality; a real date on the calendar, or the exam already passed.",
+      "goal": "G4",
+      "month": "",
+      "dueDate": "",
+      "msTag": "MS2027",
+      "msWeek": "",
+      "taskIds": [
+        "f26_055"
+      ],
+      "completed": false,
+      "completedAt": "",
+      "sortOrder": 0,
+      "deleted": false,
+      "createdAt": 1789088446283,
+      "updatedAt": 1793903772078
     },
     {
       "id": "ms_lounge_seating",
@@ -11494,44 +11571,6 @@
       "updatedAt": 1786728570260
     },
     {
-      "id": "ms6_03",
-      "name": "Protective order reviewed — proof gathered that it no longer applies, sent to friend",
-      "notes": "Single-task checkpoint — confirm current status, compile documentation, share with contact. Not an enforcement matter.",
-      "goal": "G2",
-      "month": "M12",
-      "dueDate": "2026-11-20",
-      "msTag": "MS12",
-      "msWeek": "MSW47",
-      "taskIds": [
-        "c01"
-      ],
-      "completed": false,
-      "completedAt": "",
-      "sortOrder": 0,
-      "deleted": false,
-      "createdAt": 1784316958081,
-      "updatedAt": 1793903772078
-    },
-    {
-      "id": "ms8_02",
-      "name": "Bloodwork + EKG findings actioned (Dr. Kendell review)",
-      "notes": "Single-task checkpoint — follow-through on Dr. Kendell's action items from the bloodwork/EKG review.",
-      "goal": "G3",
-      "month": "M12",
-      "dueDate": "2026-11-25",
-      "msTag": "MS12",
-      "msWeek": "MSW48",
-      "taskIds": [
-        "f26_031"
-      ],
-      "completed": false,
-      "completedAt": "",
-      "sortOrder": 0,
-      "deleted": false,
-      "createdAt": 1784393287371,
-      "updatedAt": 1793903772078
-    },
-    {
       "id": "ms8_03",
       "name": "Assertive readiness mid-quarter check — engagement rate calculated, holding-ground trend reviewed",
       "notes": "Single-task checkpoint — mid-quarter pulse on the assertive-readiness engagement rate and whether holding-ground behavior is trending up. | Closed Lambda 10 with the Assertive Correction season (Connor). The engagement rate and holding-ground trend were not measured as written; closure rests on self-report. Successor: ms11_04.",
@@ -11589,26 +11628,6 @@
       "updatedAt": 1786728570260
     },
     {
-      "id": "ms9_06",
-      "name": "Bury the Chest v1 — 3-2-1 backup protocol defined and running across Qubes + server",
-      "notes": "Aggregate of two tasks — full data backup protocol and an encrypted offsite copy, both tracing back to the lesson that no backup protocol existed before the drive-recovery effort.",
-      "goal": "G1",
-      "month": "",
-      "dueDate": "",
-      "msTag": "MS2027",
-      "msWeek": "",
-      "taskIds": [
-        "v22",
-        "f26_021"
-      ],
-      "completed": false,
-      "completedAt": "",
-      "sortOrder": 0,
-      "deleted": false,
-      "createdAt": 1785859437942,
-      "updatedAt": 1793903772078
-    },
-    {
       "id": "ms9_03",
       "name": "Q3 Assertive Correction milestone — holding ground is the default in 3 of 5 logged situations/week, two months running",
       "notes": "Manual checkpoint, no discrete task — evidenced by holding-ground behavior being the default in 3 of 5 logged situations/week, two months running. | Closed Lambda 10 on self-report (\"more often than not, I stood up\"). No log was kept, so the 3-of-5 criterion was not measured. Successor: ms11_04.",
@@ -11624,25 +11643,6 @@
       "deleted": false,
       "createdAt": 1784393287371,
       "updatedAt": 1792265683750
-    },
-    {
-      "id": "ms9_04",
-      "name": "Q3 identity checkpoint — one page on whether \"speaking up is permitted; the content is what matters\" has moved from effort toward default",
-      "notes": "Manual checkpoint, no discrete task — a one-page reflection on whether \"speaking up is permitted; the content is what matters\" has moved from effort toward default.",
-      "goal": "G1",
-      "month": "M12",
-      "dueDate": "2026-11-27",
-      "msTag": "MS12",
-      "msWeek": "MSW48",
-      "taskIds": [
-        "f26_177"
-      ],
-      "completed": false,
-      "completedAt": "",
-      "sortOrder": 0,
-      "deleted": false,
-      "createdAt": 1784393287371,
-      "updatedAt": 1793903772078
     },
     {
       "id": "ms9_05",
@@ -11705,101 +11705,6 @@
       "updatedAt": 1792265683750
     },
     {
-      "id": "ms10_02",
-      "name": "HRV + sleep protocol review under shift work",
-      "notes": "Single-task checkpoint — check whether the sleep/HRV optimization protocol holds up against shift-work demands.",
-      "goal": "G3",
-      "month": "M12",
-      "dueDate": "2026-11-18",
-      "msTag": "MS12",
-      "msWeek": "MSW47",
-      "taskIds": [
-        "f26_062"
-      ],
-      "completed": false,
-      "completedAt": "",
-      "sortOrder": 0,
-      "deleted": false,
-      "createdAt": 1784393287371,
-      "updatedAt": 1793903772078
-    },
-    {
-      "id": "ms8_05",
-      "name": "Legacy drive recovery resolved — files recovered OR formally abandoned; 2TB drive released",
-      "notes": "Single-task checkpoint — kill-gate decision to declare the data-recovery effort finished or abandoned, then release the 2TB drive back to the server pool.",
-      "goal": "G1",
-      "month": "M12",
-      "dueDate": "2026-12-02",
-      "msTag": "MS12",
-      "msWeek": "MSW49",
-      "taskIds": [
-        "r07"
-      ],
-      "completed": false,
-      "completedAt": "",
-      "sortOrder": 0,
-      "deleted": false,
-      "createdAt": 1785859437942,
-      "updatedAt": 1793903772078
-    },
-    {
-      "id": "ms9_02",
-      "name": "Supplementation v1 locked against DNA + lab results",
-      "notes": "Single-task checkpoint — finalize the first supplement stack, informed by DNA results and lab work.",
-      "goal": "G3",
-      "month": "M12",
-      "dueDate": "2026-12-02",
-      "msTag": "MS12",
-      "msWeek": "MSW49",
-      "taskIds": [
-        "f26_046"
-      ],
-      "completed": false,
-      "completedAt": "",
-      "sortOrder": 0,
-      "deleted": false,
-      "createdAt": 1784393287371,
-      "updatedAt": 1793903772078
-    },
-    {
-      "id": "ms10_05",
-      "name": "Microsoft associate cert exam booked with a firm date (or passed)",
-      "notes": "Single-task checkpoint — closes the gap between 'exam scheduled' (f26_023's claim) and reality; a real date on the calendar, or the exam already passed.",
-      "goal": "G4",
-      "month": "",
-      "dueDate": "",
-      "msTag": "MS2027",
-      "msWeek": "",
-      "taskIds": [
-        "f26_055"
-      ],
-      "completed": false,
-      "completedAt": "",
-      "sortOrder": 0,
-      "deleted": false,
-      "createdAt": 1789088446283,
-      "updatedAt": 1793903772078
-    },
-    {
-      "id": "ms10_04",
-      "name": "Explicit tribe conversation held with Members 1, 2 and 3 (Asatru group)",
-      "notes": "Single-task checkpoint — the direct conversation about tribe/Longhouse commitment actually happens, not just gets scheduled. Group changed Lambda 10: Asatru-faith group that meets monthly.",
-      "goal": "G2",
-      "month": "",
-      "dueDate": "",
-      "msTag": "MS2027",
-      "msWeek": "",
-      "taskIds": [
-        "f26_056"
-      ],
-      "completed": false,
-      "completedAt": "",
-      "sortOrder": 0,
-      "deleted": false,
-      "createdAt": 1789088446282,
-      "updatedAt": 1793903772078
-    },
-    {
       "id": "ms6_01",
       "name": "Tribe at 4–6 members with vetting process started",
       "notes": "Aggregate tribal milestone — manual checkpoint scored at meetup.",
@@ -11820,16 +11725,16 @@
       "updatedAt": 1789088448287
     },
     {
-      "id": "ms11_02",
-      "name": "Body composition scan #3 — opportunistic, take the first available slot",
-      "notes": "Single-task checkpoint — third body-composition scan, taken just before the year-end gate review.",
+      "id": "ms10_02",
+      "name": "HRV + sleep protocol review under shift work",
+      "notes": "Single-task checkpoint — check whether the sleep/HRV optimization protocol holds up against shift-work demands.",
       "goal": "G3",
-      "month": "",
-      "dueDate": "",
-      "msTag": "MS2027",
-      "msWeek": "",
+      "month": "M12",
+      "dueDate": "2026-11-18",
+      "msTag": "MS12",
+      "msWeek": "MSW47",
       "taskIds": [
-        "f26_082"
+        "f26_062"
       ],
       "completed": false,
       "completedAt": "",
@@ -11839,22 +11744,60 @@
       "updatedAt": 1793903772078
     },
     {
-      "id": "ms5_06",
-      "name": "Emergency fund (Varo + Axos) held above $8,000 and ending 2026 at about $9,000 — G4 plan",
-      "notes": "Manual checkpoint — track via banking review. No discrete task.",
-      "goal": "G4",
-      "month": "M13",
-      "dueDate": "2026-12-30",
-      "msTag": "MS13",
-      "msWeek": "",
+      "id": "ms6_03",
+      "name": "Protective order reviewed — proof gathered that it no longer applies, sent to friend",
+      "notes": "Single-task checkpoint — confirm current status, compile documentation, share with contact. Not an enforcement matter.",
+      "goal": "G2",
+      "month": "M12",
+      "dueDate": "2026-11-20",
+      "msTag": "MS12",
+      "msWeek": "MSW47",
       "taskIds": [
-        "f26_084"
+        "c01"
       ],
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958081,
+      "updatedAt": 1793903772078
+    },
+    {
+      "id": "ms8_02",
+      "name": "Bloodwork + EKG findings actioned (Dr. Kendell review)",
+      "notes": "Single-task checkpoint — follow-through on Dr. Kendell's action items from the bloodwork/EKG review.",
+      "goal": "G3",
+      "month": "M12",
+      "dueDate": "2026-11-25",
+      "msTag": "MS12",
+      "msWeek": "MSW48",
+      "taskIds": [
+        "f26_031"
+      ],
+      "completed": false,
+      "completedAt": "",
+      "sortOrder": 0,
+      "deleted": false,
+      "createdAt": 1784393287371,
+      "updatedAt": 1793903772078
+    },
+    {
+      "id": "ms9_04",
+      "name": "Q3 identity checkpoint — one page on whether \"speaking up is permitted; the content is what matters\" has moved from effort toward default",
+      "notes": "Manual checkpoint, no discrete task — a one-page reflection on whether \"speaking up is permitted; the content is what matters\" has moved from effort toward default.",
+      "goal": "G1",
+      "month": "M12",
+      "dueDate": "2026-11-27",
+      "msTag": "MS12",
+      "msWeek": "MSW48",
+      "taskIds": [
+        "f26_177"
+      ],
+      "completed": false,
+      "completedAt": "",
+      "sortOrder": 0,
+      "deleted": false,
+      "createdAt": 1784393287371,
       "updatedAt": 1793903772078
     },
     {
@@ -11875,6 +11818,25 @@
       "deleted": false,
       "createdAt": 1784393287371,
       "updatedAt": 1786728570260
+    },
+    {
+      "id": "ms9_02",
+      "name": "Supplementation v1 locked against DNA + lab results",
+      "notes": "Single-task checkpoint — finalize the first supplement stack, informed by DNA results and lab work.",
+      "goal": "G3",
+      "month": "M12",
+      "dueDate": "2026-12-02",
+      "msTag": "MS12",
+      "msWeek": "MSW49",
+      "taskIds": [
+        "f26_046"
+      ],
+      "completed": false,
+      "completedAt": "",
+      "sortOrder": 0,
+      "deleted": false,
+      "createdAt": 1784393287371,
+      "updatedAt": 1793903772078
     },
     {
       "id": "ms12_01",
@@ -11915,6 +11877,25 @@
       "updatedAt": 1786728570260
     },
     {
+      "id": "ms8_05",
+      "name": "Legacy drive recovery resolved — files recovered OR formally abandoned; 2TB drive released",
+      "notes": "Single-task checkpoint — kill-gate decision to declare the data-recovery effort finished or abandoned, then release the 2TB drive back to the server pool.",
+      "goal": "G1",
+      "month": "M12",
+      "dueDate": "2026-12-02",
+      "msTag": "MS12",
+      "msWeek": "MSW49",
+      "taskIds": [
+        "r07"
+      ],
+      "completed": false,
+      "completedAt": "",
+      "sortOrder": 0,
+      "deleted": false,
+      "createdAt": 1785859437942,
+      "updatedAt": 1793903772078
+    },
+    {
       "id": "ms11_04",
       "name": "Assertive Calibration — know when to assert, and land it without offense",
       "notes": "Successor to the Assertive Correction Season (ms9_03, closed on self-report). Goal: learn when to assert, when it would offend, and how to land the point without offending. Tracked with the Assert:: line in the Daily Recap (A/H/M | L/P/N/? | O0/O1/O2). Criterion to be set by Connor after the f26_136 baseline read. | Moved from Nov 4 to the end of Mu, Dec 2 (Connor, Nov 2): few assert opportunities lately; baseline read f26_136 moved to Nov 22.",
@@ -11933,6 +11914,25 @@
       "deleted": false,
       "createdAt": 1792265683750,
       "updatedAt": 1793645401320
+    },
+    {
+      "id": "ms5_06",
+      "name": "Emergency fund (Varo + Axos) held above $8,000 and ending 2026 at about $9,000 — G4 plan",
+      "notes": "Manual checkpoint — track via banking review. No discrete task.",
+      "goal": "G4",
+      "month": "M13",
+      "dueDate": "2026-12-30",
+      "msTag": "MS13",
+      "msWeek": "",
+      "taskIds": [
+        "f26_084"
+      ],
+      "completed": false,
+      "completedAt": "",
+      "sortOrder": 0,
+      "deleted": false,
+      "createdAt": 1784316958081,
+      "updatedAt": 1793903772078
     }
   ],
   "runes": [
