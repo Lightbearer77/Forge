@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "lastUpdated": "2026-11-06T02:02:45.898Z",
+  "lastUpdated": "2026-11-06T04:29:34.337Z",
   "updatedBy": "Claude",
   "tasks": [
     {
@@ -9386,7 +9386,7 @@
     {
       "id": "f26_140",
       "name": "Update 5, 10, 20-year plans post-reformation",
-      "notes": "Bring the long-range plans in line with the June 2026 Ubermensch Reformation Charter. Should land before Nu (Dec 3) so the annual Reckoning and the 2027 chunk tasks (f26_088–090) draw on updated plans.",
+      "notes": "Bring the long-range plans in line with the June 2026 Ubermensch Reformation Charter. Should land before Nu (Dec 3) so the annual Reckoning and the 2027 chunk tasks (f26_088–090) draw on updated plans. | G2 portion split to f26_178, blocked behind the faith-path decision (f26_181 / ms13_01). This task closes when the G3/G4 dispatches and fork supplements are applied and verified, plus the FI-timing reconciliation (settled Nov 5: positioned by 2046, realized 2046-2056, secured 2056).",
       "goal": "G1",
       "priority": "High",
       "status": "in-progress",
@@ -9407,7 +9407,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1793122699887,
-      "updatedAt": 1793930565558
+      "updatedAt": 1793939373773
     },
     {
       "id": "f26_141",
@@ -10370,6 +10370,115 @@
       "deleted": false,
       "createdAt": 1793903772078,
       "updatedAt": 1793930565558
+    },
+    {
+      "id": "f26_181",
+      "name": "Decide faith path: Asatru or Orthodox conversion",
+      "notes": "Decision of direction, not completion of a conversion. At the Nu Annual Reckoning: decide, or extend once — deliberately, with a new date. Deliberation happens in the conversion-study and belief projects; this task records the outcome only. Unblocks the G2 re-spine (f26_178) and the ⟂ fork sweep (f26_179).",
+      "goal": "G1",
+      "priority": "High",
+      "status": "todo",
+      "section": "Identity & Practice",
+      "level": 0,
+      "month": "M13",
+      "week": "W53",
+      "startDate": "",
+      "dueDate": "2026-12-30",
+      "parentId": "",
+      "blockedBy": [],
+      "milestone": false,
+      "recurrence": "none",
+      "completed": false,
+      "completedAt": "",
+      "sortOrder": 181,
+      "flag": "",
+      "flagDate": "",
+      "deleted": false,
+      "createdAt": 1793939373773,
+      "updatedAt": 1793939373773
+    },
+    {
+      "id": "f26_178",
+      "name": "Re-spine G2 long-range plans (5, 10, 20-year) to the decided path",
+      "notes": "Split from f26_140. Rebuild the 2026-2030 G2 plan spine (tribe, oath, home location, cultural integration, vetting → non-negotiables); create the 2026-2046 G2 plan; reconcile the 2026-2036 G2 plan. Opus session.",
+      "goal": "G1",
+      "priority": "High",
+      "status": "todo",
+      "section": "Planning & Review",
+      "level": 0,
+      "month": "M01",
+      "week": "W04",
+      "startDate": "",
+      "dueDate": "2027-01-28",
+      "parentId": "",
+      "blockedBy": [
+        "f26_181"
+      ],
+      "milestone": false,
+      "recurrence": "none",
+      "completed": false,
+      "completedAt": "",
+      "sortOrder": 178,
+      "flag": "",
+      "flagDate": "",
+      "deleted": false,
+      "createdAt": 1793939373773,
+      "updatedAt": 1793939373773
+    },
+    {
+      "id": "f26_179",
+      "name": "Resolve every ⟂ fork tag across Master Plans",
+      "notes": "Done = the Mini-Analysis fork counter reads 0. Rewrite each tagged line to the decided path, remove its tag, and remove each file's \"Fork tags\" legend line last. If the path renames G2, run the vault-wide rename in the same pass.",
+      "goal": "G1",
+      "priority": "Mid",
+      "status": "todo",
+      "section": "Planning & Review",
+      "level": 0,
+      "month": "M02",
+      "week": "W08",
+      "startDate": "",
+      "dueDate": "2027-02-25",
+      "parentId": "",
+      "blockedBy": [
+        "f26_181",
+        "f26_178"
+      ],
+      "milestone": false,
+      "recurrence": "none",
+      "completed": false,
+      "completedAt": "",
+      "sortOrder": 179,
+      "flag": "",
+      "flagDate": "",
+      "deleted": false,
+      "createdAt": 1793939373773,
+      "updatedAt": 1793939373773
+    },
+    {
+      "id": "f26_180",
+      "name": "Test the at-home AZ-900 exam route",
+      "notes": "Decides whether the Microsoft hold lifts. (1) Run the Pearson VUE online-exam system test on the home computer. (2) Confirm the name on the Microsoft certification profile matches the government ID exactly. (3) Check whether employer education assistance covers the exam fee. Report the result at the Nu Annual Reckoning. If the home route works, the hold becomes a scheduling question, not a blocker.",
+      "goal": "G4",
+      "priority": "Mid",
+      "status": "todo",
+      "section": "Career & Credentials",
+      "level": 0,
+      "month": "M12",
+      "week": "W47",
+      "startDate": "",
+      "dueDate": "2026-11-18",
+      "parentId": "",
+      "blockedBy": [],
+      "milestone": false,
+      "recurrence": "none",
+      "completed": false,
+      "completedAt": "",
+      "sortOrder": 180,
+      "flag": "",
+      "flagDate": "",
+      "deleted": false,
+      "createdAt": 1793939373773,
+      "updatedAt": 1793939373773
     }
   ],
   "milestones": [
@@ -11933,6 +12042,25 @@
       "deleted": false,
       "createdAt": 1784316958081,
       "updatedAt": 1793903772078
+    },
+    {
+      "id": "ms13_01",
+      "name": "Decide faith path: Asatru or Orthodox conversion",
+      "notes": "Single-task checkpoint — a decision of direction, not completion of a conversion. Decide at the Nu Annual Reckoning, or extend once, deliberately, with a new date. Unblocks the G2 re-spine and the ⟂ fork sweep.",
+      "goal": "G1",
+      "month": "M13",
+      "dueDate": "2026-12-30",
+      "msTag": "MS13",
+      "msWeek": "MSW53",
+      "taskIds": [
+        "f26_181"
+      ],
+      "completed": false,
+      "completedAt": "",
+      "sortOrder": 0,
+      "deleted": false,
+      "createdAt": 1793939373773,
+      "updatedAt": 1793939373773
     }
   ],
   "runes": [
