@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "lastUpdated": "2026-11-05T20:11:16.973Z",
-  "updatedBy": "Forge",
+  "lastUpdated": "2026-11-06T02:02:45.898Z",
+  "updatedBy": "Claude",
   "tasks": [
     {
       "id": "t_seed_hsa_transfer",
@@ -3414,7 +3414,7 @@
       "notes": "Not an enforcement task. Confirm current status, compile documentation, share with contact for reference.",
       "goal": "G2",
       "priority": "High",
-      "status": "todo",
+      "status": "in-progress",
       "section": "Financial & Legal",
       "level": 2,
       "month": "M12",
@@ -3432,7 +3432,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
-      "updatedAt": 1793903772078
+      "updatedAt": 1793930565558
     },
     {
       "id": "c02",
@@ -5289,7 +5289,7 @@
       "notes": "Run PhotoRec file carving against the disk image only (never the original drive) to recover deleted/damaged files. | Moved from 08-15 (rescue plan, Connor Nov 2).",
       "goal": "G1",
       "priority": "Mid",
-      "status": "todo",
+      "status": "in-progress",
       "section": "Home Server",
       "level": 0,
       "month": "M12",
@@ -5307,7 +5307,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1785859437942,
-      "updatedAt": 1793646937055
+      "updatedAt": 1793930565558
     },
     {
       "id": "r05",
@@ -5315,7 +5315,7 @@
       "notes": "Sort through PhotoRec's carved output within a strict 4-hour window, focusing only on LibreOffice/text files. | Moved from 08-18 (rescue plan, Connor Nov 2).",
       "goal": "G1",
       "priority": "Mid",
-      "status": "todo",
+      "status": "in-progress",
       "section": "Home Server",
       "level": 0,
       "month": "M12",
@@ -5333,7 +5333,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1785859437942,
-      "updatedAt": 1793646937055
+      "updatedAt": 1793930565558
     },
     {
       "id": "r06",
@@ -5341,7 +5341,7 @@
       "notes": "Sort recovered files into their proper security compartments before they get network access — Qubes compartmentalization discipline. | Moved from 08-20 (rescue plan, Connor Nov 2).",
       "goal": "G1",
       "priority": "Mid",
-      "status": "todo",
+      "status": "in-progress",
       "section": "Home Server",
       "level": 0,
       "month": "M12",
@@ -5359,7 +5359,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1785859437942,
-      "updatedAt": 1793646937055
+      "updatedAt": 1793930565558
     },
     {
       "id": "r07",
@@ -5367,7 +5367,7 @@
       "notes": "Decision point: formally declare the data-recovery effort finished or abandoned, then release the 2TB drive back into the server storage pool. | Carried from Kappa (was due 2026-09-25). | Moved from 10-24 (Kappa carry-over review). | Moved from 11-03 (Connor, Nov 2: rescuing the data, so the gate follows r03–r06).",
       "goal": "G1",
       "priority": "High",
-      "status": "todo",
+      "status": "in-progress",
       "section": "Home Server",
       "level": 0,
       "month": "M12",
@@ -5385,7 +5385,7 @@
       "flagDate": "2026-11-05",
       "deleted": false,
       "createdAt": 1785859437942,
-      "updatedAt": 1793897031262
+      "updatedAt": 1793930565558
     },
     {
       "id": "r08",
@@ -6937,7 +6937,7 @@
       "notes": "Follow through on the action items from Dr. Kendell's review of the bloodwork and EKG results.",
       "goal": "G3",
       "priority": "High",
-      "status": "todo",
+      "status": "in-progress",
       "section": "Health & Body",
       "level": 0,
       "month": "M12",
@@ -6955,7 +6955,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1793903772078
+      "updatedAt": 1793930565558
     },
     {
       "id": "f26_032",
@@ -7327,7 +7327,7 @@
       "notes": "Finalize the first version of the supplement stack, informed by DNA results and lab work. | Carried from Kappa (was due 2026-09-24). | On hold (Connor, Nov 2; was 10-25). DNA and lab results not in hand. Revisit when results arrive, or at the Mu EoM.",
       "goal": "G3",
       "priority": "High",
-      "status": "todo",
+      "status": "in-progress",
       "section": "Health & Body",
       "level": 0,
       "month": "M12",
@@ -7345,7 +7345,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1793903772078
+      "updatedAt": 1793930565558
     },
     {
       "id": "f26_047",
@@ -7743,7 +7743,7 @@
       "notes": "Check whether the sleep/HRV optimization protocol is actually working given the demands of shift work. | Carried from Kappa (was due 2026-10-07).",
       "goal": "G3",
       "priority": "High",
-      "status": "todo",
+      "status": "in-progress",
       "section": "Health & Body",
       "level": 0,
       "month": "M12",
@@ -7761,7 +7761,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1793903772078
+      "updatedAt": 1793930565558
     },
     {
       "id": "f26_063",
@@ -7847,7 +7847,7 @@
       "notes": "Count the true 'capsule' notes in the vault (dormant, date-triggered) and decide whether to surface them via Dataview or Forge triggers. | Pushed to Mu (Lambda 10); drop it if the audit no longer earns its place. Carried from Kappa (was due 2026-10-07).",
       "goal": "G1",
       "priority": "Mid",
-      "status": "backlog",
+      "status": "in-progress",
       "section": "Planning & Review",
       "level": 0,
       "month": "M12",
@@ -7865,7 +7865,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1792265683750
+      "updatedAt": 1793930565558
     },
     {
       "id": "f26_067",
@@ -8211,7 +8211,7 @@
       "notes": "6-month formal review of the wife search — a gate criterion determining whether to continue the current approach or change strategy.",
       "goal": "G2",
       "priority": "High",
-      "status": "backlog",
+      "status": "in-progress",
       "section": "Longhouse & Tribe",
       "level": 0,
       "month": "M12",
@@ -8229,7 +8229,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1785960969568
+      "updatedAt": 1793930565558
     },
     {
       "id": "f26_082",
@@ -8263,7 +8263,7 @@
       "notes": "Verify the training block has run continuously for 6+ months without a break.",
       "goal": "G3",
       "priority": "High",
-      "status": "backlog",
+      "status": "in-progress",
       "section": "Health & Body",
       "level": 0,
       "month": "M12",
@@ -8281,7 +8281,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1785960969568
+      "updatedAt": 1793930565558
     },
     {
       "id": "f26_084",
@@ -8315,7 +8315,7 @@
       "notes": "Schedule next year's bloodwork panel with Dr. Kendell ahead of time.",
       "goal": "G3",
       "priority": "Mid",
-      "status": "backlog",
+      "status": "in-progress",
       "section": "Health & Body",
       "level": 0,
       "month": "M12",
@@ -8333,7 +8333,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1785960969568
+      "updatedAt": 1793930565558
     },
     {
       "id": "f26_086",
@@ -8341,7 +8341,7 @@
       "notes": "Finalize the 2027 investment thesis, ready to act on when the deployment window opens.",
       "goal": "G4",
       "priority": "High",
-      "status": "backlog",
+      "status": "in-progress",
       "section": "Financial",
       "level": 0,
       "month": "M12",
@@ -8359,7 +8359,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1785960969568
+      "updatedAt": 1793930565558
     },
     {
       "id": "f26_087",
@@ -8367,7 +8367,7 @@
       "notes": "Year-end check: is the tribe entering 2027 as a genuine, formally organized Phase 2 group, or still informal?\n[Nov 5] Rewritten to match ms12_01; oath is postponed pending development among the friend group.",
       "goal": "G2",
       "priority": "High",
-      "status": "backlog",
+      "status": "in-progress",
       "section": "Longhouse & Tribe",
       "level": 0,
       "month": "M12",
@@ -8385,7 +8385,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1793903772078
+      "updatedAt": 1793930565558
     },
     {
       "id": "f26_088",
@@ -8393,7 +8393,7 @@
       "notes": "moved from Dec 28 — drafting must precede assessment",
       "goal": "G2",
       "priority": "High",
-      "status": "backlog",
+      "status": "in-progress",
       "section": "Longhouse & Tribe",
       "level": 0,
       "month": "M12",
@@ -8413,7 +8413,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1793122907981
+      "updatedAt": 1793930565558
     },
     {
       "id": "f26_089",
@@ -8421,7 +8421,7 @@
       "notes": "moved from Dec 28",
       "goal": "G3",
       "priority": "High",
-      "status": "backlog",
+      "status": "in-progress",
       "section": "Health & Body",
       "level": 0,
       "month": "M12",
@@ -8441,7 +8441,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1793122907981
+      "updatedAt": 1793930565558
     },
     {
       "id": "f26_090",
@@ -8449,7 +8449,7 @@
       "notes": "moved from Dec 28",
       "goal": "G4",
       "priority": "High",
-      "status": "backlog",
+      "status": "in-progress",
       "section": "Financial",
       "level": 0,
       "month": "M12",
@@ -8469,7 +8469,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1793122907981
+      "updatedAt": 1793930565558
     },
     {
       "id": "f26_091",
@@ -8477,7 +8477,7 @@
       "notes": "Draft the 2027 structure for G1, built around seasons (like the current Assertive Correction Season) rather than tiers.",
       "goal": "G1",
       "priority": "High",
-      "status": "backlog",
+      "status": "in-progress",
       "section": "Planning & Review",
       "level": 0,
       "month": "M12",
@@ -8495,7 +8495,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1785960969568
+      "updatedAt": 1793930565558
     },
     {
       "id": "f26_092",
@@ -8503,7 +8503,7 @@
       "notes": "Monthly value-alignment journal entry for Mu.",
       "goal": "G1",
       "priority": "Mid",
-      "status": "backlog",
+      "status": "in-progress",
       "section": "Planning & Review",
       "level": 0,
       "month": "M12",
@@ -8521,7 +8521,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1785960969568
+      "updatedAt": 1793930565558
     },
     {
       "id": "f26_093",
@@ -9283,7 +9283,7 @@
       "notes": "First read of the Assert:: entries. When did asserting land, when did it cost, where did holding back serve. Connor sets the ms11_04 criterion from this read; do not pre-set it. | Moved from 11-01 (W44 closeout triage). | Moved from 11-08 (W45 load review). | Moved from 11-02 (Connor, Nov 2): few assert opportunities lately; waiting for more entries.",
       "goal": "G1",
       "priority": "Mid",
-      "status": "backlog",
+      "status": "in-progress",
       "section": "Planning & Review",
       "level": 0,
       "month": "M12",
@@ -9301,7 +9301,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1792265683750,
-      "updatedAt": 1793645222890
+      "updatedAt": 1793930565558
     },
     {
       "id": "f26_137",
@@ -9389,7 +9389,7 @@
       "notes": "Bring the long-range plans in line with the June 2026 Ubermensch Reformation Charter. Should land before Nu (Dec 3) so the annual Reckoning and the 2027 chunk tasks (f26_088–090) draw on updated plans.",
       "goal": "G1",
       "priority": "High",
-      "status": "todo",
+      "status": "in-progress",
       "section": "Planning & Review",
       "level": 0,
       "month": "M12",
@@ -9407,7 +9407,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1793122699887,
-      "updatedAt": 1793716901454
+      "updatedAt": 1793930565558
     },
     {
       "id": "f26_141",
@@ -9935,7 +9935,7 @@
       "notes": "",
       "goal": "G4",
       "priority": "Low",
-      "status": "todo",
+      "status": "in-progress",
       "section": "Financial",
       "level": 1,
       "month": "M12",
@@ -9953,7 +9953,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1793576764374,
-      "updatedAt": 1793576764374
+      "updatedAt": 1793930565558
     },
     {
       "id": "f26_162",
@@ -9961,7 +9961,7 @@
       "notes": "",
       "goal": "G4",
       "priority": "Low",
-      "status": "todo",
+      "status": "in-progress",
       "section": "Financial",
       "level": 1,
       "month": "M12",
@@ -9979,7 +9979,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1793576764374,
-      "updatedAt": 1793576764374
+      "updatedAt": 1793930565558
     },
     {
       "id": "f26_163",
@@ -9987,7 +9987,7 @@
       "notes": "",
       "goal": "G4",
       "priority": "Low",
-      "status": "todo",
+      "status": "in-progress",
       "section": "Financial",
       "level": 1,
       "month": "M12",
@@ -10005,7 +10005,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1793576764374,
-      "updatedAt": 1793576764374
+      "updatedAt": 1793930565558
     },
     {
       "id": "f26_164",
@@ -10169,7 +10169,7 @@
       "notes": "Mu change 1 (Lambda Final Summation). The fix for the after-work energy loop: eat before leaving work, keep intake at home light. Check at the Mu MA: Energy average in §5 >= 6.5 (Lambda 5.3). HabitNow adherence feeds the weekly export.",
       "goal": "G3",
       "priority": "Mid",
-      "status": "todo",
+      "status": "in-progress",
       "section": "Habit Tracker Setup",
       "level": 0,
       "month": "M12",
@@ -10187,7 +10187,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1793899440421,
-      "updatedAt": 1793899440421
+      "updatedAt": 1793930565558
     },
     {
       "id": "f26_171",
@@ -10195,7 +10195,7 @@
       "notes": "Mu change 1. Poor sleep logged Lambda 1 and 5; hydroxyzine is on hold until its safety with current meds is confirmed. Feeds ms10_02 (HRV + sleep protocol review, due 2026-11-18). Check at the Mu MA: poor-sleep losses in §3 <= 1 (Lambda 2).",
       "goal": "G3",
       "priority": "High",
-      "status": "todo",
+      "status": "in-progress",
       "section": "Health & Body",
       "level": 0,
       "month": "M12",
@@ -10213,7 +10213,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1793899440421,
-      "updatedAt": 1793899440421
+      "updatedAt": 1793930565558
     },
     {
       "id": "f26_172",
@@ -10221,7 +10221,7 @@
       "notes": "Sets the date for ms8_02 (Bloodwork + EKG findings actioned, due 2026-11-25) and is a G3 year-end gate item. Ask at the visit whether the $500 HSA well-being incentive can be captured (G4 plan gate).",
       "goal": "G3",
       "priority": "High",
-      "status": "todo",
+      "status": "in-progress",
       "section": "Health & Body",
       "level": 0,
       "month": "M12",
@@ -10239,7 +10239,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1793899440421,
-      "updatedAt": 1793899440421
+      "updatedAt": 1793930565558
     },
     {
       "id": "f26_173",
@@ -10247,7 +10247,7 @@
       "notes": "Mu change 4 (Lambda Final Summation). All grocery and other shopping happens on Thursday after work, not on whichever day something runs out. Anything needed before then goes on a list. Check at the Mu MA: zero shopping-displacement lines in the Win/Loss log (Lambda 2). Done = every shopping trip this week fell on Thursday.",
       "goal": "G4",
       "priority": "Mid",
-      "status": "todo",
+      "status": "in-progress",
       "section": "Financial",
       "level": 0,
       "month": "M12",
@@ -10265,7 +10265,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1793899684051,
-      "updatedAt": 1793899684051
+      "updatedAt": 1793930565558
     },
     {
       "id": "f26_174",
@@ -10273,7 +10273,7 @@
       "notes": "Mu change 4 (Lambda Final Summation). All grocery and other shopping happens on Thursday after work, not on whichever day something runs out. Anything needed before then goes on a list. Check at the Mu MA: zero shopping-displacement lines in the Win/Loss log (Lambda 2). Done = every shopping trip this week fell on Thursday.",
       "goal": "G4",
       "priority": "Mid",
-      "status": "todo",
+      "status": "in-progress",
       "section": "Financial",
       "level": 0,
       "month": "M12",
@@ -10291,7 +10291,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1793899684051,
-      "updatedAt": 1793899684051
+      "updatedAt": 1793930565558
     },
     {
       "id": "f26_175",
@@ -10299,7 +10299,7 @@
       "notes": "Mu change 4 (Lambda Final Summation). All grocery and other shopping happens on Thursday after work, not on whichever day something runs out. Anything needed before then goes on a list. Check at the Mu MA: zero shopping-displacement lines in the Win/Loss log (Lambda 2). Done = every shopping trip this week fell on Thursday.",
       "goal": "G4",
       "priority": "Mid",
-      "status": "todo",
+      "status": "in-progress",
       "section": "Financial",
       "level": 0,
       "month": "M12",
@@ -10317,7 +10317,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1793899684051,
-      "updatedAt": 1793899684051
+      "updatedAt": 1793930565558
     },
     {
       "id": "f26_176",
@@ -10325,7 +10325,7 @@
       "notes": "Mu change 4 (Lambda Final Summation). All grocery and other shopping happens on Thursday after work, not on whichever day something runs out. Anything needed before then goes on a list. Check at the Mu MA: zero shopping-displacement lines in the Win/Loss log (Lambda 2). Done = every shopping trip this week fell on Thursday.",
       "goal": "G4",
       "priority": "Mid",
-      "status": "todo",
+      "status": "in-progress",
       "section": "Financial",
       "level": 0,
       "month": "M12",
@@ -10343,7 +10343,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1793899684051,
-      "updatedAt": 1793899684051
+      "updatedAt": 1793930565558
     },
     {
       "id": "f26_177",
@@ -10351,7 +10351,7 @@
       "notes": "Milestone ms9_04 (L5). Written one-pager, not a score. Compare against the Q3 Maturity Assessment read.",
       "goal": "G1",
       "priority": "Mid",
-      "status": "todo",
+      "status": "in-progress",
       "section": "Identity & Practice",
       "level": 0,
       "month": "M12",
@@ -10369,7 +10369,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1793903772078,
-      "updatedAt": 1793903772078
+      "updatedAt": 1793930565558
     }
   ],
   "milestones": [
