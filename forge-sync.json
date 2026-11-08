@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "lastUpdated": "2026-11-08T03:29:43.976Z",
+  "lastUpdated": "2026-11-08T22:53:54.149Z",
   "updatedBy": "Claude",
   "tasks": [
     {
@@ -8371,7 +8371,7 @@
       "section": "Longhouse & Tribe",
       "level": 0,
       "month": "M12",
-      "week": "W49",
+      "week": "W46",
       "startDate": "",
       "dueDate": "2026-12-02",
       "parentId": "",
@@ -8385,7 +8385,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1793930565558
+      "updatedAt": 1794178433700
     },
     {
       "id": "f26_088",
