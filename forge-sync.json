@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "lastUpdated": "2026-11-08T03:28:25.526Z",
-  "updatedBy": "Forge",
+  "lastUpdated": "2026-11-08T03:29:43.976Z",
+  "updatedBy": "Claude",
   "tasks": [
     {
       "id": "t_seed_hsa_transfer",
@@ -9935,7 +9935,7 @@
       "notes": "",
       "goal": "G4",
       "priority": "Low",
-      "status": "in-progress",
+      "status": "done",
       "section": "Financial",
       "level": 1,
       "month": "M12",
@@ -9946,14 +9946,14 @@
       "blockedBy": [],
       "milestone": false,
       "recurrence": "none",
-      "completed": false,
-      "completedAt": "",
+      "completed": true,
+      "completedAt": "2026-11-05",
       "sortOrder": 161,
       "flag": "",
       "flagDate": "",
       "deleted": false,
       "createdAt": 1793576764374,
-      "updatedAt": 1793930565558
+      "updatedAt": 1794108583688
     },
     {
       "id": "f26_162",
@@ -9961,7 +9961,7 @@
       "notes": "",
       "goal": "G4",
       "priority": "Low",
-      "status": "in-progress",
+      "status": "done",
       "section": "Financial",
       "level": 1,
       "month": "M12",
@@ -9972,14 +9972,14 @@
       "blockedBy": [],
       "milestone": false,
       "recurrence": "none",
-      "completed": false,
-      "completedAt": "",
+      "completed": true,
+      "completedAt": "2026-11-05",
       "sortOrder": 162,
       "flag": "",
       "flagDate": "",
       "deleted": false,
       "createdAt": 1793576764374,
-      "updatedAt": 1793930565558
+      "updatedAt": 1794108583688
     },
     {
       "id": "f26_163",
@@ -9987,7 +9987,7 @@
       "notes": "",
       "goal": "G4",
       "priority": "Low",
-      "status": "in-progress",
+      "status": "done",
       "section": "Financial",
       "level": 1,
       "month": "M12",
@@ -9998,14 +9998,14 @@
       "blockedBy": [],
       "milestone": false,
       "recurrence": "none",
-      "completed": false,
-      "completedAt": "",
+      "completed": true,
+      "completedAt": "2026-11-05",
       "sortOrder": 163,
       "flag": "",
       "flagDate": "",
       "deleted": false,
       "createdAt": 1793576764374,
-      "updatedAt": 1793930565558
+      "updatedAt": 1794108583688
     },
     {
       "id": "f26_164",
