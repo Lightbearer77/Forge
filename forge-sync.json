@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "lastUpdated": "2026-11-06T04:30:51.723Z",
+  "lastUpdated": "2026-11-08T03:16:40.994Z",
   "updatedBy": "Forge",
   "tasks": [
     {
@@ -4847,7 +4847,7 @@
       "notes": "Verify HSA contributions hit the IRS limit ($4,400 total: $3,900 election + $500 employer incentive). | Moved from 07-15 (folded into the Nov 3 benefits session with f26_074; Connor, Nov 2).",
       "goal": "G4",
       "priority": "High",
-      "status": "in-progress",
+      "status": "done",
       "section": "Financial",
       "level": 2,
       "month": "M11",
@@ -4858,14 +4858,14 @@
       "blockedBy": [],
       "milestone": false,
       "recurrence": "none",
-      "completed": false,
-      "completedAt": "",
+      "completed": true,
+      "completedAt": "2026-11-07",
       "sortOrder": 0,
       "flag": "",
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1793716855927
+      "updatedAt": 1794102556564
     },
     {
       "id": "v20",
@@ -7475,7 +7475,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1793716878713
+      "updatedAt": 1794105909955
     },
     {
       "id": "f26_052",
@@ -9389,7 +9389,7 @@
       "notes": "Bring the long-range plans in line with the June 2026 Ubermensch Reformation Charter. Should land before Nu (Dec 3) so the annual Reckoning and the 2027 chunk tasks (f26_088–090) draw on updated plans. | G2 portion split to f26_178, blocked behind the faith-path decision (f26_181 / ms13_01). This task closes when the G3/G4 dispatches and fork supplements are applied and verified, plus the FI-timing reconciliation (settled Nov 5: positioned by 2046, realized 2046-2056, secured 2056).",
       "goal": "G1",
       "priority": "High",
-      "status": "in-progress",
+      "status": "done",
       "section": "Planning & Review",
       "level": 0,
       "month": "M12",
@@ -9400,14 +9400,14 @@
       "blockedBy": [],
       "milestone": false,
       "recurrence": "none",
-      "completed": false,
-      "completedAt": "",
+      "completed": true,
+      "completedAt": "2026-11-07",
       "sortOrder": 140,
       "flag": "",
       "flagDate": "",
       "deleted": false,
       "createdAt": 1793122699887,
-      "updatedAt": 1793939373773
+      "updatedAt": 1794079253065
     },
     {
       "id": "f26_141",
@@ -9909,7 +9909,7 @@
       "notes": "Review what was missed this year while it is still fresh. Inputs: pay stubs, credit card statements, Monarch summaries.",
       "goal": "G4",
       "priority": "High",
-      "status": "in-progress",
+      "status": "done",
       "section": "Financial",
       "level": 0,
       "month": "M12",
@@ -9920,14 +9920,14 @@
       "blockedBy": [],
       "milestone": false,
       "recurrence": "none",
-      "completed": false,
-      "completedAt": "",
+      "completed": true,
+      "completedAt": "2026-11-07",
       "sortOrder": 160,
       "flag": "",
       "flagDate": "",
       "deleted": false,
       "createdAt": 1793576764374,
-      "updatedAt": 1793716883028
+      "updatedAt": 1794105242557
     },
     {
       "id": "f26_161",
@@ -10273,7 +10273,7 @@
       "notes": "Mu change 4 (Lambda Final Summation). All grocery and other shopping happens on Thursday after work, not on whichever day something runs out. Anything needed before then goes on a list. Check at the Mu MA: zero shopping-displacement lines in the Win/Loss log (Lambda 2). Done = every shopping trip this week fell on Thursday.",
       "goal": "G4",
       "priority": "Mid",
-      "status": "in-progress",
+      "status": "done",
       "section": "Financial",
       "level": 0,
       "month": "M12",
@@ -10284,14 +10284,14 @@
       "blockedBy": [],
       "milestone": false,
       "recurrence": "none",
-      "completed": false,
-      "completedAt": "",
+      "completed": true,
+      "completedAt": "2026-11-07",
       "sortOrder": 174,
       "flag": "",
       "flagDate": "",
       "deleted": false,
       "createdAt": 1793899684051,
-      "updatedAt": 1793930565558
+      "updatedAt": 1794105913546
     },
     {
       "id": "f26_175",
