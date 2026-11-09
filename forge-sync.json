@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "lastUpdated": "2026-11-09T01:06:13.149Z",
-  "updatedBy": "Forge",
+  "lastUpdated": "2026-11-09T03:40:12.000Z",
+  "updatedBy": "Claude",
   "tasks": [
     {
       "id": "t_seed_hsa_transfer",
@@ -10486,7 +10486,7 @@
       "notes": "Event date: Nov 21, 2026 (picked Nov 7). Due the day before so planning is done. From the Tasks-app inbox (Nov 8).",
       "goal": "G2",
       "priority": "High",
-      "status": "todo",
+      "status": "in-progress",
       "section": "Longhouse & Tribe",
       "level": 0,
       "month": "M12",
@@ -10504,7 +10504,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1794178983978,
-      "updatedAt": 1794178983978
+      "updatedAt": 1794195612494
     },
     {
       "id": "f26_183",
@@ -10512,7 +10512,7 @@
       "notes": "From the Tasks-app inbox (Nov 8).",
       "goal": "G2",
       "priority": "Mid",
-      "status": "todo",
+      "status": "in-progress",
       "section": "Longhouse & Tribe",
       "level": 0,
       "month": "M12",
@@ -10530,7 +10530,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1794178983978,
-      "updatedAt": 1794178983978
+      "updatedAt": 1794195612494
     },
     {
       "id": "f26_184",
@@ -10538,7 +10538,7 @@
       "notes": "From the Tasks-app inbox (Nov 8).",
       "goal": "G2",
       "priority": "Mid",
-      "status": "todo",
+      "status": "in-progress",
       "section": "Longhouse & Tribe",
       "level": 0,
       "month": "M12",
@@ -10556,7 +10556,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1794178983978,
-      "updatedAt": 1794178983978
+      "updatedAt": 1794195612494
     },
     {
       "id": "f26_185",
@@ -10564,7 +10564,7 @@
       "notes": "From the Tasks-app inbox (Nov 8).",
       "goal": "G2",
       "priority": "Mid",
-      "status": "todo",
+      "status": "in-progress",
       "section": "Longhouse & Tribe",
       "level": 0,
       "month": "M12",
@@ -10582,7 +10582,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1794178983978,
-      "updatedAt": 1794178983978
+      "updatedAt": 1794195612494
     },
     {
       "id": "f26_186",
@@ -10798,7 +10798,7 @@
       "notes": "Inbox title said 'thermometer'; meant the home thermostat. From the Tasks-app inbox (Nov 8).",
       "goal": "G2",
       "priority": "Low",
-      "status": "todo",
+      "status": "in-progress",
       "section": "Home & Smart Home",
       "level": 0,
       "month": "M12",
@@ -10816,7 +10816,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1794178983978,
-      "updatedAt": 1794178983978
+      "updatedAt": 1794195612494
     },
     {
       "id": "f26_195",
@@ -10876,7 +10876,7 @@
       "notes": "Inbox wording was voice-typed ('lasting salsa'); read as 'lasting effects'. Ask at the same appointment as f26_172 if it is the right doctor. From the Tasks-app inbox (Nov 8).",
       "goal": "G3",
       "priority": "High",
-      "status": "todo",
+      "status": "in-progress",
       "section": "Health & Body",
       "level": 0,
       "month": "M12",
@@ -10894,7 +10894,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1794178983978,
-      "updatedAt": 1794178983978
+      "updatedAt": 1794195612494
     },
     {
       "id": "f26_198",
@@ -10902,7 +10902,7 @@
       "notes": "From the Tasks-app inbox (Nov 8).",
       "goal": "G3",
       "priority": "Low",
-      "status": "todo",
+      "status": "in-progress",
       "section": "Health & Body",
       "level": 0,
       "month": "M12",
@@ -10920,7 +10920,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1794178983978,
-      "updatedAt": 1794178983978
+      "updatedAt": 1794195612494
     },
     {
       "id": "f26_199",
@@ -10928,7 +10928,7 @@
       "notes": "Added at the Q3 Trajectory Read (Nov 8). Companion to f26_180 (the at-home exam route): find what self-paced / at-home training exists for the cert path (AZ-104 / SC-200 / DP-203, or AZ-900 first). If both the exam route and the training route work, the Microsoft hold becomes a scheduling question: rewrite f26_023 and f26_055 with a new timeline. Report at the Nu Annual Reckoning.",
       "goal": "G4",
       "priority": "Mid",
-      "status": "todo",
+      "status": "in-progress",
       "section": "Career & Credentials",
       "level": 0,
       "month": "M12",
@@ -10946,7 +10946,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1794184486724,
-      "updatedAt": 1794186129757
+      "updatedAt": 1794195612494
     }
   ],
   "milestones": [
