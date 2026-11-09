@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "lastUpdated": "2026-11-09T03:40:12.000Z",
+  "lastUpdated": "2026-11-09T04:52:36.000Z",
   "updatedBy": "Claude",
   "tasks": [
     {
@@ -8208,7 +8208,7 @@
     {
       "id": "f26_081",
       "name": "Wife search 6-month review (gate criterion)",
-      "notes": "6-month formal review of the wife search — a gate criterion determining whether to continue the current approach or change strategy.",
+      "notes": "6-month formal review of the wife search — a gate criterion determining whether to continue the current approach or change strategy.\n[Nov 8] Before this review, pick two outcome measures for the wife search and the tribe (Connor's call; e.g. conversations started per month, gatherings attended per month) so the review can read what the effort has produced, not only what was done. Goes on the Outcome Scoreboard.",
       "goal": "G2",
       "priority": "High",
       "status": "in-progress",
@@ -8229,21 +8229,21 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1793930565558
+      "updatedAt": 1794199956590
     },
     {
       "id": "f26_082",
       "name": "Body composition scan #3 — opportunistic, take the first available slot",
-      "notes": "Third body-composition scan, taken just before the year-end gate review.\n[Nov 5] Off the Mu schedule: a third scan can't be guaranteed this month. Take the first available slot; milestone parked at #MS2027.",
+      "notes": "Third body-composition scan, taken just before the year-end gate review.\n[Nov 5] Off the Mu schedule: a third scan can't be guaranteed this month. Take the first available slot; milestone parked at #MS2027.\n[Nov 8] Dated Dec 23 so the result is in before the Dec 30 gate scoring. This is the outcome test of the training and the Nov 2 diet; booking task f26_200. Baseline: lean mass 121.3 lb (May 7). Reset baseline for the carnivore protocol.",
       "goal": "G3",
       "priority": "High",
-      "status": "backlog",
+      "status": "todo",
       "section": "Health & Body",
       "level": 0,
-      "month": "",
-      "week": "",
+      "month": "M13",
+      "week": "W52",
       "startDate": "",
-      "dueDate": "",
+      "dueDate": "2026-12-23",
       "parentId": "",
       "blockedBy": [],
       "milestone": false,
@@ -8255,7 +8255,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1793903772078
+      "updatedAt": 1794199956590
     },
     {
       "id": "f26_083",
@@ -8578,7 +8578,7 @@
     {
       "id": "f26_095",
       "name": "Annual review + benefits open enrollment — 2026 (G4)",
-      "notes": "Year-end financial (G4) review combined with final benefits open-enrollment actions for 2026.",
+      "notes": "Year-end financial (G4) review combined with final benefits open-enrollment actions for 2026.\n[Nov 8] Pace question for this review: the G4 plan has the emergency fund at 100% ($23,550) in Q2 2027, and live investing waits on it. From about $9,000 at the end of 2026 that needs roughly $2,400 a month; $1,100 a month reaches it in early 2028. Decide: raise the deposit rate or move the Q2 date. Confirm first that the full $1,100 goes to the fund.",
       "goal": "G4",
       "priority": "High",
       "status": "backlog",
@@ -8599,7 +8599,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1785960969568
+      "updatedAt": 1794199956590
     },
     {
       "id": "f26_096",
@@ -8682,7 +8682,7 @@
     {
       "id": "f26_099",
       "name": "Trajectory Read — Q4 + annual",
-      "notes": "is new 2027 volume execution surface or tracking surface?",
+      "notes": "is new 2027 volume execution surface or tracking surface?\n[Nov 8] Add the effort-vs-outcome section: read the Outcome Scoreboard; flag any goal whose outcome is flat for 2 checkpoints while effort is healthy. Also create the 2027 dated copies of the outcome checks f26_201 and f26_202 (recurrence is inert).",
       "goal": "G1",
       "priority": "High",
       "status": "backlog",
@@ -8703,7 +8703,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1794199956590
     },
     {
       "id": "f26_100",
@@ -9280,7 +9280,7 @@
     {
       "id": "f26_136",
       "name": "Assertive Calibration — baseline read of the Assert log",
-      "notes": "First read of the Assert:: entries. When did asserting land, when did it cost, where did holding back serve. Connor sets the ms11_04 criterion from this read; do not pre-set it. | Moved from 11-01 (W44 closeout triage). | Moved from 11-08 (W45 load review). | Moved from 11-02 (Connor, Nov 2): few assert opportunities lately; waiting for more entries.",
+      "notes": "First read of the Assert:: entries. When did asserting land, when did it cost, where did holding back serve. Connor sets the ms11_04 criterion from this read; do not pre-set it. | Moved from 11-01 (W44 closeout triage). | Moved from 11-08 (W45 load review). | Moved from 11-02 (Connor, Nov 2): few assert opportunities lately; waiting for more entries.\n[Nov 8] After the baseline read, set the ms11_04 criterion (Connor's call). It becomes G1's outcome measure on the Outcome Scoreboard.",
       "goal": "G1",
       "priority": "Mid",
       "status": "in-progress",
@@ -9301,7 +9301,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1792265683750,
-      "updatedAt": 1793930565558
+      "updatedAt": 1794199956590
     },
     {
       "id": "f26_137",
@@ -10947,6 +10947,84 @@
       "deleted": false,
       "createdAt": 1794184486724,
       "updatedAt": 1794195612494
+    },
+    {
+      "id": "f26_200",
+      "name": "Book the Evolt scan #3 (before Dec 30)",
+      "notes": "Added Nov 8 with the outcome measures. Scan #3 is the only measurement that shows whether the training and the Nov 2 diet are building lean mass; without it the Dec 30 gate scores attendance only. Book a slot that lands by Dec 23 (f26_082 is the scan itself). Baseline to beat: lean mass 121.3 lb (Evolt, May 7). Treat this scan as the reset baseline for the locked carnivore protocol (Nov 2).",
+      "goal": "G3",
+      "priority": "Mid",
+      "status": "todo",
+      "section": "Health & Body",
+      "level": 0,
+      "month": "M12",
+      "week": "W47",
+      "startDate": "",
+      "dueDate": "2026-11-18",
+      "parentId": "",
+      "blockedBy": [],
+      "milestone": false,
+      "recurrence": "none",
+      "completed": false,
+      "completedAt": "",
+      "sortOrder": 200,
+      "flag": "",
+      "flagDate": "",
+      "deleted": false,
+      "createdAt": 1794199956590,
+      "updatedAt": 1794199956590
+    },
+    {
+      "id": "f26_201",
+      "name": "Outcome check — Mu month-end checkpoint vs. the progression model",
+      "notes": "Added Nov 8. Fill the monthly checkpoint from the Drive doc 'G3 – Physical Progression Model & Timeline' (bodyweight, trap bar deadlift, incline bench, iso row, lean mass if scanned, Cronometer surplus days). Flag rule: lean mass flat or falling for 2 consecutive checkpoints despite confirmed surplus adherence, or 2+ lifts 15-20% under projection for 2 consecutive months, triggers a why-review (surplus, protein, recovery, log quality, then the model's rates). Minimum instrumentation per the G3 plan: weekly weight, monthly lifts and waist, quarterly scan. Record in the Outcome Scoreboard. Recurrence is inert: create the 2027 dated copies at the Dec 16 Trajectory Read.",
+      "goal": "G3",
+      "priority": "Mid",
+      "status": "todo",
+      "section": "Health & Body",
+      "level": 0,
+      "month": "M12",
+      "week": "W49",
+      "startDate": "",
+      "dueDate": "2026-12-02",
+      "parentId": "",
+      "blockedBy": [],
+      "milestone": false,
+      "recurrence": "none",
+      "completed": false,
+      "completedAt": "",
+      "sortOrder": 201,
+      "flag": "",
+      "flagDate": "",
+      "deleted": false,
+      "createdAt": 1794199956590,
+      "updatedAt": 1794199956590
+    },
+    {
+      "id": "f26_202",
+      "name": "Outcome check — emergency fund balance and savings rate (Monarch)",
+      "notes": "Added Nov 8. Read the Monarch 'Emergency fund' goal (Varo + Axos savings; $6,699.63 on Nov 8, 28% of $23,550) and the monthly net savings rate (14.1% year to date on Nov 8). Targets: above $8,000, ending 2026 near $9,000 (f26_084). Pace check: the plan has 100% by Q2 2027, which from about $9,000 needs roughly $2,400 a month, against $1,100 a month automated (about 13 months, early 2028). Confirm the full $1,100 goes to the fund. Flag if the balance is flat or down for 2 consecutive months while the automation shows as running. Record in the Outcome Scoreboard. Recurrence is inert: create the 2027 dated copies at the Dec 16 Trajectory Read.",
+      "goal": "G4",
+      "priority": "Mid",
+      "status": "todo",
+      "section": "Financial",
+      "level": 0,
+      "month": "M12",
+      "week": "W49",
+      "startDate": "",
+      "dueDate": "2026-12-01",
+      "parentId": "",
+      "blockedBy": [],
+      "milestone": false,
+      "recurrence": "none",
+      "completed": false,
+      "completedAt": "",
+      "sortOrder": 202,
+      "flag": "",
+      "flagDate": "",
+      "deleted": false,
+      "createdAt": 1794199956590,
+      "updatedAt": 1794199956590
     }
   ],
   "milestones": [
