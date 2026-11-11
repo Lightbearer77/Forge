@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "lastUpdated": "2026-11-11T00:55:26.658Z",
-  "updatedBy": "Forge",
+  "lastUpdated": "2026-11-11T00:58:37.692Z",
+  "updatedBy": "Claude",
   "tasks": [
     {
       "id": "t_seed_hsa_transfer",
@@ -5500,10 +5500,10 @@
       "status": "in-progress",
       "section": "",
       "level": 0,
-      "month": "M12",
-      "week": "W46",
+      "month": "M13",
+      "week": "W50",
       "startDate": "",
-      "dueDate": "2026-11-09",
+      "dueDate": "2026-12-11",
       "parentId": "",
       "blockedBy": [],
       "milestone": false,
@@ -5515,7 +5515,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1794194881726,
-      "updatedAt": 1794194996496
+      "updatedAt": 1794358717305
     },
     {
       "id": "t_1794195838116_7b47f7",
@@ -5604,10 +5604,10 @@
       "status": "in-progress",
       "section": "",
       "level": 0,
-      "month": "M12",
-      "week": "W46",
+      "month": "M13",
+      "week": "W50",
       "startDate": "",
-      "dueDate": "2026-11-09",
+      "dueDate": "2026-12-11",
       "parentId": "t_1794262690453_x554y4",
       "blockedBy": [],
       "milestone": false,
@@ -5619,7 +5619,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1794262720125,
-      "updatedAt": 1794263066987
+      "updatedAt": 1794358717305
     },
     {
       "id": "t_1794262727437_jvta2u",
@@ -5656,10 +5656,10 @@
       "status": "in-progress",
       "section": "",
       "level": 0,
-      "month": "M12",
-      "week": "W46",
+      "month": "M13",
+      "week": "W50",
       "startDate": "",
-      "dueDate": "2026-11-09",
+      "dueDate": "2026-12-11",
       "parentId": "t_1794262690453_x554y4",
       "blockedBy": [],
       "milestone": false,
@@ -5671,7 +5671,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1794262784032,
-      "updatedAt": 1794263075831
+      "updatedAt": 1794358717305
     },
     {
       "id": "f26_001",
