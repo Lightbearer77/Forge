@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "lastUpdated": "2026-11-11T01:18:15.257Z",
+  "lastUpdated": "2026-11-11T02:36:09.030Z",
   "updatedBy": "Forge",
   "tasks": [
     {
@@ -5497,7 +5497,7 @@
       "notes": "I need to broaden my scope of assertive training to encompass outspoken, charismatic, extroverted behavior. Such as asking for selfies with that performer from Nightmare Caberet. This is about learning to live on the balls of my feet instead of my heels. ",
       "goal": "G1",
       "priority": "High",
-      "status": "in-progress",
+      "status": "done",
       "section": "",
       "level": 0,
       "month": "M13",
@@ -5508,14 +5508,14 @@
       "blockedBy": [],
       "milestone": false,
       "recurrence": "none",
-      "completed": false,
-      "completedAt": "",
+      "completed": true,
+      "completedAt": "2026-11-10",
       "sortOrder": 0,
       "flag": "",
       "flagDate": "",
       "deleted": false,
       "createdAt": 1794194881726,
-      "updatedAt": 1794358717305
+      "updatedAt": 1794364525632
     },
     {
       "id": "t_1794195838116_7b47f7",
