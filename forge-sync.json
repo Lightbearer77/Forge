@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "lastUpdated": "2026-11-11T02:36:09.030Z",
-  "updatedBy": "Forge",
+  "lastUpdated": "2026-11-15T06:27:18.327Z",
+  "updatedBy": "Claude",
   "tasks": [
     {
       "id": "t_seed_hsa_transfer",
@@ -11207,6 +11207,32 @@
       "deleted": false,
       "createdAt": 1794199956590,
       "updatedAt": 1794199956590
+    },
+    {
+      "id": "f26_203",
+      "name": "Score the G1 gate: home server baseline in place (firewall, automatic updates, legacy drive recovery resolved)",
+      "notes": "Checkpoint for ms13_02. Score it at the Nu Annual Reckoning: firewall (UFW) on, automatic updates on, legacy drive recovery resolved (recovered or formally abandoned, ms8_05).",
+      "goal": "G1",
+      "priority": "High",
+      "status": "todo",
+      "section": "Planning & Review",
+      "level": 0,
+      "month": "M13",
+      "week": "W53",
+      "startDate": "",
+      "dueDate": "2026-12-30",
+      "parentId": "",
+      "blockedBy": [],
+      "milestone": false,
+      "recurrence": "none",
+      "completed": false,
+      "completedAt": "",
+      "sortOrder": 203,
+      "flag": "",
+      "flagDate": "",
+      "deleted": false,
+      "createdAt": 1794724037750,
+      "updatedAt": 1794724037750
     }
   ],
   "milestones": [
@@ -12789,6 +12815,25 @@
       "deleted": false,
       "createdAt": 1793939373773,
       "updatedAt": 1793939373773
+    },
+    {
+      "id": "ms13_02",
+      "name": "G1 2026 gate: home server baseline in place — firewall and automatic updates on, legacy drive recovery resolved",
+      "notes": "Ratified Nov 13, 2026. Single-task checkpoint (f26_203). The G1 line for the 2026 annual gate; the Q4 brief cites it. Completion is manual.",
+      "goal": "G1",
+      "month": "M13",
+      "dueDate": "2026-12-30",
+      "msTag": "MS13",
+      "msWeek": "MSW53",
+      "taskIds": [
+        "f26_203"
+      ],
+      "completed": false,
+      "completedAt": "",
+      "sortOrder": 0,
+      "deleted": false,
+      "createdAt": 1794724037750,
+      "updatedAt": 1794724037750
     }
   ],
   "runes": [
