@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "lastUpdated": "2026-11-15T06:27:18.327Z",
+  "lastUpdated": "2026-11-15T19:26:53.865Z",
   "updatedBy": "Claude",
   "tasks": [
     {
@@ -5286,16 +5286,16 @@
     {
       "id": "r04",
       "name": "PhotoRec carve against image only — never the original drive",
-      "notes": "Run PhotoRec file carving against the disk image only (never the original drive) to recover deleted/damaged files. | Moved from 08-15 (rescue plan, Connor Nov 2).",
+      "notes": "Run PhotoRec file carving against the disk image only (never the original drive) to recover deleted/damaged files. | Moved from 08-15 (rescue plan, Connor Nov 2). | Paused Nov 15 (Connor): journal search backlogged until the server is up; scheduled at f26_205; resolves by ms8_05 (end of Beta 2027).",
       "goal": "G1",
       "priority": "Mid",
-      "status": "in-progress",
+      "status": "backlog",
       "section": "Home Server",
       "level": 0,
-      "month": "M12",
-      "week": "W46",
+      "month": "",
+      "week": "",
       "startDate": "",
-      "dueDate": "2026-11-09",
+      "dueDate": "",
       "parentId": "",
       "blockedBy": [],
       "milestone": false,
@@ -5307,7 +5307,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1785859437942,
-      "updatedAt": 1793930565558
+      "updatedAt": 1794770813103
     },
     {
       "id": "r05",
@@ -5364,42 +5364,16 @@
     {
       "id": "r07",
       "name": "KILL GATE — declare recovery complete or abandoned; release 2TB drive to server pool",
-      "notes": "Decision point: formally declare the data-recovery effort finished or abandoned, then release the 2TB drive back into the server storage pool. | Carried from Kappa (was due 2026-09-25). | Moved from 10-24 (Kappa carry-over review). | Moved from 11-03 (Connor, Nov 2: rescuing the data, so the gate follows r03–r06).",
+      "notes": "Decision point: formally declare the data-recovery effort finished or abandoned, then release the 2TB drive back into the server storage pool. | Carried from Kappa (was due 2026-09-25). | Moved from 10-24 (Kappa carry-over review). | Moved from 11-03 (Connor, Nov 2: rescuing the data, so the gate follows r03–r06). | Moved from 12-02 (Nov 15 (Connor)): server first; journal search backlogged until the server is up. Lands by end of Beta 2027 (Feb 25). The 2TB drive stays out of the server pool until then. Rewritten in place; needs-rewrite flag cleared.",
       "goal": "G1",
       "priority": "High",
-      "status": "in-progress",
-      "section": "Home Server",
-      "level": 0,
-      "month": "M12",
-      "week": "W49",
-      "startDate": "",
-      "dueDate": "2026-12-02",
-      "parentId": "",
-      "blockedBy": [],
-      "milestone": false,
-      "recurrence": "none",
-      "completed": false,
-      "completedAt": "",
-      "sortOrder": 0,
-      "flag": "needs-rewrite",
-      "flagDate": "2026-11-05",
-      "deleted": false,
-      "createdAt": 1785859437942,
-      "updatedAt": 1793930565558
-    },
-    {
-      "id": "r08",
-      "name": "NVMe (ex-Qubes boot) recovery — attempt once or write off; TRIM likely already decided this",
-      "notes": "One attempt at recovering the old Qubes boot NVMe drive; TRIM likely already destroyed the data, so this may just confirm it's unrecoverable.",
-      "goal": "G1",
-      "priority": "Low",
       "status": "todo",
       "section": "Home Server",
       "level": 0,
-      "month": "M09",
-      "week": "W35",
+      "month": "M02",
+      "week": "W08",
       "startDate": "",
-      "dueDate": "2026-08-24",
+      "dueDate": "2027-02-25",
       "parentId": "",
       "blockedBy": [],
       "milestone": false,
@@ -5411,7 +5385,35 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1785859437942,
-      "updatedAt": 1785960969568
+      "updatedAt": 1794770813103
+    },
+    {
+      "id": "r08",
+      "name": "NVMe image carve (journal): attempt once or write off; TRIM likely already decided this",
+      "notes": "One attempt at recovering the journal from the Seagate image of the NVMe (f26_204); TRIM likely already destroyed the data, so this may just confirm it's unrecoverable. Backlogged Nov 15 (Connor): carve after the server is up; scheduled at f26_205. Was: attempt recovery on the old Qubes boot NVMe (due 08-24).",
+      "goal": "G1",
+      "priority": "Low",
+      "status": "backlog",
+      "section": "Home Server",
+      "level": 0,
+      "month": "",
+      "week": "",
+      "startDate": "",
+      "dueDate": "",
+      "parentId": "",
+      "blockedBy": [
+        "f26_204"
+      ],
+      "milestone": false,
+      "recurrence": "none",
+      "completed": false,
+      "completedAt": "",
+      "sortOrder": 0,
+      "flag": "",
+      "flagDate": "",
+      "deleted": false,
+      "createdAt": 1785859437942,
+      "updatedAt": 1794770813103
     },
     {
       "id": "t_1787781509736_o82wu4",
@@ -8708,7 +8710,7 @@
     {
       "id": "f26_093",
       "name": "Land or explicitly kill every open 2026 item — no silent carry-forward",
-      "notes": "a killed item is a decision; an ignored item is a leak",
+      "notes": "a killed item is a decision; an ignored item is a leak | Nov 15 (Connor): triage call. The journal search is moved with a date (ms8_05, end of Beta 2027), not landed or killed; a dated move is not a silent carry.",
       "goal": "G1",
       "priority": "High",
       "status": "backlog",
@@ -8729,7 +8731,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1784582884128
+      "updatedAt": 1794770813103
     },
     {
       "id": "f26_094",
@@ -9461,8 +9463,8 @@
     },
     {
       "id": "f26_136",
-      "name": "Assertive Calibration — baseline read of the Assert log",
-      "notes": "First read of the Assert:: entries. When did asserting land, when did it cost, where did holding back serve. Connor sets the ms11_04 criterion from this read; do not pre-set it. | Moved from 11-01 (W44 closeout triage). | Moved from 11-08 (W45 load review). | Moved from 11-02 (Connor, Nov 2): few assert opportunities lately; waiting for more entries.\n[Nov 8] After the baseline read, set the ms11_04 criterion (Connor's call). It becomes G1's outcome measure on the Outcome Scoreboard.",
+      "name": "aMCC season: baseline read of the Rep log",
+      "notes": "First read of the Rep:: entries (Daily Recap). Check the data collection: are avoided reps logged as well as taken ones, are social reps present, is entry quality (clean/hesitated/no-go) being recorded. Connor sets the ms11_04 criterion from this read. | Moved from 11-01 (W44 closeout triage). | Moved from 11-08 (W45 load review). | Moved from 11-02 (Connor, Nov 2): few assert opportunities lately; waiting for more entries.\n[Nov 8] After the baseline read, set the ms11_04 criterion (Connor's call). It becomes G1's outcome measure on the Outcome Scoreboard.\n[Nov 15] Renamed from Assertive Calibration; the Assert:: line was replaced by Rep:: (approach reps).",
       "goal": "G1",
       "priority": "Mid",
       "status": "in-progress",
@@ -9483,7 +9485,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1792265683750,
-      "updatedAt": 1794199956590
+      "updatedAt": 1794770813103
     },
     {
       "id": "f26_137",
@@ -11233,6 +11235,60 @@
       "deleted": false,
       "createdAt": 1794724037750,
       "updatedAt": 1794724037750
+    },
+    {
+      "id": "f26_204",
+      "name": "Image the NVMe (Samsung 990 EVO Plus 1TB) to the Seagate and verify the hash",
+      "notes": "Gate before the NVMe is reformatted for the server build. Boot a live USB, leave the NVMe unmounted, set it read-only (blockdev --setro), image the WHOLE device to the Seagate (ddrescue -S), then SHA-256 the source device and the image; the two must match. Record the hash and the drive serial next to the image. Keep the Seagate protected until the journal search is done (ms8_05). Decided Nov 15 (Connor): server first, journal search backlogged.",
+      "goal": "G1",
+      "priority": "High",
+      "status": "todo",
+      "section": "Home Server",
+      "level": 0,
+      "month": "M12",
+      "week": "W47",
+      "startDate": "",
+      "dueDate": "2026-11-19",
+      "parentId": "",
+      "blockedBy": [],
+      "milestone": false,
+      "recurrence": "none",
+      "completed": false,
+      "completedAt": "",
+      "sortOrder": 204,
+      "flag": "",
+      "flagDate": "",
+      "deleted": false,
+      "createdAt": 1794770813103,
+      "updatedAt": 1794770813103
+    },
+    {
+      "id": "f26_205",
+      "name": "Schedule the 2027 journal recovery: set the search tasks and dates so ms8_05 lands by end of Beta (Feb 25, 2027)",
+      "notes": "Decided Nov 15 (Connor): server first; the journal search is backlogged until the server is up, then resolved (recovered or formally abandoned) by the end of Beta 2027. Starting points: PhotoRec carve of the 2TB drive's image (r04) and the carve of the NVMe image on the Seagate (r08). Blocked on the verified NVMe image (f26_204). Dated Dec 16 (Trajectory Read day, f26_099); Connor can move it within Nu.",
+      "goal": "G1",
+      "priority": "Mid",
+      "status": "todo",
+      "section": "Planning & Review",
+      "level": 0,
+      "month": "M13",
+      "week": "W51",
+      "startDate": "",
+      "dueDate": "2026-12-16",
+      "parentId": "",
+      "blockedBy": [
+        "f26_204"
+      ],
+      "milestone": false,
+      "recurrence": "none",
+      "completed": false,
+      "completedAt": "",
+      "sortOrder": 205,
+      "flag": "",
+      "flagDate": "",
+      "deleted": false,
+      "createdAt": 1794770813103,
+      "updatedAt": 1794770813103
     }
   ],
   "milestones": [
@@ -12742,12 +12798,12 @@
     {
       "id": "ms8_05",
       "name": "Legacy drive recovery resolved — files recovered OR formally abandoned; 2TB drive released",
-      "notes": "Single-task checkpoint — kill-gate decision to declare the data-recovery effort finished or abandoned, then release the 2TB drive back to the server pool.",
+      "notes": "Single-task checkpoint — kill-gate decision to declare the data-recovery effort finished or abandoned, then release the 2TB drive back to the server pool. | Moved from Dec 2, 2026 (Nov 15 (Connor)): server first; journal search backlogged until the server is up. Resolved (recovered or formally abandoned) by the end of Beta 2027 (Feb 25). Tagged MS2027 so it leaves the Mu counts.",
       "goal": "G1",
-      "month": "M12",
-      "dueDate": "2026-12-02",
-      "msTag": "MS12",
-      "msWeek": "MSW49",
+      "month": "M02",
+      "dueDate": "2027-02-25",
+      "msTag": "MS2027",
+      "msWeek": "MSW08",
       "taskIds": [
         "r07"
       ],
@@ -12756,12 +12812,12 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1785859437942,
-      "updatedAt": 1793903772078
+      "updatedAt": 1794770813103
     },
     {
       "id": "ms11_04",
-      "name": "Assertive Calibration — know when to assert, and land it without offense",
-      "notes": "Successor to the Assertive Correction Season (ms9_03, closed on self-report). Goal: learn when to assert, when it would offend, and how to land the point without offending. Tracked with the Assert:: line in the Daily Recap (A/H/M | L/P/N/? | O0/O1/O2). Criterion to be set by Connor after the f26_136 baseline read. | Moved from Nov 4 to the end of Mu, Dec 2 (Connor, Nov 2): few assert opportunities lately; baseline read f26_136 moved to Nov 22.",
+      "name": "aMCC season: live on the balls of your feet. Approach reps logged, taken over avoided",
+      "notes": "Successor to the Assertive Correction Season (ms9_03, closed on self-report), broadened Nov 15 from Assertive Calibration to approach behavior (outgoing, confident, proactive; social and non-social reps). Tracked with the Rep:: line in the Daily Recap (type, entry quality clean/hesitated/no-go, go cue, resistance, felt after). The aMCC idea is the rationale for the practice, not a measured result. Mu goal: record the practice and optimize the data collection where it falls short. Nov 15 (Connor): Mu target in the EoM brief is at least 80% of logged approach opportunities taken (clean or hesitated) over avoided (no-go), social reps on their own line; confirm it as the criterion and the Outcome Scoreboard measure at the Nov 22 baseline read (f26_136). | Moved from Nov 4 to the end of Mu, Dec 2 (Connor, Nov 2): few assert opportunities lately; baseline read f26_136 moved to Nov 22.",
       "goal": "G1",
       "month": "M12",
       "dueDate": "2026-12-02",
@@ -12776,7 +12832,7 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1792265683750,
-      "updatedAt": 1793645401320
+      "updatedAt": 1794770813103
     },
     {
       "id": "ms5_06",
