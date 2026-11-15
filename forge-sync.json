@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "lastUpdated": "2026-11-15T19:26:53.865Z",
+  "lastUpdated": "2026-11-15T19:31:31.489Z",
   "updatedBy": "Claude",
   "tasks": [
     {
@@ -4385,7 +4385,9 @@
       "startDate": "",
       "dueDate": "2026-06-08",
       "parentId": "",
-      "blockedBy": [],
+      "blockedBy": [
+        "f26_204"
+      ],
       "milestone": false,
       "recurrence": "none",
       "completed": false,
@@ -4395,7 +4397,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1792495009736
+      "updatedAt": 1794771091453
     },
     {
       "id": "v02",
@@ -4610,16 +4612,16 @@
     {
       "id": "v10",
       "name": "Server up & running — Nextcloud/Syncthing",
-      "notes": "Capstone for the server chain.",
+      "notes": "Capstone for the server chain. Done = functional as a server: usable as storage that replaces OneDrive and Google Drive. Not finished being worked on; the rest of the chain follows. Defined Nov 15 (Connor). Nothing was built before this date (the server had no NVMe).",
       "goal": "G1",
       "priority": "High",
-      "status": "backlog",
+      "status": "todo",
       "section": "Home Server",
       "level": 1,
-      "month": "",
-      "week": "",
+      "month": "M12",
+      "week": "W49",
       "startDate": "",
-      "dueDate": "2026-05-28",
+      "dueDate": "2026-12-02",
       "parentId": "",
       "blockedBy": [],
       "milestone": false,
@@ -4631,7 +4633,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1789088386260
+      "updatedAt": 1794771091453
     },
     {
       "id": "v11",
@@ -5312,16 +5314,16 @@
     {
       "id": "r05",
       "name": "Triage carved output — HARD 4-hour timebox, target = the LibreOffice/text files only",
-      "notes": "Sort through PhotoRec's carved output within a strict 4-hour window, focusing only on LibreOffice/text files. | Moved from 08-18 (rescue plan, Connor Nov 2).",
+      "notes": "Sort through PhotoRec's carved output within a strict 4-hour window, focusing only on LibreOffice/text files. | Moved from 08-18 (rescue plan, Connor Nov 2). | Paused Nov 15 (Connor): journal search backlogged until the server is up; scheduled at f26_205; resolves by ms8_05 (end of Beta 2027).",
       "goal": "G1",
       "priority": "Mid",
-      "status": "in-progress",
+      "status": "backlog",
       "section": "Home Server",
       "level": 0,
-      "month": "M12",
-      "week": "W46",
+      "month": "",
+      "week": "",
       "startDate": "",
-      "dueDate": "2026-11-14",
+      "dueDate": "",
       "parentId": "",
       "blockedBy": [],
       "milestone": false,
@@ -5333,21 +5335,21 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1785859437942,
-      "updatedAt": 1793930565558
+      "updatedAt": 1794771091453
     },
     {
       "id": "r06",
       "name": "Classify surviving files by compartment before they leave recovery-work (no netvm until sorted)",
-      "notes": "Sort recovered files into their proper security compartments before they get network access — Qubes compartmentalization discipline. | Moved from 08-20 (rescue plan, Connor Nov 2).",
+      "notes": "Sort recovered files into their proper security compartments before they get network access — Qubes compartmentalization discipline. | Moved from 08-20 (rescue plan, Connor Nov 2). | Paused Nov 15 (Connor): journal search backlogged until the server is up; scheduled at f26_205; resolves by ms8_05 (end of Beta 2027).",
       "goal": "G1",
       "priority": "Mid",
-      "status": "in-progress",
+      "status": "backlog",
       "section": "Home Server",
       "level": 0,
-      "month": "M12",
-      "week": "W47",
+      "month": "",
+      "week": "",
       "startDate": "",
-      "dueDate": "2026-11-17",
+      "dueDate": "",
       "parentId": "",
       "blockedBy": [],
       "milestone": false,
@@ -5359,12 +5361,12 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1785859437942,
-      "updatedAt": 1793930565558
+      "updatedAt": 1794771091453
     },
     {
       "id": "r07",
       "name": "KILL GATE — declare recovery complete or abandoned; release 2TB drive to server pool",
-      "notes": "Decision point: formally declare the data-recovery effort finished or abandoned, then release the 2TB drive back into the server storage pool. | Carried from Kappa (was due 2026-09-25). | Moved from 10-24 (Kappa carry-over review). | Moved from 11-03 (Connor, Nov 2: rescuing the data, so the gate follows r03–r06). | Moved from 12-02 (Nov 15 (Connor)): server first; journal search backlogged until the server is up. Lands by end of Beta 2027 (Feb 25). The 2TB drive stays out of the server pool until then. Rewritten in place; needs-rewrite flag cleared.",
+      "notes": "Decision point: formally declare the data-recovery effort finished or abandoned, then release the 2TB drive back into the server storage pool. | Carried from Kappa (was due 2026-09-25). | Moved from 10-24 (Kappa carry-over review). | Moved from 11-03 (Connor, Nov 2: rescuing the data, so the gate follows r03–r06). | Moved from 12-02 (Nov 15 (Connor)): server first; journal search backlogged until the server is up. Lands by end of Beta 2027 (Feb 25). The 2TB drive stays out of the server pool until then. Rewritten in place; needs-rewrite flag cleared. | Correction Nov 15 (Connor): the 2TB drive can rejoin the server pool once the ddrescue image on the Seagate is confirmed complete and the drive passes SMART; its release is no longer tied to this gate. The journal search runs against the image.",
       "goal": "G1",
       "priority": "High",
       "status": "todo",
@@ -5385,7 +5387,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1785859437942,
-      "updatedAt": 1794770813103
+      "updatedAt": 1794771091453
     },
     {
       "id": "r08",
@@ -11212,8 +11214,8 @@
     },
     {
       "id": "f26_203",
-      "name": "Score the G1 gate: home server baseline in place (firewall, automatic updates, legacy drive recovery resolved)",
-      "notes": "Checkpoint for ms13_02. Score it at the Nu Annual Reckoning: firewall (UFW) on, automatic updates on, legacy drive recovery resolved (recovered or formally abandoned, ms8_05).",
+      "name": "Score the G1 gate: home server baseline in place (firewall, automatic updates)",
+      "notes": "Checkpoint for ms13_02. Score it at the Nu Annual Reckoning: firewall (UFW) on, automatic updates on. | Nov 15 (Connor): legacy drive recovery removed from this gate; it is tracked by ms8_05 (end of Beta 2027).",
       "goal": "G1",
       "priority": "High",
       "status": "todo",
@@ -11234,7 +11236,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1794724037750,
-      "updatedAt": 1794724037750
+      "updatedAt": 1794771091453
     },
     {
       "id": "f26_204",
@@ -12798,7 +12800,7 @@
     {
       "id": "ms8_05",
       "name": "Legacy drive recovery resolved — files recovered OR formally abandoned; 2TB drive released",
-      "notes": "Single-task checkpoint — kill-gate decision to declare the data-recovery effort finished or abandoned, then release the 2TB drive back to the server pool. | Moved from Dec 2, 2026 (Nov 15 (Connor)): server first; journal search backlogged until the server is up. Resolved (recovered or formally abandoned) by the end of Beta 2027 (Feb 25). Tagged MS2027 so it leaves the Mu counts.",
+      "notes": "Single-task checkpoint — kill-gate decision to declare the data-recovery effort finished or abandoned, then release the 2TB drive back to the server pool. | Moved from Dec 2, 2026 (Nov 15 (Connor)): server first; journal search backlogged until the server is up. Resolved (recovered or formally abandoned) by the end of Beta 2027 (Feb 25). Tagged MS2027 so it leaves the Mu counts. | Correction Nov 15 (Connor): the 2TB drive can rejoin the server pool once the ddrescue image on the Seagate is confirmed complete and the drive passes SMART; its release is no longer tied to this gate. The journal search runs against the image.",
       "goal": "G1",
       "month": "M02",
       "dueDate": "2027-02-25",
@@ -12812,7 +12814,7 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1785859437942,
-      "updatedAt": 1794770813103
+      "updatedAt": 1794771091453
     },
     {
       "id": "ms11_04",
@@ -12874,8 +12876,8 @@
     },
     {
       "id": "ms13_02",
-      "name": "G1 2026 gate: home server baseline in place — firewall and automatic updates on, legacy drive recovery resolved",
-      "notes": "Ratified Nov 13, 2026. Single-task checkpoint (f26_203). The G1 line for the 2026 annual gate; the Q4 brief cites it. Completion is manual.",
+      "name": "G1 2026 gate: home server baseline in place — firewall and automatic updates on",
+      "notes": "Ratified Nov 13, 2026. Single-task checkpoint (f26_203). The G1 line for the 2026 annual gate; the Q4 brief cites it. Completion is manual. | Nov 15 (Connor): dropped 'legacy drive recovery resolved' from the gate; the journal search moved to ms8_05 (end of Beta 2027).",
       "goal": "G1",
       "month": "M13",
       "dueDate": "2026-12-30",
@@ -12889,7 +12891,7 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1794724037750,
-      "updatedAt": 1794724037750
+      "updatedAt": 1794771091453
     }
   ],
   "runes": [
