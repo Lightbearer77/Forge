@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "lastUpdated": "2026-11-15T21:19:21.083Z",
+  "lastUpdated": "2026-11-15T21:30:40.083Z",
   "updatedBy": "Claude",
   "tasks": [
     {
@@ -11407,7 +11407,7 @@
     {
       "id": "f26_210",
       "name": "Score the Mu inner-circle target: did Andrew join two hangouts without Robbie prompting (Nov 5 - Dec 2)?",
-      "notes": "Target, scored at Dec 2: at least two hangouts in this Greek month that Andrew joins without Robbie prompting him. Ceiling: Andrew starts a message or suggestion himself. Log each hangout and any message he starts as it happens, so this is a read of the log. Not a lever on the gesture (f26_071): the gesture is unconditional. Nov 15 (Connor).",
+      "notes": "Target, scored at Dec 2: at least two hangouts in this Greek month that Andrew joins without Robbie prompting him. Ceiling: Andrew starts a message or suggestion himself. Log each hangout and any message he starts as it happens, so this is a read of the log. Not a lever on the gesture (f26_071): the gesture is unconditional. Nov 15 (Connor). | Nov 15 log: Andrew messaged a suggestion to start the blackberry black currant mead (first self-initiated suggestion; the Mu ceiling is provisionally met). One data point: the Feb 25 read (f26_211) needs a pattern. Context: on Nov 11 he was unwell and asked for alone time; Connor replied without pressure.",
       "goal": "G2",
       "priority": "High",
       "status": "todo",
@@ -11428,7 +11428,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1794776619578,
-      "updatedAt": 1794776619578
+      "updatedAt": 1794778239907
     },
     {
       "id": "f26_211",
@@ -11485,7 +11485,7 @@
     {
       "id": "f26_213",
       "name": "Find an in-network PCP who will order the redraw + EKG",
-      "notes": "Blocked on the bill check (f26_172) and the missing-tests list (f26_212). Ask each office up front: (1) will you order the redraw and an EKG; (2) are the annual physical and routine labs covered as preventive when in-network; (3) cash-price estimates for the EKG and the redraw (HSA-eligible); (4) a morning slot around 9-10am is needed. Also raise the $500 HSA well-being incentive. At the first visit, ask the varicose vein side-effects question (f26_197). Nov 15 (Connor).",
+      "notes": "Blocked on the bill check (f26_172) and the missing-tests list (f26_212). Ask each office up front: (1) will you order the redraw and an EKG; (2) are the annual physical and routine labs covered as preventive when in-network; (3) cash-price estimates for the EKG and the redraw (HSA-eligible); (4) a morning slot around 9-10am is needed. Also raise the $500 HSA well-being incentive. At the first visit, ask the varicose vein side-effects question (f26_197). Nov 15 (Connor). | Moved from 2026-12-09 to 2026-12-02 Nov 15 (Connor) so the in-network PCP is chosen inside Mu (the brief's G3 Target); scheduling (f26_214) stays Dec 16.",
       "goal": "G3",
       "priority": "High",
       "status": "todo",
@@ -11494,7 +11494,7 @@
       "month": "M12",
       "week": "W49",
       "startDate": "",
-      "dueDate": "2026-12-09",
+      "dueDate": "2026-12-02",
       "parentId": "",
       "blockedBy": [
         "f26_172",
@@ -11509,7 +11509,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1794777560922,
-      "updatedAt": 1794777560922
+      "updatedAt": 1794778239907
     },
     {
       "id": "f26_214",
