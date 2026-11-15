@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "lastUpdated": "2026-11-15T21:52:45.985Z",
+  "lastUpdated": "2026-11-15T21:57:12.609Z",
   "updatedBy": "Claude",
   "tasks": [
     {
@@ -4872,16 +4872,16 @@
     {
       "id": "v20",
       "name": "Adopt any unused benefits available from Northrop",
-      "notes": "Review Northrop's benefits package for anything unused that should be activated. | Moved from 07-20 (folded into the Nov 3 benefits session with f26_074; Connor, Nov 2).",
+      "notes": "Review Northrop's benefits package for anything unused that should be activated. | Moved from 07-20 (folded into the Nov 3 benefits session with f26_074; Connor, Nov 2). | Re-dated Nov 15 (Connor): there is a lot of paperwork, so this is a Mu-long task (Nov 5 to Dec 2), not a single sitting. Moved from 2026-11-03.",
       "goal": "G4",
       "priority": "High",
       "status": "in-progress",
       "section": "Financial",
       "level": 2,
-      "month": "M11",
-      "week": "W45",
-      "startDate": "",
-      "dueDate": "2026-11-03",
+      "month": "M12",
+      "week": "W49",
+      "startDate": "2026-11-05",
+      "dueDate": "2026-12-02",
       "parentId": "",
       "blockedBy": [],
       "milestone": false,
@@ -4893,7 +4893,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1793716860863
+      "updatedAt": 1794779832457
     },
     {
       "id": "v21",
@@ -7746,7 +7746,7 @@
     {
       "id": "f26_055",
       "name": "Book Microsoft associate cert exam (AZ-104/SC-200/DP-203)",
-      "notes": "Not yet scheduled — study underway per f26_023, but no exam date is booked. Book a firm date; renamed from 'PASSED (or rescheduled)' which assumed a booking that doesn't exist. | Carried from Kappa (was due 2026-09-30). | Moved from 10-26 (W44 closeout triage). | On hold (Connor, Nov 2; was 11-06). Revisit at the Mu EoM.",
+      "notes": "Not yet scheduled — study underway per f26_023, but no exam date is booked. Book a firm date; renamed from 'PASSED (or rescheduled)' which assumed a booking that doesn't exist. | Carried from Kappa (was due 2026-09-30). | Moved from 10-26 (W44 closeout triage). | On hold (Connor, Nov 2; was 11-06). Revisit at the Mu EoM. | Nov 15 (Connor): no due date until the at-home exam route is settled (HR check f26_217, then the system test f26_180). Stays undated; if the home route fails, rewrite this task with a different route.",
       "goal": "G4",
       "priority": "High",
       "status": "backlog",
@@ -7767,7 +7767,7 @@
       "flagDate": "2026-11-05",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1793896341362
+      "updatedAt": 1794779832457
     },
     {
       "id": "f26_056",
@@ -11566,6 +11566,58 @@
       "deleted": false,
       "createdAt": 1794777560922,
       "updatedAt": 1794777560922
+    },
+    {
+      "id": "f26_216",
+      "name": "Diagnose the emergency-fund discrepancy: where did the balance go vs the $1,100/month automation?",
+      "notes": "Added Nov 15 (Connor) (the open diagnosis from the Nov 9 session). The question: the fund held $6,699.63 on Nov 8 (Varo + Axos, 28% of $23,550; see f26_202), while about $1,100 a month was meant to go in. An earlier session recorded $10,003.30 in the same two accounts in May, so the balance is lower now than then. Needs from Connor: the Varo and Axos balances from an earlier month (a month-end figure from Monarch or the bank). Then compare month-end balances against the automation, name where the money went, and decide what changes. This is separate from f26_202 (the Dec 1 outcome check) and feeds it; the gate (above $8,000, ending 2026 near $9,000; f26_084) stands.",
+      "goal": "G4",
+      "priority": "High",
+      "status": "todo",
+      "section": "Financial",
+      "level": 0,
+      "month": "M12",
+      "week": "W47",
+      "startDate": "",
+      "dueDate": "2026-11-22",
+      "parentId": "",
+      "blockedBy": [],
+      "milestone": false,
+      "recurrence": "none",
+      "completed": false,
+      "completedAt": "",
+      "sortOrder": 216,
+      "flag": "",
+      "flagDate": "",
+      "deleted": false,
+      "createdAt": 1794779832457,
+      "updatedAt": 1794779832457
+    },
+    {
+      "id": "f26_217",
+      "name": "Ask HR whether the at-home exam route is viable for the Microsoft cert exam",
+      "notes": "Added Nov 15 (Connor): the at-home route looks unlikely to work, so confirm with HR before testing it (f26_180, due Nov 18). If HR confirms it is not viable, retire f26_180 (Connor's call) and leave the exam undated (f26_055, ms10_05) until a route is found. While asking: does employer education assistance cover the exam fee (item 3 of f26_180).",
+      "goal": "G4",
+      "priority": "Mid",
+      "status": "todo",
+      "section": "Career & Credentials",
+      "level": 0,
+      "month": "M12",
+      "week": "W47",
+      "startDate": "",
+      "dueDate": "2026-11-17",
+      "parentId": "",
+      "blockedBy": [],
+      "milestone": false,
+      "recurrence": "none",
+      "completed": false,
+      "completedAt": "",
+      "sortOrder": 217,
+      "flag": "",
+      "flagDate": "",
+      "deleted": false,
+      "createdAt": 1794779832457,
+      "updatedAt": 1794779832457
     }
   ],
   "milestones": [
