@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "lastUpdated": "2026-11-15T19:31:31.489Z",
+  "lastUpdated": "2026-11-15T19:43:48.784Z",
   "updatedBy": "Claude",
   "tasks": [
     {
@@ -4454,7 +4454,7 @@
     {
       "id": "v04",
       "name": "Format and mount drives — ZFS pool or RAID configuration",
-      "notes": "Blocked by r07 — the 2TB recovery target must not be formatted until the kill gate clears.",
+      "notes": "Blocked by r07 — the 2TB recovery target must not be formatted until the kill gate clears. | Re-blocked Nov 15 (Connor): waits on the 2TB release (f26_207), not the Feb 2027 journal gate (r07).",
       "goal": "G1",
       "priority": "High",
       "status": "backlog",
@@ -4466,7 +4466,7 @@
       "dueDate": "2026-06-21",
       "parentId": "",
       "blockedBy": [
-        "r07"
+        "f26_207"
       ],
       "milestone": false,
       "recurrence": "none",
@@ -4477,7 +4477,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1789088386260
+      "updatedAt": 1794771828602
     },
     {
       "id": "v05",
@@ -5288,16 +5288,16 @@
     {
       "id": "r04",
       "name": "PhotoRec carve against image only — never the original drive",
-      "notes": "Run PhotoRec file carving against the disk image only (never the original drive) to recover deleted/damaged files. | Moved from 08-15 (rescue plan, Connor Nov 2). | Paused Nov 15 (Connor): journal search backlogged until the server is up; scheduled at f26_205; resolves by ms8_05 (end of Beta 2027).",
+      "notes": "Run PhotoRec file carving against the disk image only (never the original drive) to recover deleted/damaged files. | Moved from 08-15 (rescue plan, Connor Nov 2). | Paused Nov 15 (Connor): journal search backlogged until the server is up; scheduled at f26_205; resolves by ms8_05 (end of Beta 2027). | Restored to Mu Nov 15 (Connor): finish the 2TB HDD recovery in Mu; only the NVMe image carve (r08) stays backlogged to 2027. If the carve is finished, mark it done.",
       "goal": "G1",
       "priority": "Mid",
-      "status": "backlog",
+      "status": "in-progress",
       "section": "Home Server",
       "level": 0,
-      "month": "",
-      "week": "",
+      "month": "M12",
+      "week": "W47",
       "startDate": "",
-      "dueDate": "",
+      "dueDate": "2026-11-17",
       "parentId": "",
       "blockedBy": [],
       "milestone": false,
@@ -5309,21 +5309,21 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1785859437942,
-      "updatedAt": 1794770813103
+      "updatedAt": 1794771828602
     },
     {
       "id": "r05",
       "name": "Triage carved output — HARD 4-hour timebox, target = the LibreOffice/text files only",
-      "notes": "Sort through PhotoRec's carved output within a strict 4-hour window, focusing only on LibreOffice/text files. | Moved from 08-18 (rescue plan, Connor Nov 2). | Paused Nov 15 (Connor): journal search backlogged until the server is up; scheduled at f26_205; resolves by ms8_05 (end of Beta 2027).",
+      "notes": "Sort through PhotoRec's carved output within a strict 4-hour window, focusing only on LibreOffice/text files. | Moved from 08-18 (rescue plan, Connor Nov 2). | Paused Nov 15 (Connor): journal search backlogged until the server is up; scheduled at f26_205; resolves by ms8_05 (end of Beta 2027). | Restored to Mu Nov 15 (Connor): finish the 2TB HDD recovery in Mu; only the NVMe image carve (r08) stays backlogged to 2027.",
       "goal": "G1",
       "priority": "Mid",
-      "status": "backlog",
+      "status": "in-progress",
       "section": "Home Server",
       "level": 0,
-      "month": "",
-      "week": "",
+      "month": "M12",
+      "week": "W47",
       "startDate": "",
-      "dueDate": "",
+      "dueDate": "2026-11-18",
       "parentId": "",
       "blockedBy": [],
       "milestone": false,
@@ -5335,21 +5335,21 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1785859437942,
-      "updatedAt": 1794771091453
+      "updatedAt": 1794771828602
     },
     {
       "id": "r06",
       "name": "Classify surviving files by compartment before they leave recovery-work (no netvm until sorted)",
-      "notes": "Sort recovered files into their proper security compartments before they get network access — Qubes compartmentalization discipline. | Moved from 08-20 (rescue plan, Connor Nov 2). | Paused Nov 15 (Connor): journal search backlogged until the server is up; scheduled at f26_205; resolves by ms8_05 (end of Beta 2027).",
+      "notes": "Sort recovered files into their proper security compartments before they get network access — Qubes compartmentalization discipline. | Moved from 08-20 (rescue plan, Connor Nov 2). | Paused Nov 15 (Connor): journal search backlogged until the server is up; scheduled at f26_205; resolves by ms8_05 (end of Beta 2027). | Restored to Mu Nov 15 (Connor): finish the 2TB HDD recovery in Mu; only the NVMe image carve (r08) stays backlogged to 2027.",
       "goal": "G1",
       "priority": "Mid",
-      "status": "backlog",
+      "status": "in-progress",
       "section": "Home Server",
       "level": 0,
-      "month": "",
-      "week": "",
+      "month": "M12",
+      "week": "W47",
       "startDate": "",
-      "dueDate": "",
+      "dueDate": "2026-11-20",
       "parentId": "",
       "blockedBy": [],
       "milestone": false,
@@ -5361,12 +5361,12 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1785859437942,
-      "updatedAt": 1794771091453
+      "updatedAt": 1794771828602
     },
     {
       "id": "r07",
-      "name": "KILL GATE — declare recovery complete or abandoned; release 2TB drive to server pool",
-      "notes": "Decision point: formally declare the data-recovery effort finished or abandoned, then release the 2TB drive back into the server storage pool. | Carried from Kappa (was due 2026-09-25). | Moved from 10-24 (Kappa carry-over review). | Moved from 11-03 (Connor, Nov 2: rescuing the data, so the gate follows r03–r06). | Moved from 12-02 (Nov 15 (Connor)): server first; journal search backlogged until the server is up. Lands by end of Beta 2027 (Feb 25). The 2TB drive stays out of the server pool until then. Rewritten in place; needs-rewrite flag cleared. | Correction Nov 15 (Connor): the 2TB drive can rejoin the server pool once the ddrescue image on the Seagate is confirmed complete and the drive passes SMART; its release is no longer tied to this gate. The journal search runs against the image.",
+      "name": "KILL GATE — declare the journal recovery complete or abandoned",
+      "notes": "Decision point: formally declare the data-recovery effort finished or abandoned, then release the 2TB drive back into the server storage pool. | Carried from Kappa (was due 2026-09-25). | Moved from 10-24 (Kappa carry-over review). | Moved from 11-03 (Connor, Nov 2: rescuing the data, so the gate follows r03–r06). | Moved from 12-02 (Nov 15 (Connor)): server first; journal search backlogged until the server is up. Lands by end of Beta 2027 (Feb 25). The 2TB drive stays out of the server pool until then. Rewritten in place; needs-rewrite flag cleared. | Correction Nov 15 (Connor): the 2TB drive can rejoin the server pool once the ddrescue image on the Seagate is confirmed complete and the drive passes SMART; its release is no longer tied to this gate. The journal search runs against the image. | Made journal-only Nov 15 (Connor): the 2TB release moved to f26_207 (Mu). This gate now covers what is left after the HDD work, mainly the NVMe image carve (r08).",
       "goal": "G1",
       "priority": "High",
       "status": "todo",
@@ -5387,7 +5387,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1785859437942,
-      "updatedAt": 1794771091453
+      "updatedAt": 1794771828602
     },
     {
       "id": "r08",
@@ -11267,7 +11267,7 @@
     {
       "id": "f26_205",
       "name": "Schedule the 2027 journal recovery: set the search tasks and dates so ms8_05 lands by end of Beta (Feb 25, 2027)",
-      "notes": "Decided Nov 15 (Connor): server first; the journal search is backlogged until the server is up, then resolved (recovered or formally abandoned) by the end of Beta 2027. Starting points: PhotoRec carve of the 2TB drive's image (r04) and the carve of the NVMe image on the Seagate (r08). Blocked on the verified NVMe image (f26_204). Dated Dec 16 (Trajectory Read day, f26_099); Connor can move it within Nu.",
+      "notes": "Decided Nov 15 (Connor): server first; the journal search is backlogged until the server is up, then resolved (recovered or formally abandoned) by the end of Beta 2027. Starting points: PhotoRec carve of the 2TB drive's image (r04) and the carve of the NVMe image on the Seagate (r08). Blocked on the verified NVMe image (f26_204). Dated Dec 16 (Trajectory Read day, f26_099); Connor can move it within Nu. | Update Nov 15 (Connor): the 2TB HDD recovery (r04-r06) is back in Mu, so this task now schedules what is left: the NVMe image carve (r08) and the final gate (r07).",
       "goal": "G1",
       "priority": "Mid",
       "status": "todo",
@@ -11290,7 +11290,63 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1794770813103,
-      "updatedAt": 1794770813103
+      "updatedAt": 1794771828602
+    },
+    {
+      "id": "f26_206",
+      "name": "SMART check the 2TB drive (long self-test); quick SMART read on the Seagate (Tardis) too",
+      "notes": "Check 2 before the 2TB is wiped and released. Install smartmontools in the debian-13-xfce template (sudo apt install -y smartmontools), shut the template down, restart recovery-work, attach the 2TB via the Sabrent, lsblk for its letter. Quick read: sudo smartctl -a -d sat /dev/sdX (retry without -d sat if it errors). Long test: sudo smartctl -t long -d sat /dev/sdX (about 4-6 hours, keep it powered and connected), then smartctl -l selftest. Pass = overall PASSED; attributes 5, 197, 198, 187 all 0; long test completed without error; Power_On_Hours not extreme; rising UDMA_CRC_Error_Count points at the cable or Sabrent, not the disk. Paste the attribute numbers to Claude. Also a quick SMART read on Tardis: it has dropped out once and will hold the only copy of the raw image (and the NVMe image). Check 1 (ddrescue map 100% rescued, 0 B bad) passed Nov 15 (Connor).",
+      "goal": "G1",
+      "priority": "High",
+      "status": "todo",
+      "section": "Home Server",
+      "level": 0,
+      "month": "M12",
+      "week": "W47",
+      "startDate": "",
+      "dueDate": "2026-11-21",
+      "parentId": "",
+      "blockedBy": [],
+      "milestone": false,
+      "recurrence": "none",
+      "completed": false,
+      "completedAt": "",
+      "sortOrder": 206,
+      "flag": "",
+      "flagDate": "",
+      "deleted": false,
+      "createdAt": 1794771828602,
+      "updatedAt": 1794771828602
+    },
+    {
+      "id": "f26_207",
+      "name": "Release the 2TB drive to the server pool: wipe it once SMART passes and the recovery work is finished",
+      "notes": "Gate task. Wipe only after SMART passes (f26_206) and the triage and classification are finished (r05, r06). Once wiped, the raw image on Tardis is the only copy of what was on the drive; the recovered journal files are already held in two places (the personal qube and Tardis). If SMART fails, do not use this drive for the storage that replaces OneDrive and Google Drive. Unblocks v04 (format and mount drives). Defined Nov 15 (Connor).",
+      "goal": "G1",
+      "priority": "High",
+      "status": "todo",
+      "section": "Home Server",
+      "level": 0,
+      "month": "M12",
+      "week": "W48",
+      "startDate": "",
+      "dueDate": "2026-11-25",
+      "parentId": "",
+      "blockedBy": [
+        "f26_206",
+        "r05",
+        "r06"
+      ],
+      "milestone": false,
+      "recurrence": "none",
+      "completed": false,
+      "completedAt": "",
+      "sortOrder": 207,
+      "flag": "",
+      "flagDate": "",
+      "deleted": false,
+      "createdAt": 1794771828602,
+      "updatedAt": 1794771828602
     }
   ],
   "milestones": [
@@ -12799,8 +12855,8 @@
     },
     {
       "id": "ms8_05",
-      "name": "Legacy drive recovery resolved — files recovered OR formally abandoned; 2TB drive released",
-      "notes": "Single-task checkpoint — kill-gate decision to declare the data-recovery effort finished or abandoned, then release the 2TB drive back to the server pool. | Moved from Dec 2, 2026 (Nov 15 (Connor)): server first; journal search backlogged until the server is up. Resolved (recovered or formally abandoned) by the end of Beta 2027 (Feb 25). Tagged MS2027 so it leaves the Mu counts. | Correction Nov 15 (Connor): the 2TB drive can rejoin the server pool once the ddrescue image on the Seagate is confirmed complete and the drive passes SMART; its release is no longer tied to this gate. The journal search runs against the image.",
+      "name": "Legacy drive recovery resolved — journal recovered OR formally abandoned",
+      "notes": "Single-task checkpoint — kill-gate decision to declare the data-recovery effort finished or abandoned, then release the 2TB drive back to the server pool. | Moved from Dec 2, 2026 (Nov 15 (Connor)): server first; journal search backlogged until the server is up. Resolved (recovered or formally abandoned) by the end of Beta 2027 (Feb 25). Tagged MS2027 so it leaves the Mu counts. | Correction Nov 15 (Connor): the 2TB drive can rejoin the server pool once the ddrescue image on the Seagate is confirmed complete and the drive passes SMART; its release is no longer tied to this gate. The journal search runs against the image. | Nov 15 (Connor): the 2TB drive release is now its own Mu task (f26_207); this milestone covers the journal recovery only (end of Beta 2027).",
       "goal": "G1",
       "month": "M02",
       "dueDate": "2027-02-25",
@@ -12814,7 +12870,7 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1785859437942,
-      "updatedAt": 1794771091453
+      "updatedAt": 1794771828602
     },
     {
       "id": "ms11_04",
