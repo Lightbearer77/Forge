@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "lastUpdated": "2026-11-15T22:37:03.514Z",
+  "lastUpdated": "2026-11-15T22:59:29.455Z",
   "updatedBy": "Claude",
   "tasks": [
     {
@@ -8473,8 +8473,8 @@
     },
     {
       "id": "f26_084",
-      "name": "Emergency fund (Varo + Axos) held above $8,000 and ending 2026 at about $9,000 — G4 plan",
-      "notes": "Confirmation checkpoint that the emergency fund actually reached the $17,662 (75%) target by the deadline.\n[Nov 5] Rewritten in place: the 75% ($17,662) target is out of reach and replaced by the G4 plan target. Milestone ms5_06.",
+      "name": "Emergency fund (Varo + Axos) held above $6,500 and ending 2026 at about $8,000 — G4 plan",
+      "notes": "Confirmation checkpoint that the emergency fund actually reached the $17,662 (75%) target by the deadline.\n[Nov 5] Rewritten in place: the 75% ($17,662) target is out of reach and replaced by the G4 plan target. Milestone ms5_06.\n[Nov 15] Target reset (Connor, after the f26_216 diagnosis): floor $6,500, ending 2026 at about $8,000. The fund is being used as the cash source for rent and card payments ($7,550 moved to Zions Oct 7 to Nov 10), so the old $8,000/$9,000 gate was out of reach even with zero withdrawals (about $7,200 on Dec 1, $8,750 on Dec 31 at $500 biweekly).",
       "goal": "G4",
       "priority": "High",
       "status": "backlog",
@@ -8495,7 +8495,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1793903772078
+      "updatedAt": 1794783569238
     },
     {
       "id": "f26_085",
@@ -8768,7 +8768,7 @@
     {
       "id": "f26_095",
       "name": "Annual review + benefits open enrollment — 2026 (G4)",
-      "notes": "Year-end financial (G4) review combined with final benefits open-enrollment actions for 2026.\n[Nov 8] Pace question for this review: the G4 plan has the emergency fund at 100% ($23,550) in Q2 2027, and live investing waits on it. From about $9,000 at the end of 2026 that needs roughly $2,400 a month; $1,100 a month reaches it in early 2028. Decide: raise the deposit rate or move the Q2 date. Confirm first that the full $1,100 goes to the fund.",
+      "notes": "Year-end financial (G4) review combined with final benefits open-enrollment actions for 2026.\n[Nov 8] Pace question for this review: the G4 plan has the emergency fund at 100% ($23,550) in Q2 2027, and live investing waits on it. From about $9,000 at the end of 2026 that needs roughly $2,400 a month; $1,100 a month reaches it in early 2028. Decide: raise the deposit rate or move the Q2 date. Confirm first that the full $1,100 goes to the fund.\n[Nov 15] Year-end target is now about $8,000, not $9,000 (f26_084). From $8,000, 100% ($23,550) is $15,550 away: about 14 months at $1,100/month. Diagnosis in f26_216: the fund's deposits run about $1,083/month but withdrawals of $7,550 in six weeks outran them.",
       "goal": "G4",
       "priority": "High",
       "status": "backlog",
@@ -8789,7 +8789,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1794199956590
+      "updatedAt": 1794783569238
     },
     {
       "id": "f26_096",
@@ -11193,7 +11193,7 @@
     {
       "id": "f26_202",
       "name": "Outcome check — emergency fund balance and savings rate (Monarch)",
-      "notes": "Added Nov 8. Read the Monarch 'Emergency fund' goal (Varo + Axos savings; $6,699.63 on Nov 8, 28% of $23,550) and the monthly net savings rate (14.1% year to date on Nov 8). Targets: above $8,000, ending 2026 near $9,000 (f26_084). Pace check: the plan has 100% by Q2 2027, which from about $9,000 needs roughly $2,400 a month, against $1,100 a month automated (about 13 months, early 2028). Confirm the full $1,100 goes to the fund. Flag if the balance is flat or down for 2 consecutive months while the automation shows as running. Record in the Outcome Scoreboard. Recurrence is inert: create the 2027 dated copies at the Dec 16 Trajectory Read.",
+      "notes": "Added Nov 8. Read the Monarch 'Emergency fund' goal (Varo + Axos savings; $6,699.63 on Nov 8, 28% of $23,550) and the monthly net savings rate (14.1% year to date on Nov 8). Targets: above $6,500, ending 2026 near $8,000 (f26_084, reset Nov 15). Pace check: the plan has 100% by Q2 2027, which from about $9,000 needs roughly $2,400 a month, against $1,100 a month automated (about 13 months, early 2028). Confirm the full $1,100 goes to the fund. Flag if the balance is flat or down for 2 consecutive months while the automation shows as running. Record in the Outcome Scoreboard. Recurrence is inert: create the 2027 dated copies at the Dec 16 Trajectory Read.\n[Nov 15] Target reset by Connor. Expect about $7,200 on Dec 1 with no withdrawals; floor check is $6,500. The pace text above still assumes about $9,000 at year end; f26_095 decides the pace.",
       "goal": "G4",
       "priority": "Mid",
       "status": "todo",
@@ -11214,7 +11214,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1794199956590,
-      "updatedAt": 1794199956590
+      "updatedAt": 1794783569238
     },
     {
       "id": "f26_203",
@@ -11570,7 +11570,7 @@
     {
       "id": "f26_216",
       "name": "Diagnose the emergency-fund discrepancy: where did the balance go vs the $1,100/month automation?",
-      "notes": "Added Nov 15 (Connor) (the open diagnosis from the Nov 9 session). The question: the fund held $6,699.63 on Nov 8 (Varo + Axos, 28% of $23,550; see f26_202), while about $1,100 a month was meant to go in. An earlier session recorded $10,003.30 in the same two accounts in May, so the balance is lower now than then. Needs from Connor: the Varo and Axos balances from an earlier month (a month-end figure from Monarch or the bank). Then compare month-end balances against the automation, name where the money went, and decide what changes. This is separate from f26_202 (the Dec 1 outcome check) and feeds it; the gate (above $8,000, ending 2026 near $9,000; f26_084) stands.",
+      "notes": "Added Nov 15 (Connor) (the open diagnosis from the Nov 9 session). The question: the fund held $6,699.63 on Nov 8 (Varo + Axos, 28% of $23,550; see f26_202), while about $1,100 a month was meant to go in. An earlier session recorded $10,003.30 in the same two accounts in May, so the balance is lower now than then. Needs from Connor: the Varo and Axos balances from an earlier month (a month-end figure from Monarch or the bank). Then compare month-end balances against the automation, name where the money went, and decide what changes. This is separate from f26_202 (the Dec 1 outcome check) and feeds it; the gate (above $8,000, ending 2026 near $9,000; f26_084) stands.\n[Nov 15] Findings (Monarch, Varo Savings + Axos Savings; Axos Checking is not in the fund). Balances (1st-of-month snapshots): Apr 10,473; May 10,000; Jun 12,010; Jul 9,312; Aug 9,628; Sep 10,710; Oct 11,726; Nov 1 8,750; Nov 15 6,700. Oct 1 to Nov 15: down $5,027. In: three $500 Northrop paychecks straight into Varo Savings (Oct 8, Oct 22, Nov 5) plus about $35 interest, so the deposit side runs near $1,083/month. Out: $7,550 to Zions checking (Oct 7 $4,000 Axos; Nov 3 $2,550 Varo; Nov 10 $500 Varo and $500 Axos); $1,000 came back from Axos Checking Nov 14 (pending). Zions then paid Sam's Club card $4,688 (Oct 13 $1,039, Nov 13 $3,648) and rent $3,117. Decision: target reset (see f26_084). STILL OPEN: (1) where the Nov 2 $1,100 transfer out of Zions checking goes (it does not land in Varo or Axos); (2) what the Sam's Club card was charged for. Item (1) is also the 'confirm the full $1,100 goes to the fund' step in f26_095.",
       "goal": "G4",
       "priority": "High",
       "status": "todo",
@@ -11591,7 +11591,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1794779832457,
-      "updatedAt": 1794779832457
+      "updatedAt": 1794783569238
     },
     {
       "id": "f26_217",
@@ -13165,8 +13165,8 @@
     },
     {
       "id": "ms5_06",
-      "name": "Emergency fund (Varo + Axos) held above $8,000 and ending 2026 at about $9,000 — G4 plan",
-      "notes": "Manual checkpoint — track via banking review. No discrete task.",
+      "name": "Emergency fund (Varo + Axos) held above $6,500 and ending 2026 at about $8,000 — G4 plan",
+      "notes": "Manual checkpoint — track via banking review. No discrete task.\n[Nov 15] Target reset to above $6,500 / about $8,000 (see f26_084).",
       "goal": "G4",
       "month": "M13",
       "dueDate": "2026-12-30",
@@ -13180,7 +13180,7 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958081,
-      "updatedAt": 1793903772078
+      "updatedAt": 1794783569238
     },
     {
       "id": "ms13_01",
