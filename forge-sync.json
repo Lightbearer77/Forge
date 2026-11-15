@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "lastUpdated": "2026-11-15T21:03:39.745Z",
+  "lastUpdated": "2026-11-15T21:19:21.083Z",
   "updatedBy": "Claude",
   "tasks": [
     {
@@ -7119,19 +7119,21 @@
     },
     {
       "id": "f26_031",
-      "name": "Act on bloodwork + EKG findings from Dr. Kendell review",
-      "notes": "Follow through on the action items from Dr. Kendell's review of the bloodwork and EKG results.",
+      "name": "Act on bloodwork + EKG findings once the redraw is reviewed with the new PCP",
+      "notes": "Follow through on the action items from Dr. Kendell's review of the bloodwork and EKG results. | Dated move Nov 15 (Connor): the first draw was incomplete, so the findings cannot be reviewed until the redraw (f26_215); Dr. Kendell is out of network. Moved from 2026-11-25 to 2027-01-28.",
       "goal": "G3",
       "priority": "High",
-      "status": "in-progress",
+      "status": "todo",
       "section": "Health & Body",
       "level": 0,
-      "month": "M12",
-      "week": "W48",
+      "month": "M01",
+      "week": "W04",
       "startDate": "",
-      "dueDate": "2026-11-25",
+      "dueDate": "2027-01-28",
       "parentId": "",
-      "blockedBy": [],
+      "blockedBy": [
+        "f26_215"
+      ],
       "milestone": false,
       "recurrence": "none",
       "completed": false,
@@ -7141,7 +7143,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1793930565558
+      "updatedAt": 1794777560922
     },
     {
       "id": "f26_032",
@@ -8497,19 +8499,21 @@
     },
     {
       "id": "f26_085",
-      "name": "Prep annual bloodwork re-run for 2027 (schedule with Dr. Kendell)",
-      "notes": "Schedule next year's bloodwork panel with Dr. Kendell ahead of time.",
+      "name": "Prep annual bloodwork re-run for 2027 (schedule with the new PCP)",
+      "notes": "Schedule next year's bloodwork panel with Dr. Kendell ahead of time. | Dated move Nov 15 (Connor): Dr. Kendell is out of network; book with the new PCP (f26_213) after the redraw. Re-run timing stays Delta/Epsilon 2027. Moved from 2026-12-02 to 2027-01-28.",
       "goal": "G3",
       "priority": "Mid",
-      "status": "in-progress",
+      "status": "todo",
       "section": "Health & Body",
       "level": 0,
-      "month": "M12",
-      "week": "W49",
+      "month": "M01",
+      "week": "W04",
       "startDate": "",
-      "dueDate": "2026-12-02",
+      "dueDate": "2027-01-28",
       "parentId": "",
-      "blockedBy": [],
+      "blockedBy": [
+        "f26_213"
+      ],
       "milestone": false,
       "recurrence": "none",
       "completed": false,
@@ -8519,7 +8523,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1793930565558
+      "updatedAt": 1794777560922
     },
     {
       "id": "f26_086",
@@ -10403,17 +10407,17 @@
     },
     {
       "id": "f26_172",
-      "name": "Book the Dr. Kendell bloodwork + EKG review appointment",
-      "notes": "Sets the date for ms8_02 (Bloodwork + EKG findings actioned, due 2026-11-25) and is a G3 year-end gate item. Ask at the visit whether the $500 HSA well-being incentive can be captured (G4 plan gate).",
+      "name": "Check the next medical bill for the last visit — go or no-go on the bloodwork + EKG redraw",
+      "notes": "Rewritten in place Nov 15 (Connor) (was: book the Dr. Kendell review appointment; Dr. Kendell is out of network). Context Nov 15 (Connor): the first draw did not cover everything, so part of it must be redrawn. Dr. Kendell is no longer in Connor's insurance network, so a new in-network PCP is needed. A large HSA spend this year makes cost the gate. Look at the insurer portal or EOB for the last visit's cost. Set the 'too high' number BEFORE looking, so the call is not made under pressure (Connor's threshold). Go = continue to the PCP search (f26_213). No-go = keep the chain but move f26_214/f26_215 later and note why. Raise the $500 HSA well-being incentive (G4 plan gate) with the new PCP or the insurer; carried into f26_213.",
       "goal": "G3",
       "priority": "High",
       "status": "in-progress",
       "section": "Health & Body",
       "level": 0,
       "month": "M12",
-      "week": "W46",
+      "week": "W48",
       "startDate": "",
-      "dueDate": "2026-11-09",
+      "dueDate": "2026-11-25",
       "parentId": "",
       "blockedBy": [],
       "milestone": false,
@@ -10425,7 +10429,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1793899440421,
-      "updatedAt": 1793930565558
+      "updatedAt": 1794777560922
     },
     {
       "id": "f26_173",
@@ -11059,16 +11063,16 @@
     {
       "id": "f26_197",
       "name": "Varicose vein surgery: any lasting or long-term side effects? (question to ask)",
-      "notes": "Inbox wording was voice-typed ('lasting salsa'); read as 'lasting effects'. Ask at the same appointment as f26_172 if it is the right doctor. From the Tasks-app inbox (Nov 8).",
+      "notes": "Inbox wording was voice-typed ('lasting salsa'); read as 'lasting effects'. Ask at the same appointment as f26_172 if it is the right doctor. From the Tasks-app inbox (Nov 8). | Re-pointed Nov 15 (Connor): the Dr. Kendell appointment no longer exists; ask at the first visit with the new PCP (f26_213/f26_214). Moved from 2026-11-13 to 2026-12-16.",
       "goal": "G3",
       "priority": "High",
       "status": "in-progress",
       "section": "Health & Body",
       "level": 0,
-      "month": "M12",
-      "week": "W46",
+      "month": "M13",
+      "week": "W51",
       "startDate": "",
-      "dueDate": "2026-11-13",
+      "dueDate": "2026-12-16",
       "parentId": "",
       "blockedBy": [],
       "milestone": false,
@@ -11080,7 +11084,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1794178983978,
-      "updatedAt": 1794195612494
+      "updatedAt": 1794777560922
     },
     {
       "id": "f26_198",
@@ -11451,6 +11455,117 @@
       "deleted": false,
       "createdAt": 1794776619578,
       "updatedAt": 1794776619578
+    },
+    {
+      "id": "f26_212",
+      "name": "List exactly which tests the first draw missed (from the lab portal or results) — the new PCP needs this list",
+      "notes": "The new PCP needs a concrete list to order from. Pull the original order and the results, compare, and write the missing tests down (and whether the EKG is complete). Nov 15 (Connor).",
+      "goal": "G3",
+      "priority": "High",
+      "status": "todo",
+      "section": "Health & Body",
+      "level": 0,
+      "month": "M12",
+      "week": "W47",
+      "startDate": "",
+      "dueDate": "2026-11-22",
+      "parentId": "",
+      "blockedBy": [],
+      "milestone": false,
+      "recurrence": "none",
+      "completed": false,
+      "completedAt": "",
+      "sortOrder": 212,
+      "flag": "",
+      "flagDate": "",
+      "deleted": false,
+      "createdAt": 1794777560922,
+      "updatedAt": 1794777560922
+    },
+    {
+      "id": "f26_213",
+      "name": "Find an in-network PCP who will order the redraw + EKG",
+      "notes": "Blocked on the bill check (f26_172) and the missing-tests list (f26_212). Ask each office up front: (1) will you order the redraw and an EKG; (2) are the annual physical and routine labs covered as preventive when in-network; (3) cash-price estimates for the EKG and the redraw (HSA-eligible); (4) a morning slot around 9-10am is needed. Also raise the $500 HSA well-being incentive. At the first visit, ask the varicose vein side-effects question (f26_197). Nov 15 (Connor).",
+      "goal": "G3",
+      "priority": "High",
+      "status": "todo",
+      "section": "Health & Body",
+      "level": 0,
+      "month": "M12",
+      "week": "W49",
+      "startDate": "",
+      "dueDate": "2026-12-09",
+      "parentId": "",
+      "blockedBy": [
+        "f26_172",
+        "f26_212"
+      ],
+      "milestone": false,
+      "recurrence": "none",
+      "completed": false,
+      "completedAt": "",
+      "sortOrder": 213,
+      "flag": "",
+      "flagDate": "",
+      "deleted": false,
+      "createdAt": 1794777560922,
+      "updatedAt": 1794777560922
+    },
+    {
+      "id": "f26_214",
+      "name": "Schedule the morning redraw (9-10am) + EKG with the new PCP",
+      "notes": "Morning slot around 9-10am (Connor's request); pick a day that fits his work schedule. Ask the office or lab for fasting instructions in advance and whether the EKG can be done at the same visit. Confirm the lab is in network. Nov 15 (Connor).",
+      "goal": "G3",
+      "priority": "High",
+      "status": "todo",
+      "section": "Health & Body",
+      "level": 0,
+      "month": "M13",
+      "week": "W51",
+      "startDate": "",
+      "dueDate": "2026-12-16",
+      "parentId": "",
+      "blockedBy": [
+        "f26_213"
+      ],
+      "milestone": false,
+      "recurrence": "none",
+      "completed": false,
+      "completedAt": "",
+      "sortOrder": 214,
+      "flag": "",
+      "flagDate": "",
+      "deleted": false,
+      "createdAt": 1794777560922,
+      "updatedAt": 1794777560922
+    },
+    {
+      "id": "f26_215",
+      "name": "Redraw + EKG done (morning slot)",
+      "notes": "The draw itself. Results arrive after this; the review and findings follow (f26_031). Ceiling for Mu's G3 line: done before Dec 30. Nov 15 (Connor).",
+      "goal": "G3",
+      "priority": "High",
+      "status": "todo",
+      "section": "Health & Body",
+      "level": 0,
+      "month": "M13",
+      "week": "W53",
+      "startDate": "",
+      "dueDate": "2026-12-30",
+      "parentId": "",
+      "blockedBy": [
+        "f26_214"
+      ],
+      "milestone": false,
+      "recurrence": "none",
+      "completed": false,
+      "completedAt": "",
+      "sortOrder": 215,
+      "flag": "",
+      "flagDate": "",
+      "deleted": false,
+      "createdAt": 1794777560922,
+      "updatedAt": 1794777560922
     }
   ],
   "milestones": [
@@ -12845,13 +12960,13 @@
     },
     {
       "id": "ms8_02",
-      "name": "Bloodwork + EKG findings actioned (Dr. Kendell review)",
-      "notes": "Single-task checkpoint — follow-through on Dr. Kendell's action items from the bloodwork/EKG review.",
+      "name": "Bloodwork + EKG findings actioned (new PCP review)",
+      "notes": "Single-task checkpoint — follow-through on Dr. Kendell's action items from the bloodwork/EKG review. | Dated move Nov 15 (Connor): first draw incomplete; Dr. Kendell out of network; redraw chain f26_172 > f26_213 > f26_214 > f26_215. Moved from 2026-11-25 to 2027-01-28.",
       "goal": "G3",
-      "month": "M12",
-      "dueDate": "2026-11-25",
-      "msTag": "MS12",
-      "msWeek": "MSW48",
+      "month": "M01",
+      "dueDate": "2027-01-28",
+      "msTag": "MS2027",
+      "msWeek": "MSW04",
       "taskIds": [
         "f26_031"
       ],
@@ -12860,7 +12975,7 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1793903772078
+      "updatedAt": 1794777560922
     },
     {
       "id": "ms9_04",
@@ -12941,12 +13056,12 @@
     {
       "id": "ms12_02",
       "name": "Annual bloodwork re-run prepped for 2027",
-      "notes": "Single-task checkpoint — schedule next year's bloodwork panel with Dr. Kendell ahead of time.",
+      "notes": "Single-task checkpoint — schedule next year's bloodwork panel with Dr. Kendell ahead of time. | Dated move Nov 15 (Connor): first draw incomplete; Dr. Kendell out of network; redraw chain f26_172 > f26_213 > f26_214 > f26_215. Moved from 2026-12-02 to 2027-01-28.",
       "goal": "G3",
-      "month": "M12",
-      "dueDate": "2026-12-02",
-      "msTag": "MS12",
-      "msWeek": "MSW49",
+      "month": "M01",
+      "dueDate": "2027-01-28",
+      "msTag": "MS2027",
+      "msWeek": "MSW04",
       "taskIds": [
         "f26_085"
       ],
@@ -12955,7 +13070,7 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784393287371,
-      "updatedAt": 1786728570260
+      "updatedAt": 1794777560922
     },
     {
       "id": "ms8_05",
