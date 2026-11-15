@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "lastUpdated": "2026-11-15T22:20:56.348Z",
+  "lastUpdated": "2026-11-15T22:37:03.514Z",
   "updatedBy": "Claude",
   "tasks": [
     {
@@ -7356,10 +7356,10 @@
     {
       "id": "f26_040",
       "name": "Implement Unbound Time tracker",
-      "notes": "blocked until spec above lands",
+      "notes": "blocked until spec above lands | Nov 15 (Connor): confirmed done; completion dated 2026-11-13 as ticked in the vault.",
       "goal": "G1",
       "priority": "Mid",
-      "status": "backlog",
+      "status": "done",
       "section": "The Forge",
       "level": 0,
       "month": "M09",
@@ -7370,14 +7370,14 @@
       "blockedBy": [],
       "milestone": false,
       "recurrence": "none",
-      "completed": false,
-      "completedAt": "",
+      "completed": true,
+      "completedAt": "2026-11-13",
       "sortOrder": 40,
       "flag": "",
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1785874759342
+      "updatedAt": 1794782223382
     },
     {
       "id": "f26_041",
@@ -7538,10 +7538,10 @@
     {
       "id": "f26_047",
       "name": "CS degree mid-year checkpoint — confirm Sept 2027 completion on track",
-      "notes": "Mid-year check that the CS degree is still on pace for September 2027 completion. | Carried from Kappa (was due 2026-09-30). | Moved from 10-29 (W44 closeout triage).",
+      "notes": "Mid-year check that the CS degree is still on pace for September 2027 completion. | Carried from Kappa (was due 2026-09-30). | Moved from 10-29 (W44 closeout triage). | Nov 15 (Connor): confirmed done; completion dated 2026-11-12 as ticked in the vault.",
       "goal": "G4",
       "priority": "High",
-      "status": "backlog",
+      "status": "done",
       "section": "Career & Credentials",
       "level": 0,
       "month": "",
@@ -7552,14 +7552,14 @@
       "blockedBy": [],
       "milestone": false,
       "recurrence": "none",
-      "completed": false,
-      "completedAt": "",
+      "completed": true,
+      "completedAt": "2026-11-12",
       "sortOrder": 47,
       "flag": "",
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1793903772078
+      "updatedAt": 1794782223382
     },
     {
       "id": "f26_048",
@@ -9496,10 +9496,10 @@
     {
       "id": "f26_137",
       "name": "Othala — grandfather's name into daily practice, anchored at the Vé beside grandmother's",
-      "notes": "Rune Othala (G2, Adopt/deepen). Formally incorporate grandfather's name into daily practice with a physical anchor at the Vé alongside grandmother's; open the lineage roster as first pass toward the three-generation document. Move later if the Vé anchor needs more time.",
+      "notes": "Rune Othala (G2, Adopt/deepen). Formally incorporate grandfather's name into daily practice with a physical anchor at the Vé alongside grandmother's; open the lineage roster as first pass toward the three-generation document. Move later if the Vé anchor needs more time. | Nov 15 (Connor): confirmed done; completion dated 2026-11-11 as ticked in the vault.",
       "goal": "G2",
       "priority": "Mid",
-      "status": "backlog",
+      "status": "done",
       "section": "Identity & Practice",
       "level": 0,
       "month": "M11",
@@ -9510,14 +9510,14 @@
       "blockedBy": [],
       "milestone": false,
       "recurrence": "none",
-      "completed": false,
-      "completedAt": "",
+      "completed": true,
+      "completedAt": "2026-11-11",
       "sortOrder": 137,
       "flag": "",
       "flagDate": "",
       "deleted": false,
       "createdAt": 1792270478365,
-      "updatedAt": 1792270478365
+      "updatedAt": 1794782223382
     },
     {
       "id": "f26_138",
@@ -10751,10 +10751,10 @@
     {
       "id": "f26_185",
       "name": "Call Annika Pearson",
-      "notes": "From the Tasks-app inbox (Nov 8).",
+      "notes": "From the Tasks-app inbox (Nov 8). | Nov 15 (Connor): confirmed done; completion dated 2026-11-11 as ticked in the vault.",
       "goal": "G2",
       "priority": "Mid",
-      "status": "in-progress",
+      "status": "done",
       "section": "Longhouse & Tribe",
       "level": 0,
       "month": "M12",
@@ -10765,14 +10765,14 @@
       "blockedBy": [],
       "milestone": false,
       "recurrence": "none",
-      "completed": false,
-      "completedAt": "",
+      "completed": true,
+      "completedAt": "2026-11-11",
       "sortOrder": 185,
       "flag": "",
       "flagDate": "",
       "deleted": false,
       "createdAt": 1794178983978,
-      "updatedAt": 1794195612494
+      "updatedAt": 1794782223382
     },
     {
       "id": "f26_186",
@@ -11089,10 +11089,10 @@
     {
       "id": "f26_198",
       "name": "When is my next dentist appt?",
-      "notes": "From the Tasks-app inbox (Nov 8).",
+      "notes": "From the Tasks-app inbox (Nov 8). | Nov 15 (Connor): confirmed done; completion dated 2026-11-13 as ticked in the vault.",
       "goal": "G3",
       "priority": "Low",
-      "status": "in-progress",
+      "status": "done",
       "section": "Health & Body",
       "level": 0,
       "month": "M12",
@@ -11103,14 +11103,14 @@
       "blockedBy": [],
       "milestone": false,
       "recurrence": "none",
-      "completed": false,
-      "completedAt": "",
+      "completed": true,
+      "completedAt": "2026-11-13",
       "sortOrder": 198,
       "flag": "",
       "flagDate": "",
       "deleted": false,
       "createdAt": 1794178983978,
-      "updatedAt": 1794195612494
+      "updatedAt": 1794782223382
     },
     {
       "id": "f26_199",
