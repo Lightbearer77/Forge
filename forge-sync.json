@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "lastUpdated": "2026-11-15T21:57:12.609Z",
+  "lastUpdated": "2026-11-15T22:20:56.348Z",
   "updatedBy": "Claude",
   "tasks": [
     {
@@ -12618,12 +12618,12 @@
     {
       "id": "ms5_13",
       "name": "Consistent approach practice established — minimum 2 per week",
-      "notes": "Aggregate of two tasks — first deliberate social outing outside the dating-app pipeline, then a standing in-person approach habit of 2+/week. | Nov 15 (Connor): b23 was a deleted task, so the first-outing slot is now f26_208 (Nov 21); b24 rescoped in place. The May due date is stale; re-dating this milestone is Connor's call.",
+      "notes": "Aggregate of two tasks — first deliberate social outing outside the dating-app pipeline, then a standing in-person approach habit of 2+/week. | Nov 15 (Connor): b23 was a deleted task, so the first-outing slot is now f26_208 (Nov 21); b24 rescoped in place. Re-dated Nov 15 (Connor: move it): due Dec 30, the close of Nu, so it is judged on the full run of in-person settings (f26_208 on Nov 21, b24 through Mu, then Nu).",
       "goal": "G2",
-      "month": "M06",
-      "dueDate": "2026-05-31",
-      "msTag": "MS5",
-      "msWeek": "MSW22",
+      "month": "M13",
+      "dueDate": "2026-12-30",
+      "msTag": "MS13",
+      "msWeek": "MSW53",
       "taskIds": [
         "f26_208",
         "b24"
@@ -12633,7 +12633,7 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958081,
-      "updatedAt": 1794773004541
+      "updatedAt": 1794781256185
     },
     {
       "id": "ms5_14",
