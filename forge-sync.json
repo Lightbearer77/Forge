@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "lastUpdated": "2026-11-15T20:03:24.755Z",
+  "lastUpdated": "2026-11-15T21:03:39.745Z",
   "updatedBy": "Claude",
   "tasks": [
     {
@@ -8159,17 +8159,17 @@
     },
     {
       "id": "f26_071",
-      "name": "Begin vetting pipeline (Forge Filter) for tribe expansion — target 4–6 over time",
-      "notes": "Start a structured vetting process (the 'Forge Filter') for evaluating potential new tribe members, targeting 4-6 total over time.",
+      "name": "Give Andrew one small, kind gesture — no strings, no ask attached; note how it lands",
+      "notes": "Rewritten in place Nov 15 (Connor) (was: Forge Filter vetting pipeline, target 4-6 over time). Inner circle = people who reliably get together with Connor (Robbie is one). The tribe (the Asatru group, about 7) is a separate, looser thing; headcount is no longer the measure, reliability is. Connor's working hypothesis, held loosely: Andrew's pulling back may be about trust and pressure; the gesture tests it and also shows what the problem is not about. Rules: small and thoughtful, not valuable; never tied to an invitation or to anything Andrew does; not a strain on Connor's budget; not too strong, not too many. No further status conversation with Andrew: that is already done and more would read as pressure. Floor for Mu: one gesture given, and the result noted (his reaction, and whether he reaches out or accepts the next invitation within about two weeks). Log it in the Rep:: log or the Daily Recap.",
       "goal": "G2",
       "priority": "High",
-      "status": "backlog",
+      "status": "todo",
       "section": "Longhouse & Tribe",
       "level": 0,
-      "month": "M11",
-      "week": "W44",
+      "month": "M12",
+      "week": "W47",
       "startDate": "",
-      "dueDate": "2026-10-31",
+      "dueDate": "2026-11-22",
       "parentId": "",
       "blockedBy": [],
       "milestone": false,
@@ -8181,7 +8181,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1785960969568
+      "updatedAt": 1794776619578
     },
     {
       "id": "f26_073",
@@ -11399,6 +11399,58 @@
       "deleted": false,
       "createdAt": 1794773004541,
       "updatedAt": 1794773004541
+    },
+    {
+      "id": "f26_210",
+      "name": "Score the Mu inner-circle target: did Andrew join two hangouts without Robbie prompting (Nov 5 - Dec 2)?",
+      "notes": "Target, scored at Dec 2: at least two hangouts in this Greek month that Andrew joins without Robbie prompting him. Ceiling: Andrew starts a message or suggestion himself. Log each hangout and any message he starts as it happens, so this is a read of the log. Not a lever on the gesture (f26_071): the gesture is unconditional. Nov 15 (Connor).",
+      "goal": "G2",
+      "priority": "High",
+      "status": "todo",
+      "section": "Longhouse & Tribe",
+      "level": 0,
+      "month": "M12",
+      "week": "W49",
+      "startDate": "",
+      "dueDate": "2026-12-02",
+      "parentId": "",
+      "blockedBy": [],
+      "milestone": false,
+      "recurrence": "none",
+      "completed": false,
+      "completedAt": "",
+      "sortOrder": 210,
+      "flag": "",
+      "flagDate": "",
+      "deleted": false,
+      "createdAt": 1794776619578,
+      "updatedAt": 1794776619578
+    },
+    {
+      "id": "f26_211",
+      "name": "Inner-circle read: has Andrew shown initiative over three months? Third seat decided, or look elsewhere",
+      "notes": "The real read, Nov 15 (Connor). Three-month test of initiative: Andrew starts a hangout or a message on his own, at least twice a month. If yes, he is the third seat. If not, the third seat is still open: carry on with candidates from the group of about 7 and from the Thursday-Sunday venues in the wife-search plan. Not a verdict on Andrew.",
+      "goal": "G2",
+      "priority": "High",
+      "status": "todo",
+      "section": "Longhouse & Tribe",
+      "level": 0,
+      "month": "M02",
+      "week": "W08",
+      "startDate": "",
+      "dueDate": "2027-02-25",
+      "parentId": "",
+      "blockedBy": [],
+      "milestone": false,
+      "recurrence": "none",
+      "completed": false,
+      "completedAt": "",
+      "sortOrder": 211,
+      "flag": "",
+      "flagDate": "",
+      "deleted": false,
+      "createdAt": 1794776619578,
+      "updatedAt": 1794776619578
     }
   ],
   "milestones": [
@@ -12735,23 +12787,23 @@
     },
     {
       "id": "ms6_01",
-      "name": "Tribe at 4–6 members with vetting process started",
-      "notes": "Aggregate tribal milestone — manual checkpoint scored at meetup.",
+      "name": "Inner circle: find a third reliable member alongside Robbie (Andrew first)",
+      "notes": "Rewritten in place Nov 15 (Connor) (was: Tribe at 4-6 members with vetting process started, due Oct 31). Floor: one kind gesture to Andrew, result noted. Target: two hangouts in a Greek month without Robbie prompting. Ceiling: Andrew starts a message or suggestion himself. Real read: Feb 25, 2027 (f26_211). Manual checkpoint; a35 (wife-search vetting criteria, already done) removed from this milestone.",
       "goal": "G2",
-      "month": "M11",
-      "dueDate": "2026-10-31",
-      "msTag": "MS6",
-      "msWeek": "MSW44",
+      "month": "M12",
+      "dueDate": "2026-12-02",
+      "msTag": "MS12",
+      "msWeek": "MSW49",
       "taskIds": [
-        "a35",
-        "f26_071"
+        "f26_071",
+        "f26_210"
       ],
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958081,
-      "updatedAt": 1789088448287
+      "updatedAt": 1794776619578
     },
     {
       "id": "ms10_02",
