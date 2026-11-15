@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "lastUpdated": "2026-11-15T19:43:48.784Z",
+  "lastUpdated": "2026-11-15T20:03:24.755Z",
   "updatedBy": "Claude",
   "tasks": [
     {
@@ -3330,17 +3330,17 @@
     },
     {
       "id": "b24",
-      "name": "Begin consistent approach practice — minimum 2/week",
-      "notes": "Start a standing habit of approaching women in person at least twice a week, independent of dating apps.",
+      "name": "Begin consistent in-person settings and approach practice — minimum 2/week (Thu night to Sun afternoon)",
+      "notes": "Rewritten in place Nov 15 (Connor) (viability flag cleared: the task is kept and rescoped, not retired). Standing habit: at least two in-person settings per week where eligible women are present, inside Thursday night to Sunday afternoon (work schedule), independent of dating apps. First setting: f26_208 (Nov 21). No-gear options (Connor has no cold-weather hiking gear): Game Night Games open gaming (Fri/Sat, check hours); WMC indoor socials (wasatchmountainclub.org/socializing); DF Dance Studio Havana on State, 2nd and 4th Fridays (Nov 27) `⟂ fork`, since mixed partner dancing does not fit the Orthodox branch. Orthodox-branch venues cluster on Shabbat and depend on how Shabbat is kept `⟂ fork`. Log every conversation with a new woman as a social rep in the same Rep:: log as the aMCC season (avoided reps recorded as well as taken ones). Measures are on f26_081.",
       "goal": "G2",
       "priority": "High",
-      "status": "backlog",
+      "status": "todo",
       "section": "Longhouse & Tribe",
       "level": 3,
-      "month": "M05",
-      "week": "W20",
-      "startDate": "2026-05-10",
-      "dueDate": "2026-05-14",
+      "month": "M12",
+      "week": "W47",
+      "startDate": "2026-11-21",
+      "dueDate": "2026-12-02",
       "parentId": "",
       "blockedBy": [],
       "milestone": false,
@@ -3348,11 +3348,11 @@
       "completed": false,
       "completedAt": "",
       "sortOrder": 0,
-      "flag": "flagged",
-      "flagDate": "2026-11-03",
+      "flag": "",
+      "flagDate": "",
       "deleted": false,
       "createdAt": 1784316958080,
-      "updatedAt": 1793716937057
+      "updatedAt": 1794773004541
     },
     {
       "id": "b25",
@@ -8394,7 +8394,7 @@
     {
       "id": "f26_081",
       "name": "Wife search 6-month review (gate criterion)",
-      "notes": "6-month formal review of the wife search — a gate criterion determining whether to continue the current approach or change strategy.\n[Nov 8] Before this review, pick two outcome measures for the wife search and the tribe (Connor's call; e.g. conversations started per month, gatherings attended per month) so the review can read what the effort has produced, not only what was done. Goes on the Outcome Scoreboard.",
+      "notes": "6-month formal review of the wife search — a gate criterion determining whether to continue the current approach or change strategy.\n[Nov 8] Before this review, pick two outcome measures for the wife search and the tribe (Connor's call; e.g. conversations started per month, gatherings attended per month) so the review can read what the effort has produced, not only what was done. Goes on the Outcome Scoreboard.\n[Nov 15] Plan agreed Nov 15 (Connor). The review is a one-paragraph finding, written by Connor by Thu Nov 19: no real in-person search has happened; Hinge was minimal or stale. Decision: change strategy. The 2026 six-month gate scores not met, and the clock restarts at the first in-person visit (f26_208, Sat Nov 21). The two outcome measures: (1) in-person settings attended per week where eligible women are present; (2) conversations started with new women per week. Thresholds are Connor's to set. Hinge gets one 10-minute slot on Sunday mornings and is not counted as the search. Availability: Thursday night to Sunday afternoon only. Log every conversation with a new woman as a social rep in the same Rep:: log as the aMCC season (avoided reps recorded as well as taken ones).",
       "goal": "G2",
       "priority": "High",
       "status": "in-progress",
@@ -8415,7 +8415,7 @@
       "flagDate": "",
       "deleted": false,
       "createdAt": 1784582884128,
-      "updatedAt": 1794199956590
+      "updatedAt": 1794773004541
     },
     {
       "id": "f26_082",
@@ -11347,6 +11347,58 @@
       "deleted": false,
       "createdAt": 1794771828602,
       "updatedAt": 1794771828602
+    },
+    {
+      "id": "f26_208",
+      "name": "First in-person outing: Board Game Club, Main Library (Sat Nov 21, 3:30-5:30pm)",
+      "notes": "Replaces b23 (a deleted task, left deleted). Salt Lake City Main Library, 210 E 400 S, Creative Lab; drop-in, 1st and 3rd Saturdays 3:30-5:30pm, run with Game Night Games. All ages, so the density of eligible women is low: this is the first rep and a low-pressure start, not the whole search. Nov 21 is the last club of 2026 (not held in December). Confirm it is on the library's events page that morning. Log every conversation with a new woman as a social rep in the same Rep:: log as the aMCC season (avoided reps recorded as well as taken ones). Nov 15 (Connor).",
+      "goal": "G2",
+      "priority": "High",
+      "status": "todo",
+      "section": "Longhouse & Tribe",
+      "level": 0,
+      "month": "M12",
+      "week": "W47",
+      "startDate": "",
+      "dueDate": "2026-11-21",
+      "parentId": "",
+      "blockedBy": [],
+      "milestone": false,
+      "recurrence": "none",
+      "completed": false,
+      "completedAt": "",
+      "sortOrder": 208,
+      "flag": "",
+      "flagDate": "",
+      "deleted": false,
+      "createdAt": 1794773004541,
+      "updatedAt": 1794773004541
+    },
+    {
+      "id": "f26_209",
+      "name": "Check venue calendars for the Nov 26-29 window and pick the second setting each week",
+      "notes": "Thursday check, 10 minutes. Confirm current hours or dates for: Game Night Games open gaming (Fri/Sat nights; old listing says 6-10pm), WMC indoor socials and the Nov 28 snowshoe/hike (needs gear), DF Havana on State Nov 27 (usually 9pm-1:30am; `⟂ fork`). Thanksgiving week: venues may close. The library board game club is not held in December. Pick one for the Nov 27-29 window and put it on the Hearth. Nov 15 (Connor).",
+      "goal": "G2",
+      "priority": "High",
+      "status": "todo",
+      "section": "Longhouse & Tribe",
+      "level": 0,
+      "month": "M12",
+      "week": "W47",
+      "startDate": "",
+      "dueDate": "2026-11-19",
+      "parentId": "",
+      "blockedBy": [],
+      "milestone": false,
+      "recurrence": "none",
+      "completed": false,
+      "completedAt": "",
+      "sortOrder": 209,
+      "flag": "",
+      "flagDate": "",
+      "deleted": false,
+      "createdAt": 1794773004541,
+      "updatedAt": 1794773004541
     }
   ],
   "milestones": [
@@ -12347,14 +12399,14 @@
     {
       "id": "ms5_13",
       "name": "Consistent approach practice established — minimum 2 per week",
-      "notes": "Aggregate of two tasks — first deliberate social outing outside the dating-app pipeline, then a standing in-person approach habit of 2+/week.",
+      "notes": "Aggregate of two tasks — first deliberate social outing outside the dating-app pipeline, then a standing in-person approach habit of 2+/week. | Nov 15 (Connor): b23 was a deleted task, so the first-outing slot is now f26_208 (Nov 21); b24 rescoped in place. The May due date is stale; re-dating this milestone is Connor's call.",
       "goal": "G2",
       "month": "M06",
       "dueDate": "2026-05-31",
       "msTag": "MS5",
       "msWeek": "MSW22",
       "taskIds": [
-        "b23",
+        "f26_208",
         "b24"
       ],
       "completed": false,
@@ -12362,7 +12414,7 @@
       "sortOrder": 0,
       "deleted": false,
       "createdAt": 1784316958081,
-      "updatedAt": 1786728570260
+      "updatedAt": 1794773004541
     },
     {
       "id": "ms5_14",
