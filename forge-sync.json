@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "lastUpdated": "2026-11-16T00:06:57.214Z",
+  "lastUpdated": "2026-11-16T15:55:01.879Z",
   "updatedBy": "Claude",
   "tasks": [
     {
@@ -11904,6 +11904,32 @@
       "deleted": false,
       "createdAt": 1794787132957,
       "updatedAt": 1794787132957
+    },
+    {
+      "id": "f26_229",
+      "name": "Sunday reset test: final Monday-sleep read",
+      "notes": "Added Nov 16 (Connor), from the f26_062 review. Test of the Sunday reset, Nov 20 to Dec 14: weekend wake by ~08:00 plus outdoor light within 30 min; Sunday in bed ~21:30-22:00, get up if awake over 20-30 min. Pass: at least 3 of 4 Mondays (Nov 23, Nov 30, Dec 7, Dec 14) with 6h+ actual sleep in Samsung Health. First read at the Mu EoM (Dec 2): Nov 23 and Nov 30. Baseline: Sun-to-Mon sleep averaged 4.9h in Oct-Nov, and the last 10 Mondays were all under 6.5h. The 04:00 alarm stays (pre-work gym hour). Record the result in the Outcome Scoreboard.",
+      "goal": "G3",
+      "priority": "Mid",
+      "status": "todo",
+      "section": "Health & Body",
+      "level": 0,
+      "month": "M13",
+      "week": "W51",
+      "startDate": "",
+      "dueDate": "2026-12-15",
+      "parentId": "",
+      "blockedBy": [],
+      "milestone": false,
+      "recurrence": "none",
+      "completed": false,
+      "completedAt": "",
+      "sortOrder": 229,
+      "flag": "",
+      "flagDate": "",
+      "deleted": false,
+      "createdAt": 1794844501101,
+      "updatedAt": 1794844501101
     }
   ],
   "milestones": [
