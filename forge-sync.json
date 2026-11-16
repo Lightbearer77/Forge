@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "lastUpdated": "2026-11-16T19:45:05.893Z",
+  "lastUpdated": "2026-11-16T19:47:37.080Z",
   "updatedBy": "Claude",
   "tasks": [
     {
@@ -11930,6 +11930,32 @@
       "deleted": false,
       "createdAt": 1794844501101,
       "updatedAt": 1794844501101
+    },
+    {
+      "id": "f26_230",
+      "name": "Mom visit: agree the three tasks to do at Mom's (Nov 25-27)",
+      "notes": "Added Nov 16 (Connor). Visit: arrive Wed Nov 25 about 10:30am, leave Fri Nov 27 about 2pm (Thanksgiving, PTO Fri). Choose three tasks that can only or best be done at Mom's, and list them in this note. Candidates already in Forge: f26_157 (motion-activated lights at Mom's), f26_193 (snap benefits). Tasks that need the server or other home setup were moved to Nov 28 (f26_207, f26_176). Anything else not done there waits until Connor is back.",
+      "goal": "G2",
+      "priority": "Mid",
+      "status": "todo",
+      "section": "Family",
+      "level": 0,
+      "month": "M12",
+      "week": "W47",
+      "startDate": "",
+      "dueDate": "2026-11-22",
+      "parentId": "",
+      "blockedBy": [],
+      "milestone": false,
+      "recurrence": "none",
+      "completed": false,
+      "completedAt": "",
+      "sortOrder": 230,
+      "flag": "",
+      "flagDate": "",
+      "deleted": false,
+      "createdAt": 1794858445725,
+      "updatedAt": 1794858445725
     }
   ],
   "milestones": [
