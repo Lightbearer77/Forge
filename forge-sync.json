@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "lastUpdated": "2026-11-16T22:53:24.523Z",
+  "lastUpdated": "2026-11-17T04:00:16.028Z",
   "updatedBy": "Claude",
   "tasks": [
     {
@@ -12219,6 +12219,32 @@
       "deleted": false,
       "createdAt": 1794869604376,
       "updatedAt": 1794869604376
+    },
+    {
+      "id": "f26_241",
+      "name": "Gun range session at Firearms Pro (Thu 6pm)",
+      "notes": "Thu Nov 19, 6:00pm, Firearms Pro, 990 W Hill Field Rd, Layton (open until 8pm; phone 801-546-4867). Session goal (Connor, Nov 16): general knowledge and safe handling of the firearm, plus accuracy. Before: call to confirm lane availability, last-lane cutoff and handling rules; buy ammo there or on the Thursday shopping run (can't be a week ahead); stage eye and ear protection, targets and cleaning kit the night before. After: clean the same day, log the date and what was worked on for G3. Booked around the 9/80A schedule: the next two weekends are full.",
+      "goal": "G3",
+      "priority": "Mid",
+      "status": "todo",
+      "section": "Health & Body",
+      "level": 0,
+      "month": "M12",
+      "week": "W47",
+      "startDate": "",
+      "dueDate": "2026-11-19",
+      "parentId": "",
+      "blockedBy": [],
+      "milestone": false,
+      "recurrence": "none",
+      "completed": false,
+      "completedAt": "",
+      "sortOrder": 241,
+      "flag": "",
+      "flagDate": "",
+      "deleted": false,
+      "createdAt": 1794888015877,
+      "updatedAt": 1794888015877
     }
   ],
   "milestones": [
