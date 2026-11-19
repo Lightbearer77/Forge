@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "lastUpdated": "2026-11-17T04:00:16.028Z",
+  "lastUpdated": "2026-11-19T02:58:22.774Z",
   "updatedBy": "Claude",
   "tasks": [
     {
@@ -12245,6 +12245,32 @@
       "deleted": false,
       "createdAt": 1794888015877,
       "updatedAt": 1794888015877
+    },
+    {
+      "id": "f26_242",
+      "name": "Bake pumpkin cookies for coworkers (Sun, after Dad's)",
+      "notes": "Added Nov 18 (Connor): Mu's coworker dessert (monthly, $15, six coworkers). Bake Sun Nov 22 after getting back from Dad's; bring in Mon Nov 23 and hand out. Ingredients on the Thu Nov 19 shopping run (check total against the $15). Before baking: confirm allergies and dietary needs of the six. Recipe already in hand. After: one Win:: line in the EoM with the actual cost.",
+      "goal": "G2",
+      "priority": "Mid",
+      "status": "todo",
+      "section": "Longhouse & Tribe",
+      "level": 0,
+      "month": "M12",
+      "week": "W47",
+      "startDate": "",
+      "dueDate": "2026-11-22",
+      "parentId": "",
+      "blockedBy": [],
+      "milestone": false,
+      "recurrence": "none",
+      "completed": false,
+      "completedAt": "",
+      "sortOrder": 242,
+      "flag": "",
+      "flagDate": "",
+      "deleted": false,
+      "createdAt": 1795057102739,
+      "updatedAt": 1795057102739
     }
   ],
   "milestones": [
